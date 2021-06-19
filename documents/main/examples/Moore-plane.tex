@@ -1,0 +1,146 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\Moore 平面}
+\label{ex:Moore-plane}
+
+\newcommand{\locref}[1]{\ref{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+\newcommand{\loclabel}[1]{\label{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+\newcommand{\starset}[2]{\mathrm{St}\left(#1 , \: #2\right)}
+\newcommand{\sstarset}[3]{\mathrm{St}^{#1}\left(#2 , \: #3 \right)}
+
+集合$ L \defeq \setcomp{(x, 0) \in \R^2}{x \in \R}, H \defeq \setcomp{(x, y) \in \R^2}{y \in \R, y > 0} $に対して$ \mathbb{M} \defeq L \cup H $とし, $\mathbb{M} $の各点$ (x, y) $の近傍系$ \mathcal{N}((x, y)) $を次で定め$ \mathcal{N} \defeq \setcomp{\mathcal{N}(p)}{p \in \mathbb{M}} $とする.
+$$ \mathcal{N}((x,y)) \defeq \begin{cases}
+\setcomp{B(x, y\semicolon \varepsilon)}{y > \varepsilon > 0} & y > 0\\
+\setcomp{\{(x, y)\} \cup B(x, \varepsilon\semicolon \varepsilon)}{\varepsilon >0} & y = 0
+\end{cases}$$
+ただし, $ d $を \Euclid 距離として$ B(x, y\semicolon \varepsilon) \defeq \setcomp{(a, b) \in \R^2}{d((x, y), (a, b)) < \varepsilon}$である. このとき, $ \mathcal{N} $は近傍系の公理を満たし, $ \mathcal{N} $から定まる位相を$ \tau $とする. 位相空間$ (\mathbb{M}, \tau) $を Moore 平面といい, 本節で$ \mathbb{M} $と略記する. また, $ a, \varepsilon \in \R $に対して$ D(a\semicolon \varepsilon) \defeq \{(a, 0)\} \cup B(a, 0 \semicolon \varepsilon)$とする.
+
+\begin{property}
+	$ \mathbb{M} $は可算パラコンパクトでない.
+\end{property}
+
+\begin{proof}
+	$ \varepsilon > 0 $を固定し,$ V \defeq \mathbb{M} \setminus \setcomp{(a,0)}{a \in \Q}, \mathscr{U} \defeq \{V\} \cup \setcomp{D(a \semicolon \varepsilon)}{a \in \Q} $とすると, $ \mathscr{U} $は$ \mathbb{M} $の可算開被覆である. $ \mathscr{U}$ 
+	の局所有限な開細分$ \mathscr{V} $が存在するとして矛盾を導く. 任意の$ a \in \Q $に対して$ (a, 0) \in V_a $なる$ V_a \in \mathscr{V}$ 
+	が存在するので, $ 0 < \delta_a < \varepsilon $なる有理数$ \delta_a $であって$ D(a \semicolon \delta_a) \subset V_a $を満たすものが存在する. ここで, 相異なる$ a, b \in \Q $に対して次が成り立つ
+	$$D(a \semicolon \delta_a) \cap D(b \semicolon \delta_b) = \emptyset \lrimp \delta_a\delta_b < \frac{(b-a)^2}{4}$$
+	$ \mathscr{V} $は局所有限なので, 任意の$ a \in \Q $に対して$ D(a \semicolon \varepsilon_a) $と交わる$ \mathscr{V} $の元が有限になる有理数$ \varepsilon_a >0 $が存在する. したがって, 次のような$ \Q $の点列$ (a_n), (r_n) $を構成できる. まず, $ a_0 = 0, r_0 \defeq \min\{\delta_0, \varepsilon_0 \} $とする. 次に, 1以上の自然数$ n $に対して, $ n $が偶数のときは$ x \in (a_n, a_n + r_n) \cap \Q $かつ$ r(x) < \frac{r_n}{4} $
+	を満たす$ x $が存在する(局所有限性を用いた)のでその一つを$ a_{n+1} $とし, $ r_{n+1} \defeq \min\{r(a_n)/4, \varepsilon_{a_{n+1}}\}$ とする. 同様に, $ n $が奇数のときは$ x \in (a_n - r_n, a_n) \cap \Q $かつ$ r(x) < \min\{r(a_n)/4, \varepsilon_{a_{n+1}}\} $を満たす$ x $の一つを$ a_{n+1} $とする. このように構成した点列$ (a_n) $はCauchy 列なので$ \R $においてある点$ \alpha $に収束する. このとき, $ d(\alpha, a_n) < r_a <\frac{r_0}{4^n} $かつ, ある$ N \in \N $以上の自然数$ n \in \N $に対して$ \varepsilon_\alpha < \frac{(\alpha - a_n)^2}{4r_{a_n}} $であることに注意すると
+	$$\varepsilon_\alpha < \frac{r_{a_n}^2}{4r_{a_n}}=r_0\cdot 4^{-n-1} \to 0 (n \to \infty)$$ 
+	これは, $ \varepsilon_\alpha > 0 $に矛盾する.
+\end{proof}
+
+\begin{property}
+	\loclabel{property:b}
+	$ \mathbb{M} $はメタコンパクトでない.
+\end{property}
+
+\begin{proof}
+	$ \varepsilon >0 $を固定し, $ \mathscr{U} \defeq \{H\} \cup \setcomp{D(a \semicolon \varepsilon)}{a \in \R} $とすると$ \mathscr{U} $は$ \mathbb{M} $の開被覆である. $ \mathscr{V} $を$ \mathscr{U} $の任意の開細分とすると, 任意の$ a \in \R $に対して$ (a, 0) \in V_a $なる$ V_a \in \mathscr{V} $が存在する. よって, ある$ \delta_a > 0 $で$ D(a \semicolon \delta_a) \subset V_a $なるものが存在する. $ \mathscr{W} \defeq \setcomp{D(a \semicolon \delta_a)}{a \in \R} $として, $ \mathscr{W} $が点有限でないことを示せばよい. $ \mathscr{W} $が点有限であるとすると, 任意の$ (a, b) \in \Q \times \Q_{>0}$ 
+	に対して$ F_{(a, b)} \defeq \setcomp{(c, 0) \in L}{(a, b) \in D(c \semicolon \delta_c)} $は有限集合になる.
+	 任意の$ (c, 0) \in L $に対して$ \Q \times \Q_{>0} \cap 
+	 D(c \semicolon \delta_c) \neq \emptyset $なので$ L = \bigcup_{(a, b) \in \Q \times \Q_{>0}} F_{(a, b)} $となる.
+	 しかし, 右辺は可算,左辺は非可算であり矛盾する. よって, $ \mathscr{W} $は点有限でない.
+\end{proof}
+
+
+
+
+\begin{property}
+	$ \mathbb{M} $は可算メタコンパクトである.
+\end{property}
+
+\begin{proof}
+	$ \mathscr{U} = \setcomp{U_n}{n \in \N}$を$ \mathbb{M} $の任意の可算開被覆とする. 各$ n \in \N $に対して, $ V_n \defeq U_n \setminus \left(\bigcup_{i < n}(U_i \cap L)\right)$
+	とおくと, $ U_i \cap L $は$ \mathbb{M} $の閉集合なので$ V_n $は$ \mathbb{M} $の開集合である. 各$ x = (a, 0) \in L $に対して$ n(x) \defeq \min\setcomp{n}{x \in U_n} $とすると$ x \in V_{n(x)} $となる. $ \mathscr{V} \defeq \setcomp{V_n}{n \in \N} $とおくと$ \mathscr{V} $は$ \mathbb{M} $の開被覆であって$ \mathscr{U} $の細分である. $ \mathscr{G}_0 \defeq \setcomp{V_n \cap H}{n \in \N} $とおくと$ \mathscr{G}_0 $
+	は$ H $の開被覆である. $ H $は$ \mathbb{M} $のパラコンパクトな開集合なので, $ H $の開被覆$ \mathscr{G} $であって$ \mathscr{G}_0 $の点有限な細分となるものが存在する. このとき, $ \mathscr{G} $は$ \mathbb{M} $の開集合からなる$ \mathscr{V} $の点有限な細分でもある.
+	次に, 各$ n \in \N $に対して$ F_n \defeq V_n \cap L $とすると, $ n \neq m \rimp F_n \cap F_m = \emptyset $となる. $ W_n \defeq \bigcup_{(a, 0) \in F_n}D(a \semicolon 2^{-n}) $と定めると, $ W_n $は$ \mathbb{M} $の開集合であって$ \mathscr{W} \defeq \setcomp{W_n \cap V_n}{n \in \N} $は点有限である. 実際, 任意の$ (a, b) \in \mathbb{M} $に対して$ b = 0 $ならば$ x \in V_n $なる$ n $は$ n(x) $ただ一つなので$ x $を含む$ \mathscr{W} $の元は$ W_{n(x)} \cap V_{n(x)} $だけである. $ b \neq 0 $のとき, $ 2^{-m} < b $となる$ m \in \N $をとれば$ n \geq m+1 $なるすべての自然数$ n $に対して$ x \notin W_n \cap V_n $である. また, $ \bigcup \mathscr{W} \supset L $である. 以上から, $ 
+	\mathscr{V}^\prime \defeq \mathscr{W} \cup \mathscr{G} $と定めると, $ \mathscr{V}^\prime $は$ \mathbb{M} $の開被覆であって$ \mathscr{V} $の点有限な細分である. $ \mathscr{V} < \mathscr{U} $なので$ \mathscr{V}^\prime < \mathscr{U} $である.
+\end{proof}
+
+
+
+\begin{property}
+	$ \mathbb{M} $は \Lindelof でない.
+\end{property}
+
+\begin{proof}
+	性質 \locref{property:b} の証明でとった開被覆$ \mathscr{U} $が可算部分被覆を持たないことは明らかである.
+\end{proof}
+
+\begin{property}
+	$ \mathbb{M} $は点列コンパクトでない.
+\end{property}
+
+\begin{proof}
+	明らか.
+\end{proof}
+
+\begin{property}
+	$ \mathbb{M} $は局所コンパクトでない.
+\end{property}
+
+\begin{proof}
+	$ x = (a, 0) \in L $の任意の近傍$ V $がコンパクトでないことを示す. ある$ \varepsilon > 0 $で$ D(a \semicolon \varepsilon) \subset V $を満たすものがとれる. $ 0 < \delta < \varepsilon $なる$ \delta $を一つとり, $ \mathscr{U} \defeq 
+	\{D(a \semicolon \delta)\} \cup \setcomp{H_n}{n \in \N}, H_n \defeq \setcomp{(p, q) \in \mathbb{M}}{q > 2^{-n}} \cap V $とすると$ \mathscr{U} $
+	は開被覆であるが有限部分被覆を持たない. 
+\end{proof}
+
+
+
+
+\begin{property}
+	\loclabel{property:g}
+	$ \mathbb{M} $は \topT{3.5} である.
+\end{property}
+
+\begin{property}
+	\loclabel{property:h}
+	$ \mathbb{M} $は \topT{4} でない.
+\end{property}
+
+\begin{proof}
+	性質 \locref{property:l} で述べるように$ \mathbb{M} $は可分であり, さらに非可算な部分集合$ L $は離散閉集合なので系 \ref{coro:Corollary of Jone's Lamma} より$ \mathbb{M} $は \topT{4} でない.
+\end{proof}
+
+\begin{property}
+	$ \mathbb{M} $は弧状連結かつ局所弧状連結である.
+\end{property}
+
+\begin{proof}
+	$ H $が$ \mathbb{M} $の稠密な連結集合なので$ \mathbb{M} $も連結である. また, 局所弧状連結であることは明らかである. よって, 命題\ref{prop:Ctd + LocCtd > PathCtd} より弧状連結である.
+\end{proof}
+
+\begin{property}
+	$ \mathbb{M} $は展開空間である.したがって, 第一可算でもある.
+\end{property}
+
+\begin{proof}
+	各$ n \in \N $に対して
+		\[ \mathscr{U}_n \defeq \setcomp{B(a, b \semicolon \varepsilon_n) \cap H}{(a, b) \in H, \varepsilon_n = \min \{2^{-n}, b\}} \cup \setcomp{D(a \semicolon 2^{-n})}{a \in \R} \]
+	とすると$ \mathscr{U}_0, \mathscr{U}_1, \cdots $が$ \mathbb{M} $の展開列であることを示す. $ x = (a, 0) \in L $のとき, $ \starset{x}{\mathscr{U}_n} = D(a \semicolon 2^{-n}) $となり, $ \setcomp{\starset{x}{\mathscr{U}_n}}{n \in \N} $は$ x $の近傍基である. $ x = (a, b) \in H $のとき, 任意の$ \varepsilon > 0 $に対して$ \starset{x}{\mathscr{U}_n} \subset B(x \semicolon \varepsilon) $を満たす$ n \in \N $が存在することを示す. 実際, 
+	$ 2^{-m+1} < \min \{b, \varepsilon\} $を満たす$ m \in \N $が存在して, $ \starset{x}{\mathscr{U}_m} \subset B(x \semicolon 2^{-m+1}) \subset B(x \semicolon \varepsilon) $となる.  
+\end{proof}
+
+\begin{property}
+	$ \mathbb{M} $は第二可算でない.
+\end{property}
+
+\begin{proof}
+	第二可算であるとすると, 性質 \locref{property:g} より$ \mathbb{M} $は距離化可能であるということになり性質 \locref{property:h} に矛盾する.
+\end{proof}
+
+
+\begin{property}
+	\loclabel{property:l}
+	$ \mathbb{M} $は可分であるが, 部分空間$ L $は可分でない.
+\end{property}
+
+\begin{proof}
+	$ \Q \times \Q_{>0} $が$ \mathbb{M} $の稠密部分集合であることは明らかである. また, 部分空間$ L $は非可算な離散部分集合なので可分でない.
+\end{proof}
+
+\end{document}

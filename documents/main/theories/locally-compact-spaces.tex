@@ -1,0 +1,244 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{局所コンパクト空間}
+\label{sec:locally-compact-spaces}
+
+\newcommand{\bbS}{\mathbb{S}}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{きょくしょこんぱくと}{局所コンパクト}{locally compact}であるとは, $ X $の全ての点に対し, コンパクトな近傍からなる近傍基が存在することである.
+\end{definition}
+
+\begin{definition}
+		位相空間$ X $が\indexjj{じゃくきょくしょこんぱくと}{弱局所コンパクト}{weakly locally compact}であるとは, $ X $の全ての点に対し, コンパクトな近傍が存在することである.
+\end{definition}
+
+定義から明らかに, コンパクトならば弱局所コンパクトであり, 局所コンパクトならば弱局所コンパクトである. 弱局所コンパクトであって局所コンパクトではない例として, $ \Q^\star $が挙げられる.
+
+局所コンパクト空間の閉部分空間および開部分空間は局所コンパクトである. また, 局所コンパクト空間の有限個の積空間も局所コンパクトである(\ref{prop:A finite product of any locally compact spaces is locally compact}). しかし, 局所コンパクト空間の連続像が局所コンパクトであるとは限らない.
+例えば, 実数全体の集合に離散位相を入れると局所コンパクトだが Sorgenfrey Line $ \bbS $ (\ref{example:Sorgenfrey_line})は局所コンパクトでない. さらに, $ \R $の商空間$ \R / \Z $(\ref{example:quotient_of_R_by_Z})は局所コンパクトでない.
+
+\begin{proposition}
+	\Hausdorff 空間において局所コンパクトであることと弱局所コンパクトであることは同値である.
+\end{proposition}
+\begin{proof}
+	$ X $を弱局所コンパクトな \Hausdorff 空間とする. 点$ x \in X $とその近傍$ U $を任意にとる. $ x $のコンパクト近傍$ C $が存在し, $ U' \defeq \topint (C \cap U) $とする. このとき, $ C $がコンパクト \Hausdorff であることから特に \topT{3} であるため, $ C $における$ x $のある閉近傍$ V $が存在して$ V \subset U' $となる. $ V $はコンパクト集合$ C $に含まれる閉集合なのでコンパクトである. また, $ V $は$ X $における$ x $の近傍でもあるので, $ V $が求めていた近傍である.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:A finite product of any locally compact spaces is locally compact}
+	局所コンパクト空間$ X, Y $の積空間$ X \times Y $は局所コンパクトである.	
+\end{proposition}
+
+\begin{proof}
+	任意の点$ (x, y) \in X \times Y $について, $ X $における$ x $のコンパクト近傍からなる近傍基を$ \mathcal{M}_X(x) $, $ Y $における$ y $のコンパクト近傍からなる近傍基を$ \mathcal{M}_Y(y) $とすると, $ \mathcal{M}_{X \times Y}(x, y) \defeq \setcomp{U \times V}{U \in \mathcal{M}_X(x), V \in \mathcal{M}_Y(y)} $は$ (x, y) $のコンパクト近傍からなる近傍基である.
+\end{proof}
+
+可算無限個の局所コンパクト空間の積が局所コンパクトであるとは限らない. 例えば, 離散位相空間$ \N $は局所コンパクトであるが$ \N^\N $は通常の距離の無理数空間と同相であり, 無理数空間は局所コンパクトでない(さらには, 弱局所コンパクトでもない).
+
+\begin{corollary}
+	有限個を除いてコンパクト \Hausdorff 空間であるような局所コンパクト空間の族$ \setfamily{X_\lambda}{\lambda \in \Lambda} $に対して, その積空間$ \prod_{\lambda \in \Lambda} X_\lambda $は局所コンパクトである.
+\end{corollary}
+
+\begin{proof}
+	命題\ref{prop:A finite product of any locally compact spaces is locally compact}と \Tychonoff の定理\ref{Tychonoff's theorem}から導かれる.
+\end{proof}
+
+\begin{proposition}
+	コンパクト \Hausdorff 空間の任意の開部分空間は局所コンパクトである.
+\end{proposition}
+\begin{proof}
+	$ U $をコンパクト \Hausdorff 空間$ X $の開部分空間とする. コンパクト \Hausdorff 空間は \topT{4} であり, 特に \topT{3} である. よって, $ x \in U $に対して$ x \in \topint V \subset V \subset U $を満たす$ x $の閉近傍$ V $が存在する. また, $ V $がコンパクトでもあることから$ U $は局所コンパクトな部分空間である.
+\end{proof}
+
+\begin{lemma}
+	局所コンパクト \Hausdorff 空間$ X $の任意の点$ x $とその任意の開近傍$ U $に対して, $ \topcl V \subset U $を満たす$ x $のコンパクト近傍が存在する. したがって, 局所コンパクト \Hausdorff 空間は \topT{3} 空間である.
+\end{lemma}
+
+\begin{proof}
+	任意の点$ x $とその任意の開近傍$ U $に対して, $ V \subset U $なる$ x $のコンパクト近傍$ V $が存在し, \Hausdorff 性から$ V = \topcl V $である.
+\end{proof}
+
+\begin{proposition}
+	局所コンパクト \Hausdorff 空間$ X $のコンパクト部分空間$ A $と$ A \subset U $なる開集合$ U $に対して, $ A \subset V \subset \topcl V \subset U $を満たす開集合$ V $で$ \topcl V $がコンパクトなものが存在する.
+\end{proposition}
+
+\begin{proof}
+	$ A $の任意の点$ a \in A $に対して, $ a $の開近傍$ V_a $であって$ \topcl V_a \subset U $を満たし$ \topcl V_a $がコンパクトなものが存在する. このとき, $ \setcomp{V_a}{a \in A} $は$ A $の開被覆であり, $ A $がコンパクトであることから有限部分集合$ A' \subset A $が存在して$ A \subset \bigcup_{a \in A'} V_a $が成り立つ. ここで, $ V \defeq \bigcup_{a \in A'} V_a $と定めると, $ \topcl V = \bigcup_{a \in A'} \topcl V_a \subset U $であり$ \topcl V $はコンパクトである.
+\end{proof}
+
+\begin{proposition}
+	局所コンパクト \Hausdorff 空間$ X $(ただし, $ \cardinality{X} \geq 2 $とする)の任意の点$ x $のキャラクター$ \topcharacter (x) $について次が成り立つ;
+	\[ \topcharacter (x) = \min \setcomp{\cardinality{\mathscr{U}}}{\text{$ \mathscr{U} $は$ \bigcap \mathscr{U} = \{x\} $を満たす開集合族である}}. \]
+\end{proposition}
+
+\begin{proof}
+	証明する式の右辺を$ \chi'(x) $と書くことにする. $ X $が \Hausdorff であることから点$ x $の任意の近傍基$ \mathscr{M} $について$ \{x\} = \bigcap \mathscr{M} $が成り立つので, $ \chi(x) \geq \chi'(x) $が成り立つ. $ \chi(x) \leq \chi'(x) $を示す. $ \mathscr{U} $を$ X $の開集合族であって, $ \{x\} = \bigcap \mathscr{U} $を満たすものとする. $ \mathscr{U} $が有限の場合は, $ \{x\} $が開集合なので$ \chi(x) = 1 \leq \chi'(x) $となる. $ \mathscr{U} $が無限の場合を考える. このとき, 各$ U \in \mathscr{U} $に対して$ x \in V_U \subset U $なる$ x $のコンパクト近傍$ V_U $を1つとり, $ \mathscr{V} \defeq \setcomp{V_U}{U \in \mathscr{U}} $と定めると, $ \{x\} = \bigcap \mathscr{V} $である. $ x $の任意の開近傍$ W $に対して, $ \bigcap \mathscr{V} \subset W $なので, $ X = W \cup \left(\bigcup_{U \in \mathscr{U}} \complement_X V_U \right) $となる. ある$ V_{U_0} \in \mathscr{V} $をとると, $ V_{U_0} \subset W \cup \left(\bigcup_{U \in \mathscr{U}} \complement_X V_U \right) $であり, $ V_{U_0} $がコンパクトであることから, 有限部分集合$ \mathscr{U}' \subset \mathscr{U} $が存在して$ \bigcap_{U\in \mathscr{U}'} V_U \subset W $が成り立つ. よって, $ \mathscr{V}' \defeq \setcomp{\bigcap \mathscr{V}''}{\mathscr{V}'' \subset \mathscr{V}, \mathscr{V}'' \mbox{は有限}} $と定めると, $ \mathscr{V}' $は$ x $の近傍基である. $ \cardinality{\mathscr{V}'} = \cardinality{\mathscr{U}} $であることから, $ \chi(x) \leq \chi'(x) $となる.
+\end{proof}
+
+\begin{proposition}
+	局所コンパクト \Hausdorff 空間$ X $において$ \topnetwork(X) = \topweight(X) $が成り立つ.
+\end{proposition}
+
+\begin{proof}
+	$ \topnetwork(X) \geq \topweight(X) $を示せばよい. $ \mathscr{N} $を$ \cardinality{\mathscr{N}} = \topnetwork(X) $なるネットワークとする. $ \mathscr{N} $が有限のとき, $ X $の \Hausdorff 性から$ X $は有限であり離散空間となるので$ \topnetwork(X) = \cardinality{X} = \topweight(X) $である. $ \mathscr{N} $が無限の場合を考える. $ \mathscr{N}' \defeq \setcomp{N \in \mathscr{N}}{N \subset \topint K \mbox{なるコンパクト集合} K \mbox{が存在する}} $と定めると, $ X $が局所コンパクトであることから任意の点$ x $に対して少なくとも1つは$ x \in N $なる$ N \in \mathscr{N}' $が存在する. ゆえに, $ \mathscr{N}' $は$ X $の被覆である. $ \mathscr{N}' $の定義から, 任意の$ N \in \mathscr{N}' $に対して$ N \subset \topint K $を満たすコンパクト集合$ K $が存在し, $ N \subset U_N \subset \topint K $かつ$ \topcl U_N $がコンパクトな開集合$ U_N $が存在する. 系\ref{coro:Weight in a compact Hausdorff space is equal to network weight}より, 任意の$ N \in \mathscr{N}' $に対して$ \topweight(U_N) \leq \topweight(\topcl U_N) = \topnetwork(\topcl U_N) \leq \topnetwork(X) $である.　$ U_N $の開基を$ \mathscr{B}_N $とすると, $ \mathscr{B} \defeq \bigcup_{N \in \mathscr{N}'} \mathscr{B}_N $は$ X $の開基であって$ \cardinality{\mathscr{B}} \leq \cardinality{\mathscr{N}'}\topnetwork(X) = \topnetwork(X) $である. ゆえに, $ \topweight(X) \leq \topnetwork(X) $である.
+\end{proof}
+
+\begin{corollary}
+	局所コンパクト \Hausdorff 空間$ X $において$ \topweight(X) \leq \cardinality{X} $が成り立つ. \qed
+\end{corollary}
+
+\begin{corollary}
+	局所コンパクト \Hausdorff 空間$ Y $が位相空間$ X $の連続像であるとき, $ \topweight(Y) \leq \topweight(X) $が成り立つ. \qed
+\end{corollary}
+
+\begin{theorem}
+	\Hausdorff 空間$ X $について, その一点コンパクト化$ X^\star \defeq X \cup \{\bigstar\} $が \Hausdorff であることと$ X $が局所コンパクトであることは同値である.　
+\end{theorem}
+\begin{proof}
+	まず, $ X $が局所コンパクトであるとき, $ X^\star $が \Hausdorff であることを示す. 相異なる2点$ x, y \in X^\star $について, $ x, y \in X $のときは明らかである. $ y = \bigstar $のときは, $ x \in U $なる$ X $における$ x $のコンパクト近傍($ X $が \Hausdorff なので閉近傍でもある)をとると$ V \defeq X^\star \setminus U $は$ y $の近傍であり, $ U \cap V = \emptyset $となるので$ X^\star $は \Hausdorff である. 次に, 逆を示す. 任意の点$ x \in X $と$ X $における$ x $の任意の近傍$ U $をとる. $ X^\star $がコンパクト \Hausdorff であることから$ X^\star $は特に \topT{3} なので$ x \in V \subset U $なる$ x $の閉近傍$ V $が存在し, $ X^\star $がコンパクトであることから$ V $もコンパクトである.
+\end{proof}
+
+\begin{corollary}
+	任意の局所コンパクトな \Hausdorff 空間は \topT{3.5} 空間である. \qed
+\end{corollary}
+
+\begin{proposition}
+	\label{prop:Universality of one-point compactification}
+	$ X $をコンパクトでない局所コンパクトな \Hausdorff 空間とし, $ X^\star \defeq X \cup \{\bigstar\} $を$ X $の一点コンパクト化, $ i \colon X \to X^\star $を稠密な埋め込みとする. このとき, $ X $の任意の \Hausdorff コンパクト化$ C $と稠密な埋め込み$ j \colon X \to C $に対して, ある連続写像$ \phi \colon C \to X^\star $で$ i = \phi \circ j $を満たすものが唯一存在する.
+\end{proposition}
+
+\begin{proof}
+	$ \phi \colon C \to X^\star $を次のように定める;
+	$$ \phi \colon C \to X^\star \semicolon x \mapsto \begin{cases}
+	i\circ j^{-1}(x) & x \in j[X] \\
+	\bigstar & x \in C \setminus j[X].
+	\end{cases}$$
+	このとき, $ i = \phi \circ j $が成り立つことは明らかなので$ \phi $の連続性を示す. $ U $を$ X^\star $における任意の開集合とする. まず, $ \bigstar \notin U $のとき, $ \phi^{-1}[U] = j[i^{-1}[U]] $であり, これは$ j[X] $の開部分集合である. また, 命題\ref{prop:Any locally compact dense set of a Hausdorff space is open}より$ j[X] $は$ C $の開部分集合なので$ \phi^{-1}[U] $も$ C $の開部分集合である. 次に, $ \bigstar \in U $のとき, $ \phi^{-1}[U] = (C \setminus j[X]) \cup (j[i^{-1}[U \setminus \{\bigstar\}]]) $. ここで, $ i^{-1}[U \setminus \{\bigstar\}] $は$ X $のあるコンパクト集合$ F $を用いて$ X \setminus F $と書けるので, $ \phi^{-1}[U] = (C \setminus j[X]) \cup (j[X] \setminus j[F]) = C \setminus j[F] $と書ける. $ j[F] $は \Hausdorff 空間$ C $のコンパクト部分集合なので$ j[F] $は閉集合である. ゆえに, $ \phi^{-1}[U] $は開集合であり, $ \phi $は連続である. 最後に一意性を示す. $ \psi \colon  C \to X^\star $が$ i = \psi \circ j $を満たすとする. $ x \in j[X] \subset C $に対して$ \phi(x) = \psi(x) $となることは簡単に確かめられる. いま, $ j[X] $は \Hausdorff 空間$ C $の稠密部分集合なので命題\ref{prop:Continuous maps on a dense subset in a Hausdorff space}より$ \phi = \psi $が成り立つ.
+\end{proof}
+
+\begin{proposition}
+	$ X $をコンパクトでない局所コンパクトな \Hausdorff 空間とし, $ X^\star \defeq X \cup \{\bigstar\} $を$ X $の一点コンパクト化とする. このとき, $ X $の任意の \Hausdorff コンパクト化$ C $に対して$ X^\star $は$ C $の商空間である.
+\end{proposition}
+
+\begin{proof}
+	命題\ref{prop:Universality of one-point compactification}の証明における写像$ \phi \colon C \to X^{\star} $が商写像であることを示す. 部分集合$ U \in X^\star $について$ \phi^{-1}[U] $が$ C $の開集合であるとする. $ \bigstar \notin U $のとき, $ \phi^{-1}[U] \subset j[X] $である. $ i, j $を命題\ref{prop:Universality of one-point compactification}と同じ写像とすると, $ i, j $は開埋め込み写像なので$ U = i[j^{-1}[\phi^{-1}[U]]] $は開集合である. $ \bigstar \in U $のとき, $ \phi^{-1}[U] = C \setminus F $なる$ j[X] $のコンパクト閉集合が存在する. このとき, $ U = X^\star \setminus i[j^{-1}[F]] $であり, $ i[j^{-1}[F]] $は$ i[X] $のコンパクト閉集合なので$ U $は開集合である.
+\end{proof}
+
+
+\begin{definition}
+	位相空間$ X $の部分集合$ A $が\indexj{きょくしょへい}{局所閉}であるとは, 任意の点$ a \in A $についてある$ X $における近傍$ U $が存在して$ A \cap U $が$ U $の閉集合となることをいう.
+\end{definition}
+
+\begin{proposition}
+	\label{lemma:Characterization of locally-closedness}
+	位相空間$ X $の部分集合$ A $が局所閉であることと, $ X $のある開集合$ U $とある閉集合$ F $が存在して$ A = U \cap F $と書けることは同値である.
+\end{proposition}
+
+\begin{proof}
+	$ X $の開集合$ U $と閉集合$ F $を用いて$ A = U \cap F $と書けるとき$ A $が局所閉であることは明らかである. $ A $が局所閉であるとき, $ X $の開集合$ U $と閉集合$ F $を用いて$ A = U \cap F $と書けることを示す. 任意の点$ a \in A $に対して, $ a $の近傍$ U_a $であって, $ A \cap U_a $が$ U_a $の閉集合であるようなものが存在する. $ A \cap \topint U_a $は$ U_a $の閉集合なので, 予め$ U_a $は開集合としてとっておく. このとき, $ U_a \setminus (A \cap U_a) = U_a \setminus A $は$ X $の開集合である. ここで, $ U \defeq \bigcup_{a \in A} U_a, \ F \defeq X \setminus \left(\bigcup_{a \in A} (U_a \setminus A) \right) $と定めると, $ U, F $はそれぞれ$ X $の開集合と閉集合である. $ A = U \cap F $を示す. $ U, F $の定義より, $ A \subset U \cap F $は明らかである. 任意に$ x \in U \cap F $をとると, $ x \in U $から$ x \in U_a $なる$ a \in A $が存在する. また, $ x \in F $でもあるから$ x \notin U_a \setminus  A $となる. ゆえに, $ x \in A $なので$ A \supset U \cap F $となる.
+\end{proof}
+
+\begin{proposition}
+	\label{lemma:Every locally compact subset of T2 space is locally-closed}
+	\Hausdorff 空間$ X $の局所コンパクトな部分空間$ A $は局所閉である.
+\end{proposition}
+
+\begin{proof}
+	$ A $の任意の点$ a $について, $ X $における$ a $の近傍$ U $であって$ A \cap U $がコンパクトなものが存在する. \Hausdorff 空間の部分空間である$ U $も \Hausdorff なので, $ A \cap U $は$ U $の閉集合である.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Any locally compact dense set of a Hausdorff space is open}
+	\Hausdorff 空間$ X $の局所コンパクトな稠密部分集合$ A $は開集合である.
+\end{proposition}
+
+\begin{proof}
+	補題\ref{lemma:Every locally compact subset of T2 space is locally-closed}より, $ A $は局所閉である. また, 補題\ref{lemma:Characterization of locally-closedness}より, $ X $の開集合$ U $と閉集合$ F $が存在して$ A = U \cap F $と書ける. いま, $ A $は$ X $の稠密部分集合なので$ A \subset \topcl A = X = F $である. ゆえに, $ A = U $なので開集合である.
+\end{proof}
+
+\begin{proposition}
+	局所コンパクト \Hausdorff 空間$ X $の局所閉集合$ A $は局所コンパクトである.
+\end{proposition}
+
+\begin{proof}
+	部分集合$ A $が局所閉であることから, $ X $のある開集合$ U $と閉集合$ F $が存在して$ A = U \cap F $と書ける. 局所コンパクト空間$ X $の開集合は局所コンパクトであることから, $ A $の任意の点の任意の近傍$ U_a $に対して$ V_a \subset U_a $を満たす$ U $における$ a $のコンパクト近傍$ V_a $が存在する. 今, $ U $は \Hausdorff なので$ V_a $は$ U $における閉集合である. よって, $ V'_a \defeq V_a \cap F $は$ V_a $の閉部分集合なので$ V'_a $は$ A $における$ a $のコンパクトな近傍である. 
+\end{proof}
+
+\begin{proposition}
+	局所コンパク空間$ X $から位相空間$ Y $への連続かつ開な全射$ f \colon X \to Y $が存在するとき, $ Y $は局所コンパクトである.
+\end{proposition}
+
+\begin{proof}
+	任意の点$ y \in Y $に対して, $ V_y $を$ Y $における$ y $の任意の開近傍とする. $ f $が連続な全射であることから, $f(x) = y $を満たす$ x \in X $が存在して, $ V_y^{-1} \defeq 
+	f^{-1}[V_y] $は$ x $の開近傍である. $ X $が局所コンパクト空間であることから, $ x $のコンパクト近傍$ U_x $であって$ U_x \subset V_y^{-1} $を満たすものが存在する. $ f $の連続性から$ f[U_x] $は$ y $を含むコンパクト集合であって$ f[U_x] \subset V_y $を満たす. また, $ f $が開写像であることから$ y \in \topint_Y f[\topint_X U_x] = f[\topint_X U_x] \subset \topint_Y f[U_x] $となるため, $ f[U_x] $は$ y $のコンパクト近傍である.
+\end{proof}
+
+\begin{lemma}
+	\label{lemma:Application of Tube Lemma}
+	位相空間$ X, Y $の積空間$ X \times Y $における開集合$ U $と$ X $のコンパクト集合$ V $に対して, $ W \defeq \setcomp{y \in Y}{V \times \{y\} \subset U} $と定めると$ W $は$ Y $の開集合である.
+\end{lemma}
+
+\begin{proof}
+	任意に点$ p \in W $をとり固定する. $ V \times \{p\} \subset U $であることからTube Lemma (\ref{prop:Tube Lemma})を適用すると, $ V \subset V_1 $なる$ X $の開集合$ V_1 $と$ p \in V_2 $なる$ Y $の開集合$ V_2 $が存在して$ V_1 \times V_2 \subset U $が成り立つ. このとき, $ V \times V_2 \subset U $でもあることから$ V_2 \subset W $となり, $ p \in \topint W $である.	
+\end{proof}
+
+
+\begin{theorem}[Whitehead]
+	局所コンパクト空間$ X $と商写像$ g \colon Y \to Z $に対して, $ f \defeq \mathrm{id}_X \times g \colon X \times Y \to X \times Z $は商写像である.
+\end{theorem}
+
+\begin{proof}
+$ X \times Z $の部分集合$ U $について$ f^{-1}[U] \subset X \times Y $が開集合であるとする. 任意に$ (x_0, z_0) \in U $をとると, $ y_0 \in g^{-1}(z_0) $と$ X $における$ x_0 $のコンパクト近傍$ V $であって$ V \times \{y_0\} \subset f^{-1}[U] $を満たすものがとれる. このとき, 任意の$x \in V$に対して$ (x, z_0) \in U $なので, 任意の$ x \in V, y \in g^{-1}(z_0) $に対して$ f(x, y) = (x, z_0) \in U $となり, $ V \times g^{-1}(z_0) \subset f^{-1}[U] $が成り立つ. ここで, $ W \defeq \setcomp{z \in Z}{V \times g^{-1}(z) \subset f^{-1}[U]} $と定めると$ (x_0, z_0) \in V \times W \subset U $である. $ W' \defeq \setcomp{y \in Y}{V \times \{y\} \subset f^{-1}[U]} $と定めると, 補題\ref{lemma:Application of Tube Lemma}より$ W' $は開集合である. よって, $ g^{-1}[W] = W' $を示せば$ g $が商写像であることから$ W $が開集合であることが示される. 定義より$ g^{-1}[W] \subset W' $が成り立つことは明らかであるため, $ g^{-1}[W] \supset W' $を示す. 任意の$ w \in W' $に対して$ z = g(w) $とおいて$ V \times g^{-1}(z) \subset f^{-1}[U] $を示す. 任意の$ x \in V, y \in g^{-1}(z) $をとると, $ V \times \{w\} \subset f^{-1}[U] $より$ f(x, w) \in U$であることから$ f(x, y) = (x, z) = f(x, w) \in U $となる. よって, $ V \times  g^{-1} \subset f^{-1}[U] $であり, $ W $が開集合であることが示された.
+\end{proof}
+
+\begin{theorem}[Boehme]
+	局所コンパクト \Hausdorff な列型空間$ X $と列型空間$ Y $の積空間$ X \times Y $は列型である.
+\end{theorem}
+
+\begin{proof}
+	$ X, Y $は列型空間なので, Franklinの定理\ref{thm:Franklin's theorem on the characterization of sequential spaces}より局所コンパクト距離空間$ A, B $が存在して$ X, Y $はそれぞれ$ A, B $の商空間になっている. 写像$ g \colon A \to X, h \colon B \to Y $を全射な商写像とすると, Whiteheadの定理より$ g \times \mathrm{id}_B \colon A \times B \to X \times B, \mathrm{id}_X \times h \colon X \times B \to X \times Y $はそれぞれ商写像である. よって, $ (\mathrm{id}_X \times h) \circ (g \times \mathrm{id}_B) \colon A \times B \to X \times Y $が全射な商写像である. $ A \times B $が局所コンパクト距離空間であり$ X \times Y $はその商空間になっていることから$ X \times Y $は列型である.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Perfect image of a locally compact Hausdorff space}
+	局所コンパクト \Hausdorff 空間$ X $と全射な完全写像$ f \colon X \to Y $が存在するとき$ Y $は局所コンパクト \Hausdorff 空間である.
+\end{proposition}
+
+\begin{proof}
+	$ f \colon X \to Y $を局所コンパクト \Hausdorff 空間$ X $から位相空間$ Y $への全射な完全写像とする. まず, $ Y $が局所コンパクトであることを示す. 任意の点$ y \in Y $とその任意の開近傍$ U $に対して, $ f^{-1}[U] $はコンパクト集合$ f^{-1}(y) $を含む開集合である. $ X $が局所コンパクトであることから任意の$ x \in f^{-1}(y) $に対してそのコンパクト近傍$ U_x $であって$ U_x \subset f^{-1}[U] $を満たすものが存在する. $ f^{-1}(y) $がコンパクトであることから, その有限部分集合$ F \subset f^{-1}(y) $が存在して$ f^{-1}(y) \subset \bigcup_{x \in F} \topint U_x $が成り立つ. このとき, $ U' \defeq \bigcup_{x \in F} \topint U_x, V \defeq f_![U'] $と定めると, $ f^{-1}(y) \subset U' \subset f^{-1}[U] $かつ$ y \in V \subset U $が成り立つ. $ f \colon X \to Y $が完全写像であることから特に閉写像であり$ V $は開集合である. また, $ \topcl U' = \bigcup_{x \in F} \topcl \topint U_x \subset \bigcup_{x \in F} \topcl U_x $がコンパクト閉集合であり, $ X $が \Hausdorff であることから$ \topcl U' \subset \bigcup_{x \in F} \topcl U_x = \bigcup_{x \in F} U_x \subset f^{-1}[U] $である. よって, $ V \subset f[\topcl U'] \subset U $が成り立ち, $ f $が閉写像であることから$ \topcl V \subset f[\topcl U'] $より, $ \topcl V $は$ x $のコンパクト近傍である. 
+	
+	次に, $ Y $が \Hausdorff 空間であることを示す. 相異なる2点$ y_1, y_2 $に対して, $ f^{-1}(y_1), f^{-1}(y_2) $は$ X $のコンパクト部分集合であって$ f^{-1}(y_1) \cap f^{-1}(y_2) = \emptyset $を満たす. $ X $が \Hausdorff 空間であることから開集合$ U_1, U_2 $が存在して$ f^{-1}(y_1) \subset U_1, f^{-1}(y_2) \subset U_2, U_1 \cap U_2 = \emptyset $が成り立つ. このとき, 補題\ref{lemma:Basic property of small image}より$ y_1 \in f_![U_1], y_2 \in f_![U_2], f_![U_1] \cap f_![U_2] = \emptyset $である.
+	
+\end{proof}
+
+\begin{proposition}
+	位相空間$ X $が局所コンパクト \Hausdorff な閉集合からなる局所有限な部分集合族によって被覆できるとき$ X $も局所コンパクト \Hausdorff である.
+\end{proposition}
+
+\begin{proof}
+	$ \setfamily{F_\lambda}{\lambda \in \Lambda} $を$ X $の局所コンパクト閉集合からなる局所有限な部分集合族とし, $ \coprod F_\lambda $を直和空間とする. $ f \colon \coprod F_\lambda \to F_\lambda \semicolon (x, \lambda) \mapsto x $が連続写像であることを示せば, 命題\ref{prop:Perfect image of a locally compact Hausdorff space}より$ X $が局所コンパクト \Hausdorff であることがわかる. $ f $が連続な全射であり, 任意の$ x \in X $に対して$ f^{-1}(x) $が有限であることは容易に確かめられるので$ f $が閉写像であることを示す. $ F \subset \coprod F_\lambda $を任意の閉部分集合とすると$ F \cap F_\lambda $は$ F_\lambda $の閉集合である. $ f[F] = f[\coprod (F \cap F_\lambda)]=\bigcup f[F \cap F_\lambda] $であり, $ f[F \cap F_\lambda] $は$ X $の閉集合である. また, $ \setfamily{F_\lambda}{\lambda \in \Lambda} $が局所有限であることから$ \setfamily{f[F \cap F_\lambda]}{\lambda \in \Lambda} $も局所有限である. よって, $ \bigcup f[F \cap F_\lambda] $は閉集合であり$ f $は閉集合である.
+\end{proof}
+
+\begin{proposition}
+	$ X $が局所コンパクト開集合からなる部分集合族によって被覆できるとき$ X $も局所コンパクトである. \qed
+\end{proposition}
+
+\begin{proposition}
+	\Hausdorff な \Baire 空間が \sigmaCompact ならば, コンパクトな近傍をもつ点が少なくとも１つ存在する.
+\end{proposition}
+
+\begin{proof}
+	\sigmaCompact かつ \Hausdorff であることから, 可算個のコンパクト閉集合族$ \setfamily{F_n}{n \in \N} $が存在して$ \bigcup_{n \in \N} F_n = X $となる. よって, \Baire 性よりある$ n_0 \in N $について$ F_{n_0} $は内点を含む.
+\end{proof}
+
+この命題から, $ \Q $が \Baire 空間でないことがわかる.
+
+% \begin{sectionnote}
+% 	局所閉に関する内容は\cite{Franklin_SpacesInWhichSequencesSuffice_1965}を参考にした.
+% \end{sectionnote}
+
+\end{document}

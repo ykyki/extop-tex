@@ -1,0 +1,25 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{弧状連結空間}
+\label{sec:path-connected-spaces}
+
+\newcommand{\loclabel}[1]{\label{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{こじょうれんけつ}{弧状連結}{path connected}であるとは, $ X $の任意の2点$ x, y $に対し, この2点を結ぶ$ X $内の道が存在することである.　
+\end{definition}
+
+\begin{proposition}
+	\loclabel{prop:Continuous maps preserve pathconnectedness}
+	弧状連結性は連続写像によって保たれる.
+\end{proposition}
+
+\begin{proposition}
+	\loclabel{prop:Ctd+LocPathCtd>PathCtd}
+	位相空間$ X $が連結かつ局所弧状連結ならば弧状連結である.
+\end{proposition}
+
+\end{document}

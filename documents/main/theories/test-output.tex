@@ -1,0 +1,95 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+% \setlayout{product}
+% \setlayout{develop}
+\setlayout{review}
+
+\usepackage{lipsum}
+
+\begin{document}
+\section{出力テスト}
+\label{sec:test-A}
+
+出力テスト用のドキュメントです.
+\cref{sec:test-A}を参照せよ.
+\cref{sec:test-B}を参照せよ.
+\cref{sec:test-C}を参照せよ.
+\cref{sec:test-D}を参照せよ.
+\cref{sec:test-A,sec:test-B,sec:test-D}を参照せよ. %コンマの間に空白を入れると上手く表示されないことがある
+\cite{Engelking1995TD}を参照せよ.
+\cite{Morita1981ja}を参照せよ.
+\cite{KodamaNagami1974ja}を参照せよ.
+
+\begin{itemize}
+	\item 例えば\cref{def:test-def-A}を見よ.
+	\item 例えば\cref{def:test-def-B}を見よ.
+	\item 例えば\cref{thm:test-thm-A}を見よ.
+	\item 例えば\cref{prop:test-prop-A}を見よ.
+	\item 例えば\cref{pf:test-proof-A}を見よ.
+	\item 例えば\cref{pf:test-proof-B}を見よ.
+	\item 例えば\cref{cor:test-corollary-A}を見よ.
+	\item 例えば\cref{prob:test-problem-A}を見よ.
+	\item 例えば\cite{KodamaNagami1974ja}を見よ.
+	\item 例えば\cite{Morita1981ja}を見よ.
+\end{itemize}
+
+\begin{definition}
+	\label{def:test-def-A}
+	\lipsum[1][1-4]
+\end{definition}
+
+\begin{definition}[テスト定義B]
+	\label{def:test-def-B}
+	\lipsum[1][2]
+\end{definition}
+
+\begin{theorem}[テスト定理A]
+	\label{thm:test-thm-A}
+	\lipsum[1][2]
+\end{theorem}
+
+\begin{corollary}
+	\label{cor:test-corollary-A}
+	\lipsum[1][2]
+	\qed
+\end{corollary}
+
+\begin{corollary}
+	\label{cor:test-corollary-B}
+	\lipsum[1][2]
+\end{corollary}
+
+\begin{proposition}
+	\label{prop:test-prop-A}
+	\lipsum[1][2]
+\end{proposition}
+
+\begin{proof}
+	\label{pf:test-proof-A}
+	1つ目の証明.
+\end{proof}
+
+\begin{proof}
+	\label{pf:test-proof-B}
+	2つ目の証明.
+\end{proof}
+
+\begin{problem}
+	\label{prob:test-problem-A}
+	\lipsum[1][2]
+\end{problem}
+
+\section{出力テストB}
+\label{sec:test-B}
+\lipsum[2-3]
+
+\section{出力テストC}
+\label{sec:test-C}
+\lipsum[4][1]
+
+\section{出力テストD}
+\label{sec:test-D}
+\lipsum[4][1-3]
+
+\end{document}

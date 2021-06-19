@@ -1,0 +1,19 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{パラコンパクト性に類似する性質}
+\label{sec:paracompact-like-properties}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{めたこんぱくと}{メタコンパクト}{metacompact}であるとは, $ X $の任意の開被覆が点有限な開被覆で細分できることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{おるそこんぱくと}{オルソコンパクト}{orthocompact}であるとは, $ X $の任意の開被覆が, 任意の点についてその点を含む開集合の共通部分もまた開集合となるような開被覆で細分できることである.
+\end{definition}
+
+明らかに, パラコンパクト空間はメタコンパクト空間であり, メタコンパクト空間はオルソコンパクト空間である. 逆は成立しない. $ \Q $の無限点追加非コンパクト化$ \Q^\sharp $(\ref{example:Q_star_infinite})はメタコンパクトだがパラコンパクトではなく, 非可算集合上の補可算位相(\ref{example:cocontable_topology})はオルソコンパクトだがメタコンパクトでない.
+
+\end{document}

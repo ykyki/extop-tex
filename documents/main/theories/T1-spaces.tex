@@ -1,0 +1,23 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\topT{1}分離公理}
+\label{sec:T0-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexj{T1 くうかん}{\topT{1}空間}であるとは, \topT{0}かつ対称空間であることである.
+\end{definition}
+
+\begin{proposition}
+	位相空間$ X $について以下の条件は同値である:
+	\begin{enumerate}
+		\item $ X $が\topT{1}空間である.
+		\item $ X $の任意の1点集合が閉である.
+		\item $ X $の任意の点$ x $に対し次が成り立つ: $ x $と異なる任意の点$ y \in X $に対して開集合$ G $が存在して$ x \in G $かつ$ y \not\in G $となる.
+	\end{enumerate}
+	\qed
+\end{proposition}
+
+\end{document}

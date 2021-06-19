@@ -1,0 +1,17 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\sigmaCompact 空間}
+\label{sec:sigma-compact-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{しぐまこんぱくと}{\sigmaCompact}{$\sigma$-compact}であるとは, $ X $を被覆する可算なコンパクト部分集合族が存在することである.
+\end{definition}
+
+\sigmaCompact 空間の閉部分空間は \sigmaCompact であり, \sigmaCompact 空間の有限個の積空間も \sigmaCompact である. また,  \sigmaCompact 空間の連続像も \sigmaCompact なので商空間も \sigmaCompact である.
+
+明らかに \sigmaCompact 空間は \Lindelof 空間である. しかし, 逆は成立しない. Sorgenfrey Line (\ref{example:Sorgenfrey_line}) は継承的 \Lindelof だが, 任意のコンパクト部分集合が可算であることから \sigmaCompact でない.
+
+\end{document}

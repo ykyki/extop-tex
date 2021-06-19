@@ -1,0 +1,136 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\Hausdorff 性に類似する性質}
+\label{sec:Hausdorff-like-properties}
+
+\begin{definition}
+	位相空間$ X $が\indexe{KC-closed}あるいは\indexe{compact-closed}であるとは, $ X $のコンパクト部分集合が常に閉集合になることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexe{C-closed}であるとは, $ X $の可算コンパクト部分集合が常に閉集合になることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexe{SC-closed}であるとは, $ X $の点列コンパクト部分集合が常に閉集合になることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{じゃく \Hausdorff}{弱\Hausdorff}{weakly \Hausdorff}であるとは, 任意のコンパクト\Hausdorff 空間$ C $と連続写像$ t \colon C \rightarrow X $に対し, その像$ t[C] $が$ X $の閉集合になることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{てんれつ \Hausdorff}{点列 \Hausdorff}{sequentially \Hausdorff}であるとは, $ X $内の任意の列の極限点が高々ひとつであることである.
+\end{definition}
+
+\begin{proposition}
+	位相空間$X$が\Hausdorff ならば KC-closed である.
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	位相空間$X$が KC-closed ならば 弱\Hausdorff である.
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	位相空間$X$が弱\Hausdorff ならば 点列\Hausdorff である.
+\end{proposition}
+
+\begin{proof}
+	対偶を示す.
+	$X$内の列$(a_n)$であって, 相異なる2点$p, q$に収束するものをとる.
+	一般性を失うことなく$q \not\in \setcomp{a_n}{n \in \N}$としてよい.
+	離散空間$\N$の一点コンパクト化$\N^\star = \N \cup \{\bigstar\}$から$X$への連続写像$f$を$f(n) = a_n$と$f(\bigstar) = p$で定める.
+	$\N^\star$はコンパクト\Hausdorff である.
+	一方, $q \in \topbar{f[\N^\star]} \setminus f[\N^\star]$であるから像$f[\N^\star]$は閉でない.
+\end{proof}
+
+\begin{proposition}
+	位相空間$X$が SC-closed ならば 点列\Hausdorff である.
+\end{proposition}
+\begin{proof}
+	対偶を示す. $X$内の列$(a_n)$であって, 相異なる2点$p, q$に収束するものをとる. 一般性を失うことなく$q \not\in \setcomp{a_n}{n \in \N}$としてよい. 離散空間$\N$の一点コンパクト化$\N^\star = \N \cup \{\bigstar\}$から$X$への連続写像$f$を$f(n) = a_n$と$f(\bigstar) = p$で定める. $\N^\star$が点列コンパクトであるから像$f[\N^\star]$も点列コンパクトである. 一方, $q \in \topbar{f[\N^\star]} \setminus f[\N^\star]$であるから像$f[\N^\star]$は閉でない.
+\end{proof}
+
+\begin{proposition}
+	位相空間$X$が C-closed ならば KC-closed である.
+\end{proposition}
+\begin{proof}
+	コンパクトな位相空間は可算コンパクトであるから.
+\end{proof}
+
+\begin{proposition}
+	位相空間$X$が C-closed ならば SC-closed である.
+\end{proposition}
+\begin{proof}
+	点列コンパクトな位相空間は可算コンパクトであるから.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:Lemma used in the proof of the equivalence between C-closed and SeqHaus}
+	列型な点列 \Hausdorff 空間$ X $における収束列$ (a_n)_{n \in \N} $の極限を$ a \defeq \lim a_n $とする. このとき, 任意の$ n \in \N $に対して$ A_n \defeq \{a\} \cup \{a_n, a_{n+1}, \cdots\} $は閉集合である.
+\end{lemma}
+
+\begin{proof}
+	任意の$ n \in \N $に対して$ A_n $が列型閉であることを示す. $ (b_m)_{m \in \N} $を$ \lim b_m = b $なる$ A_n $内の収束列とする. $ B \defeq \setcomp{b_m}{m \in \N} $が有限集合の場合, $ X $が\topT{1}であることから$ B $は閉集合であり, $ b \in B \subset A_n $である. $ B $が無限集合の場合, $ (a_m)_{m \in \N}, (b_m)_{m \in \N} $両方の部分列であるような点列$ (c_m)_{m \in \N} $がとれる. 今, $ X $が点列 \Hausdorff であることから, $ a = \lim a_m = \lim c_m = \lim b_m =b $である. よって, $ b \in A_n $となる. 以上から, $ A_n $は列型閉である.
+\end{proof}
+
+
+\begin{proposition}
+	列型空間において, C-closed と点列 \Hausdorff は同値である.
+\end{proposition}
+
+\begin{proof}
+	点列 \Hausdorff ならば C-closed であることを示せばよい. $ X $を列型な点列 \Hausdorff 空間とする. $ A \subset X $を可算コンパクト集合とし, $ (a_n)_{n \in \N} \subset A $を$ X $における収束列とすると$ a = \lim a_n $なる点$  a \in X $がただ一つ存在する. $ a \notin A $と仮定する. 各$ n \in \N $に対して$ A_n \defeq \{a\} \cup \{a_n, a_{n+1}, \cdots\} $と定めると, 補題\ref{lem:Lemma used in the proof of the equivalence between C-closed and SeqHaus}より$ A_n $は閉集合である. よって, $ U_n \defeq (X \setminus A_n) \cap A $とすると$ U_n $は$ A $の開集合であり, $ \{U_n\} $は$ A $の可算開被覆である. $ U_0 \subset U_1 \subset \cdots $であることと有限部分被覆を持つことを合わせると, ある$ m \in \N $に対して$ U_m = A $となる. このとき, $ \{a_m, a_{m+1}, \cdots\} \subset \complement_X A $となり$ (a_n)_{n \in \N}
+	 \subset A $に矛盾する. ゆえに, $ a \in A $より$ A $は列型閉となる.
+\end{proof}
+
+\begin{corollary}
+	列型空間において, C-closed, KC-closed, SC-closed, 弱 \Hausdorff, 点列 \Hausdorff はすべて同値である.
+\end{corollary}
+
+\begin{proposition}
+	第一可算空間$ X $において, 点列 \Hausdorff と \topT{2} は同値である. \qed
+\end{proposition}
+
+ただし, \Frechet な点列 \Hausdorff 空間であっても \topT{2} であるとは限らない. そのような空間の例としては, $ \Q $の一点コンパクト化$ \Q^{\star} $(例\ref{example:Q_star})が挙げられる.
+
+\begin{proposition}
+	点列コンパクトなSC-closed 空間$ X $は列型である.
+\end{proposition}
+
+\begin{proof}
+	$ X $の列型閉集合が点列コンパクト部分集合であることからわかる.
+\end{proof}
+
+\begin{proposition}
+	点列コンパクトなSC-closed 空間は C-closed である.
+\end{proposition}
+
+
+\begin{proposition}
+	局所コンパクト空間において KC-closed と\topT{3.5} は同値である.
+\end{proposition}
+
+\begin{proof}
+	$ X $を局所コンパクトな KC-closed 空間とすると任意の点$ x \in X $は閉集合からなる近傍基をもつ. したがって, $ X $は \topT{3} である. さらに, 局所コンパクト \Hausdorff 空間は \topT{3.5} である.
+\end{proof}
+
+\begin{proposition}
+	KC-closed 空間$ X $の一点コンパクト化$ X^\star = X \cup \{\bigstar\} $は点列 \Hausdorff である.
+\end{proposition}
+
+\begin{proof}
+	点列$ (a_n)_{n \in \N} \subset X^\star $が$ a \neq \bigstar $に収束するときを考える. $ X $は点$ a $の近傍なので, ある$ n_0 \in \N $が存在して$ n \geq n_0 $なる$ n \in \N $に対して$ a_n \in X $となる. $ A \defeq \{a\} \cup \setcomp{a_n}{n \in \N, n \geq n_0} $とすると, $ A $は$ X $のコンパクト集合なので閉集合でもある. よって, $ A $は$ X^\star $の閉集合でもあるから$ (a_n)_{n \in \N} $は$ \bigstar $に収束しない. また, $ X $は点列 \Hausdorff であるから, $ b \in X $で$ b \neq a $なる点には収束しない. $ (a_n)_{n \in \N} $が$ \bigstar $に収束するとき, 他の点には収束しないことは明らかである. よって, $ X $は点列 \Hausdorff である.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Continuous maps on a dense subset in a Hausdorff space}
+	$ f, g \colon X \to Y $を \Hausdorff 空間$ X $から位相空間$ Y $への連続写像とする. $ A \subset X $を稠密部分集合とするとき, 任意の$ a \in A $について$ f(a) = g(a) $が成り立つならば任意の$ x \in X $について$ f(x) = g(x) $である.
+\end{proposition}
+
+\end{document}

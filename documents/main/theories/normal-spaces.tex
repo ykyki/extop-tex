@@ -1,0 +1,72 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{正規空間}
+\label{sec:normal-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{せいきくうかん}{正規空間}{normal space}であるとは, $ X $の互いに交わらない任意の閉集合$ F_1, F_2 $に対し, 互いに交わらないある開集合$ G_1, G_2 $が存在して$ F_1 \subset G_1, F_1 \subset G_2 $となることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexj{T4 くうかん}{\topT{4}空間}であるとは, 正規かつ\topT{0}空間であることである. (\topT{1} ? 要追記)
+\end{definition}
+
+\begin{theorem}
+	位相空間$ X $について以下の条件は同値である:
+	\begin{enumerate}
+		\item $ X $が正規である.
+		\item $ X $の点有限な任意の開被覆に対し収縮が存在する.
+		\item  $ X $の互いに交わらない任意の閉集合$ F_1, F_2 $に対し, ある連続写像$ \phi \colon X \rightarrow \I $が存在して$ \phi[F_1] \subset \{0\}, \phi[F_2] \subset \{1\} $となる.
+		\item $ X $の局所有限な任意の開被覆に対し, その開被覆に従属する1の分割が存在する.
+	\end{enumerate}
+\end{theorem}
+
+\begin{lemma}
+	\label{lem:Let X and Y are top.sp, Y is T2, f,g : X to Y are conti, then the set defined as {x in X | f(x) = g(x)} is closed.}
+	$f, g \colon X \to Y $を位相空間$ X $から \topT{2} 位相空間$ Y $への連続写像とするとき, $ \setcomp{x \in X}{f(x) = g(x)} $は$ X $の閉集合である.
+\end{lemma}
+
+\begin{proof}
+	$ U \defeq \setcomp{x \in X}{f(x) \neq g(x)} $とする. 任意の$ y \in U $に対して, $ f(y) \in V_1, g(y) \in V_2, V_1 \cap V_2 = \emptyset $を満たす開集合$ V_1, V_2 $が存在する. このとき, $ y \in f^{-1}(V_1) \cap g^{-1}(V_2) \subset U $である.
+\end{proof}
+
+\begin{theorem}
+	\label{thm:Jone's Lemma}
+	$ X $を \topT{4} 空間, $ D $を$ \cardinality{D} \geq \cardinality{\N} $なる$ X $の稠密部分集合, $ C $を$ X $の離散閉集合とする.このとき, $2^{\cardinality{C}} \leq 2^{\cardinality{D}} $が成り立つ.
+\end{theorem}
+
+\begin{proof}
+	位相空間$ X $から$ Y $への連続写像全体の集合を$ C(X, Y) $と書くことにする. $ D $を$ X $の稠密部分集合とすると, 補題 \ref{lem:Let X and Y are top.sp, Y is T2, f,g : X to Y are conti, then the set defined as {x in X | f(x) = g(x)} is closed.} より$ f|_D = g|_D  \lrimp f =g $が成り立つので$ \cardinality{C(X, \I)} = \cardinality{C(D, \I)} \leq 2^{\cardinality{D}} $となる. また, $ C $を$ X $の離散閉集合とすると
+	$$ \cardinality{C(C, \I)} =\begin{cases}
+	2^{\cardinality{\N}} & \cardinality{C} \leq \cardinality{\N}\\
+	2^{\cardinality{C}} & \cardinality{C} > \cardinality{\N}
+	\end{cases} $$
+	$ X $は \topT{4} であることから Tietze の拡張定理より$ \cardinality{C(X, \I)} \geq \cardinality{C(C, \I)} $である. 以上より, $ 2^{\cardinality{C}} \leq 2^{\cardinality{D}} $となる.
+\end{proof}
+
+\begin{corollary}
+	\label{coro:Corollary of Jone's Lamma}
+	可分な \topT{4} 空間は, 非可算な離散閉集合を含まない.
+\end{corollary}
+
+\begin{proof}
+	定理 \ref{thm:Jone's Lemma} から直ちに得られる.
+\end{proof}
+
+\begin{theorem}[\Tietze]
+	\label{thm:Tietze's extension theorem}
+	\topT{4} 空間$ X $の閉部分集合$ A $上の実連続関数$ f \colon A \to \R $は$ X $上の実連続関数$ g \colon X \to \R $に拡張される.
+\end{theorem}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{けいしょうてきせいき}{継承的正規}{hereditary normal}であるとは, $ X $の任意の部分空間が正規になることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexj{T5 くうかん}{\topT{5}空間}であるとは, 継承的正規かつ\topT{0}となることである.
+\end{definition}
+
+\end{document}

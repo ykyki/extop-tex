@@ -1,0 +1,112 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{$\Q$の一点コンパクト化\texorpdfstring{$\Q^\star$}{Q\^{*}}}
+\label{ex:Q-star}
+
+\let\bigstar\star
+\newcommand{\locref}[1]{\ref{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+\newcommand{\loclabel}[1]{\label{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+
+$ \Q^\star = \Q \cup \{\bigstar\} $で$ \Q $の一点コンパクト化を表す.
+
+\begin{property}
+	$ \Q^\star $はコンパクトである.
+\end{property}
+
+\begin{property}
+	$ \Q^\star $は \Hausdorff でない.
+\end{property}
+\begin{proof}
+	無限遠点$ \bigstar $と有理数$ p \in \Q $を考えればよい.
+\end{proof}
+
+\begin{property}
+	\label{property:Q^ast is seq.Haus}
+	$ \Q^\star $は点列 \Hausdorff である.
+\end{property}
+\begin{proposition}
+	列$ (a_n) \subset \Q^\star $が$ \bigstar $に収束するための必要十分条件は, $ \Q $の任意のコンパクト部分集合$ K $に対し, 等終的に$ a_n \not\in K $となることである. \qed
+\end{proposition}
+
+\begin{proof}[性質\ref{property:Q^ast is seq.Haus}]
+	任意に列$ (a_n)_n \subset \Q^\star $を与える. $ \Q $が \Hausdorff であるから, 列$ (a_n) $は相異なる2つの有理数に収束することはない. もし仮に$ (a_n) $が有理数$ q $と無限遠点$ \bigstar $に同時に収束したとする. $ (a_n) $が点$ q \in \Q $に収束することから, 十分大きな$ n $で$ a_n \in \Q $となる. そこで$ (a_n) $の部分列$ (b_n) $が存在して, $ (b_n) \subset \Q $であり, $ (b_n) $が$ q $と$ \bigstar $に収束する. すると$ \Q $の部分集合$ B \defeq \setcomp{b_n}{n \in \N} \cup \{q\} $はコンパクトになる. よって$ \{\bigstar\} \cup \Q \setminus B $は$ \Q^\star $において$ \bigstar $の近傍である. これは$ (b_n) $が$ \bigstar $に収束することに矛盾している.
+\end{proof}
+
+\begin{property}
+	$ \Q^\star $は KC-closed である.
+\end{property}
+\begin{proof}
+	$ \Q^\star $のコンパクト部分集合$ A $を任意に与える. $ A \subset \Q $であれば, $ \Q $が \Hausdorff であるから$ A $は$ \Q $において閉である. よって一点コンパクト化の定義より$ A $は$ \Q^\star $においても閉である.
+
+	そこで$ \bigstar \in A $の場合を考える. $ A_0 \defeq A \cap \Q $とおく. $ A_0 $が$ \Q $において閉であることを示せばよい. もし仮にそうでなかったとする. 点$ a \in (\topcl_\Q A_0) \setminus A_0 $が存在する. $ a $が触点であるから, 各$ n \in \N $に対し, 点$ x_n \in A_0 \cap \topball{a_0}{2^{-n}} $が取れる. $ a \neq x_n  $である. また$ S \defeq \{a\} \cup \setcomp{x_n}{n \in \N} $とおくと, $ S $は$ \Q $のコンパクト部分集合である. そこで$ U \defeq \{\bigstar\} \cup \Q \setminus S  $とおくと, これは$ \Q^\star $における開集合である. さらに, 各$ n \in \N $に対して$ U_n \defeq \setcomp{y \in \Q}{| y - a | > |x_n - a|} $と定める. すると$ U_n $は$ \Q ^\star $における開集合であり, $ A \subset U \cup \bigcup_n U_n $となる. するとこの開被覆は有限部分被覆を持たない. よって$ A $のコンパクト性に矛盾する.
+\end{proof}
+
+\begin{property}
+	$ \Q^\star $は連結である.
+\end{property}
+\begin{proof}
+	互いに交わらない2つの開集合$ G_1, G_2 $を用いて$ \Q^\star = G_1 \cup G_2 $と表せるとする. $ \bigstar \in G_1 $としてよい. このとき$ G_2 =\Q \setminus G_1 $は$ \Q $のコンパクト部分集合である. よって$ G_2 = \topint_\Q G_2 = \emptyset $である.
+\end{proof}
+
+\begin{property}
+	$ \Q^\star $は局所連結でない.
+\end{property}
+\begin{proof}
+	$ \Q $が局所連結でないから.
+\end{proof}
+
+\begin{property}
+	$ \Q $の部分集合$ A $がコンパクトになるための必要十分条件は, $ A $が有界閉かつ$ \topder_{\R} A \subset \Q $を満たすことである.
+\end{property}
+$ \Q $の部分集合$ A $に関する次の条件を\maru{1}とおく: $ A $が有界かつ$ \topder_{\R} A \subset \Q $である. 特に後者の条件が満たされるとき, 導来集合の性質より$ \topder_{\R} A = \topder_{\Q} A $が成り立つことに注意する.
+\begin{lemma}
+	$ A $が条件\maru{1}を満たすならば$ A^\topd $も\maru{1}を満たす.
+\end{lemma}
+\begin{proof}
+	導来集合に関する基本的性質より.
+\end{proof}
+
+\begin{lemma}
+	\loclabel{lem:compactness}
+	$ A $が\maru{1}を満たすならば, $ \topbar{A} $はコンパクトである.
+\end{lemma}
+\begin{proof}
+	まず$ A^\topd $がコンパクトであることを示そう. もし仮にコンパクトではないとする. このとき$ A^\topd $は点列コンパクトでもないから, $ A^\topd $内のある列$ (a_n) $が存在して, $ (a_n) $の任意の部分列が$ A^\topd $において収束しない. $ A^\topd $を$ \R $の有界集合と見做せば, コンパクト性を介して, $ \R $における$ (a_n) $の収束部分列$ (b_n) $が存在することが分かる. $ A^\topd $が\maru{1}を満たすので, $ A^\topd $が$ \R $の閉集合であり, よって$ \lim b_n \in A $となる. しかしこれは$ (a_n) $の定義に矛盾する.
+
+	続いて$ \topbar{A} = A \cup A^\topd $がコンパクトであることを示す. $ \mathscr{U} $を$ A \cup A^\topd $を覆う$ \Q $の任意の開集合族とする. $ A^\topd $はある有限部分被覆$ \mathscr{V} $で覆える. このとき$ S \defeq A \setminus \bigcup \mathscr{V} $は有限集合である. (もし仮に$ S $が無限集合であったとする. $ S $を$ \R $の部分集合と見做したとき, $ S $は有界無限集合であるから集積点$ p \in \topder_{\R} S $が存在する. $ A $の仮定より$ p \in \topder_{\R} S \subset A^\topd \subset \Q $となり, $ p \in \topder_{\Q} S $である. 一方, $ p \in V $となる$ V \in \mathscr{V} $を取ると, $ V \cap (S \setminus \{p\}) = \emptyset $である. ゆえに$ p \not\in \topder_{\Q} S $となり矛盾する.) よって$ S $を被覆する有限部分被覆$ \mathscr{V}^\prime $が存在して, ゆえに$ A \cup K $が$ \mathscr{V} \cup \mathscr{V}^\prime $で覆える.
+\end{proof}
+
+\begin{lemma}
+	\loclabel{lem:irrational point}
+	任意の無理数$ p \in \topder_{\R} A \setminus \Q $と任意のコンパクト部分集合$ K \subset \Q $に対し, ある正の実数$ \epsilon > 0 $が存在して$ \setcomp{x \in \Q}{| x- p | < \epsilon} \cap K = \emptyset $となる.
+\end{lemma}
+\begin{proof}
+	$ p $は集積点なので, $ \R $にて$ p $に収束する$ A $内の列$ (a_n) $, $ (b_n) $を$ a_0 < a_1 < \cdots < p < \cdots < b_1 < b_0 $を満たすように取れる. $ \Q $における閉区間を$ I_n \defeq [a_n, b_n] $とおく.
+
+	もし仮に条件を満たす$ \epsilon $が存在しないとする. このとき全ての$ n $について$ K \cap I_n  \neq \emptyset $である. $ K $のコンパクト性より$ \bigcap_n K \cap I_n \neq \emptyset  $となる. 一方, $ \bigcap_n I_n = \emptyset $であるから矛盾が生じる.
+\end{proof}
+
+\begin{proposition}
+	$ \Q $の部分集合$ A $がコンパクトになるための必要十分条件は, $ A $が条件\maru{1}を満たす閉集合になることである. つまり$ A $が有界閉かつ$ \topder_{\R} A \subset \Q $を満たすことである.
+\end{proposition}
+\begin{proof}
+	$ A $がコンパクトであるとする. $ A $が有界閉であることはすぐ分かる. もし仮に無理数$ p \in \topder_{\R} A \setminus \Q $が存在すれば, 補題 \locref{lem:irrational point} より矛盾が生じる. よって\maru{1}が満たされる.
+
+	$ A $が\maru{1}を満たす閉集合とする. 補題 \locref{lem:compactness} より$ A = \topbar{A} $はコンパクトである.
+\end{proof}
+
+\begin{property}
+	$ \Q^\ast $は\Frechet である.
+\end{property}
+\begin{proof}
+	難しいのは$ A \subset \Q $, $ \infty \in \topcl_{\Q^\ast} A $のときである. このとき$ A $は$ \Q $の如何なるコンパクト部分集合にも含まれていない. よって前述の性質より$ A $は有界ではないか, あるいは$ \topder_{\R} A \not\subset \Q $である. 前者の場合, $ A $内の非有界な列$ (a_n) $を取ることができ, この列が$ \infty $に収束している. 後者の場合, 無理数$ p \in \topder_{\R} A \setminus \Q $に収束するように$ A $内の列$ (a_n) $を取れば, 先の補題より$ (a_n) $は$ \infty $に収束している.
+\end{proof}
+
+\begin{property}
+	$ \Q^\ast $は強\Frechet でない.
+\end{property}
+
+\end{document}

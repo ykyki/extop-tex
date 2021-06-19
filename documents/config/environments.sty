@@ -1,0 +1,88 @@
+\usepackage{framed}
+\usepackage{amsmath, amssymb}
+\usepackage[framed, thmmarks, hyperref, amsmath]{ntheorem}
+\usepackage{aliascnt}
+\usepackage[many, breakable]{tcolorbox}
+
+% 定理環境の設定
+\makeatletter
+	\renewtheoremstyle{plain}
+	{\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator]}
+	{\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator\ {\normalfont\unboldmath(##3)}]}
+
+	\renewtheoremstyle{nonumberplain}
+	{\item[\hskip\labelsep \theorem@headerfont ##1\theorem@separator]}
+	{\item[\hskip\labelsep \theorem@headerfont ##1\theorem@separator\ {\normalfont\unboldmath(##3)}]}
+	\makeatother
+\makeatother
+
+% \autorefを踏まえた環境設定を行うコマンド
+\newcommand*{\newaliastheorem}[3]{
+	\newaliascnt{#1}{#2}
+	\newtheorem{#1}[#1]{#3}
+	\aliascntresetthe{#1}
+	\expandafter\newcommand\csname #1autorefname\endcsname{#3}
+}
+
+% (手動用)証明終了の記号を設定
+\qedsymbol{\ensuremath{\blacksquare}}
+
+% デフォルトの環境設定
+\theorembodyfont{\upshape}
+\theorembodyfont{\normalfont}
+\theoremseparator{.}
+
+
+% Templates
+
+% \theoremstyle{plain}
+% \theoremsymbol{\ensuremath{\square}}
+% \newtheorem{theorem}{定理}
+% \renewcommand{\theoremautorefname}{定理}
+% \newaliastheorem{definition}  {theorem} {定義}
+% \newaliastheorem{proposition} {theorem} {命題}
+% \newaliastheorem{lemma}       {theorem} {補題}
+% \newaliastheorem{corollary}   {theorem} {系}
+% \newaliastheorem{remark}      {theorem} {注意}
+% \newaliastheorem{fact}        {theorem} {事実}
+% \newaliastheorem{example}     {theorem} {例}
+% \newaliastheorem{problem}     {theorem} {問題}
+
+% \theoremstyle{nonumberplain}
+% \theoremsymbol{\ensuremath{\blacksquare}}
+% \newtheorem{proof}{証明}
+
+
+\theoremstyle{plain}
+\theoremsymbol{}
+\tcolorboxenvironment{property}{
+	breakable,
+	top=0.5mm, bottom=0.5mm, left=1mm,
+	before skip = 1mm,
+	after skip = 1mm,
+    grow to right by=-1mm,
+    grow to left by=-1mm,
+    boxrule=0pt,
+    boxsep=0pt,
+	enhanced jigsaw,
+	colframe=black,
+	boxrule=1pt,
+	sharp corners
+}
+
+\theoremstyle{plain}
+\theoremsymbol{}
+\newtcolorbox{hosoku}{
+	% breakable,
+	blanker,
+	% before upper={\parindent1em}, % インデントの設定
+	top=0.5mm, bottom=0.5mm, left=1mm,
+	before skip = 1mm,
+	after skip = 1mm,
+    grow to right by=-1mm,
+    grow to left by=-2em,
+    boxrule=0pt,
+    boxsep=0pt,
+	boxrule=1pt,
+	borderline west={1pt}{0pt}{black},
+}

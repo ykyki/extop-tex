@@ -1,0 +1,100 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\Lindelof 空間}
+\label{sec:Lindelof-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexe{\Lindelof}であるとは, $ X $の任意の開被覆に対して可算部分開被覆が存在することである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexj{けいしょうてき \Lindelof}{継承的\Lindelof}であるとは, $ X $の全ての部分空間が\Lindelof になることである.
+\end{definition}
+
+\begin{proposition}
+	\label{prop:Every closed subspace of a Lindelof sapce is Lindelof}
+	\Lindelof 空間の任意の閉部分空間もまた \Lindelof である. \qed
+\end{proposition}
+
+\Lindelof 空間の閉部分空間は \Lindelof であるが, 開部分空間も \Lindelof であるとは限らない. Alexandroff Square $ X $ (例\ref{example:Alexandroff_square}) は \Lindelof\ (より強くコンパクト) であるが, その開部分空間 $ X \setminus \{(0,0)\} $は \Lindelof でない.
+
+\begin{proposition}
+	\Lindelof 空間$ X $の任意の開部分空間が \Lindelof であることと, $ X $が継承的 \Lindelof であることは同値である.
+\end{proposition}
+
+\begin{proof}
+	任意の開部分空間が \Lindelof な位相空間$ X $が継承的 \Lindelof であることを示す. $ A $を$ X $の任意の部分空間, $ \mathscr{U} $を$ A \subset \bigcup \mathscr{U} $なる$ X $の任意の開集合族とする. $ \mathscr{U} $は開集合$ \bigcup \mathscr{U} $の開被覆であるから仮定より可算部分被覆$ \mathscr{V} \subset \mathscr{U} $が存在し, $ A \subset \bigcup \mathscr{V} $となる.
+\end{proof}
+
+
+\Lindelof 性は有限回の積を取る操作であっても保たれない. そのような例としては, Sorgenfrey Line (例\ref{example:Sorgenfrey_line})が挙げられる. Sorgenfrey Line は継承的 \Lindelof な空間であるが, その積空間である Sorgenfrey Plane は (例\ref{example:Sorgenfrey_plane}) は \Lindelof でない.
+
+\Lindelof 空間の連続像が \Lindelof になることは明らかなので \Lindelof 空間の商空間も \Lindelof である. また, 可算個の \Lindelof 空間の直和空間も \Lindelof である.
+
+\begin{proposition}
+	任意の \sigmaCompact 空間は \Lindelof 空間である. \qed
+\end{proposition}
+
+\begin{proposition}
+	\label{prop:second countable > hereditary Lindelof}
+	任意の第二可算空間は継承的 \Lindelof 空間である.
+\end{proposition}
+
+\begin{proof}
+	第二可算空間の部分空間も第二可算であることから第二可算空間が \Lindelof であることを示せば良い. $ \mathscr{B} $を位相空間$ X $の可算開基, $ \mathscr{U} $を$ X $の任意の開被覆とする. $ \mathscr{B}^\prime \defeq \setcomp{B \in \mathscr{B}}{\exists U \in \mathscr{U} \ \mbox{s.t.} \ B \subset U} $と定め, 各$ B \in \mathscr{B}^\prime $に対して$ B \subset U_B $なる$ U_B \in \mathscr{U} $を一つとり, $ \mathscr{U}^\prime \defeq \setcomp{U_B \in \mathscr{U}}{B \in \mathscr{B}^\prime} $とする. ここで, 任意の$ x \in X $に対して$ x \in U $なる$ U \in \mathscr{U} $が存在し, $ x \in B \subset U $なる$ B \in \mathscr{B} $が存在する. このとき, 定義より$ B \in \mathscr{B}^\prime $であるから$ x \in U_B $となるので$ \mathscr{U}^\prime $は可算部分被覆である.
+\end{proof}
+
+\begin{proposition}
+	距離空間$ (X, d) $において, 次の3条件は同値である.
+	\begin{enumerate}
+	\item $ X $は第二可算である.
+	\item $ X $は可分である.
+	\item $ X $は \Lindelof である.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+命題\ref{prop:second countable > hereditary Lindelof}より, 第二可算空間は\Lindelof である.
+
+次に, \Lindelof 性から可分性を導く. 部分集合族$ \mathscr{U} \defeq \setcomp{\topball{x}{2^{-n}}}{x \in X, n \in \N} $と定めると, $ \mathscr{U} $は$ X $の開被覆である. $ X $が \Lindelof であることから, 可算部分集合$ D \subset X $が存在して$ \mathscr{U}' \defeq \setcomp{\topball{B}{2^{-n}}}{x \in D, n \in \N} $が部分被覆となる. この$D$が稠密部分集合になることを示す. 任意の$ x \in X $と任意の$ \varepsilon > 0 $に対して$ 2^{-n} < \varepsilon $なる$ n \in \N $をとると, ある$ y \in D $が存在して$ x \in \topball{y}{2^{-n}}$より$ d(x, y) < 2^{-n} < \varepsilon $となる. よって, $ y \in \topball{x}{\varepsilon}$より, $ x \in \topcl D $である.
+
+最後に, 可分性から第二可算性を導く. $ D \subset X $を可算な稠密部分集合とする. ここで, $ \mathscr{U} \defeq \setcomp{\topball{x}{2^{-n}}}{x \in D, n \in \N} $と定める. この$\mathscr{U}$が開基になることを示す. 任意の$ x \in X $と任意の$ \varepsilon > 0 $に対して, $ y \in \topball{x}{\varepsilon}$を満たす$ y \in D $が存在する. $ 2^{-n} < \varepsilon - d(x, y) $を満たす, $ n \in \N $をとると, 任意の$ z \in \topball{y}{2^{-n}}$について$ d(x, z) \leq d(x, y) + d(y, z) < \varepsilon $となるので$\topball{y}{2^{-n}} \subset \topball{x}{\varepsilon}$である.
+\end{proof}
+
+\begin{theorem}
+	$ f \colon X \to Y $を位相空間$ X $から位相空間$ Y $への閉写像とする. 任意の点$ y \in Y $に対して$ f^{-1}(y) \subset X $が \Lindelof な部分空間であるとき, $ Y $の任意の \Lindelof 部分空間$ A $に対して$ f^{-1}[A] $は$ X $の \Lindelof 部分空間である.
+\end{theorem}
+
+\begin{proof}
+	定理(\ref{prop:Inverse image of every compact subset by a perfect mapping is compact})の証明と同様の方法で証明できる.
+\end{proof}
+
+
+\begin{corollary}
+	$ f \colon X \to Y $を位相空間$ X $から \Lindelof 空間$ Y $への完全写像とする. このとき, $ X $は \Lindelof 空間である. \qed
+\end{corollary}
+
+\begin{corollary}
+	\Lindelof 空間$ X $とコンパクト空間$ Y $の積空間$ X \times Y $は \Lindelof 空間である.
+\end{corollary}
+
+\begin{proof}
+	$ Y $がコンパクトであることから, 射影$ p \colon X \times Y \to X $は閉写像である. よって$ p $は完全写像となる.
+\end{proof}
+
+\begin{definition}
+	位相空間$ X $の任意の開被覆が高々$ \kappa $個の部分被覆をもつような最小の基数$\kappa$を \Lindelof 数といい, $ l(X) $とかく.
+\end{definition}
+
+\begin{proposition}
+	位相空間$ X $において$ l(X) \leq \topnetwork(X) $が成り立つ.
+\end{proposition}
+
+\begin{proof}
+	空集合を元にもたない$ X $の部分集合族$ \mathscr{N} $を$ \cardinality{\mathscr{N}} = \topnetwork(X) $を満たすネットワークとする. $ \mathscr{U} $を空集合を元にもたない$ X $の開被覆とするとき, $ \mathscr{N}' \defeq \setcomp{N \in \mathscr{N}}{\exists U \in \mathscr{U} \ \mathrm{s.t.} \ N \subset U} $と定める. ここで, 各$ N \in \mathscr{N}' $に対して$ N \subset U_N $なる$ U_N \in \mathscr{U} $を一つとり, $ \mathscr{U}' \defeq \setcomp{U_N \in \mathscr{U}}{N \in \mathscr{N}'} $とする. このとき, 任意の$ x \in X $に対して$ x \in U $なる$ U \in \mathscr{U} $が存在し, $ x \in N \subset U $なる$ N \in \mathscr{N} $が存在するので, $ x \in U_N $である. また, 定義より$ \cardinality{\mathscr{U}'} \leq \topnetwork(X) $である.
+\end{proof}
+
+\end{document}

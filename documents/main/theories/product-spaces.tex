@@ -1,0 +1,45 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{積空間}
+\label{sec:product-spaces}
+
+\newcommand{\directedA}{\mathbf{A}} % 有向集合A
+
+\begin{proposition}
+	位相空間の族$\setfamily{X_\lambda}{\lambda \in \Lambda}$の部分空間の族$\setfamily{A_\lambda}{\lambda \in \Lambda}$について, $ \topcl \left(\prod_\lambda A_\lambda\right) = \prod_\lambda \topcl A_\lambda $が成り立つ.
+\end{proposition}
+
+\begin{proof}
+	($\subset$):
+	点$x = (x_\lambda)$が部分集合$\prod A_\lambda$の閉包に属しているとする.
+	添字$\mu \in \Lambda$をひとつ固定する.
+	点$x_\mu \in X_\mu$の開近傍$U_\mu$を任意にとる.
+	空間$\prod X_\lambda$の部分集合$U_\mu \times \prod_{\lambda \neq \mu} X_{\lambda}$は点$x$の開近傍であるから$\prod A_{\lambda}$と交わる.
+	よって$U_\mu$と$A_\mu$も交わる. ゆえに$x_\mu \in \topcl A_\mu$である.
+
+	($\supset$):
+	点$x = (x_\lambda)$が部分集合$\prod \topcl A_\lambda$に属しているとする.
+	$x$の開近傍を任意にとる.
+	その近傍は, 有限個の相異なる$\lambda_1, \ldots, \lambda_n \in \Lambda$と各点$x_{\lambda_i}$の開近傍$U_{\lambda_i}$を用いて$U_{\lambda_1} \times \cdots \times U_{\lambda_n} \times \prod_{\lambda' \neq \lambda_1, \ldots, \lambda_n} X_{\lambda'}$と表せる開近傍を含む.
+	後者が各$\lambda$で$A_\lambda$と交わっているため, 前者も$\prod A_\lambda$と交わる.
+\end{proof}
+
+\begin{proof}
+	($\subset$):
+	$\topcl \left(\prod A_\lambda\right)$の点$x = (x_\lambda)_\lambda$を任意に与える.
+	$\prod A_\lambda$内のあるネット$(p_\alpha)_\alpha$が存在して$x$に収束する.
+	このとき各$\lambda$について, $A_\lambda$内のネット$\proj_\lambda (p_\alpha)$が$x_\lambda$に収束しているから$x_\lambda \in \topcl A_\lambda$である.
+	よって$x \in \prod \topcl A_\lambda$である.
+
+	($\supset$):
+	逆の包含を示す.
+	点$x = (x_\lambda) \in \prod \topcl A_\lambda$を任意に与える.
+	各$\lambda$について, $A_\lambda$内のネット$\setfamily{p^\lambda_\alpha}{\alpha \in \directedA_\lambda}$が存在して$x_\lambda$に収束する.
+	このとき, 有向集合$\directedA \defeq \prod \directedA_\lambda$で添字づけられたネット$\setfamily{(p^\lambda_{\alpha_\lambda})_\lambda}{(\alpha_\lambda)_\lambda \in \directedA}$は$\prod A_\lambda$内にあり, また$x$に収束している.
+	よって$x \in \topcl \prod A_\lambda$である.
+\end{proof}
+
+\end{document}

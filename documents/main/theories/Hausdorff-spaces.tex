@@ -1,0 +1,23 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\Hausdorff 空間}
+\label{sec:Hausdorff-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexj{T2 くうかん}{\topT{2}空間}あるいは\indexj{Hausdorff くうかん}{Hausdorff 空間}であるとは, \topT{0}かつ前正則空間であることである.
+\end{definition}
+
+\begin{proposition}
+	位相空間$ X $について以下の条件は同値である:
+	\begin{enumerate}
+		\item $ X $が\topT{2}空間である.
+		\item $ X $の相異なる2点$ x, y $に対し, 互いに交わらない開集合$ G, G^\prime $が存在して$ x \in G$かつ$ y \in G^\prime $となる.　つまり$ x, y $が近接していない.
+		\item $ X $上の任意のフィルターの極限点が高々1点である.
+		\item $ W $を位相空間, $ W_0 $を$ W $の稠密部分集合, $ f_0 \colon W_0 \rightarrow X $を連続写像とする. このとき$ f_0 $の$ W $への連続な拡張$ f \colon W \rightarrow X$が高々1つである.
+	\end{enumerate}
+\end{proposition}
+
+\end{document}

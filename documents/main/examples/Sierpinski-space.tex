@@ -1,0 +1,18 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\Sierpinski Space}
+\label{ex:Sierpinski-space}
+
+集合$ X = \{0, 1\}$上の位相を$ \tau = \{\emptyset, \{1\}, \{0, 1\}\} $によって定めるとき, 位相空間$ (X, \tau) $を\indexe{\Sierpinski Space}という.
+
+$ \tau $は有限集合なのでコンパクトかつ第二可算である. 位相空間$ X $上の特殊化順序を$ \leq $と書くことにすると次が成り立つ:
+$$ 0 \leq 0,\quad  0 \leq 1,\quad 1 \leq 1. $$
+このことから, $ X $は\topT{0}であることが分かる. しかし, 特殊化順序$ \leq $は対称的でないので$ X $は\topT{1}でない.
+また, 2つの非空閉集合であって交わらないものは存在しないので$ X $は正規（継承的正規であることも容易に分かる）であるが, 閉集合$ \{0\} $は \Gdelta 集合でないので$ X $は完全正規でない.
+
+連結性については, 写像$ f \colon \I \to X $を$ f(0) = 0, \ f(t) = 1 \ \left(t \in \intoc{0}{1}\right) $によって定めると$ f $が連続であることから$ X $が弧状連結であることが分かる. 一点集合上の位相が連結であることと合わせると, $ X $が局所弧状連結であることも分かる.
+
+\end{document}

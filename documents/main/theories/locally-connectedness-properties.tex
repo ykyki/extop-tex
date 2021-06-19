@@ -1,0 +1,50 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{局所的な連結性}
+\label{sec:locally-connectedness-properties}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{じゃくきょくしょれんけつ}{弱局所連結}{weakly locally connected}であるとは, $ X $の各点が少なくとも1つ連結近傍を持つことである. 連結の部分を弧状連結に置き換えて\indexjj{じゃくきょくしょこじょうれんけつ}{弱局所弧状連結}{weakly locally path connected}であるという.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{きょくしょれんけつ}{局所連結}{locally connected}であるとは, $ X $の全ての点に対し, 連結な近傍からなる近傍基が存在することである. 連結の部分を弧状連結に置き換えて\indexjj{きょくしょこじょうれんけつ}{局所弧状連結}{locally path connected}の定義を得る.
+\end{definition}
+
+\begin{proposition}
+	\label{prop:LocCtd<>Every component of all open subset U is open in X}
+	位相空間$ X $が局所連結であることと,任意の開集合$ U $の連結成分が$ X $の開集合になることは同値である.
+\end{proposition}
+
+\begin{proposition}
+	\label{prop:LocPathCtd<>Every pathcomponent of all open subset U is open in X}
+	位相空間$ X $が局所弧状連結であることと,任意の開集合$ U $の弧状連結成分が$ X $の開集合になることは同値である.
+\end{proposition}
+
+\begin{proposition}
+	\label{prop:LocPathCtd>LocCtd}
+	位相空間$ X $が局所弧状連結ならば局所連結である.
+\end{proposition}
+
+\begin{proposition}
+	\label{prop:Quotient maps preserve LocPathCtd}
+	$f\colon X\to Y$を全射な商写像とする. このとき, $X$が局所弧状連結ならば$Y$も局所弧状連結である.
+\end{proposition}
+
+\begin{proof}
+	$Y$の任意の開集合$U$においてその弧状連結成分$C$が$Y$の開集合であることを示せばよい.
+	$C\neq \emptyset$かつ $f$が全射であることから$ f^{-1}[C]$は空でない. $x\in f^{-1}[C]$をとり, $x$を含む$X$の連結成分$C_x$を$C_x \subset f^{-1}[U]$を満たすようにとる. このとき, $f[C_x] \subset ff^{-1}[U]=U$は$f(x)$
+	を含む弧状連結集合なので$f[C_x]\subset C$となる.よって, $C_x\subset f^{-1}f[C_x]\subset f^{-1}[C]$より$C_x\subset f^{-1}[C]$. いま, $X$は局所弧状連結なので
+	$C_x$は開集合であり, $f^{-1}[C]=\bigcup_{x\in f^{-1}[C]}C_x$は$X$の開集合である.  $f$が商写像であることから, $C$は$Y$の開集合である.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Ctd + LocCtd > PathCtd}
+	連結かつ局所弧状連結な空間は弧状連結である.
+\end{proposition}
+
+
+\end{document}

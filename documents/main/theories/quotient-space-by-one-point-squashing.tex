@@ -1,0 +1,124 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{部分集合を一点に縮めた空間}
+\label{sec:quotient-space-by-one-point-squashing}
+
+\begin{definition}
+	位相空間$X$と空でない部分集合$A$について, $A$の点を全て一点$\pt$に同一視して得られる空間を$X / A$で表し, この空間のことを$A$を\indexj{いってんにちぢめたくうかん}{一点に縮めた空間}よぶ.
+	つまり, $X$上の同値関係
+		\[x \sim y \defarw x = y \text{または} x, y \in A\]
+	による商空間$X / {\sim}$のことである.
+
+	記述を簡単にするために, $X / A$のこの定義を同値な次の構成に修正する:
+	$X$に属さない一点$\pt$をとり, 集合$X / A \defeq (X \setminus A) \cup \{\pt\}$上に全射
+		\begin{align*}
+			X \rightarrow X / A &\semicolon x \mapsto
+			\begin{cases}
+				\pt & x \in A\\
+				x & x \not\in A
+			\end{cases}
+		\end{align*}
+	から定まる商位相をいれて得られる空間のことを$X/A$と書く.
+	このとき, $X/A$の部分集合は集合$S \subset X \setminus A$を用いて$S$または$S \cup \{\pt\}$と一意的に表せる.
+	また, $X$の部分集合$T$のこの全射による像も単に$T$で表すことにする.
+	例えば, $T \cap A \neq \emptyset$であるときには$X/A$において$T = (T \setminus A) \cup \{\pt\} $である.
+\end{definition}
+
+\begin{proposition}
+	$`X$を位相空間, $A$を空でない部分集合とする.
+	$X$の部分集合$T$が$X/A$において開になるための必要十分条件は次の\maru{1}または\maru{2}のどちらかが成り立つことである: \maru{1} $T \cap A = \emptyset$かつ$T$は$X$で開である, \maru{2} $T \cap A \neq \emptyset$かつ$T \cup A$が$X$で開である.
+	特に, $X$の開集合$G$が$G \cap A = \emptyset$または$A \subset G$を満たすとき, $G$は$X/A$においても開である.
+	同様のことが閉集合についても成り立つ.
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	\label{prop:closure in X/A}
+	$X$を位相空間, $A$を空でない部分集合とする.
+		\begin{enumerate}
+			\item 点$p \in X \setminus A$と集合$S \subset X \setminus A$について, $p \in \topcl_{X/A} S$となるための必要十分条件は次の\maru{1}, \maru{2}のどちらかが成り立つことである:
+				\maru{1} $p \in \topcl_X A$かつ$(A \cup \{p\}) \cap \topcl_X S \neq \emptyset $である,
+				\maru{2} $p \not\in \topcl_X A$かつ$p \in \topcl_X S$である.
+			\item 点$\pt \in X/A$と集合$S \subset X \setminus A$について, $\pt \in \topcl_{X/A} S$となるための必要十分条件は$A \cap \topcl_X S \neq \emptyset$となることである.
+			\item 点$\pt$の閉包は$X/A$において$\topcl_{X/A} \{\pt\} = \topcl_X A$である.
+		\end{enumerate}
+		\qed
+\end{proposition}
+
+\begin{corollary}
+	$X$を位相空間, $A$を空でない部分集合とする. 集合$S \subset X \setminus A$の$X/A$における閉包は
+		\begin{align*}
+			\topcl_{X/A} S &=
+				\begin{cases}
+					\topcl_X S & A \cap \topcl_X S = \emptyset \text{のとき}\\
+					\topcl_X S \cup \topcl_X A & A \cap \topcl_X S \neq \emptyset \text{のとき}
+				\end{cases}
+		\end{align*}
+	である. \qed
+\end{corollary}
+
+\begin{proposition}
+	$X$を位相空間, $A$を空でない閉集合とする.
+	このとき, 部分空間$X \setminus A \subset X/A$の位相は$X$の部分空間としての位相と一致する.
+	$A$が開である場合にも同様のことが成り立つ.
+\end{proposition}
+\begin{proof}
+	$X \setminus A$が$X/A$でも$X$でも開集合であることに注意すればよい.
+\end{proof}
+
+\begin{proposition}
+	$X$を位相空間, $A$を空でない閉集合とする.
+		\begin{enumerate}
+			\item $X$が\topT{1}ならば$X/A$も\topT{1}である.
+			\item $X$が\topT{3}ならば$X/A$は\topT{2}である.
+			\item $X$が\topT{4}ならば$X/A$も\topT{4}である.
+		\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(1): $A$が閉であるから.
+
+	(2): 相異なる2点$p, q \in X/A$が与えられたとする.
+	$p, q \in X \setminus A$であるときには, $p, q$の$X$における互いに交わらない開近傍$U, V$をどちらも$A$と交わらないようにとれば, これらが$X/A$における開近傍になっている.
+	$q = \pt$ときには, $p$と$A$の$X$における互いに交わらない開近傍$U, V$をとればよい.
+
+	(3): 互いに交わらない閉集合$E, F$が与えられたとする.
+	$E, F$がどちらも$\pt$を元にもたないときには, $E, F \subset X \setminus A$の$X$における互いに交わらない開近傍$U, V$を$A$と交わらないようにとればよい.
+	$\pt \in F$であるときには, $E, F \cup A$の$X$における互いに交わらない開近傍をとればよい.
+\end{proof}
+
+\begin{remark}
+	$X$が\topT{2}であっても$X/A$が\topT{2}であるとは限らない:
+	$X$を\topT{2}であるが\topT{3}でない空間とし, 点$x$と閉集合$A$が開近傍で分離できないとする.
+	このとき$X/A$は2点$x, \pt$を開近傍で分離できないため\topT{2}ではない.
+\end{remark}
+
+\begin{remark}
+	$X$が\topT{3}であっても$X/A$が\topT{3}であるとは限らない:
+	$X$を\topT{3}であるが\topT{4}でない空間とし, 閉集合$E, F$が開集合で分離できないとする.
+	このとき$X/E$において点$\pt$と閉集合$F$が開集合で分離できない.
+\end{remark}
+
+\begin{proposition}
+	$X$を位相空間, $A$を空でない部分集合とする.
+	$X$が\Frechet であれば $X/A$も\Frechet である.
+\end{proposition}
+
+\begin{proof}
+	以下のように2つの場合に分解して考えれば十分である.
+	命題\ref{prop:closure in X/A}とその系を用いる.
+
+	$X \setminus A$の部分集合$S$と点$p \in X/A$について$p \in \topcl_{X/A} S$であるとする.
+	$X/A$において$p \in \topcl_X S$ならば, $X$において$p$に収束する$S$内の列$(a_n)$をとればこれが$X/A$においても$p$にも収束している.
+	$p \in \topcl_X A \setminus \topcl_X S$とする.
+	$A \cap \topcl_X S \neq \emptyset$より, $X$において点$q \in A$に収束する$S$内の列$(a_n)$が存在する.
+	$X/A$において$(a_n)$が$\pt$に収束している.
+	$p \in \topcl_{X/A} \{\pt\}$より, $(a_n)$は$p$にも収束する.
+
+	次に, 一点集合$\{\pt\}$と点$p$について$p \in \topcl_{X/A} \{\pt\}$であるとする.
+	この場合は列$\pt, \pt, \ldots$が$X/A$において$p$に収束している.
+\end{proof}
+
+\end{document}

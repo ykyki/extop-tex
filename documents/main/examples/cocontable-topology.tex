@@ -1,0 +1,113 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{非可算集合上の補可算位相}
+\label{ex:cocontable-topology}
+
+\newcommand{\locref}[1]{\ref{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+\newcommand{\loclabel}[1]{\label{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+
+$X$を非可算集合に補可算位相をいれた空間とする.次のような性質が成り立つ.
+
+\begin{property}
+	\loclabel{property:5.a}
+	可算個の空でない開集合からなる族を$\mathcal{U}$とする.このとき、$\cap\ \mathcal{U}$は空でない開集合である.このことから,特に空でない二つの開集合は常に交差することがわかる.
+\end{property}
+
+\begin{proof}
+$\mathcal{U}=\setcomp{U_n}{n \in \N}$とし,\ $\mathcal{F}=\setcomp{F_n}{F_n = \complement \ U_n,\ n \in \N}$とおく.このとき,
+$$\complement\left(\bigcap_{n \in \N} U_n\right)=\bigcup_{n\in\N}F_n\ .$$
+$F_n$は可算なので,その可算和も可算集合である.ゆえに,\ $X\setminus\bigcup_{n \in \N}F_n \neq \emptyset$より$\cap\ \mathcal{U}$は空でない開集合である.
+\end{proof}
+
+\begin{property}
+	\loclabel{property:5.b}
+	$X$の任意の部分空間は,再び補可算位相空間である.特に,可算集合上の補可算位相は離散位相になることに注意.
+\end{property}
+
+\begin{property}
+	\loclabel{property:5.c}
+	$X$上の点列$(a_n)$が収束するための必要十分条件は,\ $(a_n)$がeventually constantであることである.また,\ $X$の収束点列の極限はただ一つである.
+\end{property}
+
+\begin{proof}
+$(a_n)$がeventually constantなとき,収束することは明らか.
+$(a_n)$を点$a$に収束する点列とする.\ もし仮に,任意の$n \in \N$に対して, $a_m \neq a$なる$m \geq n$が存在するとき,部分列$(b_n)$で任意の$n \in \N$について$b_n \neq a$となるものがとれる.このとき,\ $U = X \setminus \setcomp{b_n}{n \in \N}$は$a$の近傍なので$(b_n)$は$a$に収束しない.これは, $(a_n)$が$a$に収束することに矛盾する.よって, $(a_n)$はeventually constantでなければならない.
+極限が一意的であることは,\ $U$の取り方から明らか.
+\end{proof}
+
+\begin{property}
+	$X$は可算メタコンパクトでない.
+\end{property}
+
+\begin{proof}
+	$A=\setcomp{a_n\in X}{n \in \N}$を$i \neq j\ \rimp\ a_i\neq a_j$なる$X$の部分集合とする.各$n \in \N$に対して, $F_n = A \setminus \{a_n\},\ U_n = X \setminus F_n$と定めると,\ $\mathcal{U} = \{U_n\}_{n\in\N}$は$X$の可算開被覆になる.このとき,\ $\mathcal{U}$の細分となる$X$の開被覆${\cal V}$の濃度は可算無限以上である.なぜなら,任意の$n\in\N$について$a_n$を含む$\mathcal{U}$の元は$U_n$のみなので,\ $a_i\neq a_j$に対して$a_i\in V_i,\ a_j\in V_j$なる$V_i,V_j\in{\cal V}$は異なるからである.よって, 性質\locref{property:5.a}より$X$の元であって$\mathcal{V}$の可算無限個の元に含まれるものが存在するので$\mathcal{V}$は点有限でない.
+\end{proof}
+
+一般に、コンパクト \rimp パラコンパクト \rimp メタコンパクト \rimp 可算メタコンパクトが成り立つので$X$は,コンパクトでもパラコンパクトでもメタコンパクトでもないことがわかる.
+
+\begin{property}
+	$X$は, \Lindelof かつオルソコンパクトである.
+\end{property}
+
+\begin{proof}
+	まず, \Lindelof 性を示す.\ $\mathcal{U}$を任意の開被覆とする.\ 空でない$U_0\in \mathcal{U}$をとると$\complement\ U_0=\{x_1,x_2,x_3,\cdots\}$と書ける.
+	このとき、任意の正整数$n$に対して$x_n\in U_n$を満たす$\mathcal{U}$の元が存在する.よって,\ $\mathcal{U}'=\{U_n\}_{n\in\N}$とおけば$\mathcal{U}'$は$X$の可算開被覆になる.
+	
+	次に,オルソコンパクトであることを示す. 性質 \locref{property:5.a} より任意の可算開被覆$\{U_n\}_{n\in\N}$がinterior preservingであることがわかる.いま,任意の開被覆が可算部分被覆を持つことと合わせるとオルソコンパクトであることがわかる.
+\end{proof}
+
+\begin{property}
+	\loclabel{property:5.f}
+	$X$のコンパクト部分集合(\Lindelof なので可算コンパクトと同値)は,有限集合である.
+\end{property}
+
+\begin{proof}
+	性質 \locref{property:5.b} より,$X$の可算無限な部分集合は離散空間になるのでコンパクトでない.また,非可算な部分空間も補可算空間なのでコンパクトでない.よって,有限集合でなければコンパクトでない.
+\end{proof}
+
+\begin{property}
+	$X$は \Hausdorff 空間でないが,\ C-closedである.
+\end{property}
+
+\begin{proof}
+	性質 \locref{property:5.a} より, $X$の空でない2つの開集合は交わるのでHausdorffでない.しかし, 性質 \locref{property:5.f} よりコンパクト集合は閉集合になる.
+\end{proof}
+
+このことから, KC-closed, SC-closed, 点列\Hausdorff, \topT{1}であることがわかる.
+
+\begin{property}
+	$X$は連結かつ局所連結である.
+\end{property}
+
+\begin{proof}
+	連結であることは性質 \locref{property:5.a} からわかる.さらに,任意の開集合はそれを部分空間とみると非可算な補可算位相空間なので連結であることから局所連結でもある.
+\end{proof}
+
+\begin{property}
+	$X$は,弧状連結でも局所弧状連結でもない.
+\end{property}
+
+\begin{proof}
+	$f \colon \I \to X$を連続写像とすると,\ $f[\I]$はコンパクトなので性質 \locref{property:5.f} より,\ $f[\I]$は有限集合である.また、$f[\I]$は連結でもあるから$f[\I]$は一点集合でなければならない.よって、$X$の異なる2点を結ぶpathは存在しない.また、任意の開集合も非可算な補可算空間なので弧状連結でないため局所弧状連結でもない.
+\end{proof}
+
+\begin{property}
+	$X$は列型でない.
+\end{property}
+
+\begin{proof}
+	性質 \locref{property:5.c} より, 開集合$X$は点列閉であるが閉集合ではないので列型ではない.
+\end{proof}
+
+\begin{property}
+	$X$は可分でないが,\ c.c.c.を満たす.
+\end{property}
+
+\begin{proof}
+	$X$の任意の可算集合は閉集合なので,その閉包は$X$でないため可分でない.また, 性質 \locref{property:5.a} よりc.c.c.であることがわかる.
+\end{proof}
+
+\end{document}

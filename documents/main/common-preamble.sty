@@ -1,0 +1,90 @@
+\usepackage[subpreambles=false]{standalone}
+\usepackage{import}
+
+\import{../config/}{colors.sty}
+\import{../config/}{environments.sty}
+
+\usepackage[
+	dvipdfmx,
+	setpagesize=false,
+	bookmarksnumbered,
+	colorlinks
+]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	citecolor=orange,
+	linkcolor=blue,
+	% linkcolor=teal,
+	% linkcolor=airforceblue,
+	% linkcolor=bleudefrance,
+	urlcolor=cyan,
+}
+% theorem 環境を定義するパッケージ → hyperref → cleveref の順番で読み込む必要がある
+\usepackage[nameinlink]{cleveref}
+\usepackage{url}
+
+\theoremstyle{plain}
+\theoremsymbol{\ensuremath{\square}}
+\newtheorem{theorem}     {定理} [section]
+\newtheorem{definition}  [theorem] {定義}
+\newtheorem{proposition} [theorem] {命題}
+\newtheorem{lemma}       [theorem] {補題}
+\newtheorem{corollary}   [theorem] {系}
+\newtheorem{problem}     [theorem] {問題}
+\newtheorem{remark}      [theorem] {注意}
+\newtheorem{example}     [theorem] {例}
+\newtheorem{property}    [theorem] {性質}
+
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem{proof}[theorem]{証明}
+
+\crefformat{part}    {#2第#1部#3}
+\crefformat{chapter} {#2第#1章#3}
+\crefformat{section} {#2第#1節#3}
+
+\crefname{theorem}     {定理} {定理}
+\crefname{definition}  {定義} {定義}
+\crefname{proposition} {命題} {命題}
+\crefname{lemma}       {補題} {補題}
+\crefname{corollary}   {補題} {補題}
+\crefname{problem}     {補題} {補題}
+\crefname{proof}       {証明} {証明}
+\crefname{remark}      {注意} {注意}
+\crefname{example}     {例}   {例}
+\crefname{property}    {性質} {性質}
+
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\labelenumii}{(\alph{enumii})}
+\renewcommand{\labelenumiii}{(\roman{enumiii})}
+
+% section 番号の後にピリオド追加
+\makeatletter
+	\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\quad}
+\makeatother
+
+\newcommand{\indexj}[2]{\index{#1@#2}\textbf{#2}}
+\newcommand{\indexjj}[3]{\index{#1@#2}\textbf{#2}(\index{#3}#3)}
+\newcommand{\indexe}[1]{\index{#1}\textbf{#1}}
+\newcommand{\maru}[1]{(#1)}
+
+\newcommand{\setlayout}[1]{
+	\gdef\layoutname{#1}
+	% \typeout{>>> setlayout: \layoutname}
+}
+\setlayout{develop}% default
+\AtEndPreamble{
+	% \typeout{>>> accepted layout: \layoutname}
+
+	% 2回遡ってファイルを探索する
+	\IfFileExists{../config/layouts/\layoutname.sty}
+	{\usepackage{../config/layouts/\layoutname}}
+	{
+		\IfFileExists{../../config/layouts/\layoutname.sty}
+		{\usepackage{../../config/layouts/\layoutname}}
+		{
+			% Not Found
+		}
+	}
+}
+
+\import{../config/}{global-commands.sty}

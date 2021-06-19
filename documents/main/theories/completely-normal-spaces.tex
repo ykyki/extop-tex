@@ -1,0 +1,32 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{完全正規空間}
+\label{sec:completely-normal-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{かんぜんせいき}{完全正規}{perfectly normal}であるとは, $ X $の任意の閉集合が\Gdelta 集合になることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexj{T6 くうかん}{\topT{6}空間}であるとは, 完全正規かつ\topT{0}となることである.
+\end{definition}
+
+\begin{proposition}
+	\label{prop:T_3 + hLind. implies T_6}
+	位相空間$X$が \topT{3}かつ継承的 \Lindelof ならば \topT{6}である.
+\end{proposition}
+\begin{proof}
+	$X$の任意の開集合が \Fsigma 集合になることを示せばよい. $U$を$X$の任意の開集合とする. 任意の$x\in U$に対して, $x\in U_x\subset U$を満たす開集合$U_x$が存在し, 
+	${\cal U}=\{U_x\}_{x\in U}$は$U$の開被覆になる. $U$が \topT{3} であることから$\topcl {\cal V}< {\cal U}$を満たす開被覆${\cal V}$が存在する.また, 
+	$U$が \Lindelof であることから可算部分被覆${\cal W}\subset {\cal V}$が存在する.
+	よって, $U=\bigcup {\cal W}=\bigcup \topcl {\cal W}$となる.
+\end{proof}
+
+\begin{proposition}
+	距離化可能ならば完全正規.
+\end{proposition}
+
+\end{document}

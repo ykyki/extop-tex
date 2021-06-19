@@ -1,0 +1,118 @@
+\RequirePackage{plautopatch}
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt]{jsarticle}
+\usepackage{import}
+\import{./}{A01-scrap-preamble.sty}
+% \setlayout{article}
+
+\import{../config/}{environments.sty}
+\theoremstyle{plain}
+\theoremsymbol{\ensuremath{\square}}
+\newtheorem{theorem}{定理}
+\renewcommand{\theoremautorefname}{定理}
+\newaliastheorem{definition}  {theorem} {定義}
+\newaliastheorem{proposition} {theorem} {命題}
+\newaliastheorem{lemma}       {theorem} {補題}
+\newaliastheorem{problem}     {theorem} {問題}
+\newaliastheorem{corollary}   {theorem} {系}
+\theoremstyle{nonumberplain}
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem{proof}{証明}
+
+\providecommand{\lrparen}[1]{\mleft(#1\mright)}
+\providecommand{\lrbrace}[1]{\mleft\{#1\mright\}}
+\providecommand{\lrbracket}[1]{\mleft[#1\mright]}
+\providecommand{\lrangbracket}[1]{\mleft\langle#1\mright\rangle}
+\providecommand{\lrparenbig}[1]{\bigl({#1}\bigr)}
+\providecommand{\lrparenBig}[1]{\Bigl({#1}\Bigr)}
+\providecommand{\lrparenbigg}[1]{\biggl({#1}\biggr)}
+\providecommand{\lrparenBigg}[1]{\Biggl({#1}\Biggr)}
+\providecommand{\existsparen}[1]{\bigl({\exists{#1}}\bigr)}
+\providecommand{\forallparen}[1]{\bigl({\forall{#1}}\bigr)}
+\providecommand{\formulaparen}[1]{\bigl({#1}\bigr)}
+
+\providecommand{\mapschema}[3]{
+	\def\tmp{#1}
+	\def\tmpempty{}
+	\ifx\tmp\tmpempty
+		#2\to#3
+	\else
+		#1\relax\colon#2\to#3
+	\fi
+}
+\providecommand{\abs}[1]{\left|#1\right|}
+\providecommand{\openint}[2]{\lrparen{#1, #2}}
+\providecommand{\closedint}[2]{\lrbracket{#1, #2}}
+
+\begin{document}
+次のツイート (\url{https://twitter.com/s52GCQ2efiD6NZb/status/1365483548468158469}) で言及されていた問題を解く.
+以下, 閉区間といえば有界かつ長さが正であるものとする.
+
+\begin{problem}
+	\label{prob:the}
+	連続関数$\mapschema{f}{\R}{\R}$が次の条件を満たすとする:
+	\[\forallparen{\delta > 0}\lrparenBig{\lim_{n \to \infty} f(n \delta) = 0} \ . \]
+	このとき$\lim_{x \to \infty} f(x) = 0$が成り立つ.
+\end{problem}
+
+\begin{lemma}
+	\label{lem:the}
+	2つの正の実数$a < b$により定義される閉区間$I \defeq \closedint{a}{b}$を考える.
+	自然数$n$に対して$nI \defeq \closedint{na}{nb}$とおく.
+	このとき, ある正の実数$r$が存在して, 開区間$\openint{r}{\infty} \defeq \setcomp{x \in \R}{r < x}$について
+	\[\openint{r}{\infty} \ \subset\ \bigcup_{n \in \N} nI\]
+	が成り立つ.
+\end{lemma}
+
+\begin{proof}[\autoref{lem:the}]
+	等式$\lim_{n \to \infty} \dfrac{n+1}{n} = 1$より, ある自然数$N$が存在し, $N$以上の任意の$n$では$(n+1)a < nb$が成り立つ.
+	そこで$r \defeq Na$とおく.
+	すると任意の$x > r$について, 不等式$na < x \leq (n+1)a$を満たすような自然数$n$を取れば$n \geq N$となっており, よって$x \in nI$となる.
+\end{proof}
+
+\begin{proof}[\autoref{prob:the}]
+	対偶を示す.
+	ある正の実数$\epsilon_0$が存在し, 集合
+	\[A \defeq \setcomp{x \in \R}{\abs{f(x)} > \epsilon_0}\]
+	が上に非有界になる.
+	関数$f$の連続性より$A$は開集合である.
+
+	自然数と閉区間のペアからなる列$(k_n, I_n)_{n \in \N}$であって, 条件
+	\begin{itemize}
+		\item $k_n < k_{n+1}$,
+		\item $I_n \supset I_{n+1}$,
+		\item $k_n I_n \subset A$かつ$I_n \subset \openint{0}{\infty}$
+	\end{itemize}
+	を満たすものを以下ようにして再帰的に構成する.
+	まず$n = 0$については, $k_0 \defeq 1$として適当に$I_0$を取ればよい.
+	次に, $n$まで$k_n, I_n$が定義されたとする.
+	\autoref{lem:the}より
+	\[A \cap \bigcup_{m > k_n} m I_n \ \neq\ \emptyset\]
+	である.
+	そこでこの共通部分から点$x$をひとつ取る.
+	自然数$m_0 > k_n$が存在して$x \in m_0 I_n$となる.
+	ここで$k_{n+1} \defeq m_0$とおく.
+	$A$が開集合であったから, 閉区間$I_{n+1}$であって$I_{n+1} \subset I_n$かつ$x \in k_{n+1} I_{n+1} \subset A$を満たすものが存在する.
+
+	列$(k_n, I_n)_{n \in \N}$を作ることができた.
+	構成方法より, 正の実数$\delta_0 \in \bigcap_{n \in \N} I_n$が存在する.
+	すると任意の$n \in \N$について, $k_n \delta_0 \in k_n I_n \subset A$より$\abs{f(k_n \delta_0)} > \epsilon_0$となる.
+	よって$\lim_{n \to \infty}f(n \delta_0) = 0$ではない.
+\end{proof}
+
+\begin{proof}[\autoref{prob:the}]
+	開集合$A$を定義するところまでは上の証明と同じ.
+	自然数$n$に対し, 集合$G_n$を
+	\[G_n \ \defeq\ \setcomp{x \in \R}{x > 0 \text{かつ} nx \in A}\]
+	とおく.
+	$A$が開集合であったから$G_n$も開集合である.
+	さらに, 自然数$m$に対して集合$H_m$を
+	\[H_m \ \defeq\ \bigcup_{n \geq m} G_n\]
+	とおく.
+	$H_m$も開集合である.
+	\autoref{lem:the}より, $H_m$は開区間$\openint{0}{\infty}$の稠密部分集合である.
+	よって\Baire の範疇性定理より, 共通部分$\bigcap_{m \in \N} H_m$も稠密部分集合である.
+	そこで点$\delta_0 \in H_m$をひとつ取れば, この点について$\lim_{n \to \infty} f(n\delta_0) = 0$が成立しない.
+\end{proof}
+
+\end{document}
+

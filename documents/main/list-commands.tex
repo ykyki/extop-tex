@@ -1,0 +1,62 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{common-preamble.sty}
+% \setlayout{product}
+% \setlayout{develop}
+% \setlayout{review}
+
+\usepackage{glossaries}
+% \makeglossaries
+\makenoidxglossaries
+
+\def\commandStyle{\ttfamily\color{darkcyan}}
+\let\bs\textbackslash
+
+\newglossaryentry{N}{
+	name        = {\commandStyle \bs N},
+	symbol      = {$\N$},
+	description = {自然数全体の集合}
+}
+\newglossaryentry{topint1}{
+	name        = {\commandStyle \bs topint\_X A},
+	symbol      = {$\topint_X A$},
+	description = {空間$X$の部分集合$A$の内部 (interior) を表す}
+}
+\newglossaryentry{topint2}{
+	name        = {\commandStyle \bs topint A},
+	symbol      = {$\topint A$},
+	description = {部分集合$A$の内部 (interior) を表す}
+}
+\newglossaryentry{topcl1}{
+	name        = {\commandStyle \bs topcl\_X A},
+	symbol      = {$\topcl_X A$},
+	description = {空間$X$の部分集合$A$の閉包 (closure) を表す}
+}
+\newglossaryentry{topcl2}{
+	name        = {\commandStyle \bs topcl A},
+	symbol      = {$\topcl A$},
+	description = {部分集合$A$の閉包 (closure) を表す}
+}
+
+
+\begin{document}
+
+\glsaddall % 全てのコマンドを表示するようにする
+
+% \printglossaries
+% \printglossary[
+% 	title={コマンド一覧},
+% 	toctitle={コマンド一覧},
+% 	nonumberlist,
+% 	style=long4col
+% ]
+
+\printnoidxglossary[
+	title={コマンド一覧},
+	toctitle={コマンド一覧},
+	nonumberlist,
+	sort=def,
+	style=long4col
+]
+
+\end{document}

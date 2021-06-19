@@ -1,0 +1,56 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\texorpdfstring{$ \Q^\star \times \Q^\star $}{Q\^{*} × Q\^{*}}}
+\label{ex:double-Q-star}
+
+$ \Q^\star = \Q \cup \{\bigstar\} $で$ \Q $の一点コンパクト化を表す.
+
+\begin{property}
+	$ \Q^\star \times \Q^\star $はコンパクトである.
+\end{property}
+
+\begin{property}
+	\label{property:Product of Q^star is weakly Hausdorff}
+	$ \Q^\star \times \Q^\star $は弱 \Hausdorff である.
+\end{property}
+\begin{proof}
+	弱 \Hausdorff 空間の積空間もまた弱 \Hausdorff である.
+\end{proof}
+
+\begin{property}
+	\label{property:Product of Q^star is not KC-closed}
+	$ \Q^\star \times \Q^\star $は KC-closed でない.
+\end{property}
+\begin{proof}
+	対角集合$ D \defeq \setcomp{(x, y) \in \Q^\star \times \Q^\star}{x = y} $は$ \Q^\star $と同相なのでコンパクトである. しかし, $ \Q^\star $が \Hausdorff でないことから$ D $は閉集合でない.
+\end{proof}
+
+\begin{property}
+	$ \Q^\star \times \Q^\star $は連結であるが弧状連結でない.
+\end{property}
+\begin{proof}
+	$ \Q^\star $が連結なので$ \Q^\star \times \Q^\star $も連結である. 一方, $ \Q^\star \times \Q^\star $は可算な \topT{1} 空間なので定理\ref{thm:Sierpinski_continuum}より弧状連結でない.
+\end{proof}
+
+\begin{property}
+	$ \Q^\star \times \Q^\star $は局所連結でない.
+\end{property}
+\begin{proof}
+	$ \Q \times \Q $が局所連結でないから.
+\end{proof}
+
+\begin{property}
+	$ \Q^\star \times \Q^\star $は列型でない.
+\end{property}
+\begin{proof}
+	列型空間においては KC-closed であることと弱 \Hausdorff であることは同値になるが, $ \Q^\star \times \Q^\star $は弱 \Hausdorff であるが KC-closed でないため列型でない.
+\end{proof}
+
+\begin{property}
+	$ \Q^\star \times \Q^\star $は countably tight である.
+\end{property}
+
+\end{document}

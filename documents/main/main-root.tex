@@ -1,0 +1,55 @@
+\RequirePackage{plautopatch}
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt]{jsbook}
+\usepackage{import}
+\import{./}{common-preamble.sty}
+\setlayout{product}
+
+\usepackage{makeidx}
+\makeindex
+\usepackage[
+	style   = alphabetic,
+	sorting = nyt,
+	doi     = false,
+	isbn    = false,
+	url     = false,
+	eprint  = false
+]{biblatex}
+\addbibresource{../bibliography/papers.bib}
+\addbibresource{../bibliography/papers-ja.bib}
+\addbibresource{../bibliography/miscellaneous.bib}
+
+\begin{document}
+
+\title{位相空間・具体例愛好会}
+\author{\ykyki, \chen}
+\date{\today}
+\maketitle
+
+\makeatletter
+	\hypersetup{
+		pdftitle={\@title},
+		pdfauthor={\@author}
+	}
+\makeatother
+
+\import{./}{preliminary}
+\tableofcontents
+
+\part{位相空間論}
+\label{part:theories}
+\import{./}{chapter-basics}
+\import{./}{chapter-constructions}
+\import{./}{chapter-separation-axioms}
+\import{./}{chapter-compactness}
+\import{./}{chapter-connectedness}
+
+\part{辞典}
+\label{part:dictionary}
+\import{./}{chapter-examples}
+
+\printindex
+
+% \nocite{*} % 確認のために全ての文献を表示
+\printbibliography[title=参考文献]
+
+\end{document}

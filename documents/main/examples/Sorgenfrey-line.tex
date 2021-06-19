@@ -1,0 +1,100 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\Sorgenfrey 直線}
+\label{example:Sorgenfrey-line}
+
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\locref}[1]{\ref{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+\newcommand{\loclabel}[1]{\label{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+
+実数全体の集合$ \R $の点$a \in \R$に対して$\mathcal{U}(a)$を$\mathcal{U}(a) = \setcomp{[a,b)}{b \in \R, a < b}$と定めると, $\mathcal{U} \defeq \setcomp{\mathcal{U}(a)}{a \in \R}$は$ \R $の近傍系をなす.この近傍系から定まる位相を$ \mathcal{O} $として位相空間$ (\R, \mathcal{O}) $を Sorgenfrey 直線といい, $ \bbS $で表す. $ \R $に \Euclid 距離から定まる位相をいれた空間$ (\R, \mathcal{O}_E)$を$ \mathbb{E} $で表すことにする.
+
+\begin{property}
+	\loclabel{property:a}
+	$ \bbS $の位相は$ \R $の位相よりも強い. すなわち, $\mathcal{O}_E \subset \mathcal{O}$である. また, 任意の$ a, b \in \R $ ($a < b$)について$ \intco{a}{b} $は開閉集合である.
+\end{property}
+
+\begin{proof}
+	任意の$ a, b \in \R $ ($a < b$)に対して, $ \intoo{a}{b} = \bigcup_{n \in \N} \intco{a+(b-a) \cdot 2^{-n}}{b}$とかけることからしたがう.$ \intco{a}{b} $が開閉集合であることは明らか.
+\end{proof}
+
+\begin{property}
+	$ \bbS $のコンパクト部分集合は, $ \mathbb{E} $ において可算濃度かつ nowhere dense である.したがって, $ \bbS $はコンパクトでも局所コンパクトでもない.
+\end{property}
+
+\begin{proof}
+	$ A \subset  \bbS $をコンパクト部分集合とすると, $ A $は$ \mathbb{E} $のコンパクト部分集合であるから$ \mathbb{E} $の有界閉集合である(空集合と一点集合の場合は明らかなのでそれ以外を考える). よって, $ A $は$ \bbS $の閉集合でもあり, 最大値$ b $と最小値$ a $をもつ. まず, $ A $が非可算集合であると仮定して矛盾を導く. 各$ n \in \N $に対して$ A_n \defeq \intco{a}{a+(b-a)\cdot2^{-n}} \cap A, B_n \defeq A_n \setminus A_{n+1} $と定める. ここで, ある$ m \in \N $で$ B_m $が無限であるとすると$ \mathscr{U} \defeq \setcomp{\intco{a}{c} \cap A}{c \in B_m} \cup \{\intco{a+(a-b)\cdot2^{-m}}{b}\cap A, \{b\}\}$は$ A $の開被覆であって有限部分被覆を持たないのでコンパクトであることに矛盾する. よって, 任意の$ n \in \N $について$ B_n $は有限でなければならない. このとき, $ \intoo{a}{b} \cap A = \bigcup_{n \in \N}B_n $であって, 左辺が非可算かつ右辺が可算であることに矛盾する. 次に, nowhere dense でないと仮定して矛盾を導く. 今, $ A $は$ \bbS $の閉集合なので$ \topint{A} \neq \emptyset $である. よって, $ a, b \in A $であって, $ \intco{a}{b} \subset A $を満たすものが存在する. このとき, $ \mathscr{U} \defeq \setcomp{\intco{a}{b-(b-a)\cdot2^{-n-1}}}{n \in \N} \cup \{\complement{\intco{a}{b}} \cap A\}$は$ A $の開被覆であって有限部分被覆を持たない.
+\end{proof}
+
+\begin{property}
+	$ \bbS $はパラコンパクトである.
+\end{property}
+
+\begin{proof}
+	後に示すように$ \bbS $が\topT{3}かつ \Lindelof であることからしたがう.
+\end{proof}
+
+\begin{property}
+	$ \bbS $は継承的 \Lindelof である.
+\end{property}
+
+\begin{proof}
+	$ \bbS $の任意の開集合$ G $についてその開被覆$ \mathscr{U} $が可算部分被覆を持つことを示せばよい.$ \mathscr{V} \defeq \setcomp{\topint_\mathbb{E}{U}}{U \in \mathscr{U}}, V \defeq \bigcup \mathscr{V} $とおくと$ \mathscr{V} $は$ V $の開被覆である. $ \mathbb{E} $が継承的 \Lindelof であることから, 可算部分被覆$ \mathscr{V}^{\prime} $が存在する. 後は$ A \defeq G \setminus V $が可算集合であることを示せばよい. 任意の$ a \in A $に対して$ a \in U_a$なる$ U_a \in \mathscr{U} $が存在するので, ある$ b_a \in \bbS $が存在して$ \intco{a}{b_a} \subset U_a$となるから$ \intoo{a}{b_a} \subset U_a $. このとき, 相異なる$ a, a^{\prime} \in A$に対して$ \intoo{a}{b_a} \cap \intoo{a^{\prime}}{b_{a^{\prime}}} = \emptyset $でなければならない. 実際, $ c \in \intoo{a}{b_a} \cap \intoo{a^{\prime}}{b_{a^{\prime}}} $とすると
+	$ a < a^\prime < c < b_a $または$ a^\prime < a < c < b_{a^\prime} $, 即ち$ a^\prime \notin A $または$ a \notin A $となり矛盾する. 各$ a \in A $について$ q_a \in \intoo{a}{b_a} \cap \Q $を一つ定めると$ a, a^\prime \in A $に対して$ a \neq a^\prime \rimp q_a \neq q_{a^\prime} $となるので$ A $は可算集合である.
+\end{proof}
+
+\begin{property}
+	$ \bbS $は\topT{6}である.
+\end{property}
+
+\begin{proof}
+	\topT{3} であることを示せば命題\ref{prop:T_3 + hLind. implies T_6}から \topT{6} であることがわかる. $ \bbS $が \topT{0} 空間であることは明らか. 任意の点$ x \in \bbS $とその任意の近傍$ U $に対して$ \intco{x}{y} \subset U $を満たす$ y \in \bbS $が存在する. このとき, 性質 \locref{property:a} より$ \intco{x}{y} $は$ x $の閉近傍なので命題 \ref{prop:A property equivalent to regularity} より, $ X $は\topT{3}である.
+\end{proof}
+
+\begin{property}
+	$ \bbS $は距離化可能でない.
+\end{property}
+
+\begin{proof}
+	性質\locref{property:h}, \locref{property:j} で示すように$ \bbS $は可分であるが第二可算でないので, 命題 \ref{prop:In a metric space, SecondCnt <> Separable <> Lindelof} より距離化可能でない.
+\end{proof}
+
+\begin{property}
+	$ \bbS $は完全不連結であって, 局所連結でない.	したがって, 弧状連結でも, 局所弧状連結でもない.
+\end{property}
+
+\begin{proof}
+	２点以上を含む任意の部分集合$ A $をとる.$ a, b \in A, a < b $とすると$ B \defeq \intco{b}{\infty} \cap A $は$ A $における開閉集合である. さらに, $ a \notin B $なので$ B \neq \emptyset, A $となり$ A $は連結集合でない. よって, $ \bbS $は完全不連結である. また, $ \bbS $の一点集合は開集合でないので局所連結でない.
+\end{proof}
+
+\begin{property}
+	\loclabel{property:h}
+	$ \bbS $は, 第二可算でない.
+\end{property}
+
+\begin{proof}
+	可算開基$ \mathscr{B} \defeq \{U_n\} $が存在したと仮定して矛盾を導く. 任意の$ x \in \bbS $に対して$ V_x \defeq \intco{x}{x+1} $とする. このとき, 各$ x $について$ \mathscr{B}_x \subset \mathscr{B} $で$ V_x = \bigcup \mathscr{B}_x $を満たすものが存在する. $ U_x \in \mathscr{B}_x $で$ x \in U_x $なるものを一つとると$ \min{U_x} = x $である. 写像$ f \colon \R \to \mathscr{B} $を$ f(x) \defeq U_x $と定めると相異なる$ x, y \in \bbS $に対して
+	$ \min{U_x} \neq \min{U_y} $より$ f(x) \neq f(y) $である.　すなわち, $f$は単射であり$ \mathscr{B} $が可算であることに矛盾する.
+\end{proof}
+
+\begin{property}
+	$ \bbS $は, 第一可算である.
+\end{property}
+
+\begin{proof}
+	各点$ x \in \bbS $に対して$ \mathcal{V}(x) \defeq \setcomp{\intco{x}{y}}{y \in \Q, x < y} $が近傍基となることからわかる.
+\end{proof}
+
+\begin{property}
+	\loclabel{property:j}
+	$ \bbS $は, 可分である.
+\end{property}
+
+\begin{proof}
+	$ \Q $が稠密部分集合であることが容易に示される.
+\end{proof}
+
+\end{document}

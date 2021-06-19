@@ -1,0 +1,20 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{./}{common-preamble.sty}
+\setlayout{product}
+
+\begin{document}
+\chapter{基本事項}
+\label{chap:basics}
+
+位相空間論の基本的な定義と命題について述べる.
+基本的な文献としては\cite{Engelking1989GT, Dugundji1966T, Morita1981ja, KodamaNagami1974ja}などを見よ.
+
+\import{./theories/}{open-sets}
+\import{./theories/}{closed-sets}
+\import{./theories/}{neighborhoods}
+\import{./theories/}{derived-sets}
+\import{./theories/}{continuous-maps}
+\import{./theories/}{cardinal-functions}
+
+\end{document}

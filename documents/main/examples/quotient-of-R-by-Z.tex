@@ -1,0 +1,125 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{商空間 \texorpdfstring{$ \R / \Z$}{R/Z}}
+\label{ex:quotient-of-R-by-Z}
+
+位相空間$ X $とその部分集合$ A $に対して, $ X $上の同値関係$\sim $を
+	\[  x \sim y \defarw x=y \text{または} x,y \in A \]
+と定める. この同値関係による商空間$ X/\sim $を$ X/A $と書き, $ X $の部分集合$ A $	を同一視した空間, あるいは$ X $の部分集合$ A $を1点につぶした空間という.ここでは, 通常の距離位相を備えた$ \R $の部分集合$ \Z $を同一視した空間$ \R / \Z $を考えることにする.また, $x\in \R$の同値類を$ [x] $と書くことにする.
+
+\begin{property}
+\label{property:a-from:example:quotient_of_R_by_Z}
+	部分集合$A\subset \R$が$A\cap \Z=\emptyset$または$\Z\subset A$を満たすとき, $\pi^{-1}\pi[A]=A$となる.
+\end{property}
+
+\begin{property}
+	集合${\cal A}\defeq \setcomp{f:\Z \to \R}{\text{全ての$ n \in \Z $について} f(n)>0}$の各元$f$に対して, $U_f \defeq  \bigcup_{n\in\Z}\pi[(n-f(n),n+f(n))]$と定める
+	とき,　$ {\cal U}([0]) \defeq \setcomp{U_f}{f \in \mathcal{A}}$は点$ [0] $の近傍基になる.
+\end{property}
+\begin{proof}
+	${\cal U}([0])$の全ての元が$\R / \Z$の開集合であることは明らか.
+	$[0]\in U$を$ [0] $の任意の開近傍とする. $\pi^{-1}[U]$は$ \Z $を含む開集合である. よって, 任意の$n\in \Z$に対して$n\in (n-\varepsilon_n, n+\varepsilon_n)\subset 
+	\pi^{-1}[U]$を満たす$\varepsilon_n>0$が存在する. ゆえに, $f:\Z\to \R$を$f(n) \defeq \varepsilon_n$によって定めると$U_f\subset U$となる.		
+\end{proof}
+
+\begin{property}
+	$ \R / \Z$はコンパクトでない.また,点列コンパクトでもない.
+\end{property}
+\begin{proof}
+	写像$f\colon \Z\to \R$を任意の$n\in \N$について$f(n) \defeq \frac{1}{2}$によって定める.また, 各$n\in \Z$について$V_n \defeq \pi[(n,n+1)]$と定める.このとき, ${\cal U} \defeq \setcomp{V_n}{n \in \Z} \cup \{U_f\}$は$ \R / \Z$の開被覆である. 任意の$ n\in \Z$に対し,  
+	$[n+\frac{1}{2}]$を含む${\cal U}$の元は$U_n$のみなので, ${\cal U}$は有限部分被覆を持たない.
+	
+	点列コンパクトでないことは, $a_n \defeq n+\frac{1}{2}$なる点列$(a_n)$が収束部分列を持たないことからわかる.
+\end{proof}
+
+\begin{property}
+	$\R / \Z$は継承的 \Lindelof である.
+\end{property}
+\begin{proof}
+	$\R / \Z$の任意の開集合が \Lindelof であることを示せばよい. $U$を$\R / \Z$
+	の開集合とし, ${\cal U}$を $U$の任意の開被覆とする. $V=\pi^{-1}[U],\ {\cal V}=\setcomp{\pi^{-1}[W]}{W\in {\cal U}}$とおくと, ${\cal V}$は$\R$の開集合$V$
+	の開被覆である. $\R$は継承的 \Lindelof なので${\cal V}$の可算部分被覆　${\cal V}'$が存在する. ${\cal U}'=\setcomp{\pi[V']}{V'\in {\cal V}'}$とおくと, $\pi$
+	が全射であることから${\cal U}'\subset {\cal U},\ \bigcup {\cal U}'=U$となる. 
+\end{proof}
+
+
+\begin{property}
+	$\R/ \Z$は\topT{6}である.
+\end{property}
+
+\begin{proof}
+	\topT{3}であることを示せば、
+	$\R / \Z$は, \topT{3}かつ継承的 \Lindelof なので命題\ref{prop:T_3 + hLind. implies T_6}から\topT{6}である.
+	
+	まず, $ \R $において一点集合と$ \Z $が閉集合であることから$ \R / \Z$は \topT{1}である.次に、任意に$[x]\in \R /\Z$をとる. $[x]=[0]$のとき, $[x]\in U$を$[x]$の任意の開近傍とする.このとき, $\Z\subset \pi^{-1}[U]$となる. $\R$が\topT{4}空間であることから
+	$\Z\subset V\subset \topbar{V}\subset \pi^{-1}[U]$を満たす開集合$V$が存在する. よって, $\pi^{-1}\pi[V]=V$より$\pi[V]$は$\R /\Z$の開集合で$[x]\in \pi[V]\subset \topcl_{\R/\Z} \pi[V] \subset U$を満たす. $[x]\neq [0]$のとき, $[x]$の任意の開近傍$U$
+	に対して$[x]\in \topcl_{\R/\Z}V\subset U$を満たす開集合$V$が存在することは明らか.ゆえに, $ \R / \Z$は\topT{3}である.
+\end{proof}
+
+\begin{property}
+	$ \R / \Z $はパラコンパクトである.
+\end{property}
+\begin{proof}
+	\topT{3}かつ\Lindelof だから.
+\end{proof}
+
+\begin{property}
+	$\R / \Z$は弧状連結である.
+\end{property}
+\begin{proof}
+	弧状連結空間$\R$の商空間であることから従う.
+\end{proof}
+
+\begin{property}
+	$\R / \Z$は局所弧状連結である.
+\end{property}
+
+\begin{proof}
+	命題\ref{prop:Quotient maps preserve LocPathCtd}から従う.
+\end{proof}
+	
+
+
+\begin{property}
+	$\R / \Z$は強 \Frechet でない.
+\end{property}
+\begin{proof}
+	各$n\in \N$に対して$\R$の部分集合$A_n$を$A_n=[n,\infty) \setminus \Z$によって定める. $B_n=\pi[A_n]$($n\in \N$)と定めると, $\{B_n\}_{n\in\N}$は$B_0\supset 
+	B_1\supset \cdots$なる$\R / \Z$の部分集合の列である.また, 任意の$n\in\N$に対して
+	$[0]\in \topcl_{\R/\Z}B_n$なので$[0]\in \bigcap_{n\in\N}\topcl_{\R/\Z}B_n$となる. $\R/\Z$の点列$(b_n)$であって, 各$n\in \N$について$b_n\in B_n$を満たすものを任意にとる.ここで, 任意の$n\in N$に対して$\pi(x_n)=b_n$となる$x_n$がただ一つ存在する.
+	さらに, $\R$の点列$(x_n)$は, 任意の$n\in \N$に対して$x_n\in A_n$を満たす. $X=\setcomp{x_n}{n\in\N}$とおくと, $\topder_{\R}X=\emptyset$であることを示す.
+	$\forall x\in \R$をとると$x<n_x$なる$n_x\in \N$が存在するので$x\notin A_{n_x}$である. $\R$が\topT{1} であることから, $x$の近傍$U_x$であって$x_0,x_1,\ldots ,
+	x_{n_x-1}\notin (U_x\setminus\{x\})$を満たすものが存在する. よって, $\topder_{\R}X=\emptyset$である.　ゆえに, $X=\topcl_{\R}X$より$X$は閉集合である.
+	$U=\R\setminus X$とおくと$U$は$\Z$を含む閉集合であって$U\cap X=\emptyset$. したがって, $V=\pi[U]$は$[0]$の近傍であって$V\cap \{b_n\}_{n\in\N}=\emptyset$なので
+	$(b_n)$は$[0]$に収束しない.
+\end{proof}
+
+\begin{property}
+	$\R / \Z$は距離化可能でない.
+\end{property}
+\begin{proof}
+	強 \Frechet でないことから第一可算でないので距離化可能でない.
+\end{proof}
+
+\begin{property}
+	$\R / \Z$は \Frechet である.
+\end{property}
+
+\begin{proof}
+	$ A \subset \R / \Z $を任意にとる. $ [0] \in \topbar{A} \setminus A$の場合を考えればよい(それ以外の場合の確認は容易). $ [0] \notin A $より$\pi^{-1}[A] \cap \Z = \emptyset $. $\topbar{\pi^{-1}[A]} \cap \Z =\emptyset $と仮定すると, $\pi^{-1}\pi[\topbar{\pi^{-1}[A]}] = \topbar{\pi^{-1}[A]} $より
+	$ \pi[\topbar{\pi^{-1}[A]}]$は$A$を含む閉集合である. 仮定より, $ [0] \notin \pi[\topbar{\pi^{-1}[A]}]$なので$ \topbar{A}$が$A$を含む最小の閉集合であることに矛盾する.よって, $\topbar{\pi^{-1}[A]} \cap \Z = \emptyset $であり, $a\in \topbar{\pi^{-1}[A]} \cap \Z $とすると$ \pi^{-1}[A] $内の点列$ (b_n) $で
+	$\lim b_n=a$となるものが存在する. $ a_n = \pi(b_n) $とおくと$ \pi $の連続性より$ \lim a_n = \pi(a) = [0] $.
+	\end{proof}
+
+\begin{property}
+	$\R / \Z$は可分である.
+\end{property}
+
+\begin{proof}
+	$ \R / \Z = \pi[\R] = \pi[\topbar{\Q}] = \subset \topbar{\pi[\Q]} \subset \R / \Z$からわかる.
+\end{proof}
+
+\end{document}

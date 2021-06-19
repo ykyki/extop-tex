@@ -1,0 +1,35 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{連結性}
+\label{sec:connected-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{れんけつ}{連結}{connected}であるとは, $ X $を有限個の互いに交わらない開集合の合併で表したとき常に, それら開集合の中で少なくとも1つが$ X $と等しくなることである.
+\end{definition}
+
+\begin{proposition}
+	位相空間$ X $について以下の条件は同値である.
+		\begin{enumerate}
+			\item $ X $が連結である.
+			\item $ X $が空でなく, さらに次が成り立つ: $ X $が互いに交わらない2つの開集合$ G_1, G_2 $の合併として表せるならば, $ G_1 $か$ G_2 $のどちらかが$ X $に等しい.
+			\item $ X $が空でなく, かつ$ X $の開閉集合が$ \emptyset $と$ X $のみである.
+			\item $ X $が空でなく, かつ$ X $の部分集合であってその境界が空集合になるものが$ \emptyset $と$ X $のみである.
+			\item $ X $から離散空間$ D $への連続全射が存在するならば, $ D $は一点集合である.
+		\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+	\label{prop:Continuous maps preserve connectedness}
+	連結性は連続写像によって保たれる.
+\end{proposition}
+
+\begin{proposition}
+	\label{prop:PathCtd>Ctd}
+	位相空間$ X $が弧状連結ならば連結である.
+\end{proposition}
+
+
+\end{document}

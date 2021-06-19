@@ -1,0 +1,114 @@
+\RequirePackage{plautopatch}
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt]{jsarticle}
+\usepackage{import}
+\import{./}{A01-scrap-preamble.sty}
+% \usepackage{../config/layout_article}
+\usepackage{../config/layout_article_with_wide_spaces}
+
+\import{../config/}{environments.sty}
+\theoremstyle{plain}
+\theoremsymbol{\ensuremath{\square}}
+\newtheorem{theorem}{定理}[section]
+\renewcommand{\theoremautorefname}{定理}
+\newaliastheorem{definition}  {theorem} {定義}
+\newaliastheorem{proposition} {theorem} {命題}
+\newaliastheorem{lemma}       {theorem} {補題}
+\newaliastheorem{problem}     {theorem} {問題}
+\newaliastheorem{corollary}   {theorem} {系}
+\newaliastheorem{property}    {theorem} {性質}
+\theoremstyle{nonumberplain}
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem{proof}{証明}
+
+\newcommand{\topT}[1]{\texorpdfstring{\ensuremath{\mathrm{T}_{#1}}}{T#1}}
+
+\begin{document}
+\section{$ \Q $の一点コンパクト化}
+位相空間$ X $の一点コンパクト化を定義 hoge で構成した. 本節では$ X $を有理数空間$ \Q $としたときの空間$ \Q^\ast = \Q \cup \{\ast\} $を調べる.
+
+まず分離性を見てみる. この空間が \topT{1} であることがすぐ分かる. しかし \Hausdorff ではない. このことは, 無限遠点$ \ast $と有理数$ p \in \Q $の2点が分離できないことによる. \topT{2} ではないが, 点列 \Hausdorff かつ KC-closed にはなることが示せる.
+
+\begin{lemma}
+	列$ (a_n) \subset \Q^\ast $が$ \ast $に収束するための必要十分条件は, $ \Q $の任意のコンパクト部分集合$ K $に対し, 等終的に$ a_n \not\in K $となることである. \qed
+\end{lemma}
+
+\begin{property}
+	\label{property:Q^ast is seq.Haus}
+	$ \Q^\ast $は点列 \Hausdorff である.
+\end{property}
+
+\begin{proof}
+	任意に列$ (a_n)_n \subset \Q^\ast $を与える. $ \Q $が \Hausdorff であるから, 列$ (a_n) $は相異なる2つの有理数に収束することはない. もし仮に$ (a_n) $が有理数$ q $と無限遠点$ \ast $に同時に収束したとする. $ (a_n) $が点$ q \in \Q $に収束することから, 十分大きな$ n $で$ a_n \in \Q $となる. そこで$ (a_n) $の部分列$ (b_n) $が存在して, $ (b_n) \subset \Q $であり, $ (b_n) $が$ q $と$ \ast $に収束する. すると$ \Q $の部分集合$ B \defeq \setcomp{b_n}{n \in \N} \cup \{q\} $はコンパクトになる. よって$ \{\ast\} \cup \Q \sminus B $は$ \Q^\ast $において$ \ast $の近傍である. これは$ (b_n) $が$ \ast $に収束することに矛盾している.
+\end{proof}
+
+\begin{property}
+	$ \Q^\ast $は KC-closed である.
+\end{property}
+\begin{proof}
+	$ \Q^\ast $のコンパクト部分集合$ A $を任意に与える. $ A \subset \Q $であれば, $ \Q $が \Hausdorff であるから$ A $は$ \Q $において閉である. よって一点コンパクト化の定義より$ A $は$ \Q^\ast $においても閉である.
+
+	そこで$ \ast \in A $の場合を考える. $ A_0 \defeq A \cap \Q $とおく. $ A_0 $が$ \Q $において閉であることを示せばよい. もし仮にそうでなかったとする. 点$ a \in (\topcl_\Q A_0) \sminus A_0 $が存在する. $ a $が触点であるから, 各$ n \in \N $に対し, 点$ x_n \in A_0 \cap \topball{a_0}{2^{-n}} $が取れる. $ a \neq x_n  $である. また$ S \defeq \{a\} \cup \setcomp{x_n}{n \in \N} $とおくと, $ S $は$ \Q $のコンパクト部分集合である. そこで$ U \defeq \{\ast\} \cup \Q \sminus S  $とおくと, これは$ \Q^\ast $における開集合である. さらに, 各$ n \in \N $に対して$ U_n \defeq \setcomp{y \in \Q}{| y - a | > |x_n - a|} $と定める. すると$ U_n $は$ \Q ^\ast $における開集合であり, $ A \subset U \cup \bigcup_n U_n $となる. するとこの開被覆は有限部分被覆を持たない. よって$ A $のコンパクト性に矛盾する.
+\end{proof}
+
+この空間$ \Q^\ast $の連結性は$ \Q $の性質から直ちに導かれる. $ \Q $が局所連結ではないから$ \Q^\ast $もそうである. 一方, 空間全体では連結になる.
+
+\begin{property}
+	$ \Q^\ast $は連結である.
+\end{property}
+\begin{proof}
+	互いに交わらない2つの開集合$ G_1, G_2 $を用いて$ \Q^\ast = G_1 \cup G_2 $と表せるとする. $ \ast \in G_1 $としてよい. このとき$ G_2 =\Q \sminus G_1 $は$ \Q $のコンパクト部分集合である. よって$ G_2 = \topint_\Q G_2 = \emptyset $である.
+\end{proof}
+
+この空間$ \Q^\ast $は \Frechet であるが強 \Frechet ではない. 可算集合上の位相であるのにこうした微妙な性質を持つことが$ \Q^\ast $の特徴のひとつである. 可算性に関する性質を証明するために, $ \Q $のコンパクト部分空間の性質に関する命題を用意する.
+
+\begin{proposition}
+	$ \Q $の部分集合$ A $がコンパクトになるための必要十分条件は, $ A $が条件\maru{1}を満たす閉集合になることである. つまり$ A $が有界閉かつ$ \topderi_{\R} A \subset \Q $を満たすことである.
+\end{proposition}
+
+$ \Q $の部分集合$ A $に関する次の条件を\maru{1}とおく: $ A $が有界かつ$ \topderi_{\R} A \subset \Q $である. 特に後者の条件が満たされるとき, 導来集合の性質より$ \topderi_{\R} A = \topderi_{\Q} A $が成り立つことに注意する.
+\begin{lemma}
+	$ A $が条件\maru{1}を満たすならば$ A^\topd $も\maru{1}を満たす.
+\end{lemma}
+\begin{proof}
+	導来集合に関する基本的性質より.
+\end{proof}
+
+\begin{lemma}
+	$ A $が\maru{1}を満たすならば, $ \topbar{A} $はコンパクトである.
+\end{lemma}
+\begin{proof}
+	まず$ A^\topd $がコンパクトであることを示そう. もし仮にコンパクトではないとする. このとき$ A^\topd $は点列コンパクトでもないから, $ A^\topd $内のある列$ (a_n) $が存在して, $ (a_n) $の任意の部分列が$ A^\topd $において収束しない. $ A^\topd $を$ \R $の有界集合と見做せば, コンパクト性を介して, $ \R $における$ (a_n) $の収束部分列$ (b_n) $が存在することが分かる. $ A^\topd $が\maru{1}を満たすので, $ A^\topd $が$ \R $の閉集合であり, よって$ \lim b_n \in A $となる. しかしこれは$ (a_n) $の定義に矛盾する.
+
+	続いて$ \topbar{A} = A \cup A^\topd $がコンパクトであることを示す. $ \mathscr{U} $を$ A \cup A^\topd $を覆う$ \Q $の任意の開集合族とする. $ A^\topd $はある有限部分被覆$ \mathscr{V} $で覆える. このとき$ S \defeq A \sminus \bigcup \mathscr{V} $は有限集合である.
+	 \begin{hosoku}
+		もし仮に$ S $が無限集合であったとする. $ S $を$ \R $の部分集合と見做したとき, $ S $は有界無限集合であるから集積点$ p \in \topderi_{\R} S $が存在する. $ A $の仮定より$ p \in \topderi_{\R} S \subset A^\topd \subset \Q $となり, $ p \in \topderi_{\Q} S $である. 一方, $ p \in V $となる$ V \in \mathscr{V} $を取ると, $ V \cap (S \sminus \{p\}) = \emptyset $である. ゆえに$ p \not\in \topderi_{\Q} S $となり矛盾する.
+	 \end{hosoku}
+	 \noindent
+	 よって$ S $を被覆する有限部分被覆$ \mathscr{V}^\prime $が存在して, ゆえに$ A \cup K $が$ \mathscr{V} \cup \mathscr{V}^\prime $で覆える.
+\end{proof}
+
+\begin{lemma}
+	任意の無理数$ p \in \topderi_{\R} A \sminus \Q $と任意のコンパクト部分集合$ K \subset \Q $に対し, ある正の実数$ \epsilon > 0 $が存在して$ \setcomp{x \in \Q}{| x- p | < \epsilon} \cap K = \emptyset $となる.
+\end{lemma}
+\begin{proof}
+	$ p $は集積点なので, $ \R $にて$ p $に収束する$ A $内の列$ (a_n) $, $ (b_n) $を$ a_0 < a_1 < \cdots < p < \cdots < b_1 < b_0 $を満たすように取れる. $ \Q $における閉区間を$ I_n \defeq [a_n, b_n] $とおく.
+
+	もし仮に条件を満たす$ \epsilon $が存在しないとする. このとき全ての$ n $について$ K \cap I_n  \neq \emptyset $である. $ K $のコンパクト性より$ \bigcap_n K \cap I_n \neq \emptyset  $となる. 一方, $ \bigcap_n I_n = \emptyset $であるから矛盾が生じる.
+\end{proof}
+
+\begin{property}
+	$ \Q^\ast $は \Frechet である.
+\end{property}
+\begin{proof}
+	難しいのは$ A \subset \Q $かつ$ \ast \in \topcl_{\Q^\ast} A $となるときである. このとき$ A $は$ \Q $の如何なるコンパクト部分集合にも含まれていない. よって前述の性質より$ A $は有界ではないか, あるいは$ \topderi_{\R} A \not\subset \Q $である. 前者の場合, $ A $内の非有界な列$ (a_n) $を取ることができ, この列が$ \ast $に収束している. 後者の場合, 無理数$ p \in \topderi_{\R} A \sminus \Q $に収束するように$ A $内の列$ (a_n) $を取れば, 先の補題より$ (a_n) $は$ \ast $に収束している.
+\end{proof}
+
+\begin{property}
+	$ \Q^\ast $は強\Frechet ではない.
+\end{property}
+\begin{proof}
+	要追記.
+\end{proof}
+
+\end{document}
+

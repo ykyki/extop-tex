@@ -1,0 +1,116 @@
+\usepackage{amsmath, amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+\usepackage{accents}
+\usepackage{xspace}
+\usepackage{mleftright}
+
+% ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+% 人名 (アルファベット順に)
+\newcommand{\Alexandroff}{Alexandroff\xspace}
+\newcommand{\Baire}{Baire\xspace}
+\newcommand{\Cech}{\v{C}ech\xspace}
+\newcommand{\Euclid}{Euclid\xspace}
+\newcommand{\Frechet}{Fr\'echet\xspace}
+\newcommand{\Hausdorff}{Hausdorff\xspace}
+\newcommand{\Lindelof}{Lindel\"{o}f\xspace}
+\newcommand{\Moore}{Moore\xspace}
+\newcommand{\Sierpinski}{Sierpi\'nski\xspace}
+\newcommand{\Sorgenfrey}{Sorgenfrey\xspace}
+\newcommand{\Stone}{Stone\xspace}
+\newcommand{\Tietze}{Tietze\xspace}
+\newcommand{\Tychonoff}{Tychonoff\xspace}
+\newcommand{\Urysohn}{Urysohn\xspace}
+
+\newcommand{\ykyki}{ykyki\xspace}
+\newcommand{\chen}{ちぇん\xspace}
+
+% ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+% 基本的なコマンド
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\I}{\mathbb{I}}
+
+\newcommand{\defeq}{\mathrel{:=}}
+\newcommand{\defarw}{\Leftrightarrow}
+\newcommand{\longrel}[1]{\ #1\ }
+\newcommand{\deflongeq}{\longrel{\defeq}}
+\newcommand{\rimp}{\ensuremath{\Rightarrow}}
+\newcommand{\limp}{\ensuremath{\Leftarrow}}
+\newcommand{\lrimp}{\ensuremath{\Leftrightarrow}}
+\newcommand{\semicolon}{\mathpunct{\: ; \:}}
+
+\newcommand{\lrparen}[1]{\mleft(#1\mright)}
+\newcommand{\lrbrace}[1]{\mleft\{#1\mright\}}
+\newcommand{\lrbrack}[1]{\mleft[#1\mright]}
+\newcommand{\lrangle}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\lrparenbig}[1]{\bigl({#1}\bigr)}
+\newcommand{\lrparenBig}[1]{\Bigl({#1}\Bigr)}
+\newcommand{\lrparenbigg}[1]{\biggl({#1}\biggr)}
+\newcommand{\lrparenBigg}[1]{\Biggl({#1}\Biggr)}
+
+\newcommand{\forallparen}[1]{\lrparenbig{\forall\, #1}}
+\newcommand{\existsparen}[1]{\lrparenbig{\exists\, #1}}
+\newcommand{\formulaparen}[1]{\lrparenbig{#1}}
+
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\newcommand{\setcomp}[2]{\lrbrace{#1\relmiddle|#2}}
+\newcommand{\setfamily}[2]{\lrparen{#1\relmiddle|#2}}
+\let\setminus\smallsetminus
+\newcommand{\cardinality}[1]{\left|#1\right|}
+\newcommand{\pt}{\ast} % 一点
+\newcommand{\pow}{\mathcal{P}} % 冪集合
+
+\newcommand{\proj}{\mathrm{pr}} % 射影
+
+\newcommand{\topint}{\mathop{\mathrm{Int}}\nolimits}
+\newcommand{\topcl}{\mathop{\mathrm{Cl}}\nolimits}
+\newcommand{\topder}{\mathop{\mathrm{Der}}\nolimits}
+\newcommand{\topbar}[1]{\overline{#1}}
+\newcommand{\topd}{\mathrm{d}}
+\newcommand{\topbry}{\mathop{\mathrm{Bry}}\nolimits}
+
+\newcommand{\topdensity}[1]{\mathrm{d}\lrparen{#1}}
+\newcommand{\topweight}[1]{\mathrm{w}\lrparen{#1}}
+\newcommand{\topnetwork}{\mathrm{nw}}
+\newcommand{\topnetworkweight}[1]{\mathrm{nw}\lrparen{#1}}
+\newcommand{\topcharacter}[1]{\chi\lrparen{#1}}
+
+\newcommand{\topT}[1]{\texorpdfstring{\ensuremath{\mathrm{T}_{#1}}}{T#1}}
+\newcommand{\Gdelta}{\ensuremath{\mathrm{G}_{\delta}}}
+\newcommand{\Fsigma}{\ensuremath{\mathrm{F}_{\sigma}}}
+\newcommand{\sigmaCompact}{\texorpdfstring{\ensuremath{\sigma}-コンパクト}{σ-コンパクト}}
+\newcommand{\sigmaConnected}{\texorpdfstring{\ensuremath{\sigma}-連結}{σ-連結}}
+
+\newcommand{\topopens}[1][]{%
+	\def\tmp{#1}%
+	\def\tmpempty{}%
+	\ifx\tmp\tmpempty%
+		\mathcal{O}%
+	\else%
+		\mathcal{O}\lrparen{#1}%
+	\fi%
+}
+\newcommand{\topbasis}{\mathcal{B}}
+\newcommand{\topnbd}[2][]{%
+	\def\tmp{#1}%
+	\def\tmpempty{}%
+	\ifx\tmp\tmpempty%
+		\mathcal{N}\lrparen{#2}%
+	\else%
+		\mathcal{N}_{#1}\lrparen{#2}%
+	\fi%
+}
+
+\newcommand{\topball}[2]{\mathrm{B}\lrparen{#1\,; #2}}
+
+\newcommand{\intoo}[2]{\left( #1 , #2 \right)}
+\newcommand{\intoc}[2]{\left( #1 , #2 \right]}
+\newcommand{\intco}[2]{\left[ #1 , #2 \right)}
+\newcommand{\intcc}[2]{\left[ #1 , #2 \right]}
+
+\newcommand{\abs}[1]{\left|#1\right|}

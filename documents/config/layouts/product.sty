@@ -1,0 +1,50 @@
+% ページ設定(ページ番号と空白)
+\usepackage{graphicx}
+\usepackage[
+	top=30truemm,
+	bottom=30truemm,
+	left=25truemm,
+	right=25truemm,
+	marginparwidth=15truemm,
+	marginparsep=5truemm
+	]{geometry}
+% \setlength{\topmargin}{-1.0cm}
+% \setlength{\textheight}{23cm}
+\setlength{\textwidth}{16cm}
+% A4: 210 × 297 ミリ
+
+\usepackage{fancyhdr}
+% fancyhdrで大文字を小文字に
+\makeatletter
+	\def\ps@fancy{%
+		\def\sectionmark##1{\markboth{\ifnum \c@secnumdepth>\z@ \thesection\hskip 1em\relax \fi ##1}{}}%
+		\def\subsectionmark##1{\markright {\ifnum \c@secnumdepth >\@ne \thesubsection\hskip 1em\relax \fi ##1}}%
+		\ps@@fancy%
+		\gdef\ps@fancy{\@fancyplainfalse\ps@@fancy}%
+		\ifdim\headwidth<0sp%
+		\global\advance\headwidth123456789sp\global\advance\headwidth\textwidth%
+		\fi%
+	}
+\makeatother
+
+\pagestyle{fancy}
+\lhead{\leftmark}
+\rhead{\rightmark}
+\cfoot{\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}{}}
+
+% 箇条書きの空白
+\usepackage{enumitem}
+\setlist{nosep}
+
+% 数式の上下のスペースの変更
+\AtBeginDocument{
+	\setlength{\abovedisplayskip}{3pt}
+	\setlength{\abovedisplayshortskip}{3pt}
+	\setlength{\belowdisplayskip}{2pt}
+	\setlength{\belowdisplayshortskip}{2pt}
+}
+
+% 行間のスペース調整
+\renewcommand{\baselinestretch}{0.85}

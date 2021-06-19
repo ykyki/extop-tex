@@ -1,0 +1,156 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\texorpdfstring{$ \R $}{R} の補コンパクト位相}
+\label{ex:cocompact-topology-on-R}
+
+\newcommand{\locref}[1]{\ref{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+\newcommand{\loclabel}[1]{\label{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+
+本節では位相空間が \Hausdorff であることを仮定する. 位相空間$ (X, \tau) $に対して, 位相$ \tau^\star $を
+$$ \tau^\star \deflongeq \setcomp{U \in \tau}{\complement U \mbox{が} (X, \tau) \mbox{でコンパクト}} \cup \{\emptyset\} $$
+により定める. このとき, $ (X, \tau^\star) $を$ (X, \tau) $の \indexjj{ほこんぱくといそう}{補コンパクト位相}{cocompact topology} 空間という. 位相空間$ (X, \tau) $を$ X $と略記するとき, その補コンパクト位相空間を$ X^\star $のように書く.  また, $ (X, \tau) $に対して, そのコンパクト部分集合全体からなる集合を$ \mathcal{K}(X) $と書くことにする.
+本節では, 一般の位相空間$ X $の補コンパクト位相空間$ X^\star $について議論した後に, \Euclid 空間 $ \R $の補コンパクト位相空間$ \R^\star $を考える.
+
+まず, 補コンパクト位相空間において次の命題は基本的である.
+\begin{proposition}
+	$ X $がコンパクトであるための必要十分条件は$ \tau = \tau^\star $が成り立つことである.
+\end{proposition}
+
+\begin{proof}
+コンパクトならば$ \tau = \tau^\star $が成り立つことは明らかなので, 逆を示す. $ \cardinality{X} \geq 2 $
+としてよい. 相異なる2点$ x, y \in X $をとると, $ X $の \Hausdorff 性より$ U, V \in \tau $であって$ x \in U, y \in V, U \cap V = \emptyset $を満たすものが存在する. このとき, $ K_1 \defeq X \setminus U, K_2 \defeq X \setminus V $とすると$ K_1, K_2 \in \mathcal{K}(X) $かつ$ X = K_1 \cup K_2 $となる. よって$ X = K_1 \cup K_2 $はコンパクトである.
+\end{proof}
+
+
+ 補コンパクト位相空間の分離性を確認する. $ X^\star $が \topT{1} であることは明らかである. $ X^\star $の \Hausdorff 性については次の命題がある.
+
+\begin{proposition}
+	$ X $がコンパクトであることと, $ X^\star $が \topT{2} であることは同値である.
+\end{proposition}
+
+\begin{proof}
+	$ X $がコンパクトならば$ \tau = \tau^\star $なので, $ X^\star $も \Hausdorff である. また, $ X $がコンパクトでないと仮定する. ある空でない開集合$ U, V \in \tau^\star $について$ U \cap V = \emptyset $が成り立つと仮定すると, 2つのコンパクト集合$ X \setminus U, X \setminus V \in \mathcal{K}(X) $で$ X $が被覆されるので$ X $がコンパクトでないことに矛盾する. よって, $ X $がコンパクトでなければ$ X^\star $の空でない2つの開集合が交わるので, $ X^\star $は \topT{2} でない.
+\end{proof}
+
+この命題の証明の後半から, $ X $がコンパクトでないならば$ X^\star $は連結かつ局所連結であることも分かる.　また, $ \tau^\star \subset \tau $なので, $ X $が連結ならば$ X^\star $も連結であり, 弧状連結についても同じである.
+
+次に, 可算性について確認する. $ X $が \Lindelof ならば$ X^\star $も \Lindelof であることは, 連結性の場合と同様である. 第二可算性や第一可算性に関する命題を次に挙げる.
+\begin{proposition}
+	\loclabel{prop:LocCpt + SecondCnt > Cocompact space is SecondCnt}
+	$ X $が局所コンパクトかつ第二可算ならば, $ X^\star $も第二可算である.
+\end{proposition}
+
+\begin{proof}
+	$ \mathcal{B} $を$ X $の可算開基とする. $ \mathcal{A} \defeq \setcomp{U \in \mathcal{B}}{\topcl_{X}U \in \mathcal{K}(X)} $とすると, $ X $が局所コンパクトであることから$ \mathcal{A} $は$ X $の開基になる.
+	ここで,
+	$$ \mathcal{B}^\star \defeq \setcomp{X \setminus \topcl_{X} \left(\bigcup \mathcal{A}'\right)}{\mathcal{A}' \subset \mathcal{A}, 1 < \cardinality{\mathcal{A}'} < \omega} $$
+	と定めると, $ \mathcal{B}^\star $が$ X^\star $の可算開基になることを示す ($ \mathcal{A} $の定義から$ \mathcal{B}^\star \subset \tau^\star $となることに注意せよ). 任意の空でない開集合$ U \in \tau^\star $と任意の$ x \in U $をとり, $ \mathcal{V} \defeq \setcomp{V \in \mathcal{A}}{x \notin \topcl_{X} V} $とする. 任意に$ y \in X \setminus U $をとると, $ W \in \topnbd(y) $であって$ x \notin \topcl_X W, W \in \mathcal{K}(X) $を満たすものが存在する. $ \mathcal{A} $は開基なので$ W' \in \mathcal{A} $であって$ y \in W' \subset W $なるものがとれる. よって, $ x \notin \topcl_X{W}' $なので$ W' \in \mathcal{V} $より$ X \setminus U \subset \bigcup \mathcal{V} $となる. $ X \setminus U \in \mathcal{K}(X) $なので有限部分集合$ \mathcal{V}' \subset \mathcal{V} $が存在して$ X \setminus U \subset \bigcup \mathcal{V}' $. また, $ x \notin \topcl_X \left(\bigcup \mathcal{V}'\right), \topcl_X\left(\bigcup \mathcal{V}'\right) \in \mathcal{K}(X) $なので, $ X \setminus \topcl_X \left(\bigcup \mathcal{V}'\right) \in \mathcal{B}^\star, x \in X \setminus \topcl_X \left(\bigcup \mathcal{V}'\right) \subset U $より$ \mathcal{B}^\star $は開基である.
+\end{proof}
+
+\begin{proposition}
+	\loclabel{prop:A singleton is G delta <> Complement of the singleton is sigma cpt}
+	$ x_0 \in X $とする. このとき, $ \{x_0\} $が$ X^\star $において$ \Gdelta $-集合であることと, $ X \setminus \{x_0\} $が$ X $の$ \sigma $-コンパクト集合であることは同値である.
+\end{proposition}
+
+\begin{proof}
+	$ \{x_0\} = \bigcap_{n \in \N} U_n $ ($ U_n \in \tau^\star $) が成り立つとき, 各$ n \in \N $に対して$ K_n \defeq X \setminus U_n $とすると$ K_n \in \mathcal{K}(X) $なので,
+	$$ X \setminus \{x_0\} = X \setminus \left(\bigcap_{n \in \N} U_n\right) = \bigcup_{n \in \N} (X \setminus U_n) = \bigcup_{n \in \N} K_n $$
+	となって$ X \setminus \{x_0\} $は$ \sigma $-コンパクトである. また, 証明方法から逆が成り立つことも明らかである.
+\end{proof}
+
+\begin{proposition}
+	$ X $が$ \sigma $-コンパクトでないとき次が成り立つ:
+	\begin{enumerate}
+		\item $ X^\star $の点$ x $であって, $ \{x\} $が$ X^\star $で$ \Gdelta $-集合となるものは存在しない.
+		\item $ X^\star $は第一可算でない.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	(1): $ \{x\} $が$ \Gdelta $であるとすると, 命題 \locref{prop:A singleton is G delta <> Complement of the singleton is sigma cpt} より$ X = (X \setminus \{x\}) \cup \{x\} $が$ \sigma $-コンパクトとなり矛盾する.
+
+	(2): \topT{1} 空間なので可算近傍基をもてば, 一点集合が$ \Gdelta $-集合となって矛盾する.
+\end{proof}
+
+最後に, コンパクト性に関する命題を示す.
+\begin{proposition}
+	位相空間$ X $の任意の部分集合$ A $について次が成り立つ:
+	\[ A \in \mathcal{K}(X^\star) \Longleftrightarrow \forall K \in \mathcal{K}(X) \semicolon \mbox{$ A \cap K $は$ X $の閉集合である.} \]
+\end{proposition}
+
+\begin{proof}
+	($\rimp$): $ A \in \mathcal{K}(X^\star) $とする. 任意の$ K \in \mathcal{K}(X) $に対して$ A \cap K \in \mathcal{K}(X) $を示せばよい. $ \mathscr{F} $を$ X $の閉集合族であって, $ \mathscr{H} \defeq \setcomp{F \cap A \cap K}{F \in \mathscr{F}} $が有限交叉性をもつものとする. 任意の$ F \in \mathscr{F} $に対して$ F \cap K \in \mathcal{K}(X) $なので$ (A, \tau^\star|_A) $の閉集合である. $ A \in \mathcal{K}(X^\star) $より, 有限交叉性をもつ$ A $の閉集合族$ \mathscr{H} $について$ \bigcap \mathscr{H} \neq \emptyset $が成り立つ. よって, $ A \cap K \in \mathcal{K}(X) $である.
+
+	($\limp$): $ \mathscr{F} $を$ X^\star $の閉集合族であって, $ \mathscr{H} \defeq \setcomp{F \cap A}{F \in \mathscr{F}} $が有限交叉性をもつものとする.
+	任意の$ F \in \mathscr{F} $に対して, $ F \in \mathcal{K}(X) $なので$ F \cap A \in \mathcal{K}(X) $である.
+	$ \mathscr{H} $は有限交叉性をもつ$ X $のコンパクト閉集合族なので$ \bigcap \mathscr{H} \neq \emptyset $である.
+	よって, $ A \in \mathcal{K}(X^\star) $となる.
+\end{proof}
+
+\begin{corollary}
+	\loclabel{corollary: X is T2 > Cocompact space is compact}
+    $ X^\star $はコンパクトである. \qed
+\end{corollary}
+
+
+
+
+ここからは, \Euclid 空間$ \R $の補コンパクト位相空間$ \R^\star $の具体的性質についてみていく.
+
+\begin{property}
+	$ \R^\star $はコンパクトである.
+\end{property}
+
+\begin{proof}
+	$ \R $が \Hausdorff なので系 \locref{corollary: X is T2 > Cocompact space is compact} から$ \R^\star $はコンパクトである.
+\end{proof}
+
+\begin{property}
+	$ \R^\star $は \topT{1} だが \topT{2} ではない.
+\end{property}
+
+\begin{proof}
+	$ \R $がコンパクトでないことから従う.
+\end{proof}
+
+\begin{property}
+	$ \R^\star $は弧状連結かつ局所弧状連結である.
+\end{property}
+
+\begin{proof}
+	$ \R^\star $の位相は$ \R $よりも粗いので$ \R^\star $は弧状連結である. 局所弧状連結性について示す. 任意の$ x \in \R^\star $に対して
+	$$ \mathscr{U}(x) \defeq \setcomp{U_n(x)}{n \in \N} \ ( U_n(x) \defeq \intoo{-\infty}{-n} \cup \intoo{x-2^{-n}}{x+2^{-n}} \cup \intoo{n}{\infty} )$$
+	は$ x $の近傍基をなす. 実際, $ V $を$ x $の開近傍とすると$ \R \setminus V $は$ \R $のコンパクト集合なので最大値$ b $と最小値$ a $をもつ. また, $ V $は$ \R $の開集合でもあるから, $ n_0 \in \N $ であって$ \intoo{x-2^{-n_0}}{x+2^{-n_0}} \subset V $を満たすものが存在する. $ n_1 \defeq \max\{|a|, |b|\} $とすると$ \intoo{-\infty}{-n_1} \cup \intoo{n_1}{\infty} \subset V $なので, $ n \defeq \max\{n_0, n_1\} $とすると$ U_n(x) \subset V $である. よって, $ \mathscr{U}(x) $が弧状連結な近傍からなる近傍基であることを示せばよい. 任意の$ n \in \N $に対して$ y \in U_n(x) $を任意にとり, 連続写像$ \gamma \colon \I \to \R^\star $であって$ \gamma(0) = y, \gamma(1) = x $を満たすものを次のように構成できる:
+	\begin{enumerate}
+		\item $ y \in \intoo{x-2^{-n}}{x+2^{-n}} $のとき, $ \gamma(t) \defeq (1-t)y+tx $.
+		\item $ y \in \intoo{n}{\infty} $のとき,
+		\begin{equation*}
+            \gamma(t) \defeq \begin{cases}
+            y & （t = 0）\\
+            y + \frac{t}{1-t} & （0 < t < 1） \\
+            x & （t = 1)	.
+            \end{cases}
+		\end{equation*}
+	    \item $ y \in (-\infty, n) $のとき,
+	    \begin{equation*}
+	    	\gamma(t) \defeq \begin{cases}
+	    		y & （t = 0） \\
+	    		y - \frac{t}{1-t} & （0 < t < 1） \\
+	    		x & （t = 1)	.
+	    	\end{cases}
+	    \end{equation*}
+	\end{enumerate}
+\end{proof}
+
+\begin{property}
+	$ \R^\star $は第二可算である.
+\end{property}
+
+\begin{proof}
+    命題 \locref{prop:LocCpt + SecondCnt > Cocompact space is SecondCnt} から分かる.
+\end{proof}
+
+\end{document}

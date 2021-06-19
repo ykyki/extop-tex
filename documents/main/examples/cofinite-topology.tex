@@ -1,0 +1,84 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{可算無限集合上の補有限位相}
+\label{ex:cofinite-topology-on-countably-infinite-set}
+\section{非可算無限集合上の補有限位相}
+\label{ex:cofinite-topology-on-uncountably-infinite-set}
+
+$ X $を集合とする. $ X $上の\indexj{ほゆうげんいそう}{補有限位相}とは, $ X $の補有限部分集合$ A $, つまり$ X \setminus A $が有限集合となる部分集合$ A $を開集合として定まる位相のことである. ただし空集合も開集合に追加しておく.
+
+$ X $が有限集合のとき, この位相は離散位相に等しい. そこで$ X $が無限集合の場合のみ考える. $ X $が可算無限であるか否かにによって位相的性質が大きく異なる.
+
+\begin{property}
+	補有限位相を備えた2つの集合$ X, Y $が同相であるための必要十分条件は$ \cardinality{X} = \cardinality{Y} $となることである. また, 補有限位相空間$ X $の(無限)部分集合に誘導される相対位相も補有限位相である. よって特に, $ X $は任意の空でない開集合と同相である.
+\end{property}
+
+\begin{property}
+	$ X $はコンパクトであり, さらに局所コンパクトでもある.
+\end{property}
+
+\begin{property}
+	$ X $は\topT{1}空間である. より正確に, 補有限位相は$ X $が\topT{1}空間となる最小の位相である. このことから, \topT{1}空間から$ X $への単射が必ず連続になることが分かる.
+\end{property}
+
+\begin{property}
+	$ X $は弱\Hausdorff ではない.
+\end{property}
+\begin{proof}
+	$ X $と同じ濃度の集合$ Y $をひとつ取り, $ Y $に離散位相をいれ, その一点コンパクト化$ Y^\ast $を考える. $ Y^\ast $はコンパクト\Hausdorff 空間である. そこで$ Y^\ast $から$ X $の補有限部分集合$ A \subsetneq X $への全単射をひとつ与えれば, その写像は連続であるが, 一方で像となる$ A $は$ X $の閉集合ではない. 
+\end{proof}
+
+\begin{property}
+	$ X $は連結であり, さらに局所連結でもある.
+\end{property}
+
+\begin{property}
+	$ X $が可算集合であるとき, 定理\ref{thm:Sierpinski_continuum}より弧状連結ではない. よって局所弧状連結でもない. 
+\end{property}
+
+\begin{property}
+	しかし一方$ \cardinality{X} \geq \cardinality{\R} $のとき, $ X $は弧状連結である. よってこのときは局所弧状連結でもある. 
+\end{property}
+\begin{proof}
+	任意の単射$ \I \rightarrow X $が連続であるから, 濃度の条件から2点を結ぶ連続写像が構成できる.
+\end{proof}
+
+\begin{property}
+	$ X $が可算であるとき, $ X $は第二可算である.
+\end{property}
+\begin{proof}
+	$ X $の補有限部分集合の個数は$ \cardinality{\omega^{< \omega}} = \omega $個だから.
+\end{proof}
+
+\begin{property}
+	$ X $が非可算のとき, $ X $は可分である.
+\end{property}
+\begin{proof}
+	濃度無限の部分集合の閉包が全体に一致するから.
+\end{proof}
+
+\begin{property}
+	$ X $が非可算のとき, $ X $は第一可算ではない.
+\end{property}
+\begin{proof}
+	1点$ p $を固定する. もし仮に$ p $の可算近傍基が存在したとする. このときある減少列$ U_0 \supset U_1 \supset \cdots $が$ p $の近傍基をなす. すると\topT{1}性より$ \{p\} = \bigcap_i U_i $となるので, 補集合を取り$ X \setminus \{p\} = \bigcup_i \complement U_i $を得る. しかしここで左辺は非可算集合, 右辺は可算集合となり矛盾が生じる.
+\end{proof}
+
+\begin{property}
+	$ X $内の列$ (a_n) $が点$ x $に収束するための条件は, $ X $のどんな有限集合$ S $についても, $ x \not\in S $ならば等終的に$ a_n \not\in S $となることである. よって点列\Hausdorff ではない. しかし点列コンパクトにはなる.
+\end{property}
+\begin{proof}
+	$ X $内の列$ (a_n) $を任意に与える. 集合$ \setcomp{a_n}{n \in \N} $が有限集合ならば, 収束する部分列を簡単に取れる. 無限集合になるときは, 部分列$ (b_n) $を$ i \neq j \Rightarrow b_i \neq b_j $を満たすようにひとつ取れば, $ (b_n) $が$ X $の全ての点に収束している.
+\end{proof}
+
+\begin{property}
+	$ X $は強\Frechet である.
+\end{property}
+\begin{proof}
+	減少列$ A_0 \supset A_1 \supset \cdots $と点$ x \in \bigcap_i \topbar{A_i} $を任意に与える. ある$ A_n $が有限集合となるとき, $ n $以上の$ i $で$ \topbar{A_i} = A_i $となるので, このとき$ a_i = x \in A_i $とおけばよい. そこでどの$ A_n $も無限集合であるとする. 列$ a_n \in A_n $を帰納的に$ a_n \neq a_0, \ldots, a_{n-1} $となるように取ることが出来る. するとこの列$ (a_n) $が$ x $に収束している.
+\end{proof}
+
+\end{document}

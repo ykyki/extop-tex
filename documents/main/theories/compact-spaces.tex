@@ -1,0 +1,240 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{コンパクト空間}
+\label{sec:compact-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{こんぱくと}{コンパクト}{compact}であるとは, $ X $の任意の開被覆に対して有限部分開被覆が存在することである.
+\end{definition}
+
+位相空間$ X $の部分集合$ A \subset X $がコンパクトであるとは, $ A $が$ X $の部分空間としてコンパクトであることを言う.
+
+\begin{proposition}
+	コンパクト空間の特徴づけ.[WIP]
+\end{proposition}
+
+一般にコンパクト空間の部分空間がコンパクトであるとは限らない.
+例えば, 単位閉区間$ \I $はコンパクトだが開区間$ \intoo{0}{1} $はコンパクトでない.
+しかし, コンパクト空間の閉部分集合はコンパクトである. コンパクト空間の積については次の定理が有名である.
+
+\begin{theorem}[\Tychonoff]
+	\label{Tychonoff's theorem}
+	$ \setfamily{X_\lambda}{\lambda \in \Lambda} $をコンパクト位相空間からなる位相空間の族とすると積空間$ X = \prod_{\lambda \in \Lambda} X_\lambda $もコンパクトである.
+\end{theorem}
+
+\begin{proof}
+	[WIP]
+\end{proof}
+
+コンパクト空間の連続像もコンパクトになることは明らかなのでコンパクト空間の商空間もコンパクトである.
+また, 有限個のコンパクト空間の直和空間もコンパクトである.
+
+\begin{proposition}
+	位相空間$ X $の部分集合$ A $がコンパクトならば, $ A \subset \bigcup \mathscr{U} $なる$ X $の任意の開集合族$ \mathscr{U} $に対し, その有限部分集合$ \mathscr{U}' \subset \mathscr{U} $であって$ A \subset \bigcup \mathscr{U}' $を満たすものが存在する.
+	\qed
+\end{proposition}
+
+
+\begin{proposition}
+	\Hausdorff 空間における任意のコンパクト部分集合は閉集合である.
+\end{proposition}
+\begin{proof}
+	$ X $を \Hausdorff 空間, $ A \subset X $をコンパクト部分集合とする.
+	$ x \in \topcl A $が$ x \notin A $であると仮定して矛盾を導く.
+	このとき, 任意の$ a \in A $について$ x \neq a $なので$ U_a \cap V_a = \emptyset $なる$ x $の開近傍$ U_a $と$ a $の開近傍$ V_a $が存在する.
+	$ \setcomp{V_a}{a \in A} $は$ A $の開被覆なので有限部分被覆$ \setcomp{V_{a_i}}{i=1, 2,\cdots, n} $が存在し, $ U \defeq U_{a_1} \cap U_{a_2} \cap \cdots \cap U_{a_n} $と定めると$ U \subset \complement_X (V_{a_1} \cup V_{a_2} \cup \cdots \cup V_{a_n}) \subset \complement_X A $となり, $ x \in \topcl A $に矛盾する.
+\end{proof}
+
+\begin{corollary}
+	\Hausdorff 空間$ X $のコンパクト部分集合$ A, B $に対して, $ A \cap B $はコンパクトである. \qed
+\end{corollary}
+
+このことから, \Hausdorff 空間$ X $に対してその補コンパクト位相空間を定義することができる(例\ref{example:cocompact_topology_on_R}). 一方, 任意のコンパクト部分集合が閉とは限らない空間(KC-closed 空間)では, 2つのコンパクト集合の共通部分がコンパクトになるとは限らない. 例えば, $ \Q $の無限点追加非コンパクト化(\ref{example:Q_star_infinite})において$ *_1, *_2 $を相異なる無限遠点とすると$ \Q \cup \{*_1\}, \Q \cup \{*_2\} $はともにコンパクトであるが, 共通部分の$ \Q $はコンパクトでない.
+
+\begin{definition}
+	位相空間$ X $から位相空間$ Y $への写像$ f \colon X \to Y $が閉写像であるとは, $ X $の任意の閉集合$ F $に対して$ f[F] $が$ Y $の閉集合になることをいう.
+\end{definition}
+
+\begin{corollary}
+	コンパクト空間$ X $から \Hausdorff 空間$ Y $への任意の連続写像$ f \colon X \to Y $は閉写像である.
+	したがって, $ f $が全単射でもあれば同相写像である.
+	\qed
+\end{corollary}
+
+\begin{corollary}
+	集合$ X $の2つの位相$ \mathcal{O}_1, \mathcal{O}_2 $が$ \mathcal{O}_1 \supset \mathcal{O}_2 $を満たすとする.
+	このとき, $ (X, \mathcal{O}_1) $がコンパクトであって$ (X, \mathcal{O}_2) $が \Hausdorff であれば$ \mathcal{O}_1 = \mathcal{O}_2 $が成り立つ.
+	\qed
+\end{corollary}
+
+$ \mathcal{O}_1 $のコンパクト性と$ \mathcal{O}_2 $の \Hausdorff 性のどちらか一方でも成り立たない場合には$ \mathcal{O}_1 = \mathcal{O}_2 $となるとは限らない.
+単位区間$ \I $上の位相$ \mathcal{O}_1 $を離散位相, $ \mathcal{O}_2 $を通常の距離位相, $ \mathcal{O}_3 $を密着位相とする.
+このとき, $ \mathcal{O}_1 \supset \mathcal{O}_2 $で$ \mathcal{O}_2 $が \Hausdorff であるが$ \mathcal{O}_1 $はコンパクトではなく, $ \mathcal{O}_1 \neq \mathcal{O}_2 $である.
+また, $ \mathcal{O}_2 $がコンパクトであるが$ \mathcal{O}_3 $が \Hausdorff ではなく, 実際$ \mathcal{O}_2 \neq \mathcal{O}_1 $である.
+
+\begin{proposition}
+	\label{prop:Tube Lemma}
+	$ A, B $をそれぞれ位相空間$ X, Y $のコンパクト部分集合とする.
+	このとき, $ A \times B \subset U $をみたす任意の開集合$ U \subset X \times Y $に対して, $ A \subset V, B \subset W, V \times W \subset U $を満たす$ X $の開集合$ V $と$ Y $の開集合$ W $が存在する.
+\end{proposition}
+
+\begin{proof}
+	$ a, b $をそれぞれ$ A, B $の任意の点とすると$ V_{(a, b)} \times W_{(a, b)} \subset U $なる$ X $の開集合$ V_{(a, b)} $と$ Y $の開集合$ W_{(a, b)} $が存在する.
+	このとき, 各$ a \in A $に対して$ B \subset \bigcup_{b \in B} W_{(a, b)} $が成り立ち, $ B $がコンパクトであることから$ B $の有限部分集合$ B_a $が存在して$ B \subset \bigcup_{b \in B_a} W_{(a, b)} $となる.
+	ここで, $ V_a \defeq \bigcap_{b \in B_a}V_{(a, b)} , W_a \defeq \bigcup_{b \in B_a} W_{(a, b)} $と定めると, $ a \in V_a, B \subset W_a, V_a \times W_a \subset U $が成り立つ.
+	また, $ A \subset \bigcup_{a \in A} V_a $であり, $ A $がコンパクトであることから, 有限部分集合$ A' \subset A $が存在して$ A \subset \bigcup_{a \in A'} V_a $が成り立つ.
+	このとき, $ V \defeq \bigcup_{a \in A'} V_a, W \defeq \bigcap_{a \in A'} W_a $と定めると, $ A \subset V, B \subset W, V \times W \subset \bigcup_{a \in A'} V_a \times W_a \subset U $が成り立つ.
+\end{proof}
+
+\begin{theorem}
+	\label{thm:Sufficient condition that the product of closed continuous surgections is closed}
+	$ X, Y, R, S $を位相空間とし, $ f \colon X \to R, g \colon Y \to S $をそれぞれ連続な全射とする.
+	このとき, $ f, g $がともに閉写像であり任意の点$ r \in R, s \in S $に対して$ f^{-1}(r), g^{-1}(s) $がそれぞれ$ X, Y $のコンパクト集合であるならば$ f \times g \colon X \times Y \to R \times S $は閉写像である.
+\end{theorem}
+
+\begin{proof}
+	$ A \subset X \times Y $を閉集合とする.
+	任意に点$ (r, s) \in R \times S \setminus (f \times g)[A] $をとると$ (f \times g)^{-1}((r, s)) = f^{-1}(r) \times g^{-1}(s) \subset X \times Y \setminus A $.
+	仮定より, $ f^{-1}(r), g^{-1}(s) $はコンパクトなので命題\ref{prop:Tube Lemma}より, $ f^{-1}(r) \subset U, g^{-1}(s) \subset V, U \times V \subset X \times Y \setminus A $なる$ X $の開集合$ U $と$ Y $の開集合$ V $が存在する.
+	このとき, $ U' \defeq R \setminus f[X \setminus U], V' \defeq S \setminus g[Y \setminus V] $と定めると, これらはそれぞれ$ R, S $の開集合であり$ f^{-1}(r) \in f^{-1}[U'] \subset U, g^{-1}(s) \in g^{-1}[V'] \subset V $が成り立つ.
+	よって, $ (r, s) \in U' \times V', (U' \times V') \cap f \times g[A] = \emptyset $となるので$(f \times g)[A] $は閉集合である.
+\end{proof}
+
+\begin{corollary}
+	\label{coro:Kuratowski-Mrowka Theorem}
+	$ X $をコンパクトな位相空間とする.
+	このとき, 任意の位相空間$ Y $に対して射影$ p \colon X \times Y \to Y $は閉写像である.
+\end{corollary}
+
+\begin{proof}
+	定理(\ref{thm:Sufficient condition that the product of closed continuous surgections is closed})において, $ X $をコンパクト集合, $ R $を一点集合, $ S = Y $(同じ位相を入れる)とし, $ f \colon X \to R $を定値写像, $ g \colon Y \to S $を恒等写像$ id_Y \colon Y \to Y $とする.　このとき, $ f, g $はともに連続かつ閉な全射であるので$ f \times id_Y \colon X \times Y \to \{\ast\} \times Y $は閉写像である.
+	$ h \colon \{\ast\} \times Y \to Y $を$ h(\ast, y) \defeq y $と定めると$ h $は閉写像である.
+	射影$ p \colon X \times Y \to Y $は$ p = h \circ (f \times id_Y) $を満たすので$ p $は閉写像である.
+\end{proof}
+
+次の定理に示すようにこの系の逆も成立する.
+
+\begin{theorem}
+	$ X $を位相空間とする.
+	任意の位相空間$ Y $に対して射影$ p \colon X \times Y \to Y $が閉写像となるならば$ X $はコンパクトである.
+\end{theorem}
+
+\begin{proof}
+    $ X $がコンパクトでないと仮定して矛盾を導く.
+	そこで, $ \mathscr{F} $を有限交差性をもつ$ X $の閉集合族であって, $ \bigcap \mathscr{F} = \emptyset $を満たすものとする.
+	ここで, 1点$ p \notin X $をとり, $ Y \defeq \{p\} \cup X $と定める.
+	また, 集合$ Y $上の位相$ \mathcal{O}_Y $を次で定める:
+	\[\mathcal{O}_Y \defeq \pow (X) \cup \setcomp{\{p\} \cup \left(\bigcap \mathscr{F}'\right) \cup A}{ \mathscr{F}' \subset \mathscr{F}, \mathscr{F}':\mbox{有限}, A \in \pow (X)}.\]
+    $ \mathcal{O}_Y $が$ Y $上の位相であることは容易に確かめられる.
+	$ D \defeq \setcomp{(x, x) \in X \times Y}{x \in X} $と定める.
+	射影$ \pi \colon X \times Y \to Y $は閉写像であるから$ \pi[\topcl_{X \times Y} D] $は$ Y $の閉集合である.
+	$ X \subset \pi[\topcl_{X \times Y} D] $かつ$ \topcl_Y X = Y　$なので$ p \in \pi[\topcl_{X \times Y} D] $となる.
+	よって, ある$ x_0 \in X $で$ (x_0, p) \in \topcl_{X \times Y} D $を満たすものが存在する.
+	このとき, $ x_0 $の$ X $における任意の近傍$ U $に対して次が成り立つ:
+	\[\mbox{任意の} F \in \mathscr{F} \mbox{に対して}, [U \times (\{p\} \cup F)] \cap D \neq \emptyset.\]
+	よって, $ D $の定義から$ U \cap F \neq \emptyset $となる.
+	任意の$ F \in \mathscr{F} $は閉集合なので$ x_0 \in F $がすべての$ F \in \mathscr{F} $について成り立ち, $ \bigcap \mathscr{F} = \emptyset $に矛盾する.
+\end{proof}
+
+\begin{proposition}
+	$ X $を \topT{3.5} 空間とし, $ \beta(X) $を$ X $の \Stone-\Cech コンパクト化とする($ \beta_X \colon X \to \beta(X) $は稠密な埋め込みとする).
+	このとき, 射影$ p \colon X \times \beta(X) \to \beta(X) $が閉写像ならば$ X $はコンパクトである.
+\end{proposition}
+
+\begin{proof}
+	$ \topcl \beta_X [X] = \beta_X [X] $を示せばよい.
+	$ A \defeq \setcomp{(x, \beta_X(x)) \in X \times \beta_X[X]}{x \in X } $が$ X \times \beta(X) $の閉集合であることを示せば, $ p[A] = \beta_X[X] $が閉集合であることを示せる.
+	いま, $ X $は\Hausdorff であり$ X \cong \beta_X[X] $であることから$ A $は閉集合である.
+\end{proof}
+
+\begin{proposition}
+	任意の \Hausdorff 空間$ X $に対して, ある \Hausdorff 空間$ Y $および$ X $から$ Y $への連続な全単射が存在し, $ \topweight(Y) \leq \topnetwork(X) $が成り立つ.
+\end{proposition}
+
+\begin{proof}
+    $ \mathscr{N} $を$ \cardinality{\mathscr{N}} = \topnetwork(X) $なる$ X $のネットワークとする.
+	$ \mathscr{N} $のネットワーク濃度が有限のときを考える.
+	$ \topnetwork{X} = n $とする.
+	もし, $ \cardinality{X} > n $であれば, $ X $が \Hausdorff 空間であることから$ n+1 $個の相異なる点$ x_0, x_1, \cdots , x_n $に対して開集合$ U_0, U_1, \cdots, U_n $が存在して
+	\[ x_i \in U_i \ (i = 0, 1, \cdots, n), \ i \neq j \mbox{ならば} U_i \cap U_j = \emptyset \]
+    が成り立つ.
+	このとき, ある$ i \in \{0, 1, \cdots, n\} $が存在して$ U_i $に含まれる$ \mathscr{N} $の元が存在せず$ \mathscr{N} $がネットワークであることに矛盾する.
+	よって, $ \cardinality{X} \leq n $である.
+	このとき, $ X $は離散空間なのでウェイトもネットワーク濃度も台集合の濃度に等しい.
+    次に, ネットワーク濃度が無限の場合を考える.
+	$ X $の位相を$ \mathcal{O}_1 $とし, $ \mathscr{N} $の2元集合全体を$ \mathscr{T} $とする.
+	$ \mathscr{N} $の2元集合$ P = \{M, N\} \in \mathscr{T} $に対して, $ U, V \in \mathcal{O}_1 $であって$ M \subset U, N \subset V, U \cap V = \emptyset $を満たすものが存在するとき, そのような2つの開集合を１つとり$ B_P = \{U, V\} $と定める.
+	また, このような2つの開集合が存在しない場合には$ B_P = \emptyset $とする.
+	ここで, $ \mathscr{B}_0 \defeq \bigcup_{P\in \mathscr{T}} B_P $とすると$ \cardinality{\mathscr{B}_0} \leq \cardinality{\mathscr{N}} $が成り立つ.
+	$ \mathscr{B}_0 $の有限個の元の共通部分全体からなる集合族を$ \mathscr{B} $とし, $ \mathcal{O}_2 \defeq \setcomp{\bigcup \mathscr{B}'}{\mathscr{B}' \subset \mathscr{B}} $とすると, $ \mathcal{O}_2 $は$ X $の位相を定め, $ Y = (X, \mathcal{O}_2) $とする.
+	このとき, $ \topweight(Y) \leq \cardinality{\mathscr{B}} = \cardinality{\mathscr{B}_0} \leq \topnetwork(X) $相異なる2点$ x, y \in X $に対して開集合$ U, V \in \mathcal{O}_1 $が存在し, $ x \in M \subset U, y \in N \subset V $なる$ M, N \in \mathscr{N} $が存在することから, $ B_{\{M, N\}} \subset \mathscr{B} $の2つの元は$ x, y $を分離する.
+	よって, $ (X, \mathcal{O}_2) $は \Hausdorff 空間である.
+	また, 定義より$ \mathscr{B} \subset \mathcal{O}_1 $であるから, $ \mathcal{O}_2 \subset \mathcal{O}_1 $である.
+	ゆえに, 恒等写像$ id \colon X \to Y $は連続な全単射である.
+\end{proof}
+
+\begin{corollary}
+	\label{coro:Weight in a compact Hausdorff space is equal to network weight}
+	任意のコンパクト \topT{2} 空間$ X $について$ \topweight(X) = \topnetwork(X) $が成り立つ.
+	\qed
+\end{corollary}
+
+\begin{corollary}
+	コンパクト \topT{2} 空間$ X $が可算個の第二可算な部分集合の和であれば$ X $距離化可能である.
+\end{corollary}
+
+\begin{proof}
+	$ X $を被覆する可算個の部分集合それぞれの相対位相に関する可算開基すべての和を取ると$ X $の可算なネットワークになることから, $ X $は第二可算であり距離化可能である.
+\end{proof}
+
+\begin{corollary}
+	コンパクト \topT{2} 空間$ X $について$ \topweight(X) \leq \cardinality{X} $が成り立つ.
+	\qed
+\end{corollary}
+
+\begin{corollary}
+	$ X $を位相空間とし, $ Y $をコンパクト \topT{2} 空間とする.
+	$ X $から$ Y $への連続な全射が存在すれば$ \topweight(Y) \leq \topweight(X) $が存在する.
+\end{corollary}
+
+\begin{proof}
+	$ f \colon X \to Y $を連続全射とし, $ \topbasis $を$ X $の任意の開基とする.
+	このとき, $ \setcomp{f[U]}{U \in \topbasis} $が$ Y $のネットワークとなることからわかる.
+\end{proof}
+
+\begin{proposition}
+	任意の距離空間において次の条件は同値である.
+	\begin{enumerate}
+		\item コンパクトである.
+		\item 点列コンパクトである.
+		\item 完備かつ全有界である.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	[WIP]
+\end{proof}
+
+\begin{proposition}
+	$ Y $を \Hausdorff 空間とする.
+	このとき, あるコンパクト距離空間$ X $から$ Y $への連続な全射が存在すれば, $ Y $はコンパクトな距離空間である.
+\end{proposition}
+
+\begin{proof}
+	$ Y $はコンパクト \Hausdorff 空間なので \topT{4} である.
+	また, $ X $は第二可算でありコンパクト空間から \Hausdorff 空間への連続全射は完全写像なので$ Y $も第二可算である(命題 \ref{prop:Weight of an image of perfect map}).
+	よって, \Urysohn の距離化定理(\ref{thm:Urysohn's metrization theorem})により$ Y $はコンパクト距離空間である.
+\end{proof}
+
+\begin{theorem}
+	可算コンパクトなメタコンパクト空間はコンパクトである.
+\end{theorem}
+
+\begin{proof}
+	[WIP]
+\end{proof}
+
+\end{document}

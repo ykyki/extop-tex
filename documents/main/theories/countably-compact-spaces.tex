@@ -1,0 +1,109 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{可算コンパクト空間}
+\label{sec:countably-compact-spaces}
+
+\newcommand{\starset}[2]{\mathrm{St}\left(#1 , \: #2\right)}
+\newcommand{\sstarset}[3]{\mathrm{St}^{#1}\left(#2 , \: #3 \right)}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{かさんこんぱくと}{可算コンパクト}{countably compact}であるとは, $ X $の任意の可算開被覆に対して有限部分開被覆が存在することである.
+\end{definition}
+
+可算コンパクト空間の閉部分空間も可算コンパクトになることはコンパクト性と同様であるが, 可算コンパクト空間の積空間はたとえ有限個の積であっても可算コンパクトであるとは限らない. 可算コンパクト空間の連続像は可算コンパクトなので, 可算コンパクト空間の商空間も可算コンパクトである.
+
+\begin{proposition}
+	\label{prop:Countable compact <> Every countably infinite subset has an accumulation point}
+	位相空間$ X $が可算コンパクト空間であることと, 任意の可算無限部分集合が集積点をもつことは同値である.
+\end{proposition}
+
+\begin{proof}
+	$ X $のある可算無限部分集合$ A = \{a_n\}_{n \in \N} $が集積点を持たないとき, $ A $は離散閉集合である. このとき, 各$ n \in \N $に対して$ U_n \defeq (X \setminus A) \cup \{a_n\} $と定めると, $ \setcomp{U_n}{n \in \N} $は$ X $の可算開被覆であるが有限部分被覆を持たない. 次に, $ X $の任意の可算無限部分集合が集積点をもつならば可算コンパクトであることを示す. そのためには, 有限交叉性をもつ可算個の閉集合族$ \{F_n\}_{n \in \N} $の共通部分が空でないことを示せばよい. 各$ i \in \N $について$ x_i \in \bigcap_{n=1}^{i}F_n $なる点$ x_i $を一つとる. このとき, $ \{x_i\}_{i \in \N} $の中に無限個の等しい点があればその点は$ \bigcap_{n \in \N} F_n $に含まれ, 無限個の異なる点があればその集積点$ x $が存在して$ x \in \bigcap_{n \in \N} F_n $となる.
+\end{proof}
+
+\begin{proposition}
+	任意の点列コンパクト空間は可算コンパクトである.
+\end{proposition}
+
+\begin{proof}
+	点列コンパクト空間において, 任意の可算無限部分集合は集積点をもつ. したがって, 命題(\ref{prop:Countable compact <> Every countably infinite subset has an accumulation point})より可算コンパクトである.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:A property on an open covering}
+	位相空間$ X $の任意の開被覆$ \mathscr{U} $に対して写像$ f \colon X \to \pow(\mathscr{U}) $を$ x \mapsto \setcomp{U \in \mathscr{U}}{x \in U} $で定義すると, 任意の無限部分集合$ F \subset X $に対して$ \topcl F \subset \bigcup_{x \in F} \left(\bigcup f(x) \right) $が成り立つ.
+\end{lemma}
+
+\begin{proof}
+	$ \bigcup_{x \in F} \left(\bigcup f(x) \right) = \bigcup_{x \in F} \starset{x}{\mathscr{U}} = \starset{F}{\mathscr{U}} \supset \topcl F. $
+\end{proof}
+
+
+\begin{proposition}
+	\topT{3} 空間において次は同値である.
+	\begin{enumerate}
+		\item 可算コンパクトである.
+		\item 任意の点有限な開被覆が有限部分被覆をもつ.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	まず, 可算コンパクトでないときある点有限な開被覆で有限部分被覆をもたないものが存在することを示す. $ X $が可算コンパクトでなければ, 点列$ (x_n)_{n \in \N} $であって集積点を持たないものが存在する. $ x_0 $が$ \{x_n\}_{n \in \N} $の集積点でないことから$ x_0 $の開近傍$ U_0 $であって$ U_0 \cap \{x_1, x_2, x_3, \cdots\} = \emptyset $を満たすものが存在する. また, $ X $が \topT{3} であることから, 閉近傍$ V_0 $であって$ x_0 \in V_0 \subset U_0 $を満たすものが存在する. $ n \leq k $に対して, $ V_n $は$ \{x_{k+1}, x_{k+2}, x_{k+3}, \cdots\}$と交わらない$ x_n $の閉近傍であり, 相異なる$ i, j \leq k $について$ V_i \cap V_j = \emptyset $を満たすものとする. このとき, $ \left(\bigcup_{n=0}^{n=k} V_{n} \right) \cup \{x_{k+2}, x_{k+3}, x_{k+4}, \cdots\} $は$ x_{k+1} $を含まない閉集合なので, $ x_{k+1} $の閉近傍$ V_{k+1} $であって, $ \left(\bigcup_{n=0}^{n=k} V_{n} \right) \cup \{x_{k+2}, x_{k+3}, x_{k+4}, \cdots\} $と交わらないものがとれる. $ W \defeq X \setminus \{x_n\}_{n \in \N} $とし, $ \mathscr{V} \defeq \{\topint V_n\}_{n \in \N} \cup \{W\} $と定めると, $ \mathscr{V} $は点有限な開被覆となるが部分被覆をもたない. よって, 任意の点有限な開被覆が有限部分被覆をもつならば可算コンパクトである.
+	
+	次に, 逆を示す. 点有限な開被覆$ \mathscr{U} $に対して$ \chi_0(\mathscr{U}) $を$ \mathscr{U} $の可算部分集合全体からなる族とし, $ f \colon X \to \chi_0(\mathscr{U}) $を$ x \mapsto \setcomp{U \in \mathscr{U}}{x \in U} $で定義する. 任意の$ \mathscr{V} \in \chi_0(\mathscr{U}) $に対して$ X \neq \bigcup \mathscr{V} $と仮定して矛盾を導く. まず, $ x_0 \in X $を1つとる. ここで, 1以上の$ n \in \N $に対して$ x_1, x_2, \cdots, x_n \in X $が次を満たすように定められているとする:
+	$$ x_i \in X \setminus \bigcup_{j=0}^{i-1} \left(\bigcup f(x_j)\right), \ \ i = 1, 2, \cdots, n. $$
+	このとき, $ \bigcup_{j=0}^{n} f(x_j) \in \chi_0(\mathscr{U}) $を満たすので, 背理法の仮定より$ x_{n+1} \in X \setminus \bigcup_{j=0}^{n} \left(\bigcup f(x_j)\right) $を1つとれる. このようにして$ \setcomp{x_n}{n \in \N} $を定める. 補題\ref{lem:A property on an open covering}より$ \topcl \setcomp{x_n}{n \in \N} \subset \bigcup_{n \in \N} \left(\bigcup f(x_n)\right) $なので, $ W \defeq X \setminus \topcl \setcomp{x_n}{n \in \N} $とおくと, $ \{W\} \cup \left(\bigcup_{n \in \N} f(x_n) \right) $は$ X $の可算開被覆である. $ X $が可算コンパクトであることから, ある$ m \in \N $が存在して$ X = W \cup \left(\bigcup_{n=0}^m \left(\bigcup f(x_n) \right)\right) $となる. このとき, $ x_{m+1} \in W $となるがこれは$ W $の定義に矛盾する. よって, ある$ \mathscr{V} \in \chi_0(\mathscr{U}) $が存在して$ X = \bigcup \mathscr{V} $となり, $ X $が可算コンパクトであるから$ \mathscr{V} $は有限部分被覆をもつ.
+\end{proof}
+
+上の証明の後半からわかるように, 可算コンパクト空間においては点可算な開被覆が有限部分被覆をもつ.
+
+\begin{proposition}
+	任意の可算コンパクト空間は擬コンパクト空間である. また, \topT{4} 空間が擬コンパクトならば可算コンパクトである.
+\end{proposition}
+\begin{proof}
+	位相空間$ X $からの実連続関数$ f \colon X \to \R $を考える. ここで, $ \setcomp{f^{-1}[\intoo{-n}{n}]}{n \in \N} $は$ X $の開集合からなる増大列で$ X = \bigcup_{n \in \N} f^{-1}[\intoo{-n}{n}] $を満たすので, $ X $が可算コンパクトであることからある$ N \in \N $が存在して$ X = f^{-1}[\intoo{-N}{N}] $となる. よって, $ f[X] = ff^{-1}[\intoo{-N}{N}] \subset \intoo{-N}{N} $となり, $ f $は有界である. 次に, \topT{4} かつ擬コンパクトな位相空間$ X $が可算コンパクトであることを背理法により示す. $ X $が可算コンパクトでないと仮定すると, 命題\ref{prop:Countable compact <> Every countably infinite subset has an accumulation point}より可算無限濃度の離散閉集合$ D $が存在する. このとき, $ D $上の任意の実関数は連続であり, $ f \colon D \to \R $を非有界な連続関数とすると \Tietze の拡張定理\ref{thm:Tietze's extension theorem}により$ X $上の実連続関数であって非有界なものが存在することになり擬コンパクトであることに矛盾する.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:The projection from the Cartesian product of a countably compact space X and a sequential space Y to Y is closed}
+	可算コンパクト空間$ X $と列型空間$ Y $の積空間$ X \times Y $から$ Y $への射影$ p \colon X \times Y \to Y $は閉写像である.
+\end{proposition}
+
+\begin{proof}
+	$ F $を$ X \times Y $の任意の閉集合とする. $ p[F] $内の任意の点列$ (y_n) $について, $ y \in \mathrm{Lim} \ y_n $とする. ここで, 各$ n \in \N $に対して$ (x_n, y_n) \in F $を満たす$ x_n \in X $をとる. 集合$ \{x_n \}_{n \in \N} $が有限集合であれば, ある$ x \in X $が存在し, ある部分列$ (x_{n_m})_{m \in \N}) $であって任意の$ m \in \N $について$ x_{m_n} = x $となるものが存在する. このとき, $ (x, y) \in \mathrm{Lim} \ (x_{n_m}, y_{n_m}) $であり, $ F $が閉集合であることから$ (x, y) \in F $となる. ゆえに, $ y \in p[F] $が成り立つ. 集合$ \{x_n \}_{n \in \N} $が有限集合でなければ, $ \{x_n \}_{n \in \N} $の集積点$ x $が存在する. $ U \subset X \times Y $を$ (x, y) $の任意の近傍とすると, $ x $の近傍$ U_x \subset X $と$ y $の近傍$ U_y \subset Y $であって$ U_x \times U_y \subset U $を満たすものが存在する. このとき, 十分大きい$ N \in \N $が存在して$ x_N \in U_x $かつ$ y_N \in U_y $が成り立つので$ F \cap U_x \times U_y \neq \emptyset $となる. ゆえに, $ (x, y) \in F $より$ y \in p[F] $が成り立つ. 以上から, $ p[F] $が点列閉であり$ Y $が列型空間であることから$ p[F] $は閉集合である.
+\end{proof}
+
+\begin{theorem}
+	\label{thm:Inverse image of every countably compact subset by a perfect mapping is countably compact}
+	$ f \colon X \to Y $を位相空間$ X $から位相空間$ Y $への閉写像とする. 任意の点$ y \in Y $に対して$ f^{-1}(y) \subset X $が可算コンパクトな部分空間であるとき, $ Y $の任意の可算コンパクト部分空間$ A $に対して$ f^{-1}[A] $は$ X $の部分空間である.
+\end{theorem}
+
+\begin{proof}
+	定理(\ref{prop:Inverse image of every compact subset by a perfect mapping is compact})の証明と同様の方法で証明できる.
+\end{proof}
+
+
+\begin{corollary}
+	$ f \colon X \to Y $を位相空間$ X $から可算コンパクト空間$ Y $への完全写像とする. このとき, $ X $は可算コンパクト空間である. \qed
+\end{corollary}
+
+\begin{corollary}
+	可算コンパクト空間$ X $とコンパクト空間$ Y $の積空間$ X \times Y $は可算コンパクト空間である.
+\end{corollary}
+
+\begin{proof}
+	$ Y $がコンパクトであることから, 射影$ p \colon X \times Y \to X $は閉写像であり, $ f $は完全写像であることからわかる.
+\end{proof}
+
+\begin{corollary}
+	可算コンパクト空間$ X $と列型な可算コンパクト空間$ Y $の積空間$ X \times Y $は可算コンパクトである.
+\end{corollary}
+
+\begin{proof}
+	命題(\ref{prop:The projection from the Cartesian product of a countably compact space X and a sequential space Y to Y is closed})と定理(\ref{thm:Inverse image of every countably compact subset by a perfect mapping is countably compact})から得られる.
+\end{proof}
+
+\end{document}

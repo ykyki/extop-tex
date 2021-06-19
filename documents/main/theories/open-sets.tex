@@ -1,0 +1,98 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{開集合族, 開基, 準開基, 開核}
+\label{sec:open-sets}
+
+\newcommand{\cM}{\mathcal{M}}
+
+\begin{definition}
+	\indexjj{いそうくうかん}{位相空間}{topological space}とは, 集合$X$とその部分集合族$\tau$の組$(X, \tau)$であって, 以下の条件を満たすもののことである.
+	\begin{enumerate}
+		\item$\tau$が有限交叉で閉じている.
+			つまり, $\tau$の任意の有限部分集合$\mathscr{M}$について$\bigcap \mathscr{M} \in \tau$となる.
+			\begin{itemize}
+				\item$\tau$が有限交叉で閉じている.
+					つまり, $\tau$の任意の有限部分集合$\mathscr{M}$について$\bigcap \mathscr{M} \in \tau$となる.
+				\item$\tau$が合併で閉じている.
+					つまり, $\tau$の任意の部分集合$\mathscr{M}$について$\bigcup \mathscr{M} \in \tau$となる.
+			\end{itemize}
+		\item$\tau$が合併で閉じている.
+			つまり, $\tau$の任意の部分集合$\mathscr{M}$について$\bigcup \mathscr{M} \in \tau$となる.
+	\end{enumerate}
+	$\tau$が念頭に置かれているときには, 組$(X, \tau)$を単に$X$だけで表す.
+	$\tau$の元を位相空間$X$の\indexjj{かいしゅうごう}{開集合}{open set}と呼ぶ.
+	$\tau$のことを$X$の\indexj{かいしゅうごうぞく}{開集合族}あるいは\indexjj{いそう}{位相}{topology}という.
+	また開集合族$\tau$のことを$\topopens_\tau (X)$や$\topopens[X]$と書くこともある.
+\end{definition}
+
+\begin{definition}
+	$X$を位相空間とする.
+	$X$の開集合族$\topopens[X]$の部分集合$\topbasis$が\indexjj{かいき}{開基}{open basis}であるとは, $X$の任意の開集合が$\topbasis$の元の合併として表せることである.
+\end{definition}
+
+\begin{proposition}
+	位相区間$X$の開集合族$\topopens[X]$の部分集合$\topbasis$が開基であることと, 次の条件を満たすことは同値である: 任意の開集合$G$と点$x \in G$に対し, $\topbasis$のある元$B$が存在して$x \in B \subset G$となる.
+	\qed
+\end{proposition}
+
+\begin{definition}
+	集合$X$について, $X$上の開集合族を定めるような部分集合族を全て集めた集合は, 包含関係について完備束をなす.
+	特に, そのような部分集合族の族$\setfamily{\topopens_\lambda}{\lambda \in \Lambda}$に対し, それらの下限は$\bigcap_\lambda \topopens_\lambda$である.
+	そこで, $X$の任意の部分集合属$\cM$に対し, $\cM$を含む最小の開集合系が存在する.
+	この位相を$\cM$から\indexj{せいせいされるいそう}{生成される位相}という.
+\end{definition}
+
+\begin{proposition}
+	集合$X$の部分集合族$\cM$から生成される位相は次のように表せる:
+	まず部分集合族$\topbasis_\cM$を
+	\[ \topbasis_\cM \defeq \setcomp{B \subset X}{\text{$B$は$\cM$の有限個の元の交叉になる}} \]
+	と定義すると, 生成される位相$\topopens_\cM$は
+	\[ \topopens_\cM \defeq \setcomp{G \subset X}{G \text{は$\topbasis_\cM$のいくつか元の合併になる}} \]
+	となる.
+
+	このとき, $\topbasis_\cM$は位相$\topopens_\cM$の開基となっている.
+	さらに, $\cM$が以下の2条件を満たしていれば$\cM$も$\topopens_\cM$の開基になる:
+	\maru{1}$\bigcup \cM = X$である.
+	\maru{2} 任意の$M_1, M_2 \in \cM$と点$x \in M_1 \cap M_2$に対し, ある$M_3 \in \cM$が存在して$x \in M_3 \subset M_1 \cap M_2$となる.
+\end{proposition}
+
+\begin{proof}
+	集合$X$上の任意の開集合族について, それが$\cM$を含めば$\topopens_\cM$を含む.
+	また$\topopens_\cM$自身も$\cM$を含む開集合族になる.
+	よって$\topopens_\cM$が$\cM$から生成される位相である.
+
+	$\topbasis_\cM$が$\topopens_\cM$の開基であることは定義そのものである.
+	また$\cM$が条件を満たせば, $\topbasis_\cM$の任意の元は$\cM$の元の合併として表せるので, $\cM$も開基になる.
+\end{proof}
+
+\begin{definition}
+	$X$を位相空間とする.
+	$X$の開集合族$\topopens[X]$の部分集合$\cM$が\indexjj{じゅんかいき}{準開基}{open subbasis}であるとは, $\cM$から生成される位相が$\topopens (X)$と一致することである.
+\end{definition}
+
+\begin{definition}
+	$X$を位相空間, $A$を$X$の部分集合とする.
+	$A$の\indexj{かいかく}{開核}あるいは\indexjj{ないぶ}{内部}{interior}とは, $A$に含まれる開集合全体の合併のことである.
+	この集合を$\topint_X A$あるいは単に$\topint A$で表す.
+\end{definition}
+
+\begin{proposition}
+	開核の性質.
+\end{proposition}
+
+\begin{proposition}
+	開核作用素$\topint$による位相の定義.
+\end{proposition}
+
+\begin{definition}
+	位相空間におけるフィルターとネットの収束.
+\end{definition}
+
+\begin{proposition}
+	収束による開集合の特徴づけ.
+\end{proposition}
+
+\end{document}

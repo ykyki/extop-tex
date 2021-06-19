@@ -1,0 +1,130 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{近傍}
+\label{sec:neighborhoods}
+
+\begin{definition}
+	$ X $を位相空間, $ A $を$ X $の部分集合とする.
+	このとき$ X $の部分集合$ U $が$ A $の\indexjj{きんぼう}{近傍}{neighborhood}であるとは, 包含関係$ A \subset \topint U $が成り立つことである.
+	$ A $の近傍全体がなす部分集合族を$ \topnbd[X]{A} $あるいは$ \topnbd{A} $で表し, $ A $の\indexj{きんぼうぞく}{近傍族}と呼ぶ.
+	特に$ A $が一点集合$ \{x\} $に等しいときには, $ \{x\} $の近傍のことを点$ x $の近傍ともいい, その近傍族を単に$ \topnbd{x} $とも書く.
+	近傍族が各点$ x \in X $で添え字づけられていると見做したときの集合系$ \setfamily{\topnbd{x}}{x \in X} $を\indexj{きんぼうけい}{近傍系}という.
+\end{definition}
+
+近傍といってもその集合自身が開集合である必要はないが, 開集合である近傍を特に\indexjj{かいきんぼう}{開近傍}{open neighborhood}という.
+同様にして閉近傍やコンパクト近傍といった用語も定義される.
+
+\begin{proposition}
+	\label{prop:relation between open sets and neighborhoods}
+	位相空間$ X $の部分集合$ A $について次の等式が成り立つ:
+	\[ \topint A = \setcomp{x \in X}{\mbox{$ x $のある近傍$ U $が存在して$ U \subset A $となる}} . \]
+	特に, $ A $が開であるための必要十分条件が, 任意の点$ x \in A $に対してある近傍$ U $が存在し$ U \subset A $となることと同値になる.
+\end{proposition}
+
+\begin{proposition}
+	\label{prop:property of neighborhoods}
+	位相空間$ X $とその点$ x $について以下のことが成り立つ:
+	\begin{enumerate}
+		\item 近傍族$ \topnbd{x} $は集合$ X $上のフィルターである.
+		\item 点$ x $の任意の近傍$ U $について$ x \in U $である.
+		\item 点$ x $の任意の近傍$ U $に対し, ある近傍$ V \in \topnbd{x} $が存在して, 任意の点$ v \in V $について$ U \in \topnbd{v} $となる.
+	\end{enumerate}
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	\label{prop:definition of topology by neighborhoods}
+	$ X $を集合とし, \cref{prop:property of neighborhoods}の3条件を満たす集合系$ \setfamily{\topnbd{x}}{x \in X} $が与えられているとする.
+	つまり以下の条件を満たすとする:
+	\begin{enumerate}
+		\item 任意の点$ x \in X $に対し, $ \topnbd{x} $が$ X $上のフィルターである.
+		\item 任意の点$ x \in X $と集合$ U \in \topnbd{x} $について$ x \in U $である.
+		\item 任意の点$ x \in X $と集合$ U \in \topnbd{x} $に対し, ある$ V \in \topnbd{x} $が存在して, 任意の点$ v \in V $について$ U \in \topnbd{v} $となる.
+	\end{enumerate}
+	このとき集合$ X $上の位相であって, その近傍系がこの$ \setfamily{\topnbd{x}}{x \in X} $に等しいものが唯一存在する.
+\end{proposition}
+
+\begin{proof}
+	$ X $の部分集合$ G $が開であることを, 任意の$ x \in G $に対してある$ V \in \topnbd{x} $が存在して$ V \subset G $となることとして定義する.
+	すると$ X $上の位相が定まる.
+
+	点$ x \in X $を任意にとる.
+	この位相に関する$ x $の近傍族と$ \topnbd{x} $が等しいことを示す.
+	まず$ x $の近傍$ U $を任意に与える.
+	定義よりある$ V \in \topnbd{x} $が存在して$ V \subset U $になる.
+	よって$ U \in \topnbd{x} $である.
+	次に任意に$ V \in \topnbd{x} $を与える.
+	ここで集合
+	\[ U \defeq \setcomp{w \in X}{\mbox{ある$ W \in \topnbd{w} $が存在して$ W \subset V $}} \]
+	とおく.
+	すると$ U = \topint V $となっている.
+	\begin{hosoku}
+		左辺が右辺に含まれることは定義と条件より直ちに従う.
+		逆の包含を示そう.
+		$ w \in \topint V $とする.
+		定義よりある$ W \in \topnbd{w} $で$ W \subset V $となっている.
+		条件よりある$ W^\prime \in \topnbd{w} $が存在して, 任意の$ w^\prime \in W^\prime $について$ W \in \topnbd{w^\prime} $となる.
+		すると$ w \in W^\prime \subset U $である.
+	\end{hosoku}
+	\noindent
+	また定義より$ x \in U $でもあるから, よって$ V $は$ x $の近傍である.
+
+	最後に位相の一意性であるがこれは, 開集合が近傍によって特徴づけられること (\cref{prop:relation between open sets and neighborhoods}) から従う.
+\end{proof}
+
+\begin{proposition}
+	近傍と収束の関係.
+\end{proposition}
+
+\begin{definition}
+	$ X $を位相空間, $ A $を$ X $の部分集合とする.
+	このとき近傍族$ \topnbd{A} $の部分集合$ \mathscr{M} $が$ A $の\indexj{きんぼうき}{近傍基}であるとは, $ \mathscr{M} $がフィルターとして$ \topnbd{A} $の基底になることである.
+	言い換えれば, 任意の近傍$ U \in \topnbd{A} $に対してある$ M \in \mathscr{M} $が存在して$ M \subset U $となることである.
+\end{definition}
+
+位相空間$ X $の点$ x $について, $ \topnbd{x} $の基底を単に点$ x $の近傍基ともいう.
+開近傍全体は近傍基をなす.
+各点$ x $に対して近傍基$ \mathcal{M} (x) $がそれぞれ与えられたとき, 近傍系のときと同様の命題が集合系$ \setfamily{\mathcal{M} (x)}{x \in X} $ついても成り立つ.
+また, この集合系のことを\indexj{きほんきんぼうけい}{基本近傍系}とよぶ.
+
+\begin{proposition}
+	\newcommand{\nbdbase}{\mathcal{M}}
+	位相空間$ X $の部分集合$ A $について次の等式が成り立つ:
+	\[ \topint A = \setcomp{x \in X}{\mbox{$ x $のある近傍$ U \in \nbdbase (x) $が存在して$ U \subset A $となる}} . \]
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	\newcommand{\nbdbase}{\mathcal{M}}
+	\label{prop:property of neighborhood bases}
+	位相空間$ X $とその点$ x $について以下のことが成り立つ:
+	\begin{enumerate}
+		\item 近傍基$ \nbdbase (x) $は集合$ X $上のフィルター基である.
+		\item 点$ x $の任意の近傍$ U \in \nbdbase (x) $について$ x \in U $である.
+		\item 点$ x $の任意の近傍$ U \in \nbdbase (x) $に対し, ある近傍$ V \in \nbdbase (x) $が存在して, 任意の点$ v \in V $について, ある近傍$ W \in \nbdbase (v) $が存在して$ v \in W \subset U $となる.
+	\end{enumerate}
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	\newcommand{\nbdbase}{\mathcal{M}}
+	$ X $を集合とし, \cref{prop:property of neighborhood bases}の3条件を満たす集合系$ \setfamily{\nbdbase (x)}{x \in X} $が与えられているとする.
+	つまり以下の条件を満たすとする:
+	\begin{enumerate}
+		\item 任意の点$ x \in X $に対し, $ \nbdbase (x) $が集合$ X $上のフィルター基である.
+		\item 任意の点$ x \in X $と集合$ U \in \nbdbase (x) $について$ x \in U $である.
+		\item 任意の点$ x \in X $と集合$ U \in \nbdbase (x) $に対し, ある$ V \in \nbdbase (x) $が存在して, 任意の点$ v \in V $について, ある近傍$ W \in \nbdbase (v) $が存在して$ v \in W \subset U $となる.
+	\end{enumerate}
+	このとき集合$ X $上の位相であって, $ \nbdbase (x) $が各点$ x $の近傍基となるものが唯一存在する.
+\end{proposition}
+
+\begin{proof}
+	\newcommand{\nbdbase}{\mathcal{M}}
+	各点$ x $に対し, $ \nbdbase (x) $から生成されるフィルターを$ \topnbd{x} $とおく.
+	すると集合系$ \setfamily{\topnbd{x}}{x \in X} $から定まる位相 (\cref{prop:definition of topology by neighborhoods}) について, $ \nbdbase (x) $が各点$ x $の近傍基になる.
+\end{proof}
+
+\end{document}

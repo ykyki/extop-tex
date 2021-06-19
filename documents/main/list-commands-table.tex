@@ -1,0 +1,60 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{common-preamble.sty}
+
+\begin{document}
+
+\newcommand{\tablesubtitle}[1]{\multicolumn{2}{c}{\textbf{#1}}}
+
+\begin{table}[htb]
+	\centering
+	\renewcommand{\arraystretch}{0.9}
+	% \setlength{\tabcolsep}{1em}
+	% \setlength{\doublerulesep}{10pt}
+	% \setlength{\arrayrulewidth}{1pt}
+	\caption{コマンド一覧}
+	\begin{tabular}{ll@{\qquad}l}
+		\hline
+		\hline
+		\tablesubtitle{基礎的な記号} \\
+		$\N$ & \verb|\N| & 自然数全体の集合 \\
+		$\Z$ & \verb|\Z| & 整数全体の集合   \\
+		$\Q$ & \verb|\Q| & 有理数全体の集合 \\
+		$\R$ & \verb|\R| & 実数全体の集合   \\
+		$\C$ & \verb|\C| & 複素数全体の集合 \\
+		$\I$ & \verb|\I| & 単位区間         \\
+		$x \defeq f(a)$ & \verb|x \defeq f(a)| & 定義を表す等号 \\
+		$\lrparen{f, g, h, \ldots}$    & \verb|\lrparen{f, g, h, \ldots}|    & parenthesis          \\
+		$\lrparenbig{f, g, h, \ldots}$ & \verb|\lrparenbig{f, g, h, \ldots}| & big parenthesis      \\
+		$\lrbrace{f, g, h, \ldots}$    & \verb|\lrbrace{f, g, h, \ldots}|    & brace                \\
+		$\lrbrack{f, g, h, \ldots}$    & \verb|\lrbrack{f, g, h, \ldots}|    & bracket              \\
+		$\lrangle{f, g, h, \ldots}$    & \verb|\lrangle{f, g, h, \ldots}|    & angle bracket        \\
+		$\forallparen{\epsilon > 0}$   & \verb|\forallparen{\epsilon > 0}|   & 全称量化子を括る括弧 \\
+		$\existsparen{\delta > 0}$     & \verb|\existsparen{\delta > 0}|     & 存在量化子を括る括弧 \\
+		$\formulaparen{x < y}$         & \verb|\formulaparen{x < y}|         & 論理式を括る括弧     \\
+		$\setcomp{x \in \R}{f(x) < 0}$ & \verb|\setcomp{x \in \R}{f(x) < 0}| & 内包表記             \\
+		$\setfamily{X_i}{i \in I}$     & \verb|\setfamily{X_i}{i \in I}|     & 添字付けられた集合系 \\
+		\hline
+		\tablesubtitle{位相空間に関する演算} \\
+		$\topint_X A$ & \verb|\topint_X A| & 空間$X$における部分集合$A$の内部   \\
+		$\topint A$   & \verb|\topint A|   & 部分集合$A$の内部                  \\
+		$\topcl_X A$  & \verb|\topcl_X A|  & 空間$X$における部分集合$A$の閉包   \\
+		$\topcl A$    & \verb|\topcl A|    & 部分集合$A$の閉包                  \\
+		$\topbar{A}$  & \verb|\topbar{A}|  & 部分集合$A$の閉包                  \\
+		$\topder_X A$ & \verb|\topder_X A| & 空間$X$における部分集合$A$の導集合 \\
+		$\topder A$   & \verb|\topder A|   & 部分集合$A$の導集合                \\
+		$A^\topd$     & \verb|A^\topd|     & 部分集合$A$の導集合                \\
+		\hline
+		\tablesubtitle{位相空間に関する記号} \\
+		$\topopens[X]$   & \verb|\topopens[X]|   & 空間$X$の開集合族            \\
+		$\topopens$      & \verb|\topopens|      & 開集合族                     \\
+		$\topbasis$      & \verb|\topbasis|      & 開基                         \\
+		$\topnbd[X]{x}$  & \verb|\topnbd[X]{x}|  & 空間$X$における点$x$の近傍族 \\
+		$\topnbd{x}$     & \verb|\topnbd{x}|     & 点$x$の近傍族                \\
+		$\topball{x}{r}$ & \verb|\topball{x}{r}| & 点$x$を中心する半径$r$の開球 \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
+
+\end{document}

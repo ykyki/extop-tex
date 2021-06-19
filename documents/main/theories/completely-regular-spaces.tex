@@ -1,0 +1,22 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{完全正則空間}
+\label{sec:completely-regular-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{かんぜんせいそくくうかん}{完全正則空間}{completely regular space}であるとは, $ X $の任意の点$ x $と閉集合$ F $に対し, $ x \not\in F $ならばある連続写像$ \phi \colon X \rightarrow \I $が存在して$ \phi (x) = 1 $かつ$ \phi[F] \subset \{0\} $となる.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexj{T3.5 くうかん}{\topT{3.5}空間}であるとは, 完全正則かつ\topT{0}空間であることである.
+\end{definition}
+
+\begin{proposition}
+	\label{prop:A product space of every T3.5 space is T3.5}
+	各$ \lambda \in \Lambda $に対して位相空間$ X_\lambda $が\topT{3.5}であるとき, $ X \defeq \prod X_\lambda $もまた\topT{3.5}である.
+\end{proposition}
+
+\end{document}

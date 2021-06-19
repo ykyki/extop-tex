@@ -1,0 +1,75 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{導集合, 集積点, 孤立点}
+\label{sec:derived-sets}
+
+\begin{definition}
+	位相空間$ X $の点$ x $が\indexjj{こりつてん}{孤立点}{isolated point}であるとは, 一点集合$ \{x\} $が開集合となることである.
+	$ X $が孤立点を持たないとき, $ X $は\indexjj{かんぜん}{完全}{perfect}であるという.
+\end{definition}
+
+\begin{definition}
+	$ X $を位相空間, $ A $を部分集合とする.
+	点$ x \in X $が$ A $の\indexjj{しゅうせきてん}{集積点}{accumulating point}であるとは, $ x \in \topbar{A \setminus \{x\}} $となることである.
+	$ A $の集積点全体の集合を$ A $の\indexjj{どうしゅうごう}{導集合}{derived set}といい, $ \topder_X A $あるいは単に$ A^\topd $と書く.
+\end{definition}
+
+$ \topbar A = A \cup A^\topd $が成り立つ.
+そして$ A \setminus A^\topd $の元は$ A $の孤立点になる.
+よって$ A $が閉集合のときは$ A^\topd $も$ X $で閉である.
+また, $ A $が孤立点を持たないための条件は$ A \subset A^\topd $となることである.
+$ A = A^\topd $が成り立つとき, $ A $は$ X $の\indexjj{じこちゅうみつしゅうごう}{自己稠密集合}{dense-in-itself}であるという.
+
+\begin{proposition}
+	位相空間$ X $の部分集合$ A $と点$ x $について以下の条件は同値である.
+	\begin{enumerate}
+		\item $ x $が$ A $の集積点である.
+		\item $ x $の任意の近傍が$ A $と$ x $以外の交点を持つ.
+	\end{enumerate}
+	さらに$ X $が\topT{1}空間のときは次の条件とも同値になる.
+	\begin{enumerate}
+		\setcounter{enumi}{2}
+	\item $ x $の任意の近傍$ U $について, $ U \cap A $が無限集合である.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(1)\lrimp(2)は閉包の性質より明らか.
+	(3)\rimp(2)も自明.
+	(2)\rimp(3)を示す.
+	任意に近傍$ U $を与える.
+	もし仮に$ U \cap A $が有限集合であるとする.
+	\topT{1}性より, $ x $の近傍$ V \subset U $が存在して$ V \cap A = \{x\} $となる.
+	これは(2)に反する.
+\end{proof}
+
+\begin{proposition}
+	位相空間$ X $について以下のことが成り立つ.
+	\begin{enumerate}
+		\item $ (A \cup B)^\topd = A^\topd \cup B^\topd $である.
+		\item $ A^\topd \setminus B^\topd \subset (A \setminus B)^\topd $である.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+	$ X $を位相空間, $ A \subset Y \subset X $を部分集合とする.
+	このとき$ \topder_Y A = Y \cap \topder_X A $である. \qed
+\end{proposition}
+
+\begin{proposition}
+	$ (X, d) $を距離空間, $ A $を部分集合とする.
+	このとき$ A^{\topd\topd} \subset A^\topd $が成り立つ.
+	よって$ A^\topd $は閉集合である. (Xが\topT{1}なら成立).
+\end{proposition}
+
+\begin{proof}
+	任意に$ x \in A^{\topd\topd} $を取る.
+	任意の$ \epsilon > 0 $に対して$ \topball{x}{\epsilon} $と$ A \setminus \{x\} $が交わることを示せばよい.
+	仮定より$ \topball{x}{\epsilon/2} $と$ A^\topd \setminus \{x\} $との交点$ y $が存在する.
+	$ y $が$ A $の集積点だから, $ \topball{y}{d(x, y)/2} $と$ A \setminus \{y\} $との交点$ z $が存在する.
+	すると$ x \neq z \in A $であり, $ d(x, z) < \epsilon $となるから, よって$ z \in \topball{x}{\epsilon} \cap \left( A \setminus \{x\} \right) $である.
+\end{proof}
+
+\end{document}

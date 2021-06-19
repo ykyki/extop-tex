@@ -1,0 +1,52 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{点列コンパクト空間}
+\label{sec:sequentially-compact-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{てんれつこんぱくと}{点列コンパクト}{sequentially  compact}であるとは, $ X $内の任意の列が収束部分列をもつことである.
+\end{definition}
+
+点列コンパクト空間の閉部分空間も点列コンパクトである. また, 有限個の点列コンパクト空間の積空間も点列コンパクトである. 点列の収束は連続写像で保たれるので, 点列コンパクト空間の連続像と商空間は点列コンパクトである.
+
+\begin{proposition}
+	可算個の点列コンパクト空間の積空間は点列コンパクトである.
+\end{proposition}
+
+\begin{proof}
+	可算個の点列コンパクト空間からなる族$ \setfamily{X_n}{n \in \N} $に対してその積空間を$ Y \defeq \prod_{n \in \N} X_n $とし, $ Y $の任意の点列$ (y_n) $が収束部分列をもつことを示す. ただし, 各$ n \in \N $に対して$ y_n = (x_0^n, x_1^n, \cdots) $であり, 任意の$ m \in \N $に対して$ x_m^n \in X_m $であるものとする.
+
+	$ X_0 $の点列コンパクト性より, 点列$ x_0^0, x_0^1, x_0^2, \cdots $はある点$ x_0 $に収束する部分列$ x_0^{k_0^0}, x_0^{k_1^0}, x_0^{k_2^0}, \cdots $をもつ. 次に, $ X_1 $の点列コンパクト性より, 点列$ x_1^{k_0^0}, x_1^{k_1^0}, x_1^{k_2^0}, \cdots $の部分列$  x_1^{k_0^1}, x_1^{k_1^1}, x_1^{k_2^1}, \cdots $であって$ x_1 $に収束するものが存在する. これを帰納的に繰り返すことによって2以上の自然数$ j $に対しても点列$ x_j^{k_0^{j-1}}, x_j^{k_1^{j-1}}, x_j^{k_2^{j-1}}, \cdots $の部分列$  x_j^{k_0^j}, x_j^{k_1^j}, x_j^{k_2^j}, \cdots $であって, ある$ x_j \in X_j $に収束するものを定義できる. このとき, 点列$ (y_n) $の部分列$ y_{k_0^0}, y_{k_1^1}, y_{k_2^2}, \cdots $は$ (x_0, x_1, x_2, \cdots) $に収束する.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:Lemma used in the proof of the proposition that Seq + CntCpt > SeqCpt}
+	位相空間$ X $における点列$ (x_n)_{n \in \N} $が収束部分列をもたないならば, $ \bigcup_{n \in \N} \topcl \{x_n\} $は点列閉集合である.
+\end{lemma}
+
+\begin{proof}
+	収束部分列をもたない点列$ (x_n)_{n \in \N} $に対し, $ A \defeq \bigcup_{n \in \N} \topcl \{x_n\} $と定める. $ (a_n)_{n \in \N} $を$ A $内の点列であって, $ a \in X $に収束するものとする. $ a $の任意の近傍$ U $に対してある$ N \in \N $が存在して$ \{a_N, a_{N+1}, a_{N+2}, \cdots \} \subset U $が成り立つ. ここで, 任意の$ m \in \N $に対してある$n_m \in \N $が存在して$ a_m \in \topcl \{x_{n_m}\} $が成り立つことから, $ \{x_{n_{N}}, x_{n_{N+1}}, x_{n_{N+2}}, \cdots\} \subset U $が成り立つ. $ \{x_{n_{N}}, x_{n_{N+1}}, x_{n_{N+2}}, \cdots\} $が無限集合であれば, $ (x_n)_{n \in \N} $の部分列であって$ a $に収束するものが構成でき, $ (x_n)_{n \in \N} $が収束部分列をもたないことに矛盾する. したがって, $ \{x_{n_{N}}, x_{n_{N+1}}, x_{n_{N+2}}, \cdots\} $は有限集合である. このとき, ある$ i \in \N $であって, 任意の$ N \in \N $に対して$ x_i = x_{n_{M}} $を満たす$ M \geq N $が存在するものをとれる. このとき, $ a \in \topcl \{x_i\} $なので$ A $は点列閉集合である.
+\end{proof}
+
+
+\begin{proposition}
+	\label{prop:CntCpt+Seq>SeqCpt}
+	位相空間$ X $が列型かつ可算コンパクトならば, 点列コンパクトである.
+\end{proposition}
+
+\begin{proof}
+	$ (x_n)_{n \in \N} $を$ X $の点列であって収束部分列をもたないものと仮定して矛盾を導く. 補題\ref{lem:Lemma used in the proof of the proposition that Seq + CntCpt > SeqCpt}と$ X $が列型であることから, 任意の$ n \in \N $に対して集合$ A_n \defeq \bigcup_{m \geq n} \topcl\{x_m\} $は閉集合である. $\mathscr{A} \defeq \setcomp{A_n}{n \in \N} $は有限交叉性をもつ可算閉集合族なので, $ X $の可算コンパクト性から$ p \in \bigcap \mathscr{A} $が存在する. したがって, $ \setcomp{n \in \N}{p \in \topcl \{x_n\}} $は無限集合である. このとき, $ (x_n)_{n \in \N} $の部分列であって$ p $に収束するものが存在するので収束部分列をもたないという仮定に矛盾する.
+\end{proof}
+
+\begin{theorem}
+	列型なメタコンパクト空間$ X $において, コンパクトであることと点列コンパクトであることは同値である.
+\end{theorem}
+
+\begin{proof}
+	$ X $がコンパクトであれば特に可算コンパクトでもあるので, 命題\ref{prop:CntCpt+Seq>SeqCpt}より点列コンパクトである. $ X $が点列コンパクトであれば可算コンパクトであり, メタコンパクト性と合わせるとコンパクトである.
+\end{proof}
+
+\end{document}

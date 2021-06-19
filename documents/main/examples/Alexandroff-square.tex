@@ -1,0 +1,100 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\Alexandroff Square}
+\label{ex:Alexandroff-square}
+
+\newcommand{\locref}[1]{\ref{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+\newcommand{\loclabel}[1]{\label{LocalLabel-\thepart-\thechapter-\thesection:#1}}
+\newcommand{\topnbdbs}{\mathscr{N}}
+
+集合$ X \defeq \I^2 $, $ \Delta \defeq \setcomp{(x, y) \in X}{x = y}$, $ X' \defeq X \setminus \Delta $を定義し, 各点$ (x, y) \in X $に対して$ \topnbdbs(x, y) $を次で定める:
+\begin{enumerate}
+	\item $ (x, y) \in X' $のとき,
+	$$ \topnbdbs(x, y) \deflongeq \setcomp{N_\epsilon(x, y)}{\epsilon > 0}. $$
+	$$ \mbox{ただし,} \ N_\epsilon(x,y) \defeq \setcomp{(x', y') \in X'}{x' = x, \ \abs{y-y'} < \epsilon} .$$
+	\item $ (x, y) \in \Delta $のとき,
+	$$\topnbdbs(x,y) \deflongeq \setcomp{M_\epsilon^\alpha(x, y)}{\epsilon > 0, \ \alpha \in \mathscr{F}, \ x \notin \alpha}.$$
+	$$\mbox{ただし,} \ M_\epsilon^\alpha(x, y) \defeq \setcomp{(x', y') \in X}{\abs{y - y'} < \epsilon, \ x' \notin \alpha},\ \mathscr{F} \defeq \setcomp{\alpha \in \mathcal{P}(\I)}{\cardinality{\alpha} < \omega}.$$
+\end{enumerate}
+このとき, $ \setfamily{\topnbdbs(x, y)}{(x, y) \in X} $は$ X $の基本近傍系をなす. この基本近傍系から定まる位相を$ \tau $とするとき, 位相空間$ (X, \tau) $を \indexe{\Alexandroff\ Square} という. また, $ \I^2 $と書くときにはこれを \Euclid 位相により位相空間と見做すものとする.
+
+この近傍の定義から, 任意の縦線$ L(x) \defeq \setcomp{(x', y') \in X}{x' = x} $は$ X $の部分空間として$ \I $と同相であることが分かる. また, $ \Delta \cong \I $も容易に分かる.
+
+\begin{lemma}
+	\loclabel{lem:convergence criterion in X}
+	$ (x_n, y_n) $を$ \I^2 $内の点列とし, 点列$ (y_n) $が点$ y \in \I $に収束しているとする. このとき次が成り立つ:
+	\begin{enumerate}
+		\item 点列$ (x_n) $が等終的に$ x \in \I $に等しいならば, 点列$ (x_n, y_n) $は$ X $において点$ (x, y) $に収束する.
+		\item 点列$ (x_n) $のどの部分列も等終的に定値にならないならば, 点列$ (x_n, y_n) $は$ X $において点$ (y, y) $に収束する.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	(1)は明らか. (2)を示す. 任意に$ (y, y) $の近傍$ M_\epsilon^\alpha (y, y) $を与える. 距離空間$ \I $で収束していることから, ある$ l_1 \in \N $以上の任意の$ n \in \N $では$ \abs{y - y_n} < \epsilon $となる. また$ (x_n) $の仮定より, ある$ l_2 $以上の任意の$ n $では$ x_n \not\in \alpha $となる. よって$ \max\{l_1, l_2\} $以上の$ n $では$ (x_n, y_n) \in M_\epsilon^\alpha (y, y) $である.
+\end{proof}
+
+\begin{proposition}
+	$ X $は点列コンパクトである.
+\end{proposition}
+
+\begin{proof}
+	$ (x_n, y_n) $を$ X $内の任意の点列とする. このとき部分列$ (x'_n, y'_n) $であって, $ \I^2 $においてある点$ (x, y) $に収束するものが存在する. 補題\locref{lem:convergence criterion in X}より, 点列$ (x'_n) $の部分列で等終的に定値なものがある場合には, そのような部分列から$ X $における$ (x_n, y_n) $の収束部分列を作れる. また, $ (x'_n, y'_n) $のいかなる部分列も等終的に定値でない場合には, 補題より$ (x'_n, y'_n) $が$ X $における$ (x_n, y_n) $の収束部分列である.
+\end{proof}
+
+\begin{proposition}
+	$ X $はコンパクトである.
+\end{proposition}
+
+\begin{proof}
+	$ \mathscr{U} $を$ X $の任意の開被覆とし, $ \mathscr{V} \defeq \setcomp{U \in \mathscr{U}}{U \cap \Delta \neq \emptyset} $を定める. 各点$ (x, x) \in \Delta $を含む$ \mathscr{V} $の元をひとつとり$ V_x $とすると, ある$ \epsilon_x > 0 $とある$ \alpha_x \in \mathscr{F} $であって, $ x \notin \alpha_x $と$ M_{\epsilon_x}^{\alpha_x}(x, x) \subset V_x $を満たすものが存在する.
+	$ \Delta \cong \I $より$ \Delta $はコンパクトなので, ある$ x_1, \ldots, x_n \in \I $であって$ \bigcup_{i=1}^n M_{\epsilon_{x_i}}^{\alpha_{x_i}} (x_i, x_i) \supset \Delta $を満たすものが存在する.
+	ここで$ \mathscr{V'} \defeq \setcomp{V_{x_i}}{i=1,\ldots,n} $について, $ A \defeq \bigcup_{i = 1}^n \bigcup_{ x \in \alpha_i} L(x) $としたときに
+	$$\bigcup \mathscr{V'} \longrel{\supset} X \setminus A $$
+	が成り立つ.	$L(x) \cong \I $より$ L(x) $はコンパクトなので$ A $もコンパクトである. よって, $ \mathscr{W} \subset \mathscr{U} $であって, $ \cardinality{\mathscr{W}} < \omega $かつ$ \bigcup\mathscr{W} \supset A $となるものが存在する. 以上より, $ \mathscr{U'} \defeq \mathscr{V'} \cup \mathscr{W} $とすると$ \mathscr{U'} $は$ \mathscr{U} $の有限部分被覆である.
+\end{proof}
+
+次に, 分離公理について確認する. 近傍の定義から$ X $が \Hausdorff であることは明らかである. $ X $がコンパクトであるという結果と合わせると \topT{4} であることが分かる. しかしながら, $ X $は継承的正規でない例となっていることを示す. また, そのことから$ X $が継承的 \Lindelof でないことも分かる.
+
+\begin{proposition}
+	$ X $は継承的正規でない.
+\end{proposition}
+
+\begin{proof}
+	部分空間$ Y \defeq X \setminus \{(0,0)\} $が正規でないことを示す. $ A \defeq \setcomp{(x, 0) \in X}{x \in \I} $と$ \Delta $は$ X $の閉集合なので$ A' \defeq A \cap Y, \Delta' \defeq \Delta \cap Y $は$ Y $の閉集合である. また, $ A' \cap \Delta' = \emptyset $である. $ U $を$ A \subset U $なる$ Y $の開集合とすると, 任意の$ (x, 0) \in A' $に対して$ N_{\epsilon_x}(x, 0) \subset U $を満たす$ \epsilon_x > 0 $が存在する. 各$ n \in \N $について$ B_n \defeq \setcomp{(x, 0) \in A'}{\epsilon_x > 2^{-n}} $とすると$ \bigcup_{n = 1}^\infty B_n \supset A' $となる. よって, $ N \in \N_{>0} $であって$ \cardinality{B_N} \geq \omega $を満たすものが存在する. このとき, $ (2^{-N}, 2^{-N}) \in \Delta' $の任意の近傍$ V $について$ V \cap (\bigcup_{x \in B_N}N_{\epsilon_x}(x,0)) \neq \emptyset $となる. ゆえに, $ \Delta' \subset W $なる$ Y $の任意の開集合$ W $について$ U \cap W \neq \emptyset $となり$ Y $は正規でない.
+\end{proof}
+
+連結性について確認する.
+
+\begin{proposition}
+	$ X $は弧状連結だが局所連結でない.
+\end{proposition}
+
+\begin{proof}
+	弧状連結であることは, $ \Delta $と縦線$ L(x) $が弧状連結であることから分かる. 局所連結でないことを示す. もし仮に点$ z = (x, x) \in \Delta $において連結な近傍からなる近傍基が存在したとする. 実数$ \epsilon > 0 $を小さくとれば, 集合$ \setcomp{t \in \I}{\abs{t - x} > \epsilon} $は無限集合になる. 点$ z $の近傍$ M^{\emptyset}_{\epsilon} (z) $に含まれるような連結近傍$ U $が存在し, さらに$ U $に含まれるような近傍$ M^{\alpha'}_{\epsilon'} (z) $もある. そこで実数$ x' \in \I $を$ \abs{x' -x} > \epsilon' $と$ x' \not\in \alpha' $を満たすようにとると, 2つの縦線を$ N \defeq N_{\epsilon'} (x', x) $と$ N' \defeq \topcl{N} = \setcomp{(x', b) \in X}{\abs{b-x} \leq \epsilon'} $について, $ U \cap N = U \cap N' = N $であり, これが$ U $における非自明な開閉集合になっている.
+\end{proof}
+
+最後に可算性についてみていく. $ X $は第一可算でない強 \Frechet 空間であることを示す.
+\begin{proposition}
+	$ X $は第一可算でない.
+\end{proposition}
+
+\begin{proof}
+	もし仮に点$ (x, x) \in \Delta $における可算近傍基$ \setcomp{U_n}{n \in \N} $が存在したとして矛盾を示す. 各$ n $に対し, $ M_n \defeq M_{\epsilon_n}^{\alpha_n} (x, x) \subset U_n $となる近傍が存在する. $ X $が \Hausdorff であるから$ \bigcap_n M_n = \bigcap_n U_n = \{(x, x)\} $である. しかし, $ x $と異なる実数$ x' \in \I $を$ x' \not\in \bigcup_n \alpha_n $となるようにとれば, 点$ (x', x) $も$ \bigcap_n M_n $に属してしまう.
+\end{proof}
+
+\begin{proposition}
+	$ X $は強 \Frechet である.
+\end{proposition}
+
+\begin{proof}
+	$ X $の部分集合の下降列$ \setfamily{A_n}{n \in \N} $と点$ z = (x, y) \in \bigcap_n \topbar{A_n} $を任意に与える. $ z \in X' $である場合には, $ z $に可算近傍基が存在することより, 目的の収束点列が構成できる. そこで以降は$ z $が$ \Delta $に属する場合について考える.
+
+	帰納的に点$ (x_n, y_n) \in X $を以下の通りに定めていく: まず$ n = 0 $では, 点$ (x_0, y_0) $を$ A_0 \cap M_{2^0}^{\emptyset} (x, y) $の中からひとつ選ぶ. 次に$ n $まで定められたとする. $ (x_{n+1}, y_{n+1}) $を$ A_{n+1} \cap M_{2^{-(n+1)}}^{\{x_0, \ldots, x_n\}\setminus\{x\}} (x, y) $の中からひとつ選ぶ.
+
+	すると任意の$ m < n $について, $ x_n = x $または$ x_m \neq x_n $が成立している. よって点列$ (x_n)_n $の部分列$ (x_{n_k})_k $として, 恒等的に$ x_{n_k} = x $であるものか, あるいは$ k \neq k' $ならば$ x_{n_k} \neq x_{n_{k'}} $が成立している部分列のどちらかが存在する. いずれの場合であっても, 補題\locref{lem:convergence criterion in X}より点列$ (x_{n_k}, y_{n_k}) $は$ (x, y) \in \Delta $に収束している. よって, 各$ n $に対して$ n' \defeq \min\setcomp{n_k}{n_k \geq n} $を用いて$ (x'_n, y'_n) \defeq (x_{n'}, y_{n'}) $とおくと, この点列が目的の収束点列になっている.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{完全写像}
+\label{sec:perfect-maps}
+
+\begin{definition}
+	位相空間$ X $から$ Y $への連続写像$ f \colon X \to Y $が閉写像であり, 任意の$ y \in Y $に対して$ f^{-1}(y) $が$ X $のコンパクト部分集合になるとき$ f $は\indexj{かんぜんしゃぞう}{完全写像}であるという.
+\end{definition}
+
+\begin{definition}
+	写像$ f \colon X \to Y $と$ X $の部分集合$ A \subset X $に対して$ Y $の部分集合$ Y \setminus f[X \setminus A] $を$ f $による$ A $の小像といい$ f_![A] $と書く.
+\end{definition}
+
+\begin{proposition}
+	\label{lemma:Basic property of small image}
+	写像$ f \colon X \to Y $と任意の部分集合$ A \subset X $に対して次が成り立つ.
+	\begin{enumerate}
+		\item $ f $が全射のとき$ f_![A] \subset f[A] $が成り立つ.
+		\item $ B \subset Y $について$ B \subset f_![A] $と$ f^{-1}[B] \subset A $は同値である.
+		\item $ f $が全射のとき, $ A_1, A_2 \subset X $について$ A_1 \cap A_2 = \emptyset $ならば$ f_![A_1] \cap f_![A_2] = \emptyset $が成り立つ.
+		\item $ f $が閉写像であることと, 任意の開集合$ U \in X $について$ f_![U] $が$ Y $の開集合であることは同値である.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $ f_![A] = Y \setminus f[X \setminus A] = f[X] \setminus f[X \setminus A] \subset f[X \setminus (X \setminus A)] = f[A] $.
+		\item 任意の$ b \in B $について$ b \in f_![A] \Leftrightarrow b \notin f[X \setminus A] \Leftrightarrow f^{-1}(b) \subset X \setminus (X \setminus A) $からわかる.
+		\item $ f_![A_1] \cap f_![A_2] = (Y \setminus f[X \setminus A_1]) \cap (Y \setminus f[X \setminus A_2]) = Y \setminus (f[X \setminus A_1] \cup f[X \setminus A_2]) = Y \setminus f[X \setminus (A_1 \cap A_2)] = Y \setminus Y = \emptyset $.
+		\item 容易に確かめられる.
+	\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Weight of an image of perfect map}
+	位相空間$ X $から$ Y $への全射な完全写像$ f \colon X \to Y $が存在するとき, $ \topweight{Y} \leq \topweight{X} $が成り立つ.
+\end{proposition}
+
+\begin{proof}
+	(WIP)
+\end{proof}
+
+\begin{theorem}
+	\label{prop:Inverse image of every compact subset by a perfect mapping is compact}
+	$ f \colon X \to Y $を位相空間$ X $から$ Y $への完全写像とする. このとき, 任意のコンパクト集合$ A \subset Y $に対して$ f^{-1}[A] $は$ X $のコンパクト部分集合となる.
+\end{theorem}
+
+\begin{proof}
+	コンパクト部分集合$ A \subset Y $に対して, $ \mathscr{U} $を$ X $における$ f^{-1}[A] $の任意の開被覆とする. このとき, 任意の$ a \in A $に対して$ f^{-1}(a) \subset \bigcup \mathscr{U} $なので, $ \mathscr{V} \defeq \setcomp{\bigcup_{U \in \mathscr{U}'} U}{\mathscr{U}' \subset \mathscr{U}, \ \mathscr{U}' \mbox{は有限}} $と定めると, $ f^{-1}(a) \subset V_a $なる$ V_a \in \mathscr{V} $が存在する. $ f $が閉写像であることから$ Y \setminus [X \setminus V_a] $は$ a $を含む$ Y $の開集合である. よって, $ A \subset \bigcup_{a \in A} (Y \setminus f[X \setminus V_a]) $であり, $ A $のコンパクト性から$ A $の有限集合$ A' \subset A $が存在して$ A \subset \bigcup_{a \in A'} (Y \setminus f[X \setminus V_a]) $となる. したがって,
+	\begin{eqnarray*}
+		f^{-1}[A] \subset \bigcup_{a \in A'} X \setminus f^{-1}f[X \setminus V_a] \subset \bigcup_{a \in A'} X \setminus (X \setminus V_a) = \bigcup_{a \in A'} V_a.
+	\end{eqnarray*}
+	$ \mathscr{V} $の定義より, 上の式は$ f^{-1}[A] $が有限部分被覆をもつことがわかる.
+\end{proof}
+
+\begin{corollary}
+	完全写像$ f \colon X \to Y, \ g \colon Y \to Z $の合成写像$ g \circ f \colon X \to Z $は完全写像である.
+\end{corollary}
+
+\end{document}

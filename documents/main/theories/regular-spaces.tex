@@ -1,0 +1,31 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{正則空間}
+\label{sec:regular-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{せいそくくうかん}{正則空間}{regular space}であるとは, $ X $の任意の点$ x $と閉集合$ F $に対し, $ x \not\in F $ならば互いに交わらないある開集合$ G, G^\prime $が存在して$ x \in G, F \subset G^\prime $となることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $が\indexj{T3 くうかん}{\topT{3}空間}であるとは, 正則かつ\topT{0}空間であることである.
+\end{definition}
+
+\begin{proposition}
+	\label{prop:A property equivalent to regularity}
+	位相空間$ X $が正則であることは, 任意の点$ x \in X $とその任意の近傍$ U $に対して$ \topcl{V} \subset U $を満たす$ x $の近傍$ V $が存在することと同値である.
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	完全正則空間$ X $は正則空間である.
+\end{proposition}
+
+\begin{proposition}
+	正規かつ対称な位相空間$ X $は正則である.
+\end{proposition}
+
+\end{document}

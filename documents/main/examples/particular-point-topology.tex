@@ -1,0 +1,21 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{Particular Point Topology}
+\label{ex:particular-point-topology}
+
+$ X $を非空集合とする. 1点$ p \in X $をとり, 固定する. このとき, $ X $の部分集合族$ \tau ＝ \setcomp{U \subset X}{p \in U} \cup \{\emptyset\} $は開集合の公理を満たし, $ \tau $を$ X $上の\indexe{particular point topology}という.
+
+$ X $が一点集合の場合は自明な位相となり, 2点集合の場合には Si\'erpinski Space となる. ここでは, $ \cardinality{X} \geq 3 $の場合について述べる.
+
+コンパクト性については, $ X $が有限集合のときのみコンパクトであり, $ X $が無限集合のとき$ \setcomp{\{p\} \cup \{x\}}{x \in X, x \neq p} $という開被覆は有限部分被覆をもたないのでコンパクトでない. 同様の議論によって, $ X $が非可算集合の場合には \Lindelof でないこともわかる.したがって, 非可算の場合には$ \sigma $-コンパクトでもない. また, 任意の点$ x \in X $に対して$ \{x, p\} $が開集合であることから, $ X $はその濃度によらず局所コンパクトである. 定義より任意の空でない2つの開集合が交わることから, $ X $から$ \R $への連続写像は定値写像に限られ, よって$ X $が擬コンパクトであることも分かる.
+
+次に分離性について述べる. $ x \in X $が$ x = p $のとき$ \topcl{\{x\}} = X $であり, $ x \neq p $のとき$ \topcl{\{x\}} = \{x\} $であることから, 任意の$ x, y \in X $について$ x , y $が同大ならば$ x = y $が成り立つので$ X $は \topT{0} である. しかし, $ x, y \in X $が$ x = p $かつ$ y \neq p $を満たすとき, $ y \in \topcl{\{x\}} $であるが$ x \notin \topcl{\{y\}} $でないので対称空間でない. したがって, $ X $は \topT{1} でない.
+
+連結性については, 任意の$ x \in X $に対して写像$ \gamma \colon \I \to X $を$ \gamma(0) = x,\, \gamma(t) = p \, \left(0 < t \leq 1\right) $と定めると$ \gamma $は$ x, p $を端点とする連続な道となるので$ X $は弧状連結である. また, 任意の$ x \in X $に対して$ \{\{x, p\}\} $が$ x $の弧状連結な近傍基であることから$ X $は局所弧状連結でもある.
+
+最後に可算性について述べる. 任意の$ x \in X $に対して$ \{\{x, p\}\} $は$ x $の近傍基であることから$ X $は第一可算である. このことから$ X $が高々可算の場合には$ X $は第二可算であるが, 非可算の場合には第二可算でないことも分かる. また, $ \topcl{\{p\}} = X $であることから$ X $は可分である.
+
+\end{document}

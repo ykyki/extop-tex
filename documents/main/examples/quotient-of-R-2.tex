@@ -1,0 +1,123 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{\texorpdfstring{$f \colon \N \to \R \semicolon n \mapsto 2^{-n}$}{f:N→R;n↦2\^{}(-n)} の像を同一視した商空間 \texorpdfstring{$ \R / f[\N] $}{R/f[N]}}
+\label{ex:quotient-of-R-2}
+
+$f \colon \N \to \R \semicolon n \mapsto 2^{-n}$に対し, $ \R $の部分集合
+$ f[\N] $を同一視した空間$ \R / f[\N] $を考える. 本節ではこの空間を$ X $と書くことにし, 射影を$ \pi \colon \R \to X$とする.
+
+\begin{property}
+	\label{property:9.a}
+	部分集合$A\subset \R$が$A\cap f[\N] = \emptyset$または$f[\N] \subset A$を満たすとき, $\pi^{-1}\pi[A]=A$となる.このことから, 
+	$A\cap f[\N] = \emptyset$または$f[\N] \subset A$を満たす開集合(閉集合)$ A $に対して$ \pi[A] $は$ X $の開集合(閉集合)である.
+\end{property}
+
+\begin{property}
+	$ X $はコンパクトでない.
+\end{property}
+
+\begin{proof}
+	任意の$ n \in \N $に対して$ U_n = \pi[(n+2, -n-2)] $とおくと$\{U_n\}_{n \in \N}$は$ X $の開被覆であるが,有限部分被覆を持たない.
+\end{proof}
+
+\begin{property}
+	$ X $はパラコンパクト.
+\end{property}
+
+\begin{proof}
+	各$n \in \N$に対して次のように$ \R $の閉部分集合$ E_n $を定める:
+	$$ E_{-1} = [-2, -1 / 2], E_{0} = [-1, 2], E_1 = [3 / 2, 3],\ E_n = \begin{cases}
+	[n, n+2] & n\geq 2\\
+	[n-1, n+1] & n\leq -2
+	\end{cases}.$$
+	このとき, $n \in \N$に対して$ F_n = \pi[E_n] $とおくと$\mathcal{F} = \{F_n\}_{n\in\N}$は$X$の可算なコンパクト被覆である.また, \ref{property:9.a}より$\pi[\topint{E_n}]$は開集合なので$ \pi[\topint_{\R}{E_n}] \subset \topint_X F_n$. $ \pi $の連続性から$ \topint_{X} F_n \subset \pi[\topint_{\R} E_n]$も成り立つので$\topint_{X} F_n = \pi[\topint_{\R} E_n]$.よって, $\bigcup \topint \mathcal{F} = \pi[\bigcup_{n\in \N} \topint_{\R} E_n] = \pi[\R] = X$となり, $\topint \mathcal{F}$は$X$の開被覆である.さらに, $\topint_{X} \mathcal{F}$はstar finite なので局所有限.ゆえに, 命題\ref{prop:existence of a countable compact covering whose interior is a locally finite covering>ParaCpt}から$ X $はパラコンパクト. 
+\end{proof}
+
+
+
+\begin{property}
+	$ X $は$\sigma$コンパクトである.
+\end{property}
+
+\begin{proof}
+	上のパラコンパクト性の証明における議論からわかる.
+\end{proof}
+
+\begin{property}
+	$ X $は継承的 \Lindelof である.
+\end{property}
+
+\begin{proof}
+	$ X $が継承的 \Lindelof 空間$ \R $の連続像であることから従う.
+\end{proof}
+
+\begin{property}
+	$ X $は\topT{1}でない.
+\end{property}
+
+\begin{proof}
+	$[0] \in X$を含む任意の開集合$ U $をとると$ \pi^{-1}[U] $は$0 \in \R$の開近傍である. 今, $0 \in \topder_{\R} f[\N]$なので$U \cap f[\N] \neq \emptyset$より$[1] \in U$となる.
+\end{proof}
+
+\begin{property}
+	$ X $は正則でない.
+\end{property}
+
+\begin{proof}
+    $ F = \setcomp{[x]}{-1 \leq x \leq 0}$とおくと, $\pi^{-1}[F] = [-1, 0]$より$ F $は閉集合. $　F　$を含む任意の開集合を$ U $とすると$ U $は$ [0] $の開近傍なので先の議論から$ [1] \in U$である. よって, $[1]$と$ F $を交わらない開集合で分離することはできない.
+\end{proof}
+
+\begin{property}
+	$ X $は正規である.
+\end{property}
+
+\begin{proof}
+	$ X $の閉集合$ G, H　$で$G \cap H =\emptyset $なるものを任意にとる.次のように３つの場合に分けて考える($[1]$の閉包が$[0]$を含むことを考えるとこれらの場合のみ調べれば十分なことがわかる).その際, $G' = \pi^{-1}[G], H' = \pi^{-1}[H]$とおく.
+	\begin{enumerate}
+		\item $[0], [1] \notin G, H$の場合.
+		$G' ,H'$は$\R$の交わらない閉集合なので$ G' \subset U, H' \subset V, U\cap V = \emptyset$なる$ \R $の開集合$U ,V$が存在する.また, 
+		$\pi^{-1}[\{[0], [1]\}] = \topbar{f(\N)}$より, $U' = U \cap \complement_\R \topbar{f(\N)}, V' = V \cap \complement_\R \topbar{f(\N)}$とおくと$U', V'$は開集合であって$ \pi^{-1}\pi[U'] = U', \pi^{-1}\pi[V'] = V'$を満たす.よって, $\pi[U'], \pi[V']$は$ X $の開集合であって$G \subset \pi[U'], H \subset \pi[V'], \pi[U'] \cap \pi[V'] =\emptyset$を満たす. 
+		\item $ [0] \in G, [1] \notin G, [0], [1] \notin H$の場合. $G' = \pi^{-1}[G] \cap \topbar{f(\N)}$とおくと, $\pi^{-1}[H] \cap \topbar{f(\N)} =\emptyset$より$G' \cap \pi^{-1}[H] = \emptyset$となる.よって, $G' \subset U, \pi^{1-}[H] \subset V, U \cap V = \emptyset$なる開集合$U, V$が存在する. \ref{property:a-from:example:quotient_of_R_by_Z}より$\pi[U], \pi[V]$は$ X $の交わらない開集合で$ G \subset \pi[U], H \subset \pi[V]$を満たす.
+		\item $[0], [1] \in G, [0], [1] \notin H$の場合. 容易である.
+	\end{enumerate}
+
+\end{proof}
+
+\begin{property}
+	$ X $は弧状連結かつ局所弧状連結である.
+\end{property}
+
+\begin{proof}
+	弧状連結かつ局所弧状連結空間$ \R $の商空間であることから従う.
+\end{proof}
+
+\begin{property}
+	$ X $は強 \Frechet でない.
+\end{property}
+
+\begin{proof}
+	任意の$ n \in \N $について$ A_n = \pi[(0, 2^{-1}) \setminus f(\N)]$とすると$A_0 \supset A_1 \supset \cdots$かつ$ [1] \in \topbar{A_n}$($ n \in \N$)を満たす. 各$n \in \N $に対して$ a_n \in A_n $なる任意の点列$(a_n)$をとる.このとき, 各$a_n$に対して$\pi(b_n) = a_n$を満たす$b_n \in \R$がただ一つ存在する. $ A_n $の定義より$d(b_n, 0) < 2^{-n} $なので$\lim b_n = 0$となる. $B = \{b_n \mid n\in \N\} \cup \{0\}$は$\R$の閉集合なので$ U = (0,2) \setminus B$とおくと$U$は$f(\N)$を含む開集合である. よって, $\pi[U]$は$[1]$の近傍であって, $ \pi[U] \cap \{a_n \mid n\in \N\} = \emptyset$となり$(a_n)$は$[1]$に収束しない.
+\end{proof}
+
+\begin{property}
+	$ X $は \Frechet である.
+\end{property}
+
+\begin{proof}
+	$ X $の部分集合$ A $に対して$ [x] \in \topbar{A}$を任意にとる. $[x] \neq [1]$のとき, $[x]$は可算近傍基を持つので$A$内の点列$(a_n)$であって, $[x]$に収束するものが存在する. $[x] = [1]$のとき, 特に$ [1] \in \topbar{A} \setminus A$の場合を考える. $B = \pi^{-1}[A]$として, $\topbar{B} \cap f(\N) 
+	\neq \emptyset$を示せばよい($\R / \Z$が \Frechet であることの証明参照). $\topbar{B} \cap f(\N) = \emptyset$と仮定すると, ある開集合$ U $で$f(\N) \subset U$かつ$U \cap B =\emptyset$を満たすものが存在する. このとき, \ref{property:a-from:example:quotient_of_R_by_Z}より$\pi[U]$は$[1]$を含む開集合であり,
+	$ \pi[U] \cap A = \emptyset$となって$ [1] \in \topbar{A}$に矛盾する.
+\end{proof}
+
+\begin{property}
+	$ X $は可分である.
+\end{property}
+
+\begin{proof}
+	容易である.
+\end{proof}
+
+\end{document}
