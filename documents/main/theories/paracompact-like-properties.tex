@@ -2,18 +2,281 @@
 \usepackage{import}
 \import{../}{common-preamble.sty}
 
+\newcommand{\imgto}{{}\triangleright{}}
+\newcommand{\imgot}{{}\triangleleft{}}
+
 \begin{document}
 \section{パラコンパクト性に類似する性質}
 \label{sec:paracompact-like-properties}
 
 \begin{definition}
-	位相空間$ X $が\indexjj{めたこんぱくと}{メタコンパクト}{metacompact}であるとは, $ X $の任意の開被覆が点有限な開被覆で細分できることである.
+	位相空間$ X $が\indexjj{めたこんぱくと}{メタコンパクト}{metacompact}であるとは, 
+	$ X $の任意の開被覆が点有限な開被覆で細分できることである.
+	また, 任意の可算開被覆について上の条件が成り立つとき可算メタコンパクトであるという.
 \end{definition}
 
 \begin{definition}
-	位相空間$ X $が\indexjj{おるそこんぱくと}{オルソコンパクト}{orthocompact}であるとは, $ X $の任意の開被覆が, 任意の点についてその点を含む開集合の共通部分もまた開集合となるような開被覆で細分できることである.
+	位相空間$ X $の開集合族であって, 任意の点についてその点を含む開集合の共通部分もまた開集合となるようなものを
+	interior-preservingな開集合族であるという.
+	位相空間$ X $が\indexjj{おるそこんぱくと}{オルソコンパクト}{orthocompact}であるとは, 
+	$ X $の任意の開被覆が, interior-preservingな開被覆で細分できることである. 
+	また, 任意の可算開被覆について上の条件が成り立つとき可算オルソコンパクトであるという.
 \end{definition}
 
-明らかに, パラコンパクト空間はメタコンパクト空間であり, メタコンパクト空間はオルソコンパクト空間である. 逆は成立しない. $ \Q $の無限点追加非コンパクト化$ \Q^\sharp $(\ref{example:Q_star_infinite})はメタコンパクトだがパラコンパクトではなく, 非可算集合上の補可算位相(\ref{example:cocontable_topology})はオルソコンパクトだがメタコンパクトでない.
+明らかに, パラコンパクト空間はメタコンパクト空間であり, メタコンパクト空間はオルソコンパクト空間である. 
+逆は成立しない. $ \Q $の無限点追加非コンパクト化$ \Q^\sharp $(\ref{example:Q_star_infinite})は
+メタコンパクトだがパラコンパクトではなく, 非可算集合上の補可算位相(\ref{example:cocontable_topology})は
+オルソコンパクトだがメタコンパクトでない. 
+Moore 平面(\ref{example:Moore_plane})は可算メタコンパクトであるがメタコンパクトではない空間である. 
+明らかに, メタコンパクト空間(オルソコンパクト空間)の閉部分空間もまたメタコンパクト(オルソコンパクト)である. 
+また, 任意の濃度の離散空間がメタコンパクトであることから, 
+離散空間からメタコンパクト(オルソコンパクト)でない空間への連続全射を考えると
+メタコンパクト性(オルソコンパクト性)は連続像で保たれないことがわかる.　
+ただし, メタコンパクト空間から \Hausdorff 空間への閉連続全射では
+メタコンパクト性が保たれる(\ref{thm:Worrell's Theorem}).
+
+\begin{proposition}
+	コンパクト空間$ X $とメタコンパクト空間$ Y $の積空間$ X \times Y $はメタコンパクトである.
+\end{proposition}
+
+\begin{proof}
+	$ \mathscr{U} $を$ X \times Y $の任意の開被覆とする. 
+	このとき, 任意の点$ (x, y) \in X \times Y $に対して$ U_{(x, y)} \in \mathscr{U} $であって
+	$ (x, y) \in U_{(x, y)} $を満たすものが存在する. 
+	また, $ X $における$ x $の開近傍$ V_{(x, y)} $と$ Y $における$ y $の開近傍$ W_{(x, y)} $が存在して
+	$ (x, y) \in V_{(x,y)} \times W_{(x, y)} \subset U_{(x, y)} $となる. 
+	したがって, $ \mathscr{V} \defeq \setcomp{V_{(x, y)} \times W_{(x, y)}}{(x, y) \in X \times Y} $とすると, 
+	$ \mathscr{V} $は$ X \times Y $の開被覆であり$ \mathscr{V} < \mathscr{U} $を満たす. 
+	ここで, 各$ y \in Y $について$ \setcomp{V(x, y)}{x \in X} $はコンパクト空間$ X $の開被覆なので
+	$ X $の有限部分集合$ A_y $が存在する. 
+	$ \mathscr{V}_y \defeq \setcomp{V(x, y) \times W(x, y)}{x \in A_y} $と定めると
+	$ \mathscr{V}' \defeq \bigcup_{y \in Y}\mathscr{V}_y $は$ \mathscr{V}' < \mathscr{V} $なる$ X $の開被覆となる. 
+	次に, $ p \colon X \times Y \to Y $を射影とし, 
+	$ \mathscr{W} \defeq \setcomp{p_{\imgto}(V)}{V \in \mathscr{V}} = \setcomp{V(x, y) \times W(x, y)}{x \in A_y, y \in Y} $と定めると
+	$ \mathscr{W} $は$ Y $の開被覆である. 
+	$ Y $がメタコンパクトであることから$ Y $の点有限な開被覆$ \mathscr{W}' $で$ \mathscr{W}' < \mathscr{W} $を満たすものが存在する. 
+	したがって, 各$ Z \in \mathscr{W}' $に対して
+	$ \{Z\} <  p_{\imgto}[\mathscr{V}_{y(Z)}] $を満たす$ y(Z) \in Y $をとることができる. 
+	ここで, $ \mathscr{U}' \defeq  \setcomp{V(x, y(Z)) \times Z}{x \in A_{y(Z)}, Z \in \mathscr{W}'} $と定める. 
+	このとき, $ \mathscr{U}' $が$ X \times Y $の点有限な開被覆であって$ \mathscr{U} $を細分することを示す. 
+	まず, 任意の$ Z \in \mathscr{W}' $について
+	$ \setcomp{V(x, y(Z)) \times Z}{x \in A_{y(Z)}} < \mathscr{V}_{y(Z)} $であることから
+	$ \mathscr{U}' < \mathscr{V} $となるので$ \mathscr{U}' < \mathscr{U} $がわかる. 
+	また, 任意の$ (x, y) \in X \times Y $についてある$ Z \in \mathscr{W}' $が存在して$ y \in Z $を満たす. 
+	このような$ Z $は高々有限個である. 
+	さらに, $ \setcomp{V(x, y(Z))}{x \in A_{y(Z)}} $が$ X $の被覆であることから
+	$ (x, y) \subset V(x', y(Z)) \times Z $なる$ x' \in A_{y(Z)} $が存在する. 
+	また, 各$ Z \in \mathscr{W}' $に対して$ A_{y(Z)} $は有限集合なので, 
+	$ (x, y) $を含む$ \mathscr{U}' $の元は高々有限個である. 
+	よって, $ \mathscr{U}' $は$ X \times Y $の点有限な開被覆である.  
+\end{proof}
+
+\begin{definition}
+	位相空間$ X $に対して, $ C(X) $を$ X $上の実数値連続関数全体からなる環とする. 
+	$ C(X) $の任意の素イデアルが極大イデアルであるとき, $ X $はP空間であるという.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $の点$ x $がP点であるとは, 
+	$ x $の開近傍全体からなる集合が可算個の共通部分をとる操作で閉じていることをいう. 
+	また, 任意の点がP点であるとき$ X $をP空間とよぶ.
+\end{definition}
+
+密着位相空間と離散位相空間はP空間である. また, 非可算濃度の離散位相空間$ X $に1点$ \bigstar $を付け足し, 
+$ \bigstar $の開近傍として$ X $の補可算集合を与えた位相空間は \Hausdorff かつ \Lindelof なP空間である. 
+非可算集合上の補可算位相は孤立点をもたない \topT{1} なP空間である.
+
+\begin{proposition}
+	P空間の部分空間(非交和, 有限個の積, \topT{1}な商空間)もまたP空間である.
+\end{proposition}
+
+\begin{proposition}
+	位相空間$ X $がP空間であることと, 
+	任意の \Lindelof 空間$ Y $に対して射影$ p_X \colon X \times Y \to X $が閉写像であることは同値である.
+\end{proposition}
+
+
+
+
+\begin{definition}
+	位相空間$ (X, \mathcal{O}_X), (Y, \mathcal{O}_Y) $の積空間$ X \times Y $において, 
+	開集合族$ \mathcal{O}_{rec} \defeq \setcomp{U \times V}{U \in \mathcal{O}_X, V \in \mathcal{O}_Y} $に属する開集合を箱型開集合とよぶ.
+\end{definition}
+
+\begin{proposition}
+	\label{prop:A product of a MetaCpt P space and a MetaCpt Lindelof space is MetaCpt}
+	メタコンパクトなP空間$ X $とメタコンパクト \Lindelof 空間$ Y $の積空間$ X \times Y $はメタコンパクトである.
+\end{proposition}
+
+\begin{lemma}
+	\label{Lemma1 for the statement on the metacompactness of the product space of a MetaCpt P-space and a ParaCpt Lindelof space}	
+	メタコンパクトなP空間$ X $とメタコンパクト \Lindelof 空間$ Y $の
+	積空間$ X \times Y $における箱型開集合からなる任意の開被覆$ \mathscr{U} $と任意の点$ x \in X $をとる. 
+	このとき, $ x $の開近傍$ U(x) $と$ Y $の局所有限な可算開被覆
+	$ \mathscr{V}(x) \defeq \setcomp{V(x, n)}{n \in \N} $であって, 
+	任意の$ n \in \N $についてある$ W(x, n) \in \mathscr{U} $が存在して
+	$ U(x) \times V(x, n) \subset W(x, n) $となるものがとれる.
+\end{lemma}
+
+\begin{proof}
+	$ p_X \colon X \times Y \to X, p_Y \colon X \times Y \to Y $をそれぞれ射影とする. 
+	$ \mathscr{U} $は開被覆なので, 任意の$ y \in Y $に対して$ (x, y) \in W(x, y) $なる
+	$ W(x, y) \in \mathscr{U} $が存在する. 射影は開写像なので
+	$ \setcomp{p_Y[W(x, y)]}{y \in Y} $は$ Y $の開被覆である. 
+	$ Y $がメタコンパクト \Lindelof 空間であることから点有限な可算開被覆
+	$ \mathscr{V}(x) \defeq \setcomp{V(x, n)}{n \in \N} $であって
+	$ \mathscr{V}(x) < \setcomp{p_Y[W(x, y)]}{y \in Y} $を満たすものが存在する. 
+	したがって, 任意の$ n \in \N $について$ y_n \in Y $で$ V(x, n) \subset p_Y[W(x, y_n)] $を満たすものが存在する. 
+	このとき, $ (x, y_n) \in W(x, y_n) $より$ x \in p_X[W(x, y_n)] $である. 
+	$ X $がP空間であることから$ U(x) \defeq \bigcap_{n \in \N} p_X[W(x, y_n)] $は$ x $の開近傍であり, 
+	任意の$ n \in \N $について$ U(x) \subset p_X[W(x, y_n)] $が成り立つ. 
+	ゆえに, 任意の$ n \in \N $について
+	$ U(x) \times V(x, n) \subset p_X[W(x, y_n)] \times p_Y[W(x, y_n)] = W(x, y_n) $となる. 
+	以上より, $ U(x) $と$ \mathscr{V}(x) $が求める開近傍と開被覆である. 
+\end{proof}
+
+\begin{proof}[\ref{prop:A product of a MetaCpt P space and a MetaCpt Lindelof space is MetaCpt}]
+	$ \mathscr{U} $を$ X \times Y $の箱型開集合からなる任意の開被覆とする. 
+	任意の点$ x \in X $に対して
+	補題\ref{Lemma1 for the statement on the metacompactness of the product space of a MetaCpt P-space and a ParaCpt Lindelof space}
+	で構成した$ U(x), \mathscr{V} \defeq \setcomp{V(x, n)}{n \in \N} $をとる. 
+	ここで, $ \setcomp{U(x)}{x \in X} $はメタコンパクト空間$ X $の開被覆なので, 
+	$ X $の点有限な開被覆$ \mathscr{B} $であって$ \mathscr{B} < \setcomp{U(x)}{x \in X} $を満たすものが存在する. 
+	$ x \in X $に対して$ \mathscr{C}_x \defeq \setcomp{B \in \mathscr{B}}{x \in B} $と定めると, 
+	$ \mathscr{B} $の点有限性より$ \mathscr{C}_x $は有限である. 
+	このとき, $ C(x) \defeq \left(\bigcap \mathscr{C}_x \right) \cap U(x) $とし, 
+	$ \mathscr{C} \defeq \setcomp{C(x)}{x \in X} $と定めると$ \mathscr{C} $は$ X $の開被覆であって
+	$ \mathscr{C} < \mathscr{B} $を満たす. 
+	任意の$ a \in X $に対して$ a \in C(x) $ならば$ \mathscr{C}_x \subset \mathscr{C}_a $が成り立つ. 
+	$ \mathscr{C}_a $が有限であることから
+	$ \setcomp{\mathscr{C}_x \subset \mathscr{B}}{\mathscr{C}_x \subset \mathscr{C}_a} $は有限である. 
+	よって, $ \mathscr{C} $は点有限である. 
+	ここで, $ \mathscr{U}' \defeq \setcomp{C(x) \times V(x, n)}{x \in X, n \in \N} $と定める. 
+	$ \mathscr{U}' $が$ \mathscr{U} $の細分であって$ X \times Y $の点有限な開被覆であることを示す. 
+	$ C(x) \subset U(x) $より, $ C(x) \times V(x, n) \subset U(x) \times V(x, n)$となり, 
+	補題\ref{Lemma1 for the statement on the metacompactness of the product space of a MetaCpt P-space and a ParaCpt Lindelof space}から
+	$ C(x) \times V(x, n) \subset W(x, n) $なる$ W(x, n) \subset \mathscr{U} $が存在する. 
+	よって, $ \mathscr{U}' < \mathscr{U} $である. 
+	$ \mathscr{U}' $が$ X \times Y $の開被覆であることは明らかなので, 点有限性を示せばよい. 
+	ここで, 任意の点$ (a, b) \in X \times Y $に対して
+	$ \mathscr{A} \defeq \setcomp{(x, n)}{(a, b) \in C(x) \times V(x, n), x \in X, n \in \N} $と定める. 
+	$ \mathscr{C} $が点有限であることからある有限部分集合$ \{x_0, x_1, \cdots, x_m\} \subset X $が存在して
+	$ \mathscr{A} = \bigcup_{i=0}^{m} \setcomp{(x_i, n)}{(a, b) \in C(x_i) \times V(x_i, n), n \in \N} $が成り立つ. 
+	各$ 0 \leq i \leq m$に対して$ \setcomp{V(x_i, n)}{n \in \N} $は点有限なので
+	$ \setcomp{n \in \N}{b \in V(x_i, n), 0 \leq i \leq m, n \in \N} $は有限である. 
+	よって, $ \mathscr{A} $は有限であり$ \mathscr{U}' $の点有限性が示された.
+\end{proof}
+
+\begin{theorem}[Worrell]
+	\label{thm:Worrell's Theorem}
+	メタコンパクト空間$ X $と \Hausdorff 空間$ Y $に対して, 
+	連続な全射閉写像$ f \colon X \to Y $が存在するとき$ Y $はメタコンパクトである.
+\end{theorem}
+
+\begin{proposition}
+	可分なメタコンパクト空間は \Lindelof 空間である.
+\end{proposition}
+
+\begin{proof}
+	$ X $を可分なメタコンパクト空間とし, $ A \subset X $を$ X $の可算な稠密部分集合とする. 
+	$ \mathscr{U} $を$ X $の任意の開被覆とすると, $ X $の点有限な開被覆$ \mathscr{V} $であって
+	$ \mathscr{V} < \mathscr{U} $を満たすものが存在する. 
+	ここで, 任意の$ a \in A $に対して$ \mathscr{V}_a \defeq \setcomp{V \in \mathscr{V}}{a \in V} $と定めると
+	$ \mathscr{V}_a $は有限であり, $ \mathscr{V}' \defeq \bigcup_{a \in A} \mathscr{V}_a $は可算である. 
+	任意の$ x \in X \setminus A $に対してある$ V \in \mathscr{V} $が存在して
+	$ x \in V $かつ$ V \cap A \neq \emptyset $が成り立つので, $ a \in V \cap A $をとると
+	$ x \in \bigcup_{V \in \mathscr{V}_a} V $となる. よって, $ \bigcup \mathscr{V}' = X $となる. 
+	このことから, $ \mathscr{U} $が可算部分被覆をもつことがわかる.
+\end{proof} 
+
+\begin{proposition}
+	コンパクト空間$ X $とオルソコンパクト空間$ Y $の積空間$ X \times Y $はオルソコンパクトである.
+\end{proposition}
+
+\begin{proof}
+	メタコンパクト性の場合と同様の方法で証明できる. $ \mathscr{U} $を$ X \times Y $の任意の開被覆とする. 
+	このとき, 任意の点$ (x, y) \in X \times Y $に対して$ U_{(x, y)} \in \mathscr{U} $であって
+	$ (x, y) \in U_{(x, y)} $を満たすものが存在する. 
+	また, $ X $における$ x $の開近傍$ V_{(x, y)} $と$ Y $における$ y $の開近傍$ W_{(x, y)} $が存在して
+	$ (x, y) \in V_{(x,y)} \times W_{(x, y)} \subset U_{(x, y)} $となる. 
+	したがって, $ \mathscr{V} \defeq \setcomp{V_{(x, y)} \times W_{(x, y)}}{(x, y) \in X \times Y} $とすると, 
+	$ \mathscr{V} $は$ X \times Y $の開被覆であり$ \mathscr{V} < \mathscr{U} $を満たす. 
+	ここで, 各$ y \in Y $について$ \setcomp{V(x, y)}{x \in X} $はコンパクト空間$ X $の開被覆なので
+	$ X $の有限部分集合$ A_y $が存在する. 
+	$ \mathscr{V}_y \defeq \setcomp{V(x, y) \times W(x, y)}{x \in A_y} $と定めると
+	$ \mathscr{V}' \defeq \bigcup_{y \in Y}\mathscr{V}_y $は$ \mathscr{V}' < \mathscr{V} $なる
+	$ X $の開被覆となる. 次に, $ p \colon X \times Y \to Y $を射影とし, 
+	$ \mathscr{W} \defeq \setcomp{p_{\imgto}(V)}{V \in \mathscr{V}} = \setcomp{V(x, y) \times W(x, y)}{x \in A_y, y \in Y} $と定めると
+	$ \mathscr{W} $は$ Y $の開被覆である. $ Y $がオルソコンパクトであることから
+	$ Y $のinterior-preservingな開被覆$ \mathscr{W}' $で$ \mathscr{W}' < \mathscr{W} $を満たすものが存在する. 
+	したがって, 各$ Z \in \mathscr{W}' $に対して$ \{Z\} <  p_{\imgto}[\mathscr{V}_{y(Z)}] $を満たす
+	$ y(Z) \in Y $をとることができる. 
+	ここで, $ \mathscr{U}' \defeq  \setcomp{V(x, y(Z)) \times Z}{x \in A_{y(Z)}, Z \in \mathscr{W}'} $と定める. 
+	このとき, $ \mathscr{U}' $が$ X \times Y $のinterior-preservingな開被覆であって
+	$ \mathscr{U} $を細分することを示す. まず, 任意の$ Z \in \mathscr{W}' $について
+	$ \setcomp{V(x, y(Z)) \times Z}{x \in A_{y(Z)}} < \mathscr{V}_{y(Z)} $であることから
+	$ \mathscr{U}' < \mathscr{V} $となるので$ \mathscr{U}' < \mathscr{U} $がわかる. 
+	また, 任意の$ (x, y) \in X \times Y $について
+	$ \mathscr{W}_y \defeq \setcomp{Z \in \mathscr{W}'}{y \in Z} $とすると, $ \mathscr{W}_y $は空でなく, 
+	任意の$ Z \in \mathscr{W}_y $に対して$ A_{y(Z)} $が有限であることから, 
+	$ \mathscr{U}' $がinterior-preservingな開被覆であることがわかる.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Every point finite cover A of X has an irreducible subcover}
+	位相空間$ X $の任意の点有限被覆$ \mathscr{A} $は既約な部分被覆をもつ.
+\end{proposition}
+
+\begin{proof}
+	$ X $の被覆$ \mathscr{A} $に対して
+	集合$ \mathfrak{A} \defeq \setcomp{\mathscr{A}' \subset \mathscr{A}}{\bigcup \mathscr{A}' = X} $を定める. 
+	ここで, $ \mathfrak{A} $における二項関係$ \mathscr{A}_1 \leq \mathscr{A}_2 $を
+	$ \mathscr{A}_1 \supset \mathscr{A}_2 $によって定義すると, 
+	これが$ \mathfrak{A} $に順序を定めることは明らかである. 
+	$ \mathfrak{A} $の任意の全順序部分集合$ \mathfrak{A}_0 $に対して
+	$ \mathscr{A}_0 \defeq \bigcap \mathfrak{A}_0 $と定める. 
+	このとき, 任意の$ \mathscr{A}' \in \mathfrak{A}_0 $に対して$ \mathscr{A}_0 \geq \mathscr{A}' $である. 
+	$ \mathscr{A}_0 \in \mathfrak{A} $を示す. 任意の$ x \in X $について$ x \in A $なる
+	$ A \subset \mathscr{A}_0 $が存在することを示す. 
+	$ \mathscr{U}(x, \mathscr{A}) \defeq \setcomp{A \in \mathscr{A}}{x \in A} $と定めると
+	$ \mathscr{U}(x, \mathscr{A}) $は有限集合である. 
+	$ \mathscr{U}(x, \mathscr{A}) \cap \mathscr{A}_0 = \emptyset $と仮定して矛盾を導く. 
+	このとき, 任意の$ A \in \mathscr{U}(x, \mathscr{A}) $に対して$ A \notin \mathscr{A}' $なる
+	$ \mathscr{A}' \in \mathfrak{A}_0 $が存在する. 
+	いま, $ \mathfrak{A}_0 $は全順序集合なので
+	$ \mathscr{U}(x, \mathscr{A}) \cap \mathscr{A}' = \emptyset $なる
+	$ \mathscr{A}' \in \mathfrak{A}_0 $が存在する. 
+	これは, $ x \notin \bigcup \mathscr{A}' $であり$ \bigcup \mathscr{A}' = X $に矛盾する. 
+	よって, ある$ A \in \mathscr{U}(x, \mathscr{A}) $が存在して$ A \in \mathscr{A}_0 $となり
+	$ \bigcup \mathscr{A}_0 = X $が示された. したがって, Zornの補題より$ \mathfrak{A} $の極大元が存在し, 
+	それが求める既約部分被覆である.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Irreducible cover in a CntCpt space is a finite cover}
+	可算コンパクト空間における既約被覆は有限被覆である.
+\end{proposition}
+
+\begin{proof}
+	$ \mathscr{U} $を位相空間$ X $の有限でない既約被覆として$ X $が可算コンパクトでないことを示す. 
+	$ \mathscr{U} $は無限集合なので可算無限部分集合$ \setcomp{U_n}{n \in \N} $を
+	$ i \neq j $のとき$ U_i \neq U_j $を満たすようにとれる. ここで, 各$ n \in \N $に対して
+	閉集合$ F_n \defeq X \setminus \left(\bigcup_{i \in \N, i \neq n} U_i\right) $によって定める.
+	このとき, $ \mathscr{U} $の既約性から$ F_n \neq \emptyset $かつ
+	$ \mathscr{F} \defeq \setcomp{F_n}{n \in \N} $は局所有限かつ素な閉集合族である.
+	したがって, $ n \in \N $に対して$ G_n \defeq \bigcup_{i \geq n} F_n $と定めると
+	$ \mathscr{G} \defeq \setcomp{G_n}{n \in \N} $は有限交叉性をもつ閉集合族である.
+	$ \mathscr{F} $が素であることから$ \bigcap \mathscr{G} = \emptyset $となり, $ X $は可算コンパクトでない.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:CntCpt + MetaCpt > Cpt}
+	可算コンパクトかつメタコンパクトな空間はコンパクトである.
+\end{proposition}
+
+\begin{proof} 
+	命題\ref{prop:Every point finite cover A of X has an irreducible subcover}, 
+	\ref{prop:Irreducible cover in a CntCpt space is a finite cover}から示される.
+\end{proof}
 
 \end{document}
