@@ -1,6 +1,17 @@
-\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\documentclass[uplatex, dvipdfmx, 12pt, crop=false]{standalone}
 \usepackage{import}
-\import{./}{common-preamble.sty}
+% \import{./}{common-preamble.sty}
+\import{../config/}{global-commands.sty}
+
+
+\usepackage[
+	paperwidth=250truemm,
+	paperheight=600truemm,
+	top=10truemm,
+	bottom=15truemm,
+	marginparwidth=15truemm,
+	marginparsep=5truemm
+]{geometry}
 
 \begin{document}
 
@@ -8,7 +19,7 @@
 
 \begin{table}[htb]
 	\centering
-	\renewcommand{\arraystretch}{0.9}
+	\renewcommand{\arraystretch}{1.2}
 	% \setlength{\tabcolsep}{1em}
 	% \setlength{\doublerulesep}{10pt}
 	% \setlength{\arrayrulewidth}{1pt}
