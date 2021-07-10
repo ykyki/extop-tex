@@ -7,6 +7,7 @@
 \label{sec:product-spaces}
 
 \newcommand{\directedA}{\mathbf{A}} % 有向集合A
+\newcommand{\proj}{\mathrm{pr}} % 射影
 
 \begin{proposition}
 	位相空間の族$\setfamily{X_\lambda}{\lambda \in \Lambda}$の部分空間の族$\setfamily{A_\lambda}{\lambda \in \Lambda}$について, $ \topcl \left(\prod_\lambda A_\lambda\right) = \prod_\lambda \topcl A_\lambda $が成り立つ.
@@ -31,7 +32,7 @@
 	($\subset$):
 	$\topcl \left(\prod A_\lambda\right)$の点$x = (x_\lambda)_\lambda$を任意に与える.
 	$\prod A_\lambda$内のあるネット$(p_\alpha)_\alpha$が存在して$x$に収束する.
-	このとき各$\lambda$について, $A_\lambda$内のネット$\proj_\lambda (p_\alpha)$が$x_\lambda$に収束しているから$x_\lambda \in \topcl A_\lambda$である.
+	このとき各$\lambda$について, 射影によって定まる$A_\lambda$内のネット$\proj_\lambda (p_\alpha)$が$x_\lambda$に収束しているから$x_\lambda \in \topcl A_\lambda$である.
 	よって$x \in \prod \topcl A_\lambda$である.
 
 	($\supset$):
