@@ -13,6 +13,8 @@
 	marginparsep=5truemm
 ]{geometry}
 
+\def\texorpdfstring#1#2{#1}% hyperref依存なのでここでは暫定的に無効化
+
 \begin{document}
 
 \newcommand{\tablesubtitle}[1]{\multicolumn{2}{c}{\textbf{#1}}}
@@ -68,13 +70,24 @@
 		$A^\topd$     & \verb|A^\topd|     & 部分集合$A$の導集合                \\
 		\hline
 
-		\tablesubtitle{位相空間に関する記号} \\
-		$\topopens[X]$   & \verb|\topopens[X]|   & 空間$X$の開集合族            \\
-		$\topopens$      & \verb|\topopens|      & 開集合族                     \\
-		$\topbasis$      & \verb|\topbasis|      & 開基                         \\
-		$\topnbd[X]{x}$  & \verb|\topnbd[X]{x}|  & 空間$X$における点$x$の近傍族 \\
-		$\topnbd{x}$     & \verb|\topnbd{x}|     & 点$x$の近傍族                \\
-		$\topball{x}{r}$ & \verb|\topball{x}{r}| & 点$x$を中心する半径$r$の開球 \\
+		\tablesubtitle{位相空間に関するテキスト記号} \\
+		\topT{1}, \topT{2}    & \verb|\topT{1}, \topT{2}|    & 分離公理を表す記号    \\
+		\Gdelta 集合          & \verb|\Gdelta 集合|          & \Gdelta 集合          \\
+		\Fsigma 集合          & \verb|\Fsigma 集合|          & \Fsigma 集合          \\
+		\textsigma-コンパクト & \verb|\textsigma-コンパクト| & \textsigma-コンパクト \\
+		\hline
+
+		\tablesubtitle{位相空間に関する数式記号} \\
+		$\topopens[X]$         & \verb|\topopens[X]|         & 空間$X$の開集合族              \\
+		$\topopens$            & \verb|\topopens|            & 開集合族                       \\
+		$\topbasis$            & \verb|\topbasis|            & 開基                           \\
+		$\topnbd[X]{x}$        & \verb|\topnbd[X]{x}|        & 空間$X$における点$x$の近傍族   \\
+		$\topnbd{x}$           & \verb|\topnbd{x}|           & 点$x$の近傍族                  \\
+		$\topball{x}{r}$       & \verb|\topball{x}{r}|       & 点$x$を中心する半径$r$の開球   \\
+		$\topdensity{X}$       & \verb|\topdensity{X}|       & 位相空間$X$の density          \\
+		$\topweight{X}$        & \verb|\topweight{X}|        & 位相空間$X$のウェイト          \\
+		$\topnetworkweight{X}$ & \verb|\topnetworkweight{X}| & 位相空間$X$の ネットワーク濃度 \\
+		$\topcharacter{X}$     & \verb|\topcharacter{X}|     & 位相空間$X$の character        \\
 		\hline
 
 		\tablesubtitle{人名} \\
