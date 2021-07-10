@@ -167,6 +167,58 @@ $ \bigstar $の開近傍として$ X $の補可算集合を与えた位相空間
 	よって, $ \mathscr{A} $は有限であり$ \mathscr{U}' $の点有限性が示された.
 \end{proof}
 
+\begin{proposition}
+	\label{prop: A method to choose an useful refinement of a open cover of a metacompact space}
+	メタコンパクト空間$ X $における任意の開被覆$ \mathscr{U} $に対して, ある写像
+	$ f \colon \mathscr{U} \to \mathcal{O}_X $が存在し, 
+	任意の$ U \in \mathscr{U} $に対して$ f[U] \subset U $かつ
+	$ \setcomp{f[U]}{U \in \mathscr{U}} $が点有限な開被覆となる.
+\end{proposition}
+
+\begin{proposition}
+	$ f \colon X \to Y $をメタコンパクト空間$ X $から位相空間$ Y $への
+	全射な連続閉写像とする.
+	$ \mathscr{U} $を$ Y $任意の開被覆であって
+	点有限な開集合族の可算和で表されるものとする.
+	このとき, $ \mathscr{U} $は点有限な開被覆で細分できる.
+\end{proposition}
+
+\begin{proof}
+	各$ n \in \N $について点有限な開集合族$ \mathscr{U}_n $が存在して
+	$ \mathscr{U} = \bigcup_{n \in \N}$と表されるとする.
+	すべての$ n \in \N $について$ U_n \defeq \bigcup \mathscr{U}_n $と定めると,
+	$ \setcomp{f^{-1}[U_n]}{n \in \N} $は$ X $の開被覆である.
+	命題\ref{prop: A method to choose an useful refinement of a open cover of a metacompact space}より
+	$ X $の点有限な開被覆$ \setcomp{V_n}{n \in \N} $であって, 各$ n \in \N $について
+	$ V_n \subset f^{-1}[U_n] $を満たすものが存在する.
+	ここで, 任意の$ n \in \N $に対して
+	$ F_n \defeq X \setminus \bigcup_{i\geq n} V_i $と定めると
+	$ \setcomp{F_n}{n \in \N} $は閉集合族である. 
+	また, $ F_n $の定義から$ F_n \subset \bigcup{i < n} V_i$が成り立つ.
+	よって, $ \bigcup{n \in \N} F_n = X $である.
+	次に, $ \mathscr{W}_n \defeq \setcomp{U \setminus f[F_n]}{U \in \mathscr{U}_n}, 
+	\mathscr{W} \defeq \bigcup_{n \in \N} \mathscr{W}_n $と定義する.
+	この開集合族$ \mathscr{W} $が$ \mathscr{U} $の細分であって
+	$ Y $の点有限な開被覆であることを示す.
+	$ \bigcup_{n \in \N} F_n = X $より, $ \bigcup_{n \in \N} f[F_n] = X $である.
+	ゆえに, 任意の点$ y \in Y $に対してある$ n \in \N $が存在して
+	$ y \in f[F_n] $となる. $ F_n \subset \bigcup_{i < n} V_i $より
+	$ f[F_n] \subset \bigcup_{i < n} U_i $であるから, 
+	$ i \in \N $について$ i \geq n $のとき$ \mathscr{W}_i $の元であって
+	$ y $を含むものは存在しない. また, すべての$ i \in \N $に対して
+	$ \mathscr{U}_i $が点有限であることから, 任意の$ i < n $に対して
+	$ \mathscr{W}_i $の元であって$ y $を含むものは高々有限である.
+	したがって, $ \mathscr{W} $は点有限である. 
+	$ \mathscr{W} $が開集合族であることとと
+	$ \mathscr{U} $の細分であることは定義から明らかなので
+	$ \mathscr{W} $が$ Y $の被覆であることを示せばよい.
+	任意の点$ y \in Y $に対して$ i_y \defeq \min \setcomp{i \in \N}{y \in U_i} $と定める.
+	$ f[F_{i_y}] \subset \bigcup_{i < i_y} U_i $であるから,
+	$ y \in U $なる$ U \in \mathscr{U}_i $をとれば
+	$ y \in U \setminus f[F_{i_y}] $となる.
+	$ U \setminus f[F_{i_y}] \in \mathscr{W} $より$ y \in \bigcup \mathscr{W} $である.	
+\end{proof}
+
 \begin{theorem}[Worrell]
 	\label{thm:Worrell's Theorem}
 	メタコンパクト空間$ X $と \Hausdorff 空間$ Y $に対して, 
