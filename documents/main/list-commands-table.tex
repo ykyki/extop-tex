@@ -1,6 +1,19 @@
-\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\documentclass[uplatex, dvipdfmx, 12pt, crop=false]{standalone}
 \usepackage{import}
-\import{./}{common-preamble.sty}
+% \import{./}{common-preamble.sty}
+\import{../config/}{global-commands.sty}
+
+
+\usepackage[
+	paperwidth=300truemm,
+	paperheight=600truemm,
+	top=10truemm,
+	bottom=15truemm,
+	marginparwidth=15truemm,
+	marginparsep=5truemm
+]{geometry}
+
+\def\texorpdfstring#1#2{#1}% hyperref依存なのでここでは暫定的に無効化
 
 \begin{document}
 
@@ -8,7 +21,7 @@
 
 \begin{table}[htb]
 	\centering
-	\renewcommand{\arraystretch}{0.9}
+	\renewcommand{\arraystretch}{1.2}
 	% \setlength{\tabcolsep}{1em}
 	% \setlength{\doublerulesep}{10pt}
 	% \setlength{\arrayrulewidth}{1pt}
@@ -16,25 +29,36 @@
 	\begin{tabular}{ll@{\qquad}l}
 		\hline
 		\hline
-		\tablesubtitle{基礎的な記号} \\
-		$\N$ & \verb|\N| & 自然数全体の集合 \\
-		$\Z$ & \verb|\Z| & 整数全体の集合   \\
-		$\Q$ & \verb|\Q| & 有理数全体の集合 \\
-		$\R$ & \verb|\R| & 実数全体の集合   \\
-		$\C$ & \verb|\C| & 複素数全体の集合 \\
-		$\I$ & \verb|\I| & 単位区間         \\
-		$x \defeq f(a)$ & \verb|x \defeq f(a)| & 定義を表す等号 \\
-		$\lrparen{f, g, h, \ldots}$    & \verb|\lrparen{f, g, h, \ldots}|    & parenthesis          \\
-		$\lrparenbig{f, g, h, \ldots}$ & \verb|\lrparenbig{f, g, h, \ldots}| & big parenthesis      \\
-		$\lrbrace{f, g, h, \ldots}$    & \verb|\lrbrace{f, g, h, \ldots}|    & brace                \\
-		$\lrbrack{f, g, h, \ldots}$    & \verb|\lrbrack{f, g, h, \ldots}|    & bracket              \\
-		$\lrangle{f, g, h, \ldots}$    & \verb|\lrangle{f, g, h, \ldots}|    & angle bracket        \\
-		$\forallparen{\epsilon > 0}$   & \verb|\forallparen{\epsilon > 0}|   & 全称量化子を括る括弧 \\
-		$\existsparen{\delta > 0}$     & \verb|\existsparen{\delta > 0}|     & 存在量化子を括る括弧 \\
-		$\formulaparen{x < y}$         & \verb|\formulaparen{x < y}|         & 論理式を括る括弧     \\
-		$\setcomp{x \in \R}{f(x) < 0}$ & \verb|\setcomp{x \in \R}{f(x) < 0}| & 内包表記             \\
-		$\setfamily{X_i}{i \in I}$     & \verb|\setfamily{X_i}{i \in I}|     & 添字付けられた集合系 \\
+		\tablesubtitle{基礎的なテキスト記号} \\
+		(1)\rimp(2)  & \verb|(1)\rimp(2)|  & 推論を表す右向き矢印 \\
+		(1)\limp(2)  & \verb|(1)\limp(2)|  & 推論を表す左向き矢印 \\
+		(1)\lrimp(2) & \verb|(1)\lrimp(2)| & 同値を表す両向き矢印 \\
 		\hline
+
+		\tablesubtitle{基礎的な数式記号} \\
+		$\N$                                      & \verb|\N|                                      & 自然数全体の集合     \\
+		$\Z$                                      & \verb|\Z|                                      & 整数全体の集合       \\
+		$\Q$                                      & \verb|\Q|                                      & 有理数全体の集合     \\
+		$\R$                                      & \verb|\R|                                      & 実数全体の集合       \\
+		$\C$                                      & \verb|\C|                                      & 複素数全体の集合     \\
+		$\I$                                      & \verb|\I|                                      & 単位区間             \\
+		$x \defeq f(a)$                           & \verb|x \defeq f(a)|                           & 定義を表す等号       \\
+		$x \in \complement A \defarw x \not\in A$ & \verb|x \in \complement A \defarw x \not\in A| & 定義を表す矢印       \\
+		$\lrparen{f, g, h, \ldots}$               & \verb|\lrparen{f, g, h, \ldots}|               & parenthesis          \\
+		$\lrparenbig{f, g, h, \ldots}$            & \verb|\lrparenbig{f, g, h, \ldots}|            & big parenthesis      \\
+		$\lrbrace{f, g, h, \ldots}$               & \verb|\lrbrace{f, g, h, \ldots}|               & brace                \\
+		$\lrbrack{f, g, h, \ldots}$               & \verb|\lrbrack{f, g, h, \ldots}|               & bracket              \\
+		$\lrangle{f, g, h, \ldots}$               & \verb|\lrangle{f, g, h, \ldots}|               & angle bracket        \\
+		$\forallparen{\epsilon > 0}$              & \verb|\forallparen{\epsilon > 0}|              & 全称量化子を括る括弧 \\
+		$\existsparen{\delta > 0}$                & \verb|\existsparen{\delta > 0}|                & 存在量化子を括る括弧 \\
+		$\formulaparen{x < y}$                    & \verb|\formulaparen{x < y}|                    & 論理式を括る括弧     \\
+		$\setcomp{x \in \R}{f(x) < 0}$            & \verb|\setcomp{x \in \R}{f(x) < 0}|            & 内包表記             \\
+		$\setfamily{X_i}{i \in I}$                & \verb|\setfamily{X_i}{i \in I}|                & 添字付けられた集合系 \\
+		$\cardinality{A}$                         & \verb|\cardinality{A}|                         & 集合$A$の濃度        \\
+		$\pow A, \pow(A)$                         & \verb|\pow A, \pow(A)|                         & 集合$A$の冪集合      \\
+		$\abs{a}$                                 & \verb|\abs{a}|                                 & 値$a$の絶対値        \\
+		\hline
+
 		\tablesubtitle{位相空間に関する演算} \\
 		$\topint_X A$ & \verb|\topint_X A| & 空間$X$における部分集合$A$の内部   \\
 		$\topint A$   & \verb|\topint A|   & 部分集合$A$の内部                  \\
@@ -45,13 +69,48 @@
 		$\topder A$   & \verb|\topder A|   & 部分集合$A$の導集合                \\
 		$A^\topd$     & \verb|A^\topd|     & 部分集合$A$の導集合                \\
 		\hline
-		\tablesubtitle{位相空間に関する記号} \\
-		$\topopens[X]$   & \verb|\topopens[X]|   & 空間$X$の開集合族            \\
-		$\topopens$      & \verb|\topopens|      & 開集合族                     \\
-		$\topbasis$      & \verb|\topbasis|      & 開基                         \\
-		$\topnbd[X]{x}$  & \verb|\topnbd[X]{x}|  & 空間$X$における点$x$の近傍族 \\
-		$\topnbd{x}$     & \verb|\topnbd{x}|     & 点$x$の近傍族                \\
-		$\topball{x}{r}$ & \verb|\topball{x}{r}| & 点$x$を中心する半径$r$の開球 \\
+
+		\tablesubtitle{位相空間に関するテキスト記号} \\
+		\topT{1}, \topT{2}    & \verb|\topT{1}, \topT{2}|    & 分離公理を表す記号    \\
+		\Gdelta 集合          & \verb|\Gdelta 集合|          & \Gdelta 集合          \\
+		\Fsigma 集合          & \verb|\Fsigma 集合|          & \Fsigma 集合          \\
+		\textsigma-コンパクト & \verb|\textsigma-コンパクト| & \textsigma-コンパクト \\
+		\hline
+
+		\tablesubtitle{位相空間に関する数式記号} \\
+		$\topopens[X]$         & \verb|\topopens[X]|         & 空間$X$の開集合族              \\
+		$\topopens$            & \verb|\topopens|            & 開集合族                       \\
+		$\topbasis$            & \verb|\topbasis|            & 開基                           \\
+		$\topnbd[X]{x}$        & \verb|\topnbd[X]{x}|        & 空間$X$における点$x$の近傍族   \\
+		$\topnbd{x}$           & \verb|\topnbd{x}|           & 点$x$の近傍族                  \\
+		$\topball{x}{r}$       & \verb|\topball{x}{r}|       & 点$x$を中心する半径$r$の開球   \\
+		$\topdensity{X}$       & \verb|\topdensity{X}|       & 位相空間$X$の density          \\
+		$\topweight{X}$        & \verb|\topweight{X}|        & 位相空間$X$のウェイト          \\
+		$\topnetworkweight{X}$ & \verb|\topnetworkweight{X}| & 位相空間$X$の ネットワーク濃度 \\
+		$\topcharacter{X}$     & \verb|\topcharacter{X}|     & 位相空間$X$の character        \\
+		\hline
+
+		\tablesubtitle{人名} \\
+		\Alexandroff & \verb|\Alexandroff| &  \\
+		\Baire       & \verb|\Baire|       &  \\
+		\Cech        & \verb|\Cech|        &  \\
+		\Euclid      & \verb|\Euclid|      &  \\
+		\Frechet     & \verb|\Frechet|     &  \\
+		\Hausdorff   & \verb|\Hausdorff|   &  \\
+		\Lindelof    & \verb|\Lindelof|    &  \\
+		\Moore       & \verb|\Moore|       &  \\
+		\Sierpinski  & \verb|\Sierpinski|  &  \\
+		\Sorgenfrey  & \verb|\Sorgenfrey|  &  \\
+		\Stone       & \verb|\Stone|       &  \\
+		\Tietze      & \verb|\Tietze|      &  \\
+		\Tychonoff   & \verb|\Tychonoff|   &  \\
+		\Urysohn     & \verb|\Urysohn|     &  \\
+		\hline
+
+		\tablesubtitle{その他} \\
+		\ykyki & \verb|\ykyki| & 著者 \\
+		\chen  & \verb|\chen|  & 著者 \\
+
 		\hline
 		\hline
 	\end{tabular}

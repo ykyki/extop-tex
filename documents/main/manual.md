@@ -6,6 +6,65 @@
 
 ---
 
+## 構成
+
+```
+extop-tex/
+├── README.md
+├── build-document.sh // productsフォルダへのビルドを行うシェルコマンド
+├── documents
+│   ├── bibliography // 参考文献をまとめる
+│   │   ├── miscellaneous.bib
+│   │   ├── papers-ja.bib
+│   │   └── papers.bib
+│   ├── config // 設定をまとめる
+│   │   ├── colors.sty
+│   │   ├── environments.sty
+│   │   ├── global-commands.sty
+│   │   └── layouts
+│   │       ├── develop.sty
+│   │       ├── product.sty
+│   │       └── review.sty
+│   ├── main
+│   │   ├── chapter-basics.tex
+│   │   ├── chapter-compactness.tex
+│   │   ├── chapter-connectedness.tex
+│   │   ├── chapter-constructions.tex
+│   │   ├── chapter-examples.tex
+│   │   ├── chapter-separation-axioms.tex
+│   │   ├── common-preamble.sty
+│   │   ├── examples
+│   │   │   ├── 000-empty-template-for-example.tex // テンプレート
+│   │   │   ├── Alexandroff-square.tex
+│   │   │   ├── Moore-plane.tex
+│   │   │   ├── Q-star-infinite.tex
+│   │   │   ├── Q-star.tex
+│   │   │   ├── ...
+│   │   │
+│   │   ├── list-commands-table.tex // mainドキュメントで使用されるグローバルコマンドの説明をまとめる
+│   │   ├── list-commands.tex // mainドキュメントの索引に記号一覧をまとめる
+│   │   ├── main-root.tex
+│   │   ├── manual.md
+│   │   ├── preliminary.tex
+│   │   └── theories
+│   │       ├── 000-empty-template.tex // テンプレート
+│   │       ├── Hausdorff-like-properties.tex
+│   │       ├── Hausdorff-spaces.tex
+│   │       ├── Lindelof-spaces.tex
+│   │       ├── T0-spaces.tex
+│   │       ├── T1-spaces.tex
+│   │       ├── ...
+│   │  
+│   └── scrap // mainドキュメントとは別にちょっとした内容をメモしておくための場所
+│       ├── 001-Continuity-from-n-delta.tex
+│       ├── 002-Format-test.tex
+│       └── A01-scrap-preamble.sty
+└── products
+    └── // 生成物を収める
+```
+
+---
+
 ## 文章規約
 
 ドキュメント, 特に .tex ファイルを執筆する際のルールについてまとめる.
