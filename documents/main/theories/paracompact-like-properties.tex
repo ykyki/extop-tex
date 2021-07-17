@@ -176,6 +176,7 @@ $ \bigstar $の開近傍として$ X $の補可算集合を与えた位相空間
 \end{proposition}
 
 \begin{proposition}
+	\label{prop: Every sigma-point-finite open covering of the closed image of a MetaCpt space has point a finite refinement}
 	$ f \colon X \to Y $をメタコンパクト空間$ X $から位相空間$ Y $への
 	全射な連続閉写像とする.
 	$ \mathscr{U} $を$ Y $任意の開被覆であって
@@ -185,7 +186,7 @@ $ \bigstar $の開近傍として$ X $の補可算集合を与えた位相空間
 
 \begin{proof}
 	各$ n \in \N $について点有限な開集合族$ \mathscr{U}_n $が存在して
-	$ \mathscr{U} = \bigcup_{n \in \N}$と表されるとする.
+	$ \mathscr{U} = \bigcup_{n \in \N} \mathscr{U}_n $と表されるとする.
 	すべての$ n \in \N $について$ U_n \defeq \bigcup \mathscr{U}_n $と定めると,
 	$ \setcomp{f^{-1}[U_n]}{n \in \N} $は$ X $の開被覆である.
 	命題\ref{prop: A method to choose an useful refinement of a open cover of a metacompact space}より
@@ -195,7 +196,7 @@ $ \bigstar $の開近傍として$ X $の補可算集合を与えた位相空間
 	$ F_n \defeq X \setminus \bigcup_{i\geq n} V_i $と定めると
 	$ \setcomp{F_n}{n \in \N} $は閉集合族である. 
 	また, $ F_n $の定義から$ F_n \subset \bigcup{i < n} V_i$が成り立つ.
-	よって, $ \bigcup{n \in \N} F_n = X $である.
+	よって, $ \bigcup_{n \in \N} F_n = X $である.
 	次に, $ \mathscr{W}_n \defeq \setcomp{U \setminus f[F_n]}{U \in \mathscr{U}_n}, 
 	\mathscr{W} \defeq \bigcup_{n \in \N} \mathscr{W}_n $と定義する.
 	この開集合族$ \mathscr{W} $が$ \mathscr{U} $の細分であって
@@ -224,6 +225,80 @@ $ \bigstar $の開近傍として$ X $の補可算集合を与えた位相空間
 	メタコンパクト空間$ X $と \Hausdorff 空間$ Y $に対して, 
 	連続な全射閉写像$ f \colon X \to Y $が存在するとき$ Y $はメタコンパクトである.
 \end{theorem}
+
+\begin{proof}
+	命題\ref{prop: Every sigma-point-finite open covering of the closed image of a MetaCpt space 
+	has point a finite refinement}より,
+	$ Y $の任意の開被覆$ \mathscr{U} $がσ点有限な開被覆で細分されることを示せばよい.
+	$ \mathscr{U} $は二項関係$ < $によって整列順序付けられているとする.
+	ここで, 各$ n \in \N $について次の条件(1), (2)を満たす$ X $の
+	点有限開被覆$ \mathscr{V}_n \defeq \setcomp{V_n(U)}{U \in \mathscr{U}}, n=0, 1, \cdots $を
+	帰納的に構成する.
+	\begin{enumerate}
+		\item[(1)] 任意の$ n \in \N $について$ V_n(U) \subset f^{-1}[U] $が全ての$ U \in \mathscr{U} $で成り立つ.
+		\item[(2)] 任意の$ n \in \N_{>0} $について$ f[V_n(U)] \cap f[F_{n-1}(U)] = \emptyset $が全ての$ U \in \mathscr{U} $で成り立つ. 
+		ただし, $ F_{n-1}(U) \defeq X \setminus \bigcup_{U' \geq U} V_{n-1}(U') $である. 
+	\end{enumerate}
+	$ n = 0 $のとき, 上の条件を満たす$ X $の点有限開被覆$ \mathscr{V}_0 $が存在することは
+		命題\ref{prop: A method to choose an useful refinement of a open cover of a metacompact space}から分かる.
+	$ k \geq 1 $に対して点有限開被覆$ \mathscr{V}_0, \mathscr{V}_1, \cdots, \mathscr{V}{k-1} $が既に定義され, 
+	条件(1), (2)をともに満たすと仮定する.
+	いま, $ f $は閉写像なので任意の$ U \in \mathscr{U} $に対して$ G_k(U) \defeq f^{-1}[U] 
+	\setminus f^{-1}f[X \setminus \bigcup_{U' \geq U} V_{k-1}(U')] \subset f^{-1}[U] $は開集合である.
+	ここで, 任意の$ x \in X $に対して$ U_X(x) \defeq \min \setcomp{U \in \mathscr{U}}{x \in f^{-1}[U]} $と定める.
+	このとき, $ x \in G_k(U_X(x)) $となることを示す.
+	$ F_{k-1}(U_X(x)) = X \setminus \bigcup_{U' \geq U_X(x)} V_{k-1}(U') \subset \bigcup_{U' < U_X(x)} V_{k-1}(U') $である.
+	また, 条件(1)より$ \bigcup_{U' < U_X(x)} V_{k-1}(U') \subset \bigcup_{U' < U_X(x)} f^{-1}[U'] $である.
+	よって, $ f^{-1}f[F_{k-1}(U_X(x))] \subset f^{-1}f[\bigcup_{U' < U_X(x)} V_{k-1}(U')] 
+	\subset f^{-1}f[\bigcup_{U' < U_X(x)} f^{-1}[U']] $となるので,
+	$ f^{-1}f[F_{k-1}(U_X(x))] \subset \bigcup_{U' < U_X(x)} f^{-1}[U'] $が得られる.
+	ゆえに, $ U_X(x) $の定義から, $ x \notin f^{-1}f[F_{k-1}(U_X(x))] $なので,
+	$ x \in G_k(U_X(x)) $が示された. したがって, $ \setcomp{G_{k}(U)}{U \in \mathscr{U}} $は$ X $の開被覆であるから,
+	再び命題\ref{prop: A method to choose an useful refinement of a open cover of a metacompact space}を用いて
+	$ V_k(U) \subset G_k(U) $が全ての$ U \in \mathscr{U} $で成り立つように
+	$ \mathscr{V}_k \defeq \setcomp{V_k(U)}{U \in \mathscr{U}} $がとれる.
+	$ G_k(U) \subset f^{-1}[U] $より$ n = k $について条件(1)が成り立つ.
+	また, $ f[V_k(U)] \cap f[F_{k-1}(U)] \subset f[G_k(U)] \cap f[F_{k-1}(U)] 
+	= \left(U \setminus f^{-1}[F_{k-1}(U)] \right) = \emptyset $より, 
+	$ n = k $で条件(2)を満たすことも分かる.
+	以上より, 条件(1), (2)を満たす$ X $の点有限開被覆$ \mathscr{V}_0, \mathscr{V}_1, \cdots $を構成できた.
+	各$ n \in \N, U \in \mathscr{U} $に対して
+	$ W_n(U) \defeq Y \setminus f[X \setminus V_n(U)] $と定めると
+	$ \mathscr{W}_n \defeq \setcomp{W_n(U)}{U \in \mathscr{U}} $が点有限な開集合族であり,
+	$ \mathscr{U} $の細分であることを示す.
+	定義より, $ f^{-1}[W_n(U)] \cap (X \setminus V_n(U)) = \emptyset $なので
+	$ f^{-1}[W_n(U)] \subset V_n(U) $が成り立つ. よって, $ \mathscr{V}_n $が点有限であることを合わせて考えると
+	$ \mathscr{W}_n $も点有限であることが分かる. また, $ V_n(U) \subset f^{-1}[U] $より,
+	$ W_n(U) \subset f[V_n(U)] \subset ff^{-1}[U] = U $が成り立つことから, $ \mathscr{W}_n $が
+	$ \mathscr{U} $の細分であることも分かる.
+	あとは, $ \mathscr{W} \defeq \bigcup_{n \in \N} \mathscr{W}_n $が$ Y $の開被覆であることを示せばよい.
+	$ f $が閉写像であることから$ \mathscr{V}_n $は開集合族である.
+	$ \mathscr{V} $が$ X $の点有限被覆であることから, $ U \in \mathscr{U} $に対して
+	$ x \notin \bigcup_{U'\geq U} $のとき$ x \in V_n(U') $なる最大の$ U' < U $がとれる.
+	このとき, $ x \notin \bigcup_{U'' > U'} V_n(U'') $となるので,
+	$ F_n(U) = X \setminus \bigcup_{U' \geq U} V_{n} 
+	\subset \bigcup_{U' < U} \left(X \setminus \bigcup_{U'' > U'} V_n(U'') \right) $が成り立つ.
+	同様にして, $ X = \bigcup_{U \in \mathscr{U}}\left(X \setminus \bigcup_{U' > U}V_n(U')\right) $
+	も分かる. 任意の$ y \in Y $について$ y \in f[X \setminus \bigcup_{U' > U}V_n(U')] $が
+	いくつかの正整数$ n $で成り立つ最小の$ U \in \mathscr{U} $を$ U_Y(y) $と書く. 
+	このような$ U_Y(y) $が存在することは$ f $が全射であり, 
+	$ X = \bigcup_{U \in \mathscr{U}}\left(X \setminus \bigcup_{U' > U}V_n(U')\right) $と表せることから分かる.
+	また, $ y \in f[X \setminus \bigcup_{U' > U_Y(y)} V_{n(y)-1}(U')] $を満たす整数$ n(y) $をとる.
+	定義から$ y \in f[F_{n(y)-1}[U]] $が任意の$ U > U_Y(y) $について成り立つ.
+	このとき条件(2)より, $ y \notin \bigcup_{U > U_Y(y)} f[V_{n(y)}(U)] = f[\bigcup_{U > U_Y(y)} V_{n(y)}(U)] $
+	となる. よって, $ f^{-1}(y) \cap \bigcup_{U > U_Y(y)} V_{n(y)}(U) = \emptyset $である.
+	一方, $ F_{n(y)}(U(y)) \subset \bigcup_{U' < U_Y(y)} \left(X \setminus \bigcup_{U'' > U'} V_{n(y)}(U'') \right) $より
+	$ f[X \setminus \bigcup_{U \geq U_Y(y)} V_{n(y)}(U)] 
+	\subset f[\bigcup_{U' < U_Y(y)} \left(X \setminus \bigcup_{U'' > U'} V_{n(y)}(U'') \right)] 
+	= \bigcup_{U' < U_Y(y)} f[X \setminus \bigcup_{U'' > U'} V_{n(y)}(U'')] $となる. 
+	ここで, $ U_Y(y) $の定義より任意の$ U' < U_Y(y) $について
+	$ y \notin f[X \setminus \bigcup_{U'' > U'} V_{n(y)}(U'')] $が成り立つ.
+	よって, $ y \notin f[X \setminus \bigcup_{U \geq U_Y(y)} V_{n(y)}(U)] $から
+	$ f^{-1}(y) \subset \bigcup_{U \geq U_Y(y)} V_{n(y)}(U) $を得る.
+	したがって, $ f^{-1}(y) \subset V_{n(y)}(U_Y(y)) $となる.
+	$ W_{n(y)}(U_Y(y)) $は$ f $による$ V_{n(y)}(U_Y(y)) $であるから
+	$ y \in W_{n(y)}(U_Y(y)) $が成り立つ. これで$ \mathscr{W} $が$ Y $の開被覆であることが示された.
+\end{proof}
 
 \begin{proposition}
 	可分なメタコンパクト空間は \Lindelof 空間である.
