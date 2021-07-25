@@ -168,6 +168,63 @@ $ \bigstar $の開近傍として$ X $の補可算集合を与えた位相空間
 \end{proof}
 
 \begin{proposition}
+	\label{prop:Every point finite cover A of X has an irreducible subcover}
+	位相空間$ X $の任意の点有限被覆$ \mathscr{A} $は既約な部分被覆をもつ.
+\end{proposition}
+
+\begin{proof}
+	$ X $の被覆$ \mathscr{A} $に対して
+	集合$ \mathfrak{A} \defeq \setcomp{\mathscr{A}' \subset \mathscr{A}}{\bigcup \mathscr{A}' = X} $を定める. 
+	ここで, $ \mathfrak{A} $における二項関係$ \mathscr{A}_1 \leq \mathscr{A}_2 $を
+	$ \mathscr{A}_1 \supset \mathscr{A}_2 $によって定義すると, 
+	これが$ \mathfrak{A} $に順序を定めることは明らかである. 
+	$ \mathfrak{A} $の任意の全順序部分集合$ \mathfrak{A}_0 $に対して
+	$ \mathscr{A}_0 \defeq \bigcap \mathfrak{A}_0 $と定める. 
+	このとき, 任意の$ \mathscr{A}' \in \mathfrak{A}_0 $に対して$ \mathscr{A}_0 \geq \mathscr{A}' $である. 
+	$ \mathscr{A}_0 \in \mathfrak{A} $を示す. 任意の$ x \in X $について$ x \in A $なる
+	$ A \subset \mathscr{A}_0 $が存在することを示す. 
+	$ \mathscr{U}(x, \mathscr{A}) \defeq \setcomp{A \in \mathscr{A}}{x \in A} $と定めると
+	$ \mathscr{U}(x, \mathscr{A}) $は有限集合である. 
+	$ \mathscr{U}(x, \mathscr{A}) \cap \mathscr{A}_0 = \emptyset $と仮定して矛盾を導く. 
+	このとき, 任意の$ A \in \mathscr{U}(x, \mathscr{A}) $に対して$ A \notin \mathscr{A}' $なる
+	$ \mathscr{A}' \in \mathfrak{A}_0 $が存在する. 
+	いま, $ \mathfrak{A}_0 $は全順序集合なので
+	$ \mathscr{U}(x, \mathscr{A}) \cap \mathscr{A}' = \emptyset $なる
+	$ \mathscr{A}' \in \mathfrak{A}_0 $が存在する. 
+	これは, $ x \notin \bigcup \mathscr{A}' $であり$ \bigcup \mathscr{A}' = X $に矛盾する. 
+	よって, ある$ A \in \mathscr{U}(x, \mathscr{A}) $が存在して$ A \in \mathscr{A}_0 $となり
+	$ \bigcup \mathscr{A}_0 = X $が示された. したがって, Zornの補題より$ \mathfrak{A} $の極大元が存在し, 
+	それが求める既約部分被覆である.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Irreducible cover in a CntCpt space is a finite cover}
+	可算コンパクト空間における既約被覆は有限被覆である.
+\end{proposition}
+
+\begin{proof}
+	$ \mathscr{U} $を位相空間$ X $の有限でない既約被覆として$ X $が可算コンパクトでないことを示す. 
+	$ \mathscr{U} $は無限集合なので可算無限部分集合$ \setcomp{U_n}{n \in \N} $を
+	$ i \neq j $のとき$ U_i \neq U_j $を満たすようにとれる. ここで, 各$ n \in \N $に対して
+	閉集合$ F_n \defeq X \setminus \left(\bigcup_{i \in \N, i \neq n} U_i\right) $によって定める.
+	このとき, $ \mathscr{U} $の既約性から$ F_n \neq \emptyset $かつ
+	$ \mathscr{F} \defeq \setcomp{F_n}{n \in \N} $は局所有限かつ素な閉集合族である.
+	したがって, $ n \in \N $に対して$ G_n \defeq \bigcup_{i \geq n} F_n $と定めると
+	$ \mathscr{G} \defeq \setcomp{G_n}{n \in \N} $は有限交叉性をもつ閉集合族である.
+	$ \mathscr{F} $が素であることから$ \bigcap \mathscr{G} = \emptyset $となり, $ X $は可算コンパクトでない.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:CntCpt + MetaCpt > Cpt}
+	可算コンパクトかつメタコンパクトな空間はコンパクトである.
+\end{proposition}
+
+\begin{proof} 
+	命題\ref{prop:Every point finite cover A of X has an irreducible subcover}, 
+	\ref{prop:Irreducible cover in a CntCpt space is a finite cover}から示される.
+\end{proof}
+
+\begin{proposition}
 	\label{prop: A method to choose an useful refinement of a open cover of a metacompact space}
 	メタコンパクト空間$ X $における任意の開被覆$ \mathscr{U} $に対して, ある写像
 	$ f \colon \mathscr{U} \to \mathcal{O}_X $が存在し, 
@@ -175,12 +232,31 @@ $ \bigstar $の開近傍として$ X $の補可算集合を与えた位相空間
 	$ \setcomp{f[U]}{U \in \mathscr{U}} $が点有限な開被覆となる.
 \end{proposition}
 
+\begin{proof}
+	$ \mathscr{U} $を$ X $の任意の開被覆とする. このとき, 点有限な開被覆$ \mathscr{V} $であって
+	$ \mathscr{U} $を細分するものが存在する. 命題\ref{prop:Every point finite cover A of X has an irreducible subcover}より
+	$ \mathscr{V}' \subset \mathscr{V} $であって既約なものがとれる. 各$ V \subset \mathscr{V} $について$ V \subset U $なる
+	$ U \subset \mathscr{U} $が少なくとも1つ存在し, これを$ U(V) $とする. 
+	このとき, $ \mathscr{V}' $の既約性より, 相異なる$ V_1, V_2 \in \mathscr{V} $に対して
+	$ U(V_1) \neq U(V_2) $が成り立つ. よって, $ \mathscr{U}' \defeq \setcomp{U(V)}{V \in \mathscr{V}'} $とすると, 
+	写像$ g \colon \mathscr{V}' \to \mathscr{U}' \semicolon V \mapsto U(V) $は全単射である.
+	ここで, 写像$ f \colon \mathscr{U} \to \mathcal{O}_X $を次のように定める:
+	$$ f(U) \defeq \begin{cases}
+		g^{-1}(U) & U \in \mathscr{U}' \\
+		\emptyset & U \notin \mathscr{U}'
+		\end{cases}$$
+		これが求める写像であることは容易に確認できる.
+\end{proof}
+
+\begin{definition}
+	位相空間$ X $の開被覆$ \mathscr{U} $がσ点有限であるとは, $ X $の点有限な開被覆の可算和で表されることをいう.
+\end{definition}
+
 \begin{proposition}
 	\label{prop: Every sigma-point-finite open covering of the closed image of a MetaCpt space has point a finite refinement}
 	$ f \colon X \to Y $をメタコンパクト空間$ X $から位相空間$ Y $への
 	全射な連続閉写像とする.
-	$ \mathscr{U} $を$ Y $任意の開被覆であって
-	点有限な開集合族の可算和で表されるものとする.
+	$ \mathscr{U} $を$ Y $のσ点有限な開被覆とする.
 	このとき, $ \mathscr{U} $は点有限な開被覆で細分できる.
 \end{proposition}
 
@@ -347,63 +423,6 @@ $ \bigstar $の開近傍として$ X $の補可算集合を与えた位相空間
 	$ \mathscr{W}_y \defeq \setcomp{Z \in \mathscr{W}'}{y \in Z} $とすると, $ \mathscr{W}_y $は空でなく, 
 	任意の$ Z \in \mathscr{W}_y $に対して$ A_{y(Z)} $が有限であることから, 
 	$ \mathscr{U}' $がinterior-preservingな開被覆であることがわかる.
-\end{proof}
-
-\begin{proposition}
-	\label{prop:Every point finite cover A of X has an irreducible subcover}
-	位相空間$ X $の任意の点有限被覆$ \mathscr{A} $は既約な部分被覆をもつ.
-\end{proposition}
-
-\begin{proof}
-	$ X $の被覆$ \mathscr{A} $に対して
-	集合$ \mathfrak{A} \defeq \setcomp{\mathscr{A}' \subset \mathscr{A}}{\bigcup \mathscr{A}' = X} $を定める. 
-	ここで, $ \mathfrak{A} $における二項関係$ \mathscr{A}_1 \leq \mathscr{A}_2 $を
-	$ \mathscr{A}_1 \supset \mathscr{A}_2 $によって定義すると, 
-	これが$ \mathfrak{A} $に順序を定めることは明らかである. 
-	$ \mathfrak{A} $の任意の全順序部分集合$ \mathfrak{A}_0 $に対して
-	$ \mathscr{A}_0 \defeq \bigcap \mathfrak{A}_0 $と定める. 
-	このとき, 任意の$ \mathscr{A}' \in \mathfrak{A}_0 $に対して$ \mathscr{A}_0 \geq \mathscr{A}' $である. 
-	$ \mathscr{A}_0 \in \mathfrak{A} $を示す. 任意の$ x \in X $について$ x \in A $なる
-	$ A \subset \mathscr{A}_0 $が存在することを示す. 
-	$ \mathscr{U}(x, \mathscr{A}) \defeq \setcomp{A \in \mathscr{A}}{x \in A} $と定めると
-	$ \mathscr{U}(x, \mathscr{A}) $は有限集合である. 
-	$ \mathscr{U}(x, \mathscr{A}) \cap \mathscr{A}_0 = \emptyset $と仮定して矛盾を導く. 
-	このとき, 任意の$ A \in \mathscr{U}(x, \mathscr{A}) $に対して$ A \notin \mathscr{A}' $なる
-	$ \mathscr{A}' \in \mathfrak{A}_0 $が存在する. 
-	いま, $ \mathfrak{A}_0 $は全順序集合なので
-	$ \mathscr{U}(x, \mathscr{A}) \cap \mathscr{A}' = \emptyset $なる
-	$ \mathscr{A}' \in \mathfrak{A}_0 $が存在する. 
-	これは, $ x \notin \bigcup \mathscr{A}' $であり$ \bigcup \mathscr{A}' = X $に矛盾する. 
-	よって, ある$ A \in \mathscr{U}(x, \mathscr{A}) $が存在して$ A \in \mathscr{A}_0 $となり
-	$ \bigcup \mathscr{A}_0 = X $が示された. したがって, Zornの補題より$ \mathfrak{A} $の極大元が存在し, 
-	それが求める既約部分被覆である.
-\end{proof}
-
-\begin{proposition}
-	\label{prop:Irreducible cover in a CntCpt space is a finite cover}
-	可算コンパクト空間における既約被覆は有限被覆である.
-\end{proposition}
-
-\begin{proof}
-	$ \mathscr{U} $を位相空間$ X $の有限でない既約被覆として$ X $が可算コンパクトでないことを示す. 
-	$ \mathscr{U} $は無限集合なので可算無限部分集合$ \setcomp{U_n}{n \in \N} $を
-	$ i \neq j $のとき$ U_i \neq U_j $を満たすようにとれる. ここで, 各$ n \in \N $に対して
-	閉集合$ F_n \defeq X \setminus \left(\bigcup_{i \in \N, i \neq n} U_i\right) $によって定める.
-	このとき, $ \mathscr{U} $の既約性から$ F_n \neq \emptyset $かつ
-	$ \mathscr{F} \defeq \setcomp{F_n}{n \in \N} $は局所有限かつ素な閉集合族である.
-	したがって, $ n \in \N $に対して$ G_n \defeq \bigcup_{i \geq n} F_n $と定めると
-	$ \mathscr{G} \defeq \setcomp{G_n}{n \in \N} $は有限交叉性をもつ閉集合族である.
-	$ \mathscr{F} $が素であることから$ \bigcap \mathscr{G} = \emptyset $となり, $ X $は可算コンパクトでない.
-\end{proof}
-
-\begin{proposition}
-	\label{prop:CntCpt + MetaCpt > Cpt}
-	可算コンパクトかつメタコンパクトな空間はコンパクトである.
-\end{proposition}
-
-\begin{proof} 
-	命題\ref{prop:Every point finite cover A of X has an irreducible subcover}, 
-	\ref{prop:Irreducible cover in a CntCpt space is a finite cover}から示される.
 \end{proof}
 
 \end{document}
