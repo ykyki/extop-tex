@@ -67,6 +67,7 @@
 \newcommand{\indexe}[1]{\index{#1}\textbf{#1}}
 \newcommand{\maru}[1]{(#1)}
 
+\usepackage{ifthen}
 \newcommand{\setlayout}[1]{
 	\gdef\layoutname{#1}
 	% \typeout{>>> setlayout: \layoutname}
@@ -74,6 +75,29 @@
 \setlayout{develop}% default
 \AtEndPreamble{
 	% \typeout{>>> accepted layout: \layoutname}
+
+	\ifthenelse{\equal{\layoutname}{product}}{
+		% for product
+
+		% リファレンスのソースを追加. パスに注意
+		\addbibresource{../bibliography/papers.bib}
+		\addbibresource{../bibliography/papers-ja.bib}
+		\addbibresource{../bibliography/miscellaneous.bib}
+	}{
+		% else
+
+		\addbibresource{../../bibliography/papers.bib}
+		\addbibresource{../../bibliography/papers-ja.bib}
+		\addbibresource{../../bibliography/miscellaneous.bib}
+
+		% ドキュメント末尾に表示
+		\AtEndDocument{
+			\begingroup
+			\let\clearpage\relax
+			\printbibliography[title=参考文献]
+			\endgroup
+		}
+	}
 
 	% 2回遡ってファイルを探索する
 	\IfFileExists{../config/layouts/\layoutname.sty}
@@ -86,5 +110,15 @@
 		}
 	}
 }
+
+% リファレンスを追加
+\usepackage[
+	style   = alphabetic,
+	sorting = nyt,
+	doi     = false,
+	isbn    = false,
+	url     = false,
+	eprint  = false
+]{biblatex}
 
 \import{../config/}{global-commands.sty}
