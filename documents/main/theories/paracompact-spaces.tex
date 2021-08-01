@@ -10,10 +10,17 @@
 \newcommand{\sstarset}[3]{\mathrm{St}^{#1}\left(#2 , \: #3 \right)}
 
 \begin{definition}
-	位相空間$ X $が\indexjj{ぱらこんぱくと}{パラコンパクト}{paracompact}であるとは, $ X $の任意の開被覆が局所有限な開被覆で細分出来ることである. また, $ X $の任意の可算開被覆が局所有限な開被覆で細分出来るとき$ X $は\indexjj{かさんぱらこんぱくと}{可算パラコンパクト}{countably paracompact}であるという.
+	位相空間$ X $が\indexjj{ぱらこんぱくと}{パラコンパクト}{paracompact}であるとは, 
+	$ X $の任意の開被覆が局所有限な開被覆で細分出来ることである. 
+	また, $ X $の任意の可算開被覆が局所有限な開被覆で細分出来るとき
+	$ X $は\indexjj{かさんぱらこんぱくと}{可算パラコンパクト}{countably paracompact}であるという.
 \end{definition}
 
-パラコンパクト空間の閉部分空間もパラコンパクトになることは明らかである. パラコンパクト空間の積空間はたとえ有限個の積であってもパラコンパクトであるとは限らない. 例えば, Sorgenfrey Line (\ref{example:Sorgenfrey_line}) はパラコンパクトであるが, Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでない. しかし, もう少し特別な場合として次の主張が成り立つ.
+パラコンパクト空間の閉部分空間もパラコンパクトになることは明らかである. 
+パラコンパクト空間の積空間はたとえ有限個の積であってもパラコンパクトであるとは限らない. 
+例えば, Sorgenfrey Line (\ref{example:Sorgenfrey_line}) はパラコンパクトであるが, 
+Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでない. 
+しかし, もう少し特別な場合として次の主張が成り立つ.
 
 \begin{proposition}
 	$ X $をパラコンパクトな位相空間, $ Y $をコンパクトな位相空間とするとき, 積空間$ X \times Y $はパラコンパクトである.
@@ -22,10 +29,32 @@
 	[WIP]
 \end{proof}
 
-パラコンパクト空間の連続像もパラコンパクトとは限らない. 例えば, 無限集合上の離散位相から同じ集合上の Particular Point Topology への連続全射として恒等写像を考えると良い. さらに, パラコンパクト性は商写像でも保たれない. 通常の距離位相をもつ$ \R $の部分集合$ A \defeq \setcomp{2^{-m}+n}{m \in \N_{>0}, n \in \Z} $を同一視して１点に縮めた商空間$ \R / A $ はパラコンパクトでない; 任意の$ n \in \Z $に対して$ \R $の開集合$ U_n $を$ U_n \defeq \R \setminus (\Z \setminus \{n\}) $と定める. 商写像を$ \pi \colon \R \to X \semicolon x \mapsto [x] $($ [x] $は$ x $の同値類)とすると, $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n \in \Z} $は$ X $の開被覆である. この開被覆の細分である任意の開被覆が局所有限でないことは容易に確認できる. この例は, パラコンパクト空間の商空間が可算パラコンパクトになるとは限らないことも示している. ここで構成した$ \R / A $は \topT{1} でない. 次の命題から, $ \R $の部分集合を１点に縮める方法でパラコンパクトでない商空間を構成するとその商空間は \topT{1} ではあり得ない事がわかる.
+\begin{proposition}
+	パラコンパクト空間$ X $と局所コンパクトなパラコンパクト \topT{2} 空間$ Y $の積空間$ X \times Y $はパラコンパクトである.
+	(児玉・永見 17.20)
+\end{proposition}
 
 \begin{proposition}
-	正規空間$ X $と部分集合$ A $に対して, $ A $の元を同一視した商空間を$ X / A $とする. このとき, $ X / A $が \topT{1} ならば$ X / A $は \topT{4} である. したがって, $ X $が \Lindelof でもあれば, \topT{1}な$ X / A $はパラコンパクトである.
+	完全写像によるパラコンパクト空間の逆像はパラコンパクトである.
+	(児玉・永見 17.22)
+\end{proposition}
+
+パラコンパクト空間の連続像もパラコンパクトとは限らない. 
+例えば, 無限集合上の離散位相から同じ集合上の Particular Point Topology への連続全射として恒等写像を考えると良い. 
+さらに, パラコンパクト性は商写像でも保たれない. 
+通常の距離位相をもつ$ \R $の部分集合$ A \defeq \setcomp{2^{-m}+n}{m \in \N_{>0}, n \in \Z} $を同一視して１点に縮めた商空間
+$ \R / A $ はパラコンパクトでない; 任意の$ n \in \Z $に対して$ \R $の開集合$ U_n $を$ U_n \defeq \R \setminus (\Z \setminus \{n\}) $と定める. 
+商写像を$ \pi \colon \R \to X \semicolon x \mapsto [x] $($ [x] $は$ x $の同値類)とすると, 
+$ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n \in \Z} $は$ X $の開被覆である. 
+この開被覆の細分である任意の開被覆が局所有限でないことは容易に確認できる. 
+この例は, パラコンパクト空間の商空間が可算パラコンパクトになるとは限らないことも示している. 
+ここで構成した$ \R / A $は \topT{1} でない. 
+次の命題から, $ \R $の部分集合を１点に縮める方法でパラコンパクトでない商空間を構成するとその商空間は \topT{1} ではあり得ない事がわかる.
+
+\begin{proposition}
+	正規空間$ X $と部分集合$ A $に対して, $ A $の元を同一視した商空間を$ X / A $とする. 
+	このとき, $ X / A $が \topT{1} ならば$ X / A $は \topT{4} である. 
+	したがって, $ X $が \Lindelof でもあれば, \topT{1}な$ X / A $はパラコンパクトである.
 \end{proposition}
 \begin{proof}
 	[WIP]
@@ -33,12 +62,29 @@
 
 \begin{proposition}
 	\label{prop:existence of a compact covering whose interior is a locally finite covering>ParaCpt}
-	$ X $を位相空間とする. $ X $のコンパクト被覆$\mathscr{F}$であって, $\topint \mathscr{F} \defeq \setcomp{\topint F}{F \in \mathscr{F}}$が$X$の局所有限な被覆となるものが存在するとき, $ X $はパラコンパクトである.
+	$ X $を位相空間とする. $ X $のコンパクト被覆$\mathscr{F}$であって, 
+	$\topint \mathscr{F} \defeq \setcomp{\topint F}{F \in \mathscr{F}}$が$X$の局所有限な被覆となるものが存在するとき, 
+	$ X $はパラコンパクトである.
 \end{proposition}
 
 \begin{proof}
-	$ \mathscr{U} $を$ X $の任意の開被覆とする. コンパクト被覆で$\topint\mathscr{F} \defeq \setcomp{\topint F}{F \in \mathscr{F}}$が$ X $の局所有限な被覆となる$ \mathscr{F} $をとる. 各$ F \subset \mathscr{F} $について$ F \subset \bigcup \mathscr{U} $なので$ \mathscr{U} $の有限部分集合$ \mathscr{U}_F  $で, $ F \subset \bigcup \mathscr{U}_F $となるものが存在する.ここで, $ \mathscr{V}_F = \setcomp{U \cap \topint F}{U \in \mathscr{U}_F}$とし, $ \mathscr{V} = \bigcup_{F \in \mathscr{F}} \mathscr{V}_F $と定める. このとき, $ \bigcup \mathscr{V}=\bigcup_{F\in\mathscr{F}}(\bigcup \mathscr{V}_F) = \bigcup_{F\in \mathscr{F}}((\bigcup \mathscr{U}_F) \cap \topint F) \supset \bigcup_{F\in\mathscr{F}}\topint F = X $となる.よって, $ \mathscr{V} $は$ X $の開被覆である.また, $ \mathscr{U} $の細分でもある. $ \mathscr{V} $が局所有限であることを示せばよい. 任意の$ x \in X $について, $ \topint \mathscr{F} $の有限個の元としか交わらない近傍を$U_x$とする. $ U_x $と交わる$ \topint \mathscr{F} $の元全体を
-	$ \mathscr{F}_x = \{F_{1}, F_{2} ,\cdots, F_{n_x}\} $とする. 任意の$ F \in \mathscr{F} $について$ \mathscr{V}_F $の元は$ F $の部分集合であるから, $ \mathscr{V} $の元で$ U_x $と交わるのは高々$ |\bigcup_{m=1}^{n_x} \mathscr{V}_{F_m}| $個である.各$ \mathscr{V}_{F_m} $は有限なので$ \mathscr{V} $は局所有限である.
+	$ \mathscr{U} $を$ X $の任意の開被覆とする. 
+	コンパクト被覆で$\topint\mathscr{F} \defeq \setcomp{\topint F}{F \in \mathscr{F}}$が
+	$ X $の局所有限な被覆となる$ \mathscr{F} $をとる. 
+	各$ F \subset \mathscr{F} $について$ F \subset \bigcup \mathscr{U} $なので
+	$ \mathscr{U} $の有限部分集合$ \mathscr{U}_F  $で, $ F \subset \bigcup \mathscr{U}_F $となるものが存在する.
+	ここで, $ \mathscr{V}_F = \setcomp{U \cap \topint F}{U \in \mathscr{U}_F}$とし, 
+	$ \mathscr{V} = \bigcup_{F \in \mathscr{F}} \mathscr{V}_F $と定める. 
+	このとき, $ \bigcup \mathscr{V}=\bigcup_{F\in\mathscr{F}}(\bigcup \mathscr{V}_F) 
+	= \bigcup_{F\in \mathscr{F}}((\bigcup \mathscr{U}_F) \cap \topint F) \supset \bigcup_{F\in\mathscr{F}}\topint F = X $となる.
+	よって, $ \mathscr{V} $は$ X $の開被覆である.
+	また, $ \mathscr{U} $の細分でもある. $ \mathscr{V} $が局所有限であることを示せばよい. 
+	任意の$ x \in X $について, $ \topint \mathscr{F} $の有限個の元としか交わらない近傍を$U_x$とする. 
+	$ U_x $と交わる$ \topint \mathscr{F} $の元全体を
+	$ \mathscr{F}_x = \{F_{1}, F_{2} ,\cdots, F_{n_x}\} $とする. 
+	任意の$ F \in \mathscr{F} $について$ \mathscr{V}_F $の元は$ F $の部分集合であるから, 
+	$ \mathscr{V} $の元で$ U_x $と交わるのは高々$ |\bigcup_{m=1}^{n_x} \mathscr{V}_{F_m}| $個である.
+	各$ \mathscr{V}_{F_m} $は有限なので$ \mathscr{V} $は局所有限である.
 \end{proof}
 
 \begin{lemma}
@@ -48,7 +94,8 @@
 
 \begin{proposition}
 	\label{prop:characterization of paracompactness by a family of compact closed sets}
-	$ X $を位相空間とする. $ X $のコンパクト閉集合の列$ \{F_n\}_{n \in \N} $であって次の条件を満たすものが存在するとき, $ X $はパラコンパクトである.
+	$ X $を位相空間とする. $ X $のコンパクト閉集合の列$ \{F_n\}_{n \in \N} $であって
+	次の条件を満たすものが存在するとき, $ X $はパラコンパクトである.
 	\begin{enumerate}
 		\item $ \bigcup_{n \in \N} F_n = X $.
 		\item 任意の$ n \in \N $に対して$ F_n \subset \topint F_{n+1} $が成り立つ.
@@ -56,7 +103,15 @@
 \end{proposition}
 
 \begin{proof}
-	任意の$ n \in \N $に対して$ F_n $が空集合でも全体集合でもない場合を考えればよい. $ F_{-1} \defeq \emptyset $とし, 任意の$ n \in \N $に対して$ U_n \defeq \topint F_{n+1} \cap \complement F_{n-1} $と定める. このとき, $ \mathscr{U} \defeq \setcomp{U_n}{n \in \N} $と定めると, 2以上の$ n \in \N $に対して$ \starset{U_n}{\mathscr{U}} = U_{n-1} \cup U_n \cup U_{n+1} $となるので$ \mathscr{U} $は局所有限である. また, 上の補題より$ \mathscr{F} \defeq \setcomp{\topcl U}{U \in \mathscr{U}} $も局所有限である. さらに, $ \mathscr{U} $の定義から$ \mathscr{F} $はコンパクト閉被覆である. $ \mathscr{U} $が$ X $を被覆することから$ \topint \mathscr{F} $も$ X $を被覆し, $ \mathscr{F} $が局所有限であることから$ \topint \mathscr{F} $も局所有限である. したがって, 命題\ref{prop:existence of a compact covering whose interior is a locally finite covering>ParaCpt}より$ X $はパラコンパクトである.
+	任意の$ n \in \N $に対して$ F_n $が空集合でも全体集合でもない場合を考えればよい. 
+	$ F_{-1} \defeq \emptyset $とし, 任意の$ n \in \N $に対して$ U_n \defeq \topint F_{n+1} \cap \complement F_{n-1} $と定める. 
+	このとき, $ \mathscr{U} \defeq \setcomp{U_n}{n \in \N} $と定めると, 
+	2以上の$ n \in \N $に対して$ \starset{U_n}{\mathscr{U}} = U_{n-1} \cup U_n \cup U_{n+1} $となるので
+	$ \mathscr{U} $は局所有限である. また, 上の補題より$ \mathscr{F} \defeq \setcomp{\topcl U}{U \in \mathscr{U}} $も局所有限である. 
+	さらに, $ \mathscr{U} $の定義から$ \mathscr{F} $はコンパクト閉被覆である. 
+	$ \mathscr{U} $が$ X $を被覆することから$ \topint \mathscr{F} $も$ X $を被覆し, 
+	$ \mathscr{F} $が局所有限であることから$ \topint \mathscr{F} $も局所有限である. 
+	したがって, 命題\ref{prop:existence of a compact covering whose interior is a locally finite covering>ParaCpt}より$ X $はパラコンパクトである.
 \end{proof}
 
 \begin{proposition}
@@ -64,7 +119,16 @@
 \end{proposition}
 
 \begin{proof}
-	仮定から, 相対コンパクトな開集合からなる可算開被覆$ \mathscr{U} \defeq \{U_n\}_{n \in \N} $が存在する. ここで, 集合列$ \{F_n\}_{n \in N} $を$ F_n \defeq \topcl (U_0 \cup U_1 \cup \cdots \cup U_n) $により定義する. このとき, $ \{F_n\} $がコンパクト閉集合の列であることは容易に確かめられる. 次に, $ F'_0 \defeq F_0 $とし$ F'_0 $を被覆する$ \mathscr{U} $の有限個の開集合からなる族を1つとり$ \mathscr{U}_0 $とする. また, 1以上の$ n \in \N $に対して$ F'_n \defeq \left(\bigcup \topcl \mathscr{U}_{n-1} \right) \cup F_n $とし$ F'_n $を被覆する$ \mathscr{U} $の有限個の開集合からなる族を1つとり$ \mathscr{U}_n $とする. このように定義される$ \{F'_n\}_{n \in \N} $はコンパクト閉集合からなる増大列で$ X $を被覆する. また, 任意の$ n \in \N $に対して$ F'_n \subset \bigcup \mathscr{U}_n  \subset \bigcup \topint (\topcl \mathscr{U}_n) \subset \topint \bigcup (\topcl \mathscr{U}_n) \subset \topint F'_{n+1} $となる. よって, 命題\ref{prop:characterization of paracompactness by a family of compact closed sets}より$ X $はパラコンパクトである.
+	仮定から, 相対コンパクトな開集合からなる可算開被覆$ \mathscr{U} \defeq \{U_n\}_{n \in \N} $が存在する. 
+	ここで, 集合列$ \{F_n\}_{n \in N} $を$ F_n \defeq \topcl (U_0 \cup U_1 \cup \cdots \cup U_n) $により定義する. 
+	このとき, $ \{F_n\} $がコンパクト閉集合の列であることは容易に確かめられる. 
+	次に, $ F'_0 \defeq F_0 $とし$ F'_0 $を被覆する$ \mathscr{U} $の有限個の開集合からなる族を1つとり$ \mathscr{U}_0 $とする. 
+	また, 1以上の$ n \in \N $に対して$ F'_n \defeq \left(\bigcup \topcl \mathscr{U}_{n-1} \right) \cup F_n $とし
+	$ F'_n $を被覆する$ \mathscr{U} $の有限個の開集合からなる族を1つとり$ \mathscr{U}_n $とする. 
+	このように定義される$ \{F'_n\}_{n \in \N} $はコンパクト閉集合からなる増大列で$ X $を被覆する. 
+	また, 任意の$ n \in \N $に対して$ F'_n \subset \bigcup \mathscr{U}_n  \subset \bigcup \topint (\topcl \mathscr{U}_n) 
+	\subset \topint \bigcup (\topcl \mathscr{U}_n) \subset \topint F'_{n+1} $となる. 
+	よって, 命題\ref{prop:characterization of paracompactness by a family of compact closed sets}より$ X $はパラコンパクトである.
 \end{proof}
 
 \begin{proposition}
@@ -94,5 +158,68 @@
 \begin{proof}
 	[WIP]
 \end{proof}
+
+\begin{proposition}
+	位相空間$ X $における任意のσ局所有限な被覆$ \mathscr{U} $は局所有限な被覆で細分できる.
+	(Engelking 5.1.10)
+\end{proposition}
+
+\begin{proposition}
+	\topT{3} 空間$ X $において, $ X $がパラコンパクトであることと
+	$ X $の任意の開被覆がσ局所有限な開被覆で細分できることは同値である.
+	(Engelking 5.1.11)
+\end{proposition}
+
+\begin{proposition}
+	族正規空間$ X $の点有限な開被覆は局所有限な開被覆によって細分される.
+	(児玉・永見 17.10)
+\end{proposition}
+
+\begin{definition}
+	$ X $の部分集合族$ \mathscr{U}, \mathscr{V} $について, $ \mathscr{V} $が$ \mathscr{U} $のクッション細分であるとは,
+	写像$ f \colon \mathscr{V} \to \mathscr{U} $であって, 任意の$ \mathscr{V}' \subset \mathscr{V} $に対して
+	$ \topcl \left(\bigcup \mathscr{V}' \right) \subset \bigcup f[\mathscr{V}'] $を満たすものが存在することをいう.
+\end{definition}
+
+\begin{proposition}
+	位相空間$ X $がパラコンパクト \topT{2} 空間であるための必要十分条件は, 
+	$ X $の任意の開被覆に対してそのクッション細分となる被覆が存在することである.
+	(児玉・永見 17.12)
+\end{proposition}
+
+\begin{definition}
+	位相空間$ X $の被覆$ \mathscr{U} $に対して$ \mathscr{U}^\Delta, \mathscr{U}^* $をそれぞれ次のように定める:
+	\begin{align*}
+		\mathscr{U}^\Delta & \defeq \setcomp{\starset{x}{\mathscr{U}}}{x \in X}. \\
+		\mathscr{U}^* & \defeq \setcomp{\starset{U}{\mathscr{U}}}{U \in \mathscr{U}}.
+	\end{align*}
+	また, 被覆$ \mathscr{V} $が$ \mathscr{V}^\Delta < \mathscr{U} $を満たすとき
+	$ \mathscr{U} $の$ \Delta $細分であるといい,
+	$ \mathscr{V}^* < \mathscr{U} $を満たすとき$ \mathscr{U} $の星型細分であるという.
+\end{definition}
+定義から明らかに星型細分は$ \Delta $細分である.
+
+\begin{definition}
+	位相空間$ X $の被覆の列$ (\mathscr{U}_n)_{n \in \N} $が正規列であるとは,
+	任意の$ n \in \N  $について$ \mathscr{U}_{n+1}^* < \mathscr{U} $が成り立つことをいう.
+	$ X $の開被覆$ \mathscr{V} $に対して$ \mathscr{U}_0 < \mathscr{V} $を満たす正規列
+	$ (\mathscr{U}_n)_{n \in \N} $が存在するとき, 
+	$ \mathscr{V} $は正規(または正規被覆)であるという.
+\end{definition}
+
+\begin{proposition}
+	位相空間$ X $の開被覆$ \mathscr{U} $が正規であるための必要十分条件は, 
+	ある距離空間$ Y $と連続写像$ f \colon X \to Y $および$ Y $の開被覆$ \mathscr{V} $であって,
+	$ f^{-1}[\mathscr{V}] < \mathscr{U} $となるものが存在することである.
+	(森田 定理29.12)
+\end{proposition}
+
+\begin{theorem}
+	\topT{2} 空間$ X $がパラコンパクトとなるための必要十分条件は, $ X $の任意の開被覆が正規となることである.
+	(森田 定理29.13)
+\end{theorem}
+
+
+
 
 \end{document}
