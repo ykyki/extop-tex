@@ -15,7 +15,14 @@ else
     exit
 fi
 
-echo "Version: $REPO_VER"
+if git rev-parse --verify "$REPO_VER" >/dev/null 2>&1; then
+    echo "Version: $REPO_VER"
+else
+    echo "Invalid version: $REPO_VER"
+    echo "Example: HEAD, {hash}, {tag}"
+    echo "To see tags: git tag -l"
+    exit 1
+fi
 
 printf 'Select Project:'
 printf '
@@ -42,6 +49,8 @@ case $OPTION in
         ;;
 esac
 
+echo
+
 TMP_DIR=/tmp/$(mktemp -u extop-XXX)
 git clone "$REPO_DIR" "$TMP_DIR"
 cd "$TMP_DIR" || exit
@@ -49,7 +58,10 @@ git checkout "$REPO_VER"
 latexmk -cd -r $LATEXMKRC_FILE $ROOT_FILE.tex > /dev/null
 mv $ROOT_FILE.pdf "$OUTPUT_DIR"/$PROJECT-"$OUTPUT_SUFFIX".pdf
 
+echo
 echo "Build: $OUTPUT_DIR/$PROJECT-$OUTPUT_SUFFIX.pdf"
 
 rm -rf "$TMP_DIR"
 cd - || exit
+
+exit 0
