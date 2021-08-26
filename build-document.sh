@@ -2,7 +2,7 @@
 # set -x
 
 OUTPUT_DIR=$(pwd)/products
-REPO_DIR=$(cd $(dirname $0) && pwd -P)
+REPO_DIR=$(cd "$(dirname "$0")" && pwd -P)
 
 if   [ $# = 0 ]; then
     REPO_VER=main
@@ -23,7 +23,7 @@ printf '
     11 ) main/chapter-basics
 '
 printf 'Select: '
-read OPTION
+read -r OPTION
 
 case $OPTION in
     '1' )
@@ -43,14 +43,13 @@ case $OPTION in
 esac
 
 TMP_DIR=/tmp/$(mktemp -u extop-XXX)
-git clone $REPO_DIR $TMP_DIR
-cd $TMP_DIR
-git checkout $REPO_VER
+git clone "$REPO_DIR" "$TMP_DIR"
+cd "$TMP_DIR" || exit
+git checkout "$REPO_VER"
 latexmk -cd -r $LATEXMKRC_FILE $ROOT_FILE.tex > /dev/null
-mv $ROOT_FILE.pdf $OUTPUT_DIR/$PROJECT-$OUTPUT_SUFFIX.pdf
+mv $ROOT_FILE.pdf "$OUTPUT_DIR"/$PROJECT-"$OUTPUT_SUFFIX".pdf
 
 echo "Build: $OUTPUT_DIR/$PROJECT-$OUTPUT_SUFFIX.pdf"
 
-rm -rf $TMP_DIR
-cd -
-
+rm -rf "$TMP_DIR"
+cd - || exit
