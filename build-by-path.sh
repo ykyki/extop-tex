@@ -7,6 +7,8 @@ OUTPUT_DIR=$REPO_DIR/products
 
 LATEXMKRC_FILE='documents/main/.latexmkrc'
 
+LINE_SEPARATOR='----- ----- ----- ----- ----- ----- ----- ----- '
+
 DOC_LAYOUT='product'
 REPO_VER='HEAD'
 
@@ -58,7 +60,7 @@ else
   exit 1
 fi
 
-echo '----- ----- ----- ----- ----- ----- ----- ----- '
+echo "$LINE_SEPARATOR"
 
 TMP_DIR=/tmp/$(mktemp -u extop-XXX)
 git clone "$REPO_DIR" "$TMP_DIR"
@@ -69,7 +71,7 @@ sed -i '' -e "s/\\begin{document}/\\setlayout{$DOC_LAYOUT} \\\begin{document}/" 
 
 latexmk -cd -r "$LATEXMKRC_FILE" "$TARGET_PATH" >/dev/null &&
   mv -i "$TARGET_DIR/$TARGET_NAME.pdf" "$OUTPUT_DIR"/"$TARGET_NAME"-"$OUTPUT_SUFFIX".pdf &&
-  echo &&
+  echo "$LINE_SEPARATOR" &&
   echo "Build: $OUTPUT_DIR/$TARGET_NAME-$OUTPUT_SUFFIX.pdf"
 
 rm -rf "$TMP_DIR"
