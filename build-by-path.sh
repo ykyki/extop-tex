@@ -1,5 +1,6 @@
 #!/bin/sh
 # set -x
+set -e
 
 REPO_DIR=$(cd "$(git rev-parse --show-toplevel)" && pwd -P)
 OUTPUT_DIR=$REPO_DIR/products
