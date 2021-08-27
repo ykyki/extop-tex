@@ -3,7 +3,7 @@
 set -e
 
 REPO_DIR=$(cd "$(git rev-parse --show-toplevel)" && pwd -P)
-OUTPUT_DIR=$REPO_DIR/products
+OUTPUT_DIR=$REPO_DIR/temp
 
 LATEXMKRC_FILE='documents/main/.latexmkrc'
 
