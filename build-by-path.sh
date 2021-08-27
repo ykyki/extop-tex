@@ -70,7 +70,7 @@ git -c advice.detachedHead=false checkout "$GIT_HASH"
 sed -i '' -e "s/\\begin{document}/\\setlayout{$DOC_LAYOUT} \\\begin{document}/" "$TARGET_PATH"
 
 latexmk -cd -r "$LATEXMKRC_FILE" "$TARGET_PATH" >/dev/null &&
-  mv -i "$TARGET_DIR/$TARGET_NAME.pdf" "$OUTPUT_DIR"/"$TARGET_NAME"-"$OUTPUT_SUFFIX".pdf &&
+  mv "$TARGET_DIR/$TARGET_NAME.pdf" "$OUTPUT_DIR"/"$TARGET_NAME"-"$OUTPUT_SUFFIX".pdf &&
   echo "$LINE_SEPARATOR" &&
   echo "Build: $OUTPUT_DIR/$TARGET_NAME-$OUTPUT_SUFFIX.pdf"
 
