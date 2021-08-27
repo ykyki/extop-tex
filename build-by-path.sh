@@ -29,7 +29,7 @@ OUTPUT_SUFFIX=$DOC_LAYOUT-$REPO_VER
 TARGET_DIR=$(dirname "$TARGET_PATH")
 TARGET_NAME=$(basename "$TARGET_PATH" ".tex")
 
-if test -f "$REPO_DIR/$TARGET_DIR/$TARGET_NAME.tex"; then
+if [ -f "$REPO_DIR/$TARGET_DIR/$TARGET_NAME.tex" ]; then
   echo "Target path: [repository root]/$TARGET_PATH"
 else
   echo "Invalid path: [repository root]/$TARGET_PATH"
