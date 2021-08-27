@@ -57,10 +57,12 @@ else
   exit 1
 fi
 
+echo '----- ----- ----- ----- ----- ----- ----- ----- '
+
 TMP_DIR=/tmp/$(mktemp -u extop-XXX)
 git clone "$REPO_DIR" "$TMP_DIR"
 cd "$TMP_DIR" || exit
-git checkout "$GIT_HASH"
+git -c advice.detachedHead=false checkout "$GIT_HASH"
 
 sed -i '' -e "s/\\begin{document}/\\setlayout{$DOC_LAYOUT} \\\begin{document}/" "$TARGET_PATH"
 
