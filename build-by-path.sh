@@ -26,9 +26,6 @@ else
   exit 1
 fi
 
-OUTPUT_SUFFIX=$DOC_LAYOUT-$REPO_VER
-# OUTPUT_SUFFIX=$(date '+%y%m%d-%H%M%S')
-
 TARGET_DIR=$(dirname "$TARGET_PATH")
 TARGET_NAME=$(basename "$TARGET_PATH" ".tex")
 
@@ -50,8 +47,9 @@ case $DOC_LAYOUT in
 esac
 
 if git rev-parse --verify "$REPO_VER" >/dev/null 2>&1; then
-  echo "Version: $REPO_VER"
   GIT_HASH=$(git rev-parse --verify "$REPO_VER")
+  GIT_HASH_SHORT=$(git rev-parse --short "$REPO_VER")
+  echo "Version: $REPO_VER ($GIT_HASH_SHORT)"
 else
   echo "Invalid version: $REPO_VER"
   echo
@@ -68,6 +66,10 @@ cd "$TMP_DIR" || exit
 git -c advice.detachedHead=false checkout "$GIT_HASH"
 
 sed -i -e "s/\\begin{document}/\\setlayout{$DOC_LAYOUT} \\\begin{document}/" "$TARGET_PATH"
+
+# OUTPUT_SUFFIX=$DOC_LAYOUT-$REPO_VER
+OUTPUT_SUFFIX=$DOC_LAYOUT-$GIT_HASH_SHORT
+# OUTPUT_SUFFIX=$(date '+%y%m%d-%H%M%S')
 
 latexmk -cd -r "$LATEXMKRC_FILE" "$TARGET_PATH" >/dev/null &&
   mv "$TARGET_DIR/$TARGET_NAME.pdf" "$OUTPUT_DIR"/"$TARGET_NAME"-"$OUTPUT_SUFFIX".pdf &&
