@@ -62,6 +62,14 @@
 	\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\quad}
 \makeatother
 
+% \todo コマンドを自前で準備
+\usepackage{marginnote}
+\newcommand{\todo}[1]{\marginnote{\small #1}}
+\newcommand{\WIP}{%
+	\,\texttt{<WIP>}%
+	{\reversemarginpar\marginnote{\small{\fontencoding{U}\fontfamily{futs}\selectfont\char 66\relax}}}%
+}
+
 \newcommand{\indexj}[2]{\index{#1@#2}\textbf{#2}}
 \newcommand{\indexjj}[3]{\index{#1@#2}\textbf{#2}(\index{#3}#3)}
 \newcommand{\indexe}[1]{\index{#1}\textbf{#1}}
