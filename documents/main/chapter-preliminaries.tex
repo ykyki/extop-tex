@@ -1,0 +1,17 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{./}{common-preamble.sty}
+\setlayout{product}
+
+\begin{document}
+\chapter{予備知識}
+\label{chap:preliminaries}
+
+この章では, 以降の章で述べられる位相空間論に向けて,
+関連する予備知識の整理や数学記号の導入を行う.
+
+\import{./theories/}{ordered-sets}
+\import{./theories/}{sets-and-maps}
+\import{./theories/}{filters}
+
+\end{document}
