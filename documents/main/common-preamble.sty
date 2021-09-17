@@ -23,20 +23,27 @@
 \usepackage[nameinlink]{cleveref}
 \usepackage{url}
 
+\usepackage{manfnt}% アイコン用
+\newcommand{\adjustedmancube}{\scalebox{0.9}{\mancube}\,}
+\newcommand{\adjustedmanrotatedquadrifolium}{\scalebox{0.65}{\manrotatedquadrifolium}\,}
+\newcommand{\adjustedmantriangleright}{\scalebox{0.9}{\mantriangleright}\,}
+\newcommand{\adjustedmancone}{\scalebox{1}\mancone\,}
+
 \theoremstyle{plain}
 \theoremsymbol{\ensuremath{\square}}
-\newtheorem{theorem}     {定理} [section]
-\newtheorem{definition}  [theorem] {定義}
-\newtheorem{proposition} [theorem] {命題}
-\newtheorem{lemma}       [theorem] {補題}
-\newtheorem{corollary}   [theorem] {系}
+\newtheorem{theorem}     {\adjustedmantriangleright 定理} [section]
+\newtheorem{definition}  [theorem] {\adjustedmanrotatedquadrifolium 定義}
+\newtheorem{proposition} [theorem] {\adjustedmantriangleright 命題}
+\newtheorem{lemma}       [theorem] {\adjustedmantriangleright 補題}
+\newtheorem{corollary}   [theorem] {\adjustedmantriangleright 系}
 \newtheorem{problem}     [theorem] {問題}
 \newtheorem{remark}      [theorem] {注意}
-\newtheorem{example}     [theorem] {例}
+\newtheorem{source}      [theorem] {出典}
+\newtheorem{example}     [theorem] {\adjustedmancube 例}
 \newtheorem{property}    [theorem] {性質}
 
 \theoremsymbol{\ensuremath{\blacksquare}}
-\newtheorem{proof}[theorem]{証明}
+\newtheorem{proof}[theorem]{\adjustedmancone 証明}
 
 \crefformat{part}    {#2第#1部#3}
 \crefformat{chapter} {#2第#1章#3}
@@ -50,6 +57,7 @@
 \crefname{problem}     {補題} {補題}
 \crefname{proof}       {証明} {証明}
 \crefname{remark}      {注意} {注意}
+\crefname{source}      {出典} {出典}
 \crefname{example}     {例}   {例}
 \crefname{property}    {性質} {性質}
 
@@ -62,10 +70,18 @@
 	\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\quad}
 \makeatother
 
+% \todo コマンドを自前で準備
+\usepackage{marginnote}
+\newcommand{\todo}[1]{\marginnote{\small #1}}
+\newcommand{\WIP}{%
+	\,\texttt{<WIP>}%
+	{\marginnote{\small{\fontencoding{U}\fontfamily{futs}\selectfont\char 66\relax}}}%
+}
+
 \newcommand{\indexj}[2]{\index{#1@#2}\textbf{#2}}
 \newcommand{\indexjj}[3]{\index{#1@#2}\textbf{#2}(\index{#3}#3)}
 \newcommand{\indexe}[1]{\index{#1}\textbf{#1}}
-\newcommand{\maru}[1]{(#1)}
+\newcommand{\maru}[1]{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {#1}}}}
 
 \usepackage{ifthen}
 \newcommand{\setlayout}[1]{
