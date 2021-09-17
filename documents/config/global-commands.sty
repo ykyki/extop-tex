@@ -14,6 +14,7 @@
 \newcommand{\Euclid}{Euclid\xspace}
 \newcommand{\Frechet}{Fr\'echet\xspace}
 \newcommand{\Hausdorff}{Hausdorff\xspace}
+\newcommand{\Kolmogorov}{Kolmogorov\xspace}
 \newcommand{\Lindelof}{Lindel\"{o}f\xspace}
 \newcommand{\Moore}{Moore\xspace}
 \newcommand{\Sierpinski}{Sierpi\'nski\xspace}
@@ -88,9 +89,12 @@
 \newcommand{\topT}[1]{\texorpdfstring{\ensuremath{\mathrm{T}_{#1}}}{T#1}}
 \newcommand{\Gdelta}{\ensuremath{\mathrm{G}_{\delta}}}
 \newcommand{\Fsigma}{\ensuremath{\mathrm{F}_{\sigma}}}
-\newcommand{\textsigma}{\ensuremath{\sigma}}
 \newcommand{\sigmaCompact}{\texorpdfstring{\ensuremath{\sigma}-コンパクト}{σ-コンパクト}}
 \newcommand{\sigmaConnected}{\texorpdfstring{\ensuremath{\sigma}-連結}{σ-連結}}
+
+\newcommand{\textDelta}{\ensuremath{\Delta}}
+\newcommand{\textdelta}{\ensuremath{\delta}}
+\newcommand{\textsigma}{\ensuremath{\sigma}}
 
 \newcommand{\topopens}[1][]{%
 	\def\tmp{#1}%
@@ -118,4 +122,9 @@
 \newcommand{\intoc}[2]{\left( #1 , #2 \right]}
 \newcommand{\intco}[2]{\left[ #1 , #2 \right)}
 \newcommand{\intcc}[2]{\left[ #1 , #2 \right]}
+
+\newcommand{\refines}{\preccurlyeq}
+\newcommand{\deltarefines}{\preccurlyeq^{\Delta}}
+\newcommand{\starrefines}{\preccurlyeq^{\ast}}
+\newcommand{\Star}[3][]{\mathrm{St}#1\lrparen{#2, #3}}
 

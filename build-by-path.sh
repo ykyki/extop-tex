@@ -65,7 +65,7 @@ git clone "$REPO_DIR" "$TMP_DIR"
 cd "$TMP_DIR" || exit
 git -c advice.detachedHead=false checkout "$GIT_HASH"
 
-sed -i -e "s/\\begin{document}/\\setlayout{$DOC_LAYOUT} \\\begin{document}/" "$TARGET_PATH"
+sed -i -e "s/\\\\begin{document}/\\\\setlayout{$DOC_LAYOUT} \\\\begin{document}/" "$TARGET_PATH"
 
 # OUTPUT_SUFFIX=$DOC_LAYOUT-$REPO_VER
 OUTPUT_SUFFIX=$DOC_LAYOUT-$GIT_HASH_SHORT

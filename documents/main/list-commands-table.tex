@@ -5,7 +5,7 @@
 
 
 \usepackage[
-	paperwidth=300truemm,
+	paperwidth=330truemm,
 	paperheight=600truemm,
 	top=10truemm,
 	bottom=15truemm,
@@ -65,14 +65,16 @@
 		\hline
 
 		\tablesubtitle{位相空間に関する演算} \\
-		$\topint_X A$ & \verb|\topint_X A| & 空間$X$における部分集合$A$の内部   \\
-		$\topint A$   & \verb|\topint A|   & 部分集合$A$の内部                  \\
-		$\topcl_X A$  & \verb|\topcl_X A|  & 空間$X$における部分集合$A$の閉包   \\
-		$\topcl A$    & \verb|\topcl A|    & 部分集合$A$の閉包                  \\
-		$\topbar{A}$  & \verb|\topbar{A}|  & 部分集合$A$の閉包                  \\
-		$\topder_X A$ & \verb|\topder_X A| & 空間$X$における部分集合$A$の導集合 \\
-		$\topder A$   & \verb|\topder A|   & 部分集合$A$の導集合                \\
-		$A^\topd$     & \verb|A^\topd|     & 部分集合$A$の導集合                \\
+		$\topint_X A$               & \verb|\topint_X A|               & 空間$X$における部分集合$A$の内部                          \\
+		$\topint A$                 & \verb|\topint A|                 & 部分集合$A$の内部                                         \\
+		$\topcl_X A$                & \verb|\topcl_X A|                & 空間$X$における部分集合$A$の閉包                          \\
+		$\topcl A$                  & \verb|\topcl A|                  & 部分集合$A$の閉包                                         \\
+		$\topbar{A}$                & \verb|\topbar{A}|                & 部分集合$A$の閉包                                         \\
+		$\topder_X A$               & \verb|\topder_X A|               & 空間$X$における部分集合$A$の導集合                        \\
+		$\topder A$                 & \verb|\topder A|                 & 部分集合$A$の導集合                                       \\
+		$A^\topd$                   & \verb|A^\topd|                   & 部分集合$A$の導集合                                       \\
+		$\Star{A}{\mathscr{U}}$     & \verb|\Star{A}{\mathscr{U}}|     & 部分集合族$\mathscr{U}$に関する部分集合$A$の星型集合      \\
+		$\Star[^n]{A}{\mathscr{U}}$ & \verb|\Star[^n]{A}{\mathscr{U}}| & 部分集合族$\mathscr{U}$に関する部分集合$A$の$n$階星型集合 \\
 		\hline
 
 		\tablesubtitle{位相空間に関するテキスト記号} \\
@@ -83,16 +85,19 @@
 		\hline
 
 		\tablesubtitle{位相空間に関する数式記号} \\
-		$\topopens[X]$         & \verb|\topopens[X]|         & 空間$X$の開集合族              \\
-		$\topopens$            & \verb|\topopens|            & 開集合族                       \\
-		$\topbasis$            & \verb|\topbasis|            & 開基                           \\
-		$\topnbd[X]{x}$        & \verb|\topnbd[X]{x}|        & 空間$X$における点$x$の近傍族   \\
-		$\topnbd{x}$           & \verb|\topnbd{x}|           & 点$x$の近傍族                  \\
-		$\topball{x}{r}$       & \verb|\topball{x}{r}|       & 点$x$を中心する半径$r$の開球   \\
-		$\topdensity{X}$       & \verb|\topdensity{X}|       & 位相空間$X$の density          \\
-		$\topweight{X}$        & \verb|\topweight{X}|        & 位相空間$X$のウェイト          \\
-		$\topnetworkweight{X}$ & \verb|\topnetworkweight{X}| & 位相空間$X$の ネットワーク濃度 \\
-		$\topcharacter{X}$     & \verb|\topcharacter{X}|     & 位相空間$X$の character        \\
+		$\topopens[X]$                          & \verb|\topopens[X]|                          & 空間$X$の開集合族                                       \\
+		$\topopens$                             & \verb|\topopens|                             & 開集合族                                                \\
+		$\topbasis$                             & \verb|\topbasis|                             & 開基                                                    \\
+		$\topnbd[X]{x}$                         & \verb|\topnbd[X]{x}|                         & 空間$X$における点$x$の近傍族                            \\
+		$\topnbd{x}$                            & \verb|\topnbd{x}|                            & 点$x$の近傍族                                           \\
+		$\topball{x}{r}$                        & \verb|\topball{x}{r}|                        & 点$x$を中心する半径$r$の開球                            \\
+		$\topdensity{X}$                        & \verb|\topdensity{X}|                        & 位相空間$X$の density                                   \\
+		$\topweight{X}$                         & \verb|\topweight{X}|                         & 位相空間$X$のウェイト                                   \\
+		$\topnetworkweight{X}$                  & \verb|\topnetworkweight{X}|                  & 位相空間$X$の ネットワーク濃度                          \\
+		$\topcharacter{X}$                      & \verb|\topcharacter{X}|                      & 位相空間$X$の character                                 \\
+		$\mathscr{U} \refines \mathscr{V}$      & \verb|\mathscr{U} \refines \mathscr{V}|      & 集合族$\mathscr{U}$が$\mathscr{V}$を細分する            \\
+		$\mathscr{U} \deltarefines \mathscr{V}$ & \verb|\mathscr{U} \deltarefines \mathscr{V}| & 集合族$\mathscr{U}$が$\mathscr{V}$を\textDelta-細分する \\
+		$\mathscr{U} \starrefines \mathscr{V}$  & \verb|\mathscr{U} \starrefines \mathscr{V}|  & 集合族$\mathscr{U}$が$\mathscr{V}$を星型細分する        \\
 		\hline
 
 		\tablesubtitle{人名} \\
@@ -102,6 +107,7 @@
 		\Euclid      & \verb|\Euclid|      &  \\
 		\Frechet     & \verb|\Frechet|     &  \\
 		\Hausdorff   & \verb|\Hausdorff|   &  \\
+		\Kolmogorov  & \verb|\Kolmogorov|  &  \\
 		\Lindelof    & \verb|\Lindelof|    &  \\
 		\Moore       & \verb|\Moore|       &  \\
 		\Sierpinski  & \verb|\Sierpinski|  &  \\
