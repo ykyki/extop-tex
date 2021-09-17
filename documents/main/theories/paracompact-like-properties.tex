@@ -54,7 +54,7 @@ Moore 平面(\cref{example:Moore_plane})は可算メタコンパクトである�
 	したがって, $ \mathscr{V} \defeq \setcomp{V_{(x, y)} \times W_{(x, y)}}{(x, y) \in X \times Y} $とすると, 
 	$ \mathscr{V} $は$ X \times Y $の開被覆であり$ \mathscr{V} < \mathscr{U} $を満たす. 
 	ここで, 各$ y \in Y $について$ \setcomp{V_{(x, y)}}{x \in X} $はコンパクト空間$ X $の開被覆なので
-	$ X $の有限部分集合$ A_y $が存在する. 
+	$ X $の有限部分集合$ A_y $が存在して$ \setcomp{V_{(x,y)}}{x \in A_y} $が$ X $の開被覆となる. 
 	$ \mathscr{V}_y \defeq \setcomp{V_{(x, y)} \times W_{(x, y)}}{x \in A_y} $と定めると
 	$ \mathscr{V}' \defeq \bigcup_{y \in Y}\mathscr{V}_y $は$ \mathscr{V}' < \mathscr{V} $なる$ X $の開被覆となる. 
 	
@@ -85,23 +85,30 @@ Moore 平面(\cref{example:Moore_plane})は可算メタコンパクトである�
 	$ x $の開近傍全体からなる集合が可算個の共通部分をとる操作で閉じていることをいう. 
 	また, 任意の点がP点であるとき$ X $を\indexjj{Pくうかん}{P空間}{P-space}とよぶ.
 \end{definition}
+P-spaceは\cite{GillmanHenriksen1954}で離散空間よりも広いクラスとして導入され, 
+"pseudo discrete"のPに由来している.
 
-\begin{proposition}
-	位相空間$ X $に対して, $ C(X) $を$ X $上の実数値連続関数全体からなる環とする. 
-	$ C(X) $の任意の素イデアルが極大イデアルであるとき, $ X $はP空間であるという.
+\begin{proposition}[{\cite[Theorem~5.3]{GillmanHenriksen1954}}]
+	位相空間$ X $において次は同値である.
+	\begin{enumerate}
+		\item[1] $ X $がP-空間である.
+		\item[2] $ X $の任意の \Gdelta 集合が開集合である.
+		\item[3] 位相空間$ X $に対して, $ C(X) $を$ X $上の実数値連続関数全体からなる環とする. 
+		$ C(X) $の任意の素イデアルが極大イデアルであるとき, $ X $はP空間であるという.
+	\end{enumerate}  
 \end{proposition}
 
 密着位相空間と離散位相空間はP空間である. また, 非可算濃度の離散位相空間$ X $に1点$ \bigstar $を付け足し, 
 $ \bigstar $の開近傍として$ X $の補可算集合と$ \{\bigstar\} $の和集合を与えた位相空間は \Hausdorff かつ \Lindelof なP空間である. 
 非可算集合上の補可算位相は孤立点をもたない \topT{1} なP空間である.
 
-\begin{proposition}
+\begin{proposition}[{\cite[Corollary~5.6, 5.7, 5.8]{GillmanHenriksen1954}}]
 	\label{prop: Subspace of a P-space is also a P-space}
-	P空間の部分空間(非交和, 有限個の積, \topT{1}な商空間)もまたP空間である.
+	P空間の部分空間(非交和, 有限個の積)もまたP空間である.
 	\qed
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[{\cite[Theorem~2.1]{Arvind1972}}]
 	\label{prop: An equivalent condition that a space is a P-space}
 	位相空間$ X $がP空間であることと, 
 	任意の \Lindelof 空間$ Y $に対して射影$ p_X \colon X \times Y \to X $が閉写像であることは同値である.
@@ -117,6 +124,7 @@ $ \bigstar $の開近傍として$ X $の補可算集合と$ \{\bigstar\} $の�
 	\label{prop:A product of a MetaCpt P space and a MetaCpt Lindelof space is MetaCpt}
 	メタコンパクトなP空間$ X $とメタコンパクト \Lindelof 空間$ Y $の積空間$ X \times Y $はメタコンパクトである.
 \end{proposition}
+この命題の証明の前に次の補題を示す. 本命題の証明は次の補題の証明の後に示す.
 
 \begin{lemma}
 	\label{lemma:Lemma for the statement on the metacompactness of the product space of a MetaCpt P-space and a ParaCpt Lindelof space}	
@@ -176,7 +184,7 @@ $ \bigstar $の開近傍として$ X $の補可算集合と$ \{\bigstar\} $の�
 \end{proof}
 
 \begin{definition}
-	位相空間$ X $の開被覆$ \mathscr{U} $が\indexjj{きやく}{既約}{irreducible}であるとは, 
+	位相空間$ X $の被覆$ \mathscr{U} $が\indexjj{きやく}{既約}{irreducible}であるとは, 
 	任意の$ U \in \mathscr{U} $に対して$ \mathscr{U} \setminus \{U\} $が$ X $の被覆とならないことをいう.
 \end{definition}
 
@@ -289,7 +297,7 @@ $ \bigstar $の開近傍として$ X $の補可算集合と$ \{\bigstar\} $の�
 	ゆえに, 任意の点$ y \in Y $に対してある$ n \in \N $が存在して
 	$ y \in f[F_n] $となる. また, $ \mathscr{W}_i $の定義から,
 	$ y \in \bigcup \mathscr{W}_i $と$ y \in U_i \setminus f[F_i] $が同値であり,
-	$ (F_n)_{n \in \N} $が単調増加であることから$ y \in \mathscr{W}_i $なる
+	$ (F_n)_{n \in \N} $が単調増加であることから$ y \in \mathscr{W}_i $となる
 	$ i \in \N $は有限である. さらに, すべての$ i \in \N $に対して
 	$ \mathscr{U}_i $が点有限であることから, $ \mathscr{W} $は点有限である. 
 	$ \mathscr{W} $が開集合族であることとと
