@@ -14,19 +14,6 @@
 % A4: 210 × 297 ミリ
 
 \usepackage{fancyhdr}
-% fancyhdrで大文字を小文字に
-\makeatletter
-	\def\ps@fancy{%
-		\def\sectionmark##1{\markboth{\ifnum \c@secnumdepth>\z@ \thesection\hskip 1em\relax \fi ##1}{}}%
-		\def\subsectionmark##1{\markright {\ifnum \c@secnumdepth >\@ne \thesubsection\hskip 1em\relax \fi ##1}}%
-		\ps@@fancy%
-		\gdef\ps@fancy{\@fancyplainfalse\ps@@fancy}%
-		\ifdim\headwidth<0sp%
-		\global\advance\headwidth123456789sp\global\advance\headwidth\textwidth%
-		\fi%
-	}
-\makeatother
-
 \pagestyle{fancy}
 \lhead{\leftmark}
 \rhead{\rightmark}
