@@ -5,7 +5,7 @@ OUTPUT_DIR=$(pwd)/products
 REPO_DIR=$(cd "$(dirname "$0")" && pwd -P)
 
 if   [ $# = 0 ]; then
-    REPO_VER=main
+    REPO_VER=catalog
     OUTPUT_SUFFIX=$(date '+%y%m%d-%H%M%S')
 elif [ $# = 1 ]; then
     REPO_VER=$1
@@ -26,22 +26,22 @@ fi
 
 printf 'Select Project:'
 printf '
-    1  ) main/root
-    11 ) main/chapter-basics
+    1  ) catalog/root
+    11 ) catalog/chapter-basics
 '
 printf 'Select: '
 read -r OPTION
 
 case $OPTION in
     '1' )
-        PROJECT='main'
-        ROOT_FILE='documents/main/main-root' # without filename extension
-        LATEXMKRC_FILE='documents/main/.latexmkrc'
+        PROJECT='catalog'
+        ROOT_FILE='documents/catalog/main-root' # without filename extension
+        LATEXMKRC_FILE='documents/catalog/.latexmkrc'
         ;;
     '11' )
-        PROJECT='main-basics'
-        ROOT_FILE='documents/main/chapter-basics'
-        LATEXMKRC_FILE='documents/main/.latexmkrc'
+        PROJECT='catalog-basics'
+        ROOT_FILE='documents/catalog/chapter-basics'
+        LATEXMKRC_FILE='documents/catalog/.latexmkrc'
         ;;
     * )
         echo 'Wrong Input.'

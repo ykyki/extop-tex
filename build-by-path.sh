@@ -5,7 +5,7 @@ set -e
 REPO_DIR=$(cd "$(git rev-parse --show-toplevel)" && pwd -P)
 OUTPUT_DIR=$REPO_DIR/temp
 
-LATEXMKRC_FILE='documents/main/.latexmkrc'
+LATEXMKRC_FILE='documents/catalog/.latexmkrc'
 
 LINE_SEPARATOR='----- ----- ----- ----- ----- ----- ----- ----- '
 
