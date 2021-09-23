@@ -25,7 +25,7 @@ extop-tex/
 │   │       ├── develop.sty
 │   │       ├── product.sty
 │   │       └── review.sty
-│   ├── main
+│   ├── catalog
 │   │   ├── chapter-basics.tex
 │   │   ├── chapter-compactness.tex
 │   │   ├── chapter-connectedness.tex
@@ -41,7 +41,7 @@ extop-tex/
 │   │   │   ├── Q-star.tex
 │   │   │   ├── ...
 │   │   │
-│   │   ├── list-commands-table.tex // mainドキュメントで使用されるグローバルコマンドの説明をまとめる
+│   │   ├── list-commands-table.tex // catalogドキュメントで使用されるグローバルコマンドの説明をまとめる
 │   │   ├── list-commands.tex // mainドキュメントの索引に記号一覧をまとめる
 │   │   ├── main-root.tex
 │   │   ├── manual.md
@@ -55,7 +55,7 @@ extop-tex/
 │   │       ├── T1-spaces.tex
 │   │       ├── ...
 │   │  
-│   └── scrap // mainドキュメントとは別にちょっとした内容をメモしておくための場所
+│   └── scrap // catalogドキュメントとは別にちょっとした内容をメモしておくための場所
 │       ├── 001-Continuity-from-n-delta.tex
 │       ├── 002-Format-test.tex
 │       └── A01-scrap-preamble.sty
