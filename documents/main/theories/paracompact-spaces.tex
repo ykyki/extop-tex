@@ -10,16 +10,16 @@
 \newcommand{\sstarset}[3]{\mathrm{St}^{#1}\left(#2 , \: #3 \right)}
 
 \begin{definition}
-	位相空間$ X $が\indexjj{ぱらこんぱくと}{パラコンパクト}{paracompact}であるとは, 
-	$ X $の任意の開被覆が局所有限な開被覆で細分出来ることである. 
+	位相空間$ X $が\indexjj{ぱらこんぱくと}{パラコンパクト}{paracompact}であるとは,
+	$ X $の任意の開被覆が局所有限な開被覆で細分出来ることである.
 	また, $ X $の任意の可算開被覆が局所有限な開被覆で細分出来るとき
 	$ X $は\indexjj{かさんぱらこんぱくと}{可算パラコンパクト}{countably paracompact}であるという.
 \end{definition}
 
-パラコンパクト空間の閉部分空間もパラコンパクトになることは明らかである. 
-パラコンパクト空間の積空間はたとえ有限個の積であってもパラコンパクトであるとは限らない. 
-例えば, Sorgenfrey Line (\ref{example:Sorgenfrey_line}) はパラコンパクトであるが, 
-Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでない. 
+パラコンパクト空間の閉部分空間もパラコンパクトになることは明らかである.
+パラコンパクト空間の積空間はたとえ有限個の積であってもパラコンパクトであるとは限らない.
+例えば, Sorgenfrey Line (\ref{example:Sorgenfrey_line}) はパラコンパクトであるが,
+Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでない.
 しかし, もう少し特別な場合として次の主張が成り立つ.
 
 \begin{proposition}[{\cite[補題~17.19]{KodamaNagami1974ja}}]
@@ -33,21 +33,21 @@ Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでな
 	パラコンパクト空間$ X $と局所コンパクトなパラコンパクト \topT{2} 空間$ Y $の積空間$ X \times Y $はパラコンパクトである.
 \end{proposition}
 
-パラコンパクト空間の連続像もパラコンパクトとは限らない. 
-例えば, 無限集合上の離散位相から同じ集合上の Particular Point Topology への連続全射として恒等写像を考えると良い. 
-さらに, パラコンパクト性は商写像でも保たれない. 
+パラコンパクト空間の連続像もパラコンパクトとは限らない.
+例えば, 無限集合上の離散位相から同じ集合上の Particular Point Topology への連続全射として恒等写像を考えると良い.
+さらに, パラコンパクト性は商写像でも保たれない.
 通常の距離位相をもつ$ \R $の部分集合$ A \defeq \setcomp{2^{-m}+n}{m \in \N_{>0}, n \in \Z} $を同一視して１点に縮めた商空間
-$ \R / A $ はパラコンパクトでない; 任意の$ n \in \Z $に対して$ \R $の開集合$ U_n $を$ U_n \defeq \R \setminus (\Z \setminus \{n\}) $と定める. 
-商写像を$ \pi \colon \R \to X \semicolon x \mapsto [x] $($ [x] $は$ x $の同値類)とすると, 
-$ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n \in \Z} $は$ X $の開被覆である. 
-この開被覆の細分である任意の開被覆が局所有限でないことは容易に確認できる. 
-この例は, パラコンパクト空間の商空間が可算パラコンパクトになるとは限らないことも示している. 
-ここで構成した$ \R / A $は \topT{1} でない. 
+$ \R / A $ はパラコンパクトでない; 任意の$ n \in \Z $に対して$ \R $の開集合$ U_n $を$ U_n \defeq \R \setminus (\Z \setminus \{n\}) $と定める.
+商写像を$ \pi \colon \R \to X \semicolon x \mapsto [x] $($ [x] $は$ x $の同値類)とすると,
+$ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n \in \Z} $は$ X $の開被覆である.
+この開被覆の細分である任意の開被覆が局所有限でないことは容易に確認できる.
+この例は, パラコンパクト空間の商空間が可算パラコンパクトになるとは限らないことも示している.
+ここで構成した$ \R / A $は \topT{1} でない.
 次の命題から, $ \R $の部分集合を１点に縮める方法でパラコンパクトでない商空間を構成するとその商空間は \topT{1} ではあり得ない事がわかる.
 
 \begin{proposition}
-	正規空間$ X $と部分集合$ A $に対して, $ A $の元を同一視した商空間を$ X / A $とする. 
-	このとき, $ X / A $が \topT{1} ならば$ X / A $は \topT{4} である. 
+	正規空間$ X $と部分集合$ A $に対して, $ A $の元を同一視した商空間を$ X / A $とする.
+	このとき, $ X / A $が \topT{1} ならば$ X / A $は \topT{4} である.
 	したがって, $ X $が \Lindelof でもあれば, \topT{1}な$ X / A $はパラコンパクトである.
 \end{proposition}
 \begin{proof}
@@ -56,27 +56,27 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 
 \begin{proposition}
 	\label{prop:existence of a compact covering whose interior is a locally finite covering>ParaCpt}
-	$ X $を位相空間とする. $ X $のコンパクト被覆$\mathscr{F}$であって, 
-	$\topint \mathscr{F} \defeq \setcomp{\topint F}{F \in \mathscr{F}}$が$X$の局所有限な被覆となるものが存在するとき, 
+	$ X $を位相空間とする. $ X $のコンパクト被覆$\mathscr{F}$であって,
+	$\topint \mathscr{F} \defeq \setcomp{\topint F}{F \in \mathscr{F}}$が$X$の局所有限な被覆となるものが存在するとき,
 	$ X $はパラコンパクトである.
 \end{proposition}
 
 \begin{proof}
-	$ \mathscr{U} $を$ X $の任意の開被覆とする. 
+	$ \mathscr{U} $を$ X $の任意の開被覆とする.
 	コンパクト被覆で$\topint\mathscr{F} \defeq \setcomp{\topint F}{F \in \mathscr{F}}$が
-	$ X $の局所有限な被覆となる$ \mathscr{F} $をとる. 
+	$ X $の局所有限な被覆となる$ \mathscr{F} $をとる.
 	各$ F \subset \mathscr{F} $について$ F \subset \bigcup \mathscr{U} $なので
 	$ \mathscr{U} $の有限部分集合$ \mathscr{U}_F  $で, $ F \subset \bigcup \mathscr{U}_F $となるものが存在する.
-	ここで, $ \mathscr{V}_F = \setcomp{U \cap \topint F}{U \in \mathscr{U}_F}$とし, 
-	$ \mathscr{V} = \bigcup_{F \in \mathscr{F}} \mathscr{V}_F $と定める. 
-	このとき, $ \bigcup \mathscr{V}=\bigcup_{F\in\mathscr{F}}(\bigcup \mathscr{V}_F) 
+	ここで, $ \mathscr{V}_F = \setcomp{U \cap \topint F}{U \in \mathscr{U}_F}$とし,
+	$ \mathscr{V} = \bigcup_{F \in \mathscr{F}} \mathscr{V}_F $と定める.
+	このとき, $ \bigcup \mathscr{V}=\bigcup_{F\in\mathscr{F}}(\bigcup \mathscr{V}_F)
 	= \bigcup_{F\in \mathscr{F}}((\bigcup \mathscr{U}_F) \cap \topint F) \supset \bigcup_{F\in\mathscr{F}}\topint F = X $となる.
 	よって, $ \mathscr{V} $は$ X $の開被覆である.
-	また, $ \mathscr{U} $の細分でもある. $ \mathscr{V} $が局所有限であることを示せばよい. 
-	任意の$ x \in X $について, $ \topint \mathscr{F} $の有限個の元としか交わらない近傍を$U_x$とする. 
+	また, $ \mathscr{U} $の細分でもある. $ \mathscr{V} $が局所有限であることを示せばよい.
+	任意の$ x \in X $について, $ \topint \mathscr{F} $の有限個の元としか交わらない近傍を$U_x$とする.
 	$ U_x $と交わる$ \topint \mathscr{F} $の元全体を
-	$ \mathscr{F}_x = \{F_{1}, F_{2} ,\cdots, F_{n_x}\} $とする. 
-	任意の$ F \in \mathscr{F} $について$ \mathscr{V}_F $の元は$ F $の部分集合であるから, 
+	$ \mathscr{F}_x = \{F_{1}, F_{2} ,\cdots, F_{n_x}\} $とする.
+	任意の$ F \in \mathscr{F} $について$ \mathscr{V}_F $の元は$ F $の部分集合であるから,
 	$ \mathscr{V} $の元で$ U_x $と交わるのは高々$ |\bigcup_{m=1}^{n_x} \mathscr{V}_{F_m}| $個である.
 	各$ \mathscr{V}_{F_m} $は有限なので$ \mathscr{V} $は局所有限である.
 \end{proof}
@@ -101,8 +101,8 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 \begin{proposition}
 	\label{lem:every closure of any locally finite family of subsets is locally finite}
 	位相空間$ X $の部分集合族$ \mathscr{U} $が局所有限ならば,
-	任意の部分族$ \mathscr{V} \subset \mathscr{U} $も局所有限であり, 
-	$ \topcl \mathscr{U} $も局所有限である. 
+	任意の部分族$ \mathscr{V} \subset \mathscr{U} $も局所有限であり,
+	$ \topcl \mathscr{U} $も局所有限である.
 	また, $ \bigcup \setcomp{\topcl U}{U \in \mathscr{U}} = \topcl \left(\bigcup \mathscr{U}\right)$が成り立つ.
 	したがって, 特に局所有限な閉集合族$ \mathscr{F} $について,
 	$ \bigcup \mathscr{F} $は閉集合である.
@@ -119,14 +119,14 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 \end{proposition}
 
 \begin{proof}
-	任意の$ n \in \N $に対して$ F_n $が空集合でも全体集合でもない場合を考えればよい. 
-	$ F_{-1} \defeq \emptyset $とし, 任意の$ n \in \N $に対して$ U_n \defeq \topint F_{n+1} \cap \complement F_{n-1} $と定める. 
-	このとき, $ \mathscr{U} \defeq \setcomp{U_n}{n \in \N} $と定めると, 
+	任意の$ n \in \N $に対して$ F_n $が空集合でも全体集合でもない場合を考えればよい.
+	$ F_{-1} \defeq \emptyset $とし, 任意の$ n \in \N $に対して$ U_n \defeq \topint F_{n+1} \cap \complement F_{n-1} $と定める.
+	このとき, $ \mathscr{U} \defeq \setcomp{U_n}{n \in \N} $と定めると,
 	2以上の$ n \in \N $に対して$ \starset{U_n}{\mathscr{U}} = U_{n-1} \cup U_n \cup U_{n+1} $となるので
-	$ \mathscr{U} $は局所有限である. また, 上の補題より$ \mathscr{F} \defeq \setcomp{\topcl U}{U \in \mathscr{U}} $も局所有限である. 
-	さらに, $ \mathscr{U} $の定義から$ \mathscr{F} $はコンパクト閉被覆である. 
-	$ \mathscr{U} $が$ X $を被覆することから$ \topint \mathscr{F} $も$ X $を被覆し, 
-	$ \mathscr{F} $が局所有限であることから$ \topint \mathscr{F} $も局所有限である. 
+	$ \mathscr{U} $は局所有限である. また, 上の補題より$ \mathscr{F} \defeq \setcomp{\topcl U}{U \in \mathscr{U}} $も局所有限である.
+	さらに, $ \mathscr{U} $の定義から$ \mathscr{F} $はコンパクト閉被覆である.
+	$ \mathscr{U} $が$ X $を被覆することから$ \topint \mathscr{F} $も$ X $を被覆し,
+	$ \mathscr{F} $が局所有限であることから$ \topint \mathscr{F} $も局所有限である.
 	したがって, 命題\ref{prop:existence of a compact covering whose interior is a locally finite covering>ParaCpt}より$ X $はパラコンパクトである.
 \end{proof}
 
@@ -135,15 +135,15 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 \end{proposition}
 
 \begin{proof}
-	仮定から, 相対コンパクトな開集合からなる可算開被覆$ \mathscr{U} \defeq \{U_n\}_{n \in \N} $が存在する. 
-	ここで, 集合列$ \{F_n\}_{n \in N} $を$ F_n \defeq \topcl (U_0 \cup U_1 \cup \cdots \cup U_n) $により定義する. 
-	このとき, $ \{F_n\} $がコンパクト閉集合の列であることは容易に確かめられる. 
-	次に, $ F'_0 \defeq F_0 $とし$ F'_0 $を被覆する$ \mathscr{U} $の有限個の開集合からなる族を1つとり$ \mathscr{U}_0 $とする. 
+	仮定から, 相対コンパクトな開集合からなる可算開被覆$ \mathscr{U} \defeq \{U_n\}_{n \in \N} $が存在する.
+	ここで, 集合列$ \{F_n\}_{n \in N} $を$ F_n \defeq \topcl (U_0 \cup U_1 \cup \cdots \cup U_n) $により定義する.
+	このとき, $ \{F_n\} $がコンパクト閉集合の列であることは容易に確かめられる.
+	次に, $ F'_0 \defeq F_0 $とし$ F'_0 $を被覆する$ \mathscr{U} $の有限個の開集合からなる族を1つとり$ \mathscr{U}_0 $とする.
 	また, 1以上の$ n \in \N $に対して$ F'_n \defeq \left(\bigcup \topcl \mathscr{U}_{n-1} \right) \cup F_n $とし
-	$ F'_n $を被覆する$ \mathscr{U} $の有限個の開集合からなる族を1つとり$ \mathscr{U}_n $とする. 
-	このように定義される$ \{F'_n\}_{n \in \N} $はコンパクト閉集合からなる増大列で$ X $を被覆する. 
-	また, 任意の$ n \in \N $に対して$ F'_n \subset \bigcup \mathscr{U}_n  \subset \bigcup \topint (\topcl \mathscr{U}_n) 
-	\subset \topint \bigcup (\topcl \mathscr{U}_n) \subset \topint F'_{n+1} $となる. 
+	$ F'_n $を被覆する$ \mathscr{U} $の有限個の開集合からなる族を1つとり$ \mathscr{U}_n $とする.
+	このように定義される$ \{F'_n\}_{n \in \N} $はコンパクト閉集合からなる増大列で$ X $を被覆する.
+	また, 任意の$ n \in \N $に対して$ F'_n \subset \bigcup \mathscr{U}_n  \subset \bigcup \topint (\topcl \mathscr{U}_n)
+	\subset \topint \bigcup (\topcl \mathscr{U}_n) \subset \topint F'_{n+1} $となる.
 	よって, 命題\ref{prop:characterization of paracompactness by a family of compact closed sets}より$ X $はパラコンパクトである.
 \end{proof}
 
@@ -181,7 +181,7 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 	位相空間$ X $の被覆の列$ (\mathscr{U}_n)_{n \in \N} $が正規列であるとは,
 	任意の$ n \in \N  $について$ \mathscr{U}_{n+1}^* < \mathscr{U} $が成り立つことをいう.
 	$ X $の開被覆$ \mathscr{V} $に対して$ \mathscr{U}_0 < \mathscr{V} $を満たす正規列
-	$ (\mathscr{U}_n)_{n \in \N} $が存在するとき, 
+	$ (\mathscr{U}_n)_{n \in \N} $が存在するとき,
 	$ \mathscr{V} $は正規(または正規被覆)であるという.
 \end{definition}
 
@@ -230,12 +230,12 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 \end{definition}
 
 \begin{theorem}[Michael][{\cite[定理~17.12]{KodamaNagami1974ja}}]
-	位相空間$ X $がパラコンパクト \topT{2} 空間であるための必要十分条件は, 
+	位相空間$ X $がパラコンパクト \topT{2} 空間であるための必要十分条件は,
 	$ X $の任意の開被覆に対してそのクッション細分となる被覆が存在することである.
 \end{theorem}
 
 \begin{proposition}[{\cite[定理~29.12]{Morita1981ja}}]
-	位相空間$ X $の開被覆$ \mathscr{U} $が正規であるための必要十分条件は, 
+	位相空間$ X $の開被覆$ \mathscr{U} $が正規であるための必要十分条件は,
 	ある距離空間$ Y $と連続写像$ f \colon X \to Y $および$ Y $の開被覆$ \mathscr{V} $であって,
 	$ f^{-1}[\mathscr{V}] < \mathscr{U} $となるものが存在することである.
 \end{proposition}
@@ -245,10 +245,10 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 \end{theorem}
 
 \begin{theorem}[{\cite{Ishikawa1955}}]
-	位相空間$ X $が可算パラコンパクトであるための必要十分条件は, 
+	位相空間$ X $が可算パラコンパクトであるための必要十分条件は,
 	空でない閉集合の減少列$ \setcomp{F_n}{n \in \N} $であって
-	$ \bigcap_{n \in \N} F_n = \emptyset $を満たすものに対して, 
-	開集合の減少列$ \setcomp{U_n}{n \in \N} $であって, 
+	$ \bigcap_{n \in \N} F_n = \emptyset $を満たすものに対して,
+	開集合の減少列$ \setcomp{U_n}{n \in \N} $であって,
 	$ \bigcap_{n \in \N} \topcl U_n = \emptyset $かつ
 	任意の$ n \in \N $について$ F_n \subset U_n $を満たすものが存在することである.
 \end{theorem}
