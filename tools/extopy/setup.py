@@ -9,7 +9,7 @@ command_prefix = 'extop'
 
 if __name__ == "__main__":
     setuptools.setup(
-        name='build=py',
+        name='extopy',
         version='0.0.1',
         install_requires=_requires_from_file('requirements.txt'),
         packages={'': 'src'},
