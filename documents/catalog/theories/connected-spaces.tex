@@ -10,15 +10,20 @@
 	位相空間$ X $が\indexjj{れんけつ}{連結}{connected}であるとは, $ X $を有限個の互いに交わらない開集合の合併で表したとき常に, それら開集合の中で少なくとも1つが$ X $と等しくなることである.
 \end{definition}
 
+定義から次の命題は容易に確かめられる.
 \begin{proposition}
 	位相空間$ X $について以下の条件は同値である.
 		\begin{enumerate}
 			\item $ X $が連結である.
-			\item $ X $が空でなく, さらに次が成り立つ: $ X $が互いに交わらない2つの開集合$ G_1, G_2 $の合併として表せるならば, $ G_1 $か$ G_2 $のどちらかが$ X $に等しい.
+			\item $ X $が空でなく, さらに次が成り立つ: $ X $が互いに交わらない2つの開集合$ G_0, G_1 $の合併として表せるならば,
+			      $ G_0 $か$ G_1 $のどちらかが$ X $に等しい.
+			\item $ X $が空でなく, さらに次が成り立つ: $ X $が互いに交わらない2つの閉集合$ F_0, F_1 $の合併として表せるならば,
+			$ F_0 $か$ F_1 $のどちらかが$ X $に等しい.
 			\item $ X $が空でなく, かつ$ X $の開閉集合が$ \emptyset $と$ X $のみである.
 			\item $ X $が空でなく, かつ$ X $の部分集合であってその境界が空集合になるものが$ \emptyset $と$ X $のみである.
 			\item $ X $から離散空間$ D $への連続全射が存在するならば, $ D $は一点集合である.
 		\end{enumerate}
+		\qed
 \end{proposition}
 
 \begin{proposition}
@@ -26,10 +31,65 @@
 	連結性は連続写像によって保たれる.
 \end{proposition}
 
+\begin{proof}
+	$ f \colon X \to Y $を連結空間$ X $から位相空間$ Y $への連続な全射とする.
+	$ g \colon Y \to D $を離散空間$ D $への連続全射とすると$ g\ circ f \colon X \to D $も
+	連続全射であり, $ D $は一点集合である.
+\end{proof}
+
 \begin{proposition}
 	\label{prop:PathCtd>Ctd}
 	位相空間$ X $が弧状連結ならば連結である.
 \end{proposition}
 
+\begin{proof}
+	位相空間$ X $が互いに交わらない２つの閉集合$ F_0, F_1 $の合併で表されているとする.
+	ここで, $ F_0, F_1 $がともに空集合でないと仮定して矛盾を導く.
+	2点$ x_0 \in F_1, x_1 \in F_2 $をとると, 連続写像$ \gamma \colon \I \to X $であって,
+	$ \gamma(0) = x_0, \gamma(1) = x_1 $を満たすものが存在する.
+	このとき, $ \I $内の点列$ (a_n)_{n\in \N}, (b_n)_{n \in \N} $を次のように定める.
+	\begin{itemize}
+		\item $ a_0 = 0, b_0 = 1 $.
+		\item $ n \geq 1 $について,
+		\begin{equation}
+			\begin{cases}
+				a_n = \frac{a_{n-1} + b_{n-1}}{2}, b_n = b_{n-1} & (\gamma\left(\frac{a_{n-1} + b_{n-1}}{2}\right) \in F_0) \\
+				a_n = a_{n-1}, b_n = \frac{a_{n-1} + b_{n-1}}{2} & (\gamma\left(\frac{a_{n-1} + b_{n-1}}{2}\right) \in F_1).
+			\end{cases}
+		\end{equation}
+	\end{itemize}
+	定義から明らかに$ a_0 \leq a_1 \leq \cdots, b_0 \geq b_1 \geq \cdots $が成り立つ.
+	また, 任意の$ n \in \N $について$ b_n - a_n = 2^{-n} $が成り立つ.
+	よって, ある点$ c \in \I $が存在して$ \lim a_n = c, \lim b_n = c $が成り立つ.
+	$ \{a_n\}_{n \in \N} \subset \gamma^{-1}[F_0], \{b_n\}_{n \in \N} \subset \gamma^{-1}[F_1] $であることから,
+	$ c \in \topcl{\gamma^{-1}[F_0]} $かつ$ c \in \topcl{\gamma^{-1}[F_1]} $である.
+	これは, $ \gamma^{-1}[F_0] \cap \gamma^{-1}[F_1] = \emptyset $に矛盾する.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Sum of every connected subsets in a family having intersection is connected}
+	位相空間$ X $の連結部分集合からなる族$ \setfamily{A_\lambda}{\lambda \in \Lambda} $が
+	$ \bigcap_{\lambda \in \Lambda} A_\lambda \neq \emptyset $を満たすならば
+	$ \bigcup_{\lambda \in \Lambda} A_\lambda $は連結である.
+\end{proposition}
+
+\begin{proof}
+	\label{prop:Closure of a connected subspace is connected}
+	位相空間$ X $の部分集合$ A $が連結ならば$ A \subset B subset \topcl A $を満たす部分集合$ B $も連結である.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:A product space of connected spaces is connected}
+	位相空間の族$ \setfamily{X_\lambda}{\lambda \in \Lambda} $について,
+	その積空間$ X \defeq \prod_{\lambda \in \Lambda} X_\lambda $が連結であることと
+	任意の$ \lambda \in \Lambda $に対して$ X_\lambda $が連結であることは同値である.
+\end{proposition}
+
+\begin{proof}
+	$ X $が連結ならば各$ X_\lambda $が連結であることは
+	射影$ p_\lambda \colon X \to X_\lambda $が連続であることからわかる.
+	以降では逆を示す.
+	\WIP
+\end{proof}
 
 \end{document}
