@@ -33,6 +33,7 @@
 \end{definition}
 
 \begin{proposition}
+	\label{05a202}
 	\newcommand{\cM}{\mathcal{M}}
 	位相空間$X$の2点$x$, $y$について以下の条件は同値である:
 	\begin{itemize}
@@ -90,5 +91,35 @@
 \begin{example}[\topT{0}空間でも対称空間でもない空間]
 	\WIP.
 \end{example}
+
+位相空間$X$の部分空間$A$に対し, $A$上の特殊化順序は$X$上の特殊化順序を$A$に制限したものに等しい.
+よって, \topT{0}空間や対称空間はそれぞれ部分空間に遺伝する.
+
+\begin{proposition}
+	\label{a1a202}
+	積空間$X = \prod_{i \in I} X_i$上の2点$x = (x_i)_i$, $y = (y_i)$について以下の条件は同値である:
+	\begin{itemize}
+		\item $X$上の特殊化順序について$x \topleq y$が成り立つ.
+		\item 全ての$i \in I$に対し, 各$X_i$上の特殊化順序について$x_i \topleq y_i$が成り立つ.
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	\cref{02b3a9}より$\topbar{\{y\}} = \prod_i \topbar{\{y_i\}}$が成り立つから.
+\end{proof}
+
+\begin{proof}
+	\cref{05a202}を用いる.
+\end{proof}
+
+\begin{corollary}
+	\topT{0}空間は積で保たれる.
+	\qed
+\end{corollary}
+
+\begin{corollary}
+	対称空間は積で保たれる.
+	\qed
+\end{corollary}
 
 \end{document}
