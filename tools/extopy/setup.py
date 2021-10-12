@@ -1,11 +1,11 @@
 import setuptools
 
+import src.core
+
 
 def _requires_from_file(filename):
     return open(filename).read().splitlines()
 
-
-command_prefix = 'extop'
 
 if __name__ == "__main__":
     setuptools.setup(
@@ -15,7 +15,7 @@ if __name__ == "__main__":
         packages={'': 'src'},
         entry_points={
             'console_scripts': [
-                f'{command_prefix}_build_by_path = src.core:build_by_path',
+                'extopy = src.core:cli',
             ],
         },
     )
