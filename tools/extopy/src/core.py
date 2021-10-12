@@ -17,4 +17,9 @@ def cli(context):
 @click.option('--layout', '-l', default='develop', help='レイアウト指定')
 def build(target: str, layout: str) -> None:
     click.echo(f'{target=}, {layout=}')
-    git.is_in_git_repository()
+    succeeded, output = git.is_in_git_repository()
+    if succeeded:
+        click.echo(output)
+    else:
+        click.echo(click.style('Error:', fg='red'))
+        click.echo(output)
