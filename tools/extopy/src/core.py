@@ -12,6 +12,17 @@ def cli(context):
         pass
 
 
+@cli.command(help='test current environment')
+def test():
+    succeeded, output = git.is_in_git_repository()
+    if not succeeded:
+        click.echo(click.style('Error:', fg='red'))
+        click.echo(output)
+        return
+    click.echo(output)
+    click.echo(click.style('Test passed!', fg='green'))
+
+
 @cli.command(help='Build PDF file')
 @click.argument('target')
 @click.option('--layout', '-l', default='develop', help='レイアウト指定')
