@@ -6,12 +6,17 @@
 \section{連結性}
 \label{sec:connected-spaces}
 
+\begin{source}
+	本節は主に\cite[Chapter 6]{Engelking1989GT}や\cite[第４章]{Morita1981ja}を参考にしている.
+\end{source}
+
 \begin{definition}
 	位相空間$ X $が\indexjj{れんけつ}{連結}{connected}であるとは, $ X $を有限個の互いに交わらない開集合の合併で表したとき常に, それら開集合の中で少なくとも1つが$ X $と等しくなることである.
 \end{definition}
 
 定義から次の命題は容易に確かめられる.
 \begin{proposition}
+	\label{prop:Characterization of connectedness}
 	位相空間$ X $について以下の条件は同値である.
 		\begin{enumerate}
 			\item $ X $が連結である.
@@ -74,8 +79,36 @@
 \end{proposition}
 
 \begin{proof}
+	$ D $を離散空間とし, $ f \colon \bigcup_{\lambda \in \Lambda} A_\lambda \to D $を
+	連続な全単射とする. ここで, $ x_0 \in \bigcap_{\lambda \in \Lambda} A_\lambda $
+	と定めると, 任意の$ \lambda \in \Lambda $に対して$ A_\lambda $が連結であることから
+	\cref{prop:Characterization of connectedness}より任意の$ x \in A_\lambda $に対して
+	$ f(x) = f(x_0) $となる.
+	よって, $ f[\bigcup_{\lambda \in \Lambda} A_\lambda] = D $は一点集合である.
+\end{proof}
+
+\begin{corollary}
+	位相空間$ X $の任意の２点についてそれらを含む同一の連結部分集合が存在するとき$ X $は連結である.
+\end{corollary}
+
+\begin{proof}
+	$ X $の点$ x_0 $を１つとり固定する. 任意の点$ x \in X $に対して$ \{x_0, x\} \subset A_x $を満たす
+	$ X $の連結部分集合が存在する. このとき, $ \setfamily{A_x}{x \in X} $は
+	$ \bigcap_{x \in X} A_x \neq \emptyset$を満たす. よって, $ X = \bigcup_{x \in X} A_x $は連結である.
+\end{proof}
+
+\begin{proposition}
 	\label{prop:Closure of a connected subspace is connected}
-	位相空間$ X $の部分集合$ A $が連結ならば$ A \subset B subset \topcl A $を満たす部分集合$ B $も連結である.
+	位相空間$ X $の部分集合$ A $が連結ならば$ A \subset B \subset \topcl A $を満たす部分集合$ B $も連結である.
+\end{proposition}
+
+\begin{proof}
+	$ B \neq A $の場合を示す. $ D $を離散空間とし, $ f \colon B \to D $を連続な全単射とする.
+	$ D $が一点集合でないと仮定して矛盾を導く.
+	$ f[A] $は一点集合なので, $ x \in B \setminus A $であって
+	$ f(b) \notin f[A] $を満たすものが存在する.
+	このとき, $ f^{-1}(f(b)) $は$ f^{-1}(f(b)) \cap A = \emptyset $なる$ B $の開集合である.
+	これは$ \topcl_B f^{-1}(f(b)) \subset \topcl_B A $に矛盾する.
 \end{proof}
 
 \begin{proposition}
