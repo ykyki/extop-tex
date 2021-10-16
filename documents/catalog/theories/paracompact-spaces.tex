@@ -1,6 +1,7 @@
 \documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
 \usepackage{import}
 \import{../}{common-preamble.sty}
+\setlayout{product}
 
 \begin{document}
 \section{パラコンパクト空間}
@@ -8,6 +9,10 @@
 
 \newcommand{\starset}[2]{\mathrm{St}\left(#1 , \: #2\right)}
 \newcommand{\sstarset}[3]{\mathrm{St}^{#1}\left(#2 , \: #3 \right)}
+
+\begin{source}
+	本節は主に\cite[Chapter 5]{Engelking1989GT}や\cite[第8章]{Morita1981ja}, \cite[第3章]{KodamaNagami1974ja}を参考にしている.
+\end{source}
 
 \begin{definition}
 	位相空間$ X $が\indexjj{ぱらこんぱくと}{パラコンパクト}{paracompact}であるとは,
@@ -25,6 +30,7 @@ Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでな
 \begin{proposition}[{\cite[補題~17.19]{KodamaNagami1974ja}}]
 	$ X $をパラコンパクトな位相空間, $ Y $をコンパクトな位相空間とするとき, 積空間$ X \times Y $はパラコンパクトである.
 \end{proposition}
+
 \begin{proof}
 	\WIP
 \end{proof}
@@ -32,6 +38,10 @@ Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでな
 \begin{proposition}[{\cite[定理~17.20]{KodamaNagami1974ja}}]
 	パラコンパクト空間$ X $と局所コンパクトなパラコンパクト \topT{2} 空間$ Y $の積空間$ X \times Y $はパラコンパクトである.
 \end{proposition}
+
+\begin{proof}
+	\WIP
+\end{proof}
 
 パラコンパクト空間の連続像もパラコンパクトとは限らない.
 例えば, 無限集合上の離散位相から同じ集合上の Particular Point Topology への連続全射として恒等写像を考えると良い.
@@ -46,10 +56,11 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 次の命題から, $ \R $の部分集合を１点に縮める方法でパラコンパクトでない商空間を構成するとその商空間は \topT{1} ではあり得ない事がわかる.
 
 \begin{proposition}
-	正規空間$ X $と部分集合$ A $に対して, $ A $の元を同一視した商空間を$ X / A $とする.
+	\topT{4} 空間$ X $と部分集合$ A $に対して, $ A $の元を同一視した商空間を$ X / A $とする.
 	このとき, $ X / A $が \topT{1} ならば$ X / A $は \topT{4} である.
 	したがって, $ X $が \Lindelof でもあれば, \topT{1}な$ X / A $はパラコンパクトである.
 \end{proposition}
+
 \begin{proof}
 	\WIP
 \end{proof}
@@ -79,6 +90,38 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 	任意の$ F \in \mathscr{F} $について$ \mathscr{V}_F $の元は$ F $の部分集合であるから,
 	$ \mathscr{V} $の元で$ U_x $と交わるのは高々$ |\bigcup_{m=1}^{n_x} \mathscr{V}_{F_m}| $個である.
 	各$ \mathscr{V}_{F_m} $は有限なので$ \mathscr{V} $は局所有限である.
+\end{proof}
+
+\begin{proposition}
+	\Hausdorff 空間$ X $においてパラコンパクトであることと任意の開被覆に対してそれに従属する1の分割が存在することは同値である.
+\end{proposition}
+
+\begin{proof}
+	\WIP
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma~5.1.10]{Engelking1989GT}}]
+	位相空間$ X $における任意の$\sigma$-局所有限な開被覆は局所有限な細分を持つ.
+\end{lemma}
+
+\begin{proof}
+	\WIP
+\end{proof}
+
+上の補題から直ちに次を得る.
+\begin{proposition}
+	位相空間$ X $がパラコンパクトであることと,
+	$ X $の任意の開被覆が$\sigma$-局所有限な開被覆で細分できることは同値である.
+	\qed
+\end{proposition}
+
+\begin{proposition}[{\cite[Theorem~5.1.11]{Engelking1989GT}}]
+	\topT{3} 空間$ X $がパラコンパクトであることと,
+	任意の開被覆が$ X $の局所有限な部分集合族で細分できることは同値である.
+\end{proposition}
+
+\begin{proof}
+	\WIP
 \end{proof}
 
 \begin{definition}
