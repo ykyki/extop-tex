@@ -1,5 +1,13 @@
+attrs==21.2.0
 click==8.0.1
+-e git+ssh://git@github.com/ykyki/extop-tex.git@b971c817a1cad47ed1be78cd41efaaa1bdd9b77c#egg=extopy&subdirectory=tools/extopy
+iniconfig==1.1.1
 mypy==0.910
 mypy-extensions==0.4.3
+packaging==21.0
+pluggy==1.0.0
+py==1.10.0
+pyparsing==2.4.7
+pytest==6.2.5
 toml==0.10.2
 typing-extensions==3.10.0.2

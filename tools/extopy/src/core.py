@@ -1,6 +1,6 @@
 import click
 
-from src import git
+from src import git, lib
 
 
 @click.group(help='CLI tool of extop', invoke_without_command=True)
@@ -14,12 +14,12 @@ def cli(context):
 
 @cli.command(help='test current environment')
 def test():
-    succeeded, output = git.is_in_git_repository()
-    if not succeeded:
-        click.echo(click.style('Error:', fg='red'))
-        click.echo(output)
-        return
-    click.echo(output)
+    cwd = lib.get_cwd_path()
+    click.echo(f'{cwd=}')
+
+    repository_path = git.get_current_repository_root_path()
+    click.echo(f'{repository_path=}')
+
     click.echo(click.style('Test passed!', fg='green'))
 
 
@@ -28,9 +28,3 @@ def test():
 @click.option('--layout', '-l', default='develop', help='レイアウト指定')
 def build(target: str, layout: str) -> None:
     click.echo(f'{target=}, {layout=}')
-    succeeded, output = git.is_in_git_repository()
-    if succeeded:
-        click.echo(output)
-    else:
-        click.echo(click.style('Error:', fg='red'))
-        click.echo(output)
