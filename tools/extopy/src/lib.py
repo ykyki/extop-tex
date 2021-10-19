@@ -3,13 +3,16 @@ from typing import *
 
 
 def get_cwd_path() -> Path:
-    return Path('.').absolute()
+    return Path.cwd()
 
 
 T = TypeVar('T')
 
 
 def run_in_tempdir(func: Callable[..., T]):
+    import functools
+
+    @functools.wraps(func)
     def wrapper(*args, **kwargs) -> T:
         import os
         import tempfile
@@ -18,7 +21,7 @@ def run_in_tempdir(func: Callable[..., T]):
 
         try:
             with tempfile.TemporaryDirectory() as tempdir:
-                print(tempdir)
+                print(f'tempdir: {tempdir}')
                 os.chdir(tempdir)
                 result = func(*args, **kwargs)
         finally:
