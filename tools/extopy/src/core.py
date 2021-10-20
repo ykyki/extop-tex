@@ -19,7 +19,7 @@ def test():
     cwd = lib.get_cwd_path()
     click.echo(f'{cwd=}')
 
-    repository_path = git.get_current_repository_root_path()
+    repository_path = git.get_current_repository_path()
     click.echo(f'{repository_path=}')
 
     click.echo(click.style('Test passed!', fg='green'))
@@ -33,11 +33,10 @@ def build(target: str, layout: str) -> None:
 
     click.echo(f'{target=}, {layout=}')
 
-    repository_path = git.get_current_repository_root_path()
+    repository_path = git.get_current_repository_path()
 
     target_path = Path(target).resolve()
     target_path_rel = target_path.relative_to(repository_path)
-    target_stem = target_path.stem
 
     latexmkrc_path_rel = Path('documents/catalog/.latexmkrc')
 
@@ -45,20 +44,19 @@ def build(target: str, layout: str) -> None:
     output_dir = repository_path / output_dir_rel
 
     if not (target_path.exists()):
-        _echo_error(f'File not found: {target_path_rel}')
-        return
+        raise FileNotFoundError(f'{target_path_rel}')
     if not ((repository_path / latexmkrc_path_rel).exists()):
-        _echo_error(f'File not found: {latexmkrc_path_rel}')
-        return
+        raise FileNotFoundError(f'{latexmkrc_path_rel}')
     if not (output_dir.exists()):
-        _echo_error(f'File not found: {output_dir}')
-        return
+        raise FileNotFoundError(f'{output_dir_rel}')
 
     @lib.run_in_tempdir
     def build_runner():
         tempdir_path = lib.get_cwd_path()
 
         git.clone(repository_path, tempdir_path)
+
+        # noinspection SpellCheckingInspection
         subprocess.check_output(
             ['latexmk', '-cd', '-norc', '-r', str(latexmkrc_path_rel), str(target_path_rel)]
         )
@@ -66,11 +64,7 @@ def build(target: str, layout: str) -> None:
         import shutil
         shutil.move(
             target_path_rel.with_suffix('.pdf'),
-            output_dir / Path(f'{target_stem}-from-temp').with_suffix('.pdf')
+            output_dir / Path(f'{target_path.stem}-from-temp').with_suffix('.pdf')
         )
 
     build_runner()
-
-
-def _echo_error(message: str) -> None:
-    click.echo(click.style(message, fg='red'))
