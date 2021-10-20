@@ -1,6 +1,7 @@
 \documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
 \usepackage{import}
 \import{../}{common-preamble.sty}
+\setlayout{product}
 
 \begin{document}
 \section{パラコンパクト空間}
@@ -100,7 +101,7 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 \end{proof}
 
 \begin{lemma}[{\cite[Lemma~5.1.10]{Engelking1989GT}}]
-	位相空間$ X $における任意の \textsigma 局所有限な開被覆は局所有限な細分を持つ.
+	位相空間$ X $における任意の$\sigma$-局所有限な開被覆は局所有限な細分を持つ.
 \end{lemma}
 
 \begin{proof}
@@ -110,7 +111,8 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 上の補題から直ちに次を得る.
 \begin{proposition}
 	位相空間$ X $がパラコンパクトであることと,
-	$ X $の任意の開被覆が \textsigma 局所有限な開被覆で細分できることは同値である. \qed
+	$ X $の任意の開被覆が$\sigma$-局所有限な開被覆で細分できることは同値である.
+	\qed
 \end{proposition}
 
 \begin{proposition}[{\cite[Theorem~5.1.11]{Engelking1989GT}}]
