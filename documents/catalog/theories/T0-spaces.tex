@@ -6,6 +6,7 @@
 \section{\topT{0}空間, 対称空間}
 \label{sec:T0-spaces}
 
+\newcommand{\topleq}{\leq}
 \newcommand{\topindis}{\fallingdotseq}
 
 \begin{source}
@@ -13,42 +14,112 @@
 \end{source}
 
 \begin{definition}
-	位相空間$ X $上の\indexjj{とくしゅかじゅんじょ}{特殊化順序}{specialization order}とは,
-	\[ x \leq y \defarw x \in \topcl \{y\} \]
-	により定義される$ X $上の順序のことである.
-	2点$ x, y  $について$ x \leq y $かつ$ y \leq x $が成り立つとき,
-	$ x, y $は\indexjj{いそうてきにくべつふのう}{位相的に区別不能}{topologically indistinguishable}であるといい,
-	$ x \topindis y $と書く.
+	位相空間$X$上の\indexjj{とくしゅかじゅんじょ}{特殊化順序}{specialization order}とは,
+	\[ x \topleq y \defarw x \in \topcl \{y\} \]
+	により定義される$X$上の二項関係である.
+	この二項関係は集合$X$上の前順序となる.
+	2点$x, y$について$x \leq y$かつ$y \leq x$が成り立つとき,
+	$x, y$は\indexjj{いそうてきにくべつふのう}{位相的に区別不能}{topologically indistinguishable}であるといい,
+	$x \topindis y$と書く.
 \end{definition}
 
 \begin{definition}
-	位相空間$ X $が\indexj{T0 くうかん}{\topT{0}空間}あるいは\indexj{\Kolmogorov くうかん}{\Kolmogorov 空間}であるとは,
-	$ X $の任意の2点$ x, y $について$ x \topindis y $ならば$ x = y $となることである.
+	位相空間$X$が\indexj{T0 くうかん}{\topT{0}空間}あるいは\indexj{\Kolmogorov くうかん}{\Kolmogorov 空間}であるとは,
+	$X$の任意の2点$x, y$について$x \topindis y$ならば$x = y$となることである.
+\end{definition}
+
+\begin{definition}
+	位相空間$X$が\indexjj{たいしょうくうかん}{対称空間}{symmetric space}であるとは, $X$の特殊化順序が対称的であることである.
 \end{definition}
 
 \begin{proposition}
-	位相空間$ X $について以下の条件は同値である:
+	\label{05a202}
+	\newcommand{\cM}{\mathcal{M}}
+	位相空間$X$の2点$x$, $y$について以下の条件は同値である:
 	\begin{enumerate}
-		\item $ X $が\topT{0}空間である.
-		\item $ X $の特殊化順序が反対称的である.
-		\item $ X $の相異なる2点$ x, y $に対し, ある開集合$ G $が存在してどちらか1点のみを元に持つ.
+		\item 特殊化順序について$x \leq y$が成り立つ.
+		\item $X$の任意の閉集合$F$に対し, $y \in F$ならば$x \in F$となる.
+		\item $X$の任意の開集合$G$に対し, $x \in G$ならば$y \in G$となる.
+		\item $X$のある準開基$\cM$が存在して次が成り立つ: $\cM$の任意の元$M$に対し, $x \in M$ならば$y \in M$となる.
+		\item 包含関係$\topnbd{x} \subset \topnbd{y}$が成り立つ.
 	\end{enumerate}
 	\qed
 \end{proposition}
 
-\begin{definition}
-	位相空間$ X $が\indexjj{たいしょうくうかん}{対称空間}{symmetric space}であるとは, $ X $の特殊化順序が対称的であることである.
-\end{definition}
-
 \begin{proposition}
-	位相空間$ X $について以下の条件は同値である:
+	位相空間$X$について以下の条件は同値である:
 	\begin{enumerate}
-		\item $ X $が対称空間である.
-		\item $ X $の任意の点$ x $と開集合$ G $に対し, $ x \in G$ならば$ \topbar{\{x\}} \subset G $である.
-		\item $ X $の任意の点$ x $と閉集合$ F $に対し, $ x \not\in F $ならば$ \topbar{\{x\}} \cap F = \emptyset $である.
-		\item $ X $の任意の点$ x $に対し$ \topbar{\{x\}} = \setcomp{y \in X}{x, y\text{は位相的に区別不能}} $となる.
+		\item $X$が\topT{0}空間である.
+		\item $X$の特殊化順序が反対称的である.
+		\item $X$の相異なる2点$x, y$に対し, ある開集合$G$が存在してどちらか1点のみを元に持つ.
+		\item $X$の相異なる2点$x, y$に対し, ある閉集合$F$が存在してどちらか1点のみを元に持つ.
 	\end{enumerate}
 	\qed
 \end{proposition}
+
+\begin{proposition}
+	位相空間$X$について以下の条件は同値である:
+	\begin{enumerate}
+		\item $X$が対称空間である.
+		\item $X$の任意の点$x$に対し$\topbar{\{x\}} = \setcomp{y \in X}{x, y\text{は位相的に区別不能}}$となる.
+		\item $X$の任意の点$x$と開集合$ G $に対し, $x \in G$ならば$\topbar{\{x\}} \subset G$である.
+		\item $X$の任意の点$x$と閉集合$ F $に対し, $x \not\in F$ならば$\topbar{\{x\}} \cap F = \emptyset$である.
+	\end{enumerate}
+	\qed
+\end{proposition}
+
+\begin{example}[\Alexandroff 位相]
+	\WIP.
+\end{example}
+
+\begin{example}[Upper Topology]
+	\WIP.
+\end{example}
+
+\begin{example}[\Scott Topology]
+	\WIP.
+\end{example}
+
+\begin{example}[\topT{0}空間ではあるが対称空間ではない空間]
+	\WIP.
+\end{example}
+
+\begin{example}[対称空間ではあるが\topT{0}空間ではない空間]
+	\WIP.
+\end{example}
+
+\begin{example}[\topT{0}空間でも対称空間でもない空間]
+	\WIP.
+\end{example}
+
+位相空間$X$の部分空間$A$に対し, $A$上の特殊化順序は$X$上の特殊化順序を$A$に制限したものに等しい.
+よって, \topT{0}空間や対称空間はそれぞれ部分空間に遺伝する.
+
+\begin{proposition}
+	\label{a1a202}
+	積空間$X = \prod_{i \in I} X_i$上の2点$x = (x_i)$, $y = (y_i)$について以下の条件は同値である:
+	\begin{enumerate}
+		\item $X$上の特殊化順序について$x \topleq y$が成り立つ.
+		\item 任意の$i \in I$に対し, 各$X_i$上の特殊化順序について$x_i \topleq y_i$が成り立つ.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\cref{02b3a9}より$\topbar{\{y\}} = \prod_i \topbar{\{y_i\}}$が成り立つから.
+\end{proof}
+
+\begin{proof}
+	\cref{05a202}より, 積空間の自然な準開基に注目すればよい.
+\end{proof}
+
+\begin{corollary}
+	\topT{0}空間は積で保たれる.
+	\qed
+\end{corollary}
+
+\begin{corollary}
+	対称空間は積で保たれる.
+	\qed
+\end{corollary}
 
 \end{document}
