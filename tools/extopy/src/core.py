@@ -5,7 +5,7 @@ import click
 from src import git, lib
 
 
-@click.group(help='CLI tool of extop', invoke_without_command=True)
+@click.group(help='CLI tool for extop-tex', invoke_without_command=True)
 @click.pass_context
 def cli(context):
     if context.invoked_subcommand is None:
@@ -14,15 +14,15 @@ def cli(context):
         pass
 
 
-@cli.command(help='test current environment')
-def test():
-    cwd = lib.get_cwd_path()
-    click.echo(f'{cwd=}')
-
-    repository_path = git.get_current_repository_path()
-    click.echo(f'{repository_path=}')
-
-    click.echo(click.style('Test passed!', fg='green'))
+# @cli.command(help='Test current environment')
+# def test():
+#     cwd = lib.get_cwd_path()
+#     click.echo(f'{cwd=}')
+#
+#     repository_path = git.toplevel()
+#     click.echo(f'{repository_path=}')
+#
+#     click.echo(click.style('Test passed!', fg='green'))
 
 
 @cli.command(help='Build PDF file')
@@ -37,7 +37,7 @@ def test():
 def build(target: str, layout: str, revision: str) -> None:
     click.echo(f'{target=}, {layout=}, {revision=}')
 
-    repository_path = git.get_current_repository_path()
+    repository_path = git.toplevel()
 
     target_path = Path(target).resolve()
     target_path_rel = target_path.relative_to(repository_path)
