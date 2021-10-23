@@ -11,7 +11,8 @@
 \end{source}
 
 \begin{definition}
-	位相空間$ X $が\indexjj{れんけつ}{連結}{connected}であるとは, $ X $を有限個の互いに交わらない開集合の合併で表したとき常に, それら開集合の中で少なくとも1つが$ X $と等しくなることである.
+	位相空間$ X $が\indexjj{れんけつ}{連結}{connected}であるとは, $ X $を有限個の互いに交わらない開集合の合併で表したとき常に,
+	それら開集合の中で少なくとも1つが$ X $と等しくなることである.
 \end{definition}
 
 定義から次の命題は容易に確かめられる.
@@ -37,8 +38,8 @@
 \end{proposition}
 
 \begin{proof}
-	$ f \colon X \to Y $を連結空間$ X $から位相空間$ Y $への連続な全射とする.
-	$ g \colon Y \to D $を離散空間$ D $への連続全射とすると$ g\ circ f \colon X \to D $も
+	$ \morph{f}{X}{Y} $を連結空間$ X $から位相空間$ Y $への連続な全射とする.
+	$ \morph{g}{Y}{D} $を離散空間$ D $への連続全射とすると$ \morph{g \compo f}{X}{D} $も
 	連続全射であり, $ D $は一点集合である.
 \end{proof}
 
@@ -50,7 +51,7 @@
 \begin{proof}
 	位相空間$ X $が互いに交わらない２つの閉集合$ F_0, F_1 $の合併で表されているとする.
 	ここで, $ F_0, F_1 $がともに空集合でないと仮定して矛盾を導く.
-	2点$ x_0 \in F_1, x_1 \in F_2 $をとると, 連続写像$ \gamma \colon \I \to X $であって,
+	2点$ x_0 \in F_1, x_1 \in F_2 $をとると, 連続写像$ \morph{\gamma}{I}{X} $であって,
 	$ \gamma(0) = x_0, \gamma(1) = x_1 $を満たすものが存在する.
 	このとき, $ \I $内の点列$ (a_n)_{n\in \N}, (b_n)_{n \in \N} $を次のように定める.
 	\begin{itemize}
@@ -79,7 +80,7 @@
 \end{proposition}
 
 \begin{proof}
-	$ D $を離散空間とし, $ f \colon \bigcup_{\lambda \in \Lambda} A_\lambda \to D $を
+	$ D $を離散空間とし, $ \morph{f}{\bigcup_{\lambda \in \Lambda} A_\lambda}{D} $を
 	連続な全単射とする. ここで, $ x_0 \in \bigcap_{\lambda \in \Lambda} A_\lambda $
 	と定めると, 任意の$ \lambda \in \Lambda $に対して$ A_\lambda $が連結であることから
 	\cref{prop:Characterization of connectedness}より任意の$ x \in A_\lambda $に対して
@@ -103,7 +104,7 @@
 \end{proposition}
 
 \begin{proof}
-	$ B \neq A $の場合を示す. $ D $を離散空間とし, $ f \colon B \to D $を連続な全単射とする.
+	$ B \neq A $の場合を示す. $ D $を離散空間とし, $ \morph{f}{B}{D} $を連続な全単射とする.
 	$ D $が一点集合でないと仮定して矛盾を導く.
 	$ f[A] $は一点集合なので, $ x \in B \setminus A $であって
 	$ f(b) \notin f[A] $を満たすものが存在する.
@@ -120,7 +121,7 @@
 
 \begin{proof}
 	$ X $が連結ならば各$ X_\lambda $が連結であることは
-	射影$ p_\lambda \colon X \to X_\lambda $が連続であることからわかる.
+	射影$ \morph{p_\lambda}{X}{X_\lambda} $が連続であることからわかる.
 	以降では逆を示す.
 	\WIP
 \end{proof}
