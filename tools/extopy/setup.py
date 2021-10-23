@@ -1,7 +1,5 @@
 import setuptools
 
-import src.core
-
 
 def _requires_from_file(filename):
     return open(filename).read().splitlines()
@@ -12,6 +10,9 @@ if __name__ == "__main__":
         name='extopy',
         version='0.0.1',
         install_requires=_requires_from_file('requirements.txt'),
+        extras_requires={
+            'development': _requires_from_file('requirements_dev.txt')
+        },
         packages={'': 'src'},
         entry_points={
             'console_scripts': [
