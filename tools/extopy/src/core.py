@@ -31,10 +31,11 @@ def test():
               type=click.Choice(['product', 'develop', 'review']),
               default='product',
               help='Layout setting (default = product)')
-def build(target: str, layout: str) -> None:
-    import subprocess
-
-    click.echo(f'{target=}, {layout=}')
+@click.option('--revision', '-r',
+              default='HEAD',
+              help='Revision setting (default = HEAD)')
+def build(target: str, layout: str, revision: str) -> None:
+    click.echo(f'{target=}, {layout=}, {revision=}')
 
     repository_path = git.get_current_repository_path()
 
@@ -55,30 +56,37 @@ def build(target: str, layout: str) -> None:
     if not (output_dir.exists()):
         raise FileNotFoundError(f'{output_dir_rel}')
 
+    # noinspection SpellCheckingInspection
     @lib.run_in_tempdir
     def build_runner():
         tempdir_path = lib.get_cwd_path()
 
         git.clone(repository_path, tempdir_path)
+        git.checkout(git.revision(revision))
 
         with open(tempdir_path / target_path_rel, mode='r', encoding='utf-8') as file:
             file_content = file.read()
         with open(tempdir_path / target_path_rel, mode='w', encoding='utf-8') as file:
-            # noinspection SpellCheckingInspection
             replaced = file_content.replace(r'\begin{document}', rf'\setlayout{{{layout}}}\begin{{document}}', 1)
             file.write(replaced)
         del file_content
         del replaced
 
-        # noinspection SpellCheckingInspection
+        import subprocess
         subprocess.check_output(
             ['latexmk', '-cd', '-norc', '-r', str(latexmkrc_path_rel), str(target_path_rel)],
         )
 
+        destination_path = output_dir / Path(
+            f'{target_path.stem}_{layout}_{git.revision(revision, is_short=True)}'
+        ).with_suffix('.pdf')
+
         import shutil
         shutil.move(
             target_path_rel.with_suffix('.pdf'),
-            output_dir / Path(f'{target_path.stem}-{layout}').with_suffix('.pdf')
+            destination_path
         )
+
+        click.echo(click.style(f'Done! :{destination_path}', fg='green'))
 
     build_runner()

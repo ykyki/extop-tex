@@ -24,3 +24,8 @@ def revision(expr: str, is_short: bool = False) -> str:
         output = subprocess.check_output(['git', 'rev-parse', '--verify', expr], encoding='utf-8')
 
     return output.strip()
+
+
+def checkout(expr: str) -> None:
+    subprocess.check_output(['git', '-c', 'advice.detachedHead=false', 'checkout', expr])
+    return
