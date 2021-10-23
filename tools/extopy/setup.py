@@ -8,7 +8,7 @@ def _requires_from_file(filename):
 if __name__ == "__main__":
     setuptools.setup(
         name='extopy',
-        version='0.0.1',
+        version='1.0.0',
         install_requires=_requires_from_file('requirements.txt'),
         extras_requires={
             'development': _requires_from_file('requirements_dev.txt')
