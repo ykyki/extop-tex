@@ -8,13 +8,14 @@
 
 \begin{source}
 	本節は主に\cite[Chapter 6]{Engelking1989GT}や\cite[第４章]{Morita1981ja}を参考にしている.
+	離散空間については\cref{ex:discrete-space}をチェック.
 \end{source}
 
 \begin{definition}
-	位相空間$ X $が\indexjj{れんけつ}{連結}{connected}であるとは, $ X $が空でなく$ X $を有限個の互いに交わらない開集合の合併で表したとき常に,
+	位相空間$ X $が\indexjj{れんけつ}{連結}{connected}であるとは, $ X $を有限個の互いに交わらない開集合の合併で表したとき常に,
 	それら開集合の中で少なくとも1つが$ X $と等しくなることである.
 \end{definition}
-定義にある通り, 本書では空集合は連結でないとする.
+定義の通り, 本書では空集合は連結でないとする.
 
 \begin{proposition}
 	\label{prop:Characterization of connectedness}
@@ -29,7 +30,6 @@
 			\item $ X $が空でなく, かつ$ X $の部分集合であってその境界が空集合になるものが$ \emptyset $と$ X $のみである.
 			\item $ X $から離散空間$ D $への連続全射が存在するならば, $ D $は一点集合である.
 		\end{enumerate}
-		\qed
 \end{proposition}
 
 \begin{proof}
@@ -39,7 +39,6 @@
 \begin{proposition}
 	\label{prop:Continuous maps preserve connectedness}
 	連結性は連続写像によって保たれる.
-	\qed
 \end{proposition}
 
 \begin{proof}
@@ -65,18 +64,18 @@
 		\item $ n \geq 1 $について,
 		\begin{equation}
 			\begin{cases}
-				a_n = \frac{a_{n-1} + b_{n-1}}{2}, b_n = b_{n-1} & (\gamma\left(\frac{a_{n-1} + b_{n-1}}{2}\right) \in F_0) \\
-				a_n = a_{n-1}, b_n = \frac{a_{n-1} + b_{n-1}}{2} & (\gamma\left(\frac{a_{n-1} + b_{n-1}}{2}\right) \in F_1).
+				a_n = \frac{a_{n-1} + b_{n-1}}{2}, b_n = b_{n-1} & \gamma\left(\frac{a_{n-1} + b_{n-1}}{2}\right) \in F_0 \text{のとき} \\
+				a_n = a_{n-1}, b_n = \frac{a_{n-1} + b_{n-1}}{2} & \gamma\left(\frac{a_{n-1} + b_{n-1}}{2}\right) \in F_1 \text{のとき} .
 			\end{cases}
 		\end{equation}
 	\end{itemize}
 	定義から$ a_0 \leq a_1 \leq \cdots $と$ b_0 \geq b_1 \geq \cdots $が成り立つ.
 	また, 任意の$ n \in \N $について$ b_n - a_n = 2^{-n} $が成り立つ.
 	よって, 完備性よりある点$ c \in \I $が存在して$ \lim a_n = c, \lim b_n = c $が成り立つ.
-	$ \setcomp{a_n}{n \in \N} \subset \gamma^{-1}[F_0], \setcomp{b_n}{n \in \N} \subset \gamma^{-1}[F_1] $であることから,
-	$ c \in \topcl{\gamma^{-1}[F_0]} $かつ$ c \in \topcl{\gamma^{-1}[F_1]} $である.
-	$ F_0, F_1 $は閉集合なので$\topcl{\gamma^{-1}[F_0]} = gamma^{-1}[F_0], topcl{\gamma^{-1}[F_1]} = gamma^{-1}[F_1] $であり,
-	$ \gamma^{-1}[F_0] \cap \gamma^{-1}[F_1] = \emptyset $に矛盾する.
+	$ \setcomp{a_n}{n \in \N} \subset \mapinvset{\gamma}{F_0}, \setcomp{b_n}{n \in \N} \subset \mapinvset{\gamma}{F_1}$であることから,
+	$ c \in \topcl{\mapinvset{\gamma}{F_0}} $かつ$ c \in \topcl{\mapinvset{\gamma}{F_1}} $である.
+	$ F_0, F_1 $は閉集合なので$\topcl{\mapinvset{\gamma}{F_0}} = \mapinvset{\gamma}{F_0}, topcl{\mapinvset{\gamma}{F_1}} = \mapinvset{\gamma}{F_1} $であり,
+	$ \mapinvset{\gamma}{F_0} \cap \mapinvset{\gamma}{F_1} = \emptyset $に矛盾する.
 \end{proof}
 
 \begin{proposition}
@@ -96,7 +95,7 @@
 \end{proof}
 
 \begin{corollary}
-	位相空間$ X $の任意の2点についてそれらを含む同一の連結部分集合が存在するとき$ X $は連結である.
+	空でない位相空間$ X $の任意の2点についてそれらを含む同一の連結部分集合が存在するとき$ X $は連結である.
 \end{corollary}
 
 \begin{proof}
@@ -130,7 +129,7 @@
 	$ X $が連結ならば各$ X_\lambda $が連結であることは
 	射影$ \morph{p_\lambda}{X}{X_\lambda} $が連続であることからわかる.
 	以降では逆を示す.
-	\WIP
+	\WIP.
 \end{proof}
 
 \end{document}
