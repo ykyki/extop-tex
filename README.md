@@ -1,5 +1,5 @@
 # extop-tex
 
-Kanban:
+位相空間の具体例や定理を趣味で調べてまとめています。
 
-- [for-main](https://github.com/ykyki/extop-tex/projects/2)
+工事中…
