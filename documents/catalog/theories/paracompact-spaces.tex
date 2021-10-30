@@ -160,28 +160,21 @@ $ A \subset U_n $より$ \pi^{-1}\pi[U_n] = U_n $なので$ \setcomp{\pi[U_n]}{n
 	$ f^{-1}(y) \subset \bigcup \mathscr{U}_y $となる.
 	$ f $が閉写像であることから$ y $の開近傍$ U_y $が存在して
 	$ f^{-1}(y) \subset f^{-1}[U_y] \subset \bigcup \mathscr{U}_y $が成り立つ.
-	$ \setfamily{U_y}{y \in Y} $はパラコンパクト空間$ Y $の開被覆なので
+	$ \setcomp{U_y}{y \in Y} $はパラコンパクト空間$ Y $の開被覆なので
 	局所有限な$ Y $の開被覆$ \mathscr{V} $であって
-	$ \mathscr{V} < \setfamily{U_y}{y \in Y} $を満たすものが存在する.
+	$ \mathscr{V} < \setcomp{U_y}{y \in Y} $を満たすものが存在する.
 	このとき, $ f^{-1}[\mathscr{V}] $は$ X $の開被覆であり, \cref{p00001}より
 	局所有限でもある. また, 任意の$ V \in \mathscr{V} $に対して
 	$ y(V) \in Y $であって$ f^{-1}[V] \subset f^{-1}[U_{y(V)}] \subset \bigcup \mathscr{U}_{y(V)} $を
 	満たすものが存在する.
 	ここで, $ \mathscr{W} \defeq \setcomp{f^{-1}[V] \cap U}{V \in \mathscr{V}, U \in \mathscr{U}_{y(V)}} $と定める.
-	$ f^{-1}[V] $が開被覆であり,
+	$ f^{-1}[\mathscr{V}] $が開被覆であり,
 	任意の$ V \in \mathscr{V} $に対して$ f^{-1}[V] \subset \bigcup \mathscr{U}_{y(V)} $なので
 	$ \mathscr{W} $は$ X $の開被覆である.
 	また, $ \mathscr{W} $の定義から明らかに$ \mathscr{W} < \mathscr{U} $である.
 	さらに, $ f^{-1}[\mathscr{V}] $が局所有限であることと, 各$ V \in \mathscr{V} $について
-	$ \mathscr{U}_{y(V)} $が有限で, $ f^{-1} [V] \subset \bigcup \mathscr{U}_{y(V)}$を満たすことから
-	$ \mathscr{W} $が局所有限であることがわかる.
+	$ \mathscr{U}_{y(V)} $が有限であることから$ \mathscr{W} $が局所有限であることがわかる.
 \end{proof}
-
-\begin{proposition}
-	$ f \colon X \to Y $を位相空間$ X $から位相空間$ Y $への連続写像とする.
-	$ Y $の任意の局所有限な部分集合族$ \mathscr{U} $に対して, $ f^{-1}[\mathscr{U}] $は
-	$ X $で局所有限である.
-\end{proposition}
 
 \begin{proposition}
 	\label{lem:every closure of any locally finite family of subsets is locally finite}

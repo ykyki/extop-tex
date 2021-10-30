@@ -1,0 +1,26 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{閉写像}
+\label{sec:closed-maps}
+
+\begin{definition}
+	$ X, Y $を位相空間, $ \morph{f}{X}{Y} $を写像とする.
+	$ X $の任意の閉写像$ F $に対して$ f[F] $が$ Y $の閉集合であるとき,
+    $ f $を閉写像という.
+\end{definition}
+
+\begin{proposition}
+    \label{c00001}
+    $ X, Y $を位相空間とし, $ \morph{f}{X}{Y} $を写像とする.
+    このとき以下の条件は同値である.
+    \begin{enumerate}
+        \item $ f $は閉写像である.
+        \item 任意の点$ y \in Y $と$ \mapinvpt{f}{y} \subset U $なる$ X $の任意の開集合$ U $に対して
+        $ y $の開近傍$ V $であって$ \mapinvset{f}{V} \subset U $を満たすものが存在する.
+    \end{enumerate}
+\end{proposition}
+
+\end{document}
