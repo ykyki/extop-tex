@@ -90,3 +90,70 @@ def build(target: str, layout: str, revision: str) -> None:
         click.echo(click.style(f'Done! :{destination_path}', fg='green'))
 
     build_runner()
+
+
+@cli.command(help='Build PDF file with diff')
+@click.argument('target')
+@click.option('--old', '-o',
+              default='develop',
+              help='Older revision (default = develop)')
+@click.option('--new', '-n',
+              default='HEAD',
+              help='Newer revision (default = HEAD)')
+def diff(target: str, old: str, new: str) -> None:
+    click.echo(f'{target=}, {old=}, {new=}')
+
+    repository_path = git.toplevel()
+
+    target_path = Path(target).resolve()
+    target_path_rel = target_path.relative_to(repository_path)
+
+    old_revision = git.revision(old)
+    new_revision = git.revision(new)
+
+    latexmkrc_path_rel = Path('documents/catalog/.latexmkrc')
+
+    output_dir_rel = Path('temp/')
+    output_dir = repository_path / output_dir_rel
+
+    # noinspection SpellCheckingInspection
+    @lib.run_in_tempdir
+    def build_runner():
+        tempdir_path = lib.get_cwd_path()
+
+        git.clone(repository_path, tempdir_path)
+        git.checkout(new_revision)
+
+        old_target_path_rel = target_path_rel.with_stem(target_path.stem + '-old')
+        diff_target_path_rel = target_path_rel.with_stem(target_path.stem + '-diff')
+
+        git.show_and_save(target_path_rel, old_revision, old_target_path_rel)
+
+        import subprocess
+        output = subprocess.check_output(
+            ['latexdiff', '-e', 'utf8', '-t', 'CFONT', '--flatten', str(old_target_path_rel), str(target_path_rel)],
+            encoding='utf-8'
+        )
+        with open(diff_target_path_rel, mode='w', encoding='utf-8') as file:
+            file.write(output)
+        del output
+
+        subprocess.check_output(
+            ['latexmk', '-cd', '-norc', '-r', str(latexmkrc_path_rel), str(diff_target_path_rel)],
+        )
+
+        destination_path = output_dir / Path(
+            f'{target_path.stem}_{git.revision(old, is_short=True)}_{git.revision(new, is_short=True)}'
+        ).with_suffix('.pdf')
+
+        import shutil
+        shutil.move(
+            diff_target_path_rel.with_suffix('.pdf'),
+            destination_path
+        )
+
+        click.echo(click.style(f'Done! :{destination_path}', fg='green'))
+
+    build_runner()
+
+    pass
