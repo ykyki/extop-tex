@@ -124,8 +124,11 @@ def diff(target: str, old: str, new: str) -> None:
         git.clone(repository_path, tempdir_path)
         git.checkout(new_revision)
 
-        old_target_path_rel = target_path_rel.with_stem(target_path.stem + '-old')
-        diff_target_path_rel = target_path_rel.with_stem(target_path.stem + '-diff')
+        old_target_path_rel = target_path_rel.with_name(target_path.stem + '-old' + target_path_rel.suffix)
+        diff_target_path_rel = target_path_rel.with_name(target_path.stem + '-diff' + target_path_rel.suffix)
+        # Python 3.9 以降なら次のように書ける
+        # old_target_path_rel = target_path_rel.with_stem(target_path.stem + '-old')
+        # diff_target_path_rel = target_path_rel.with_stem(target_path.stem + '-diff')
 
         git.show_and_save(target_path_rel, old_revision, old_target_path_rel)
 
