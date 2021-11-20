@@ -6,30 +6,131 @@
 \section{連結性}
 \label{sec:connected-spaces}
 
+\begin{source}
+	本節は主に\cite[Chapter 6]{Engelking1989GT}や\cite[第４章]{Morita1981ja}を参考にしている.
+\end{source}
+
 \begin{definition}
-	位相空間$ X $が\indexjj{れんけつ}{連結}{connected}であるとは, $ X $を有限個の互いに交わらない開集合の合併で表したとき常に, それら開集合の中で少なくとも1つが$ X $と等しくなることである.
+	位相空間$ X $が\indexjj{れんけつ}{連結}{connected}であるとは, $ X $を有限個の互いに交わらない開集合の合併で表したとき常に,
+	それら開集合の中で少なくとも1つが$ X $と等しくなることである.
 \end{definition}
 
+空集合は0個の空集合の合併であるから, 定義より空集合は連結ではない.
+
 \begin{proposition}
+	\label{prop:Characterization of connectedness}
 	位相空間$ X $について以下の条件は同値である.
 		\begin{enumerate}
 			\item $ X $が連結である.
-			\item $ X $が空でなく, さらに次が成り立つ: $ X $が互いに交わらない2つの開集合$ G_1, G_2 $の合併として表せるならば, $ G_1 $か$ G_2 $のどちらかが$ X $に等しい.
+			\item $ X $が空でなく, さらに次が成り立つ: $ X $が互いに交わらない2つの開集合$ G_0, G_1 $の合併として表せるならば,
+			      $ G_0 $か$ G_1 $のどちらかが$ X $に等しい.
+			\item $ X $が空でなく, さらに次が成り立つ: $ X $が互いに交わらない2つの閉集合$ F_0, F_1 $の合併として表せるならば,
+			$ F_0 $か$ F_1 $のどちらかが$ X $に等しい.
 			\item $ X $が空でなく, かつ$ X $の開閉集合が$ \emptyset $と$ X $のみである.
 			\item $ X $が空でなく, かつ$ X $の部分集合であってその境界が空集合になるものが$ \emptyset $と$ X $のみである.
 			\item $ X $から離散空間$ D $への連続全射が存在するならば, $ D $は一点集合である.
 		\end{enumerate}
 \end{proposition}
 
+\begin{proof}
+	定義から容易に確かめられる.
+\end{proof}
+
 \begin{proposition}
 	\label{prop:Continuous maps preserve connectedness}
 	連結性は連続写像によって保たれる.
 \end{proposition}
+
+\begin{proof}
+	$ \morph{f}{X}{Y} $を連結空間$ X $から位相空間$ Y $への連続な全射とする.
+	$ \morph{g}{Y}{D} $を離散空間$ D $への連続全射とすると$ \morph{g \compo f}{X}{D} $も
+	連続全射であり, $ D $は一点集合である.
+\end{proof}
 
 \begin{proposition}
 	\label{prop:PathCtd>Ctd}
 	位相空間$ X $が弧状連結ならば連結である.
 \end{proposition}
 
+\begin{proof}
+	弧状連結性から$ X $は空でない.
+	位相空間$ X $が互いに交わらない２つの閉集合$ F_0, F_1 $の合併で表されているとする.
+	ここで, $ F_0, F_1 $がともに空集合でないと仮定して矛盾を導く.
+	2点$ x_0 \in F_0, x_1 \in F_1 $をとると, $ X $の弧状連結性より連続写像$ \morph{\gamma}{\I}{X} $であって,
+	$ \mappt{\gamma}{0} = x_0, \mappt{\gamma}{1} = x_1 $を満たすものが存在する.
+	このとき, $ \I $内の点列$ (a_n)_{n\in \N}, (b_n)_{n \in \N} $を帰納的に次のように定める.
+	\begin{itemize}
+		\item $ a_0 = 0, b_0 = 1 $.
+		\item $ n \geq 1 $について,
+		\begin{equation}
+			\begin{cases}
+				a_n = \frac{a_{n-1} + b_{n-1}}{2}, b_n = b_{n-1} & \gamma\left(\frac{a_{n-1} + b_{n-1}}{2}\right) \in F_0 \text{のとき} \\
+				a_n = a_{n-1}, b_n = \frac{a_{n-1} + b_{n-1}}{2} & \gamma\left(\frac{a_{n-1} + b_{n-1}}{2}\right) \in F_1 \text{のとき} .
+			\end{cases}
+		\end{equation}
+	\end{itemize}
+	定義から$ a_0 \leq a_1 \leq \cdots $と$ b_0 \geq b_1 \geq \cdots $が成り立つ.
+	また, 任意の$ n \in \N $について$ b_n - a_n = 2^{-n} $が成り立つ.
+	よって, 完備性よりある点$ c \in \I $が存在して$ \lim a_n = c, \lim b_n = c $が成り立つ.
+	$ \setcomp{a_n}{n \in \N} \subset \mapinvset{\gamma}{F_0}, \setcomp{b_n}{n \in \N} \subset \mapinvset{\gamma}{F_1}$であることから,
+	$ c \in \topcl{\mapinvset{\gamma}{F_0}} $かつ$ c \in \topcl{\mapinvset{\gamma}{F_1}} $である.
+	$ F_0, F_1 $は閉集合なので$\topcl{\mapinvset{\gamma}{F_0}} = \mapinvset{\gamma}{F_0}, \topcl{\mapinvset{\gamma}{F_1}} = \mapinvset{\gamma}{F_1} $であり,
+	$ \mapinvset{\gamma}{F_0} \cap \mapinvset{\gamma}{F_1} = \emptyset $に矛盾する.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Sum of every connected subsets in a family having intersection is connected}
+	位相空間$ X $の連結部分集合からなる族$ \setfamily{A_\lambda}{\lambda \in \Lambda} $が
+	$ \bigcap_{\lambda \in \Lambda} A_\lambda \neq \emptyset $を満たすならば
+	$ \bigcup_{\lambda \in \Lambda} A_\lambda $は連結である.
+\end{proposition}
+
+\begin{proof}
+	$ D $を離散空間とし, $ \morph{f}{\bigcup_{\lambda \in \Lambda} A_\lambda}{D} $を
+	連続な全射とする. ここで, $ x_0 \in \bigcap_{\lambda \in \Lambda} A_\lambda $
+	と定めると, 任意の$ \lambda \in \Lambda $に対して$ A_\lambda $が連結であることから
+	\cref{prop:Characterization of connectedness}より任意の$ x \in A_\lambda $に対して
+	$ \mappt{f}{x} = \mappt{f}{x_0} $となる.
+	よって, $ \mapset{f}{\bigcup_{\lambda \in \Lambda} A_\lambda}= D $は一点集合$ \{\mappt{f}{x_0}\} $である.
+\end{proof}
+
+\begin{corollary}
+	$ X $を空でない位相空間とする.
+	$ X $の任意の2点についてそれらを含む連結部分集合が存在するとき$ X $は連結である.
+\end{corollary}
+
+\begin{proof}
+	$ X $の点$ x_0 $を１つとり固定する. 任意の点$ x \in X $に対して$ \{x_0, x\} \subset A_x $を満たす
+	$ X $の連結部分集合が存在する. このとき, $ \setfamily{A_x}{x \in X} $は
+	$ \bigcap_{x \in X} A_x \neq \emptyset$を満たす. よって, $ X = \bigcup_{x \in X} A_x $は連結である.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:Closure of a connected subspace is connected}
+	位相空間$ X $の部分集合$ A $が連結ならば, $ A \subset B \subset \topcl A $を満たす部分集合$ B $も連結である.
+\end{proposition}
+
+\begin{proof}
+	$ B \neq A $の場合を示す. $ D $を離散空間とし, $ \morph{f}{B}{D} $を連続な全射とする.
+	$ D $が一点集合でないと仮定して矛盾を導く.
+	$ \mapset{f}{A} $は一点集合なので, $ x \in B \setminus A $であって
+	$ \mappt{f}{b} \notin \mapset{f}{A} $を満たすものが存在する.
+	このとき, $ \mapinvpt{f}{\mappt{f}{b}} $は$ \mapinvpt{f}{\mappt{f}{b}} \cap A = \emptyset $なる$ B $の開集合である.
+	これは$ \topcl_B A = B $に矛盾する.
+\end{proof}
+
+\begin{proposition}
+	\label{prop:A product space of connected spaces is connected}
+	位相空間の族$ \setfamily{X_\lambda}{\lambda \in \Lambda} $について,
+	その積空間$ X \defeq \prod_{\lambda \in \Lambda} X_\lambda $が連結であることと,
+	任意の$ \lambda \in \Lambda $に対して$ X_\lambda $が連結であることは同値である.
+\end{proposition}
+
+\begin{proof}
+	$ X $が連結ならば各$ X_\lambda $が連結であることは
+	射影$ \morph{p_\lambda}{X}{X_\lambda} $が連続であることからわかる.
+	以降では逆を示す.
+	\WIP.
+\end{proof}
 
 \end{document}
