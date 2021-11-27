@@ -79,7 +79,7 @@
 \end{proof}
 
 \begin{proposition}
-	\label{prop:Sum of every connected subsets in a family having intersection is connected}
+	\label{c00001}
 	位相空間$ X $の連結部分集合からなる族$ \setfamily{A_\lambda}{\lambda \in \Lambda} $が
 	$ \bigcap_{\lambda \in \Lambda} A_\lambda \neq \emptyset $を満たすならば
 	$ \bigcup_{\lambda \in \Lambda} A_\lambda $は連結である.
@@ -95,6 +95,7 @@
 \end{proof}
 
 \begin{corollary}
+	\label{c00002}
 	$ X $を空でない位相空間とする.
 	$ X $の任意の2点についてそれらを含む連結部分集合が存在するとき$ X $は連結である.
 \end{corollary}
@@ -106,7 +107,7 @@
 \end{proof}
 
 \begin{proposition}
-	\label{prop:Closure of a connected subspace is connected}
+	\label{c00003}
 	位相空間$ X $の部分集合$ A $が連結ならば, $ A \subset B \subset \topcl A $を満たす部分集合$ B $も連結である.
 \end{proposition}
 
@@ -120,7 +121,34 @@
 \end{proof}
 
 \begin{proposition}
-	\label{prop:A product space of connected spaces is connected}
+	\label{p00011}
+	$ \setfamily{X_\lambda}{\lambda \in \Lambda} $を位相空間の族とし,
+	その積空間を$ X \defeq \prod_{\lambda \in \Lambda} X_\lambda $,
+	$ \morph{p_\lambda}{X}{X_\lambda} $を射影とする.
+	ここで$ X $の1点$ p = (p_\lambda)_{\lambda \in \Lambda} $をとり,
+	$ A_p \defeq \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X}
+	{\setcomp{\lambda \in \Lambda}{x_\lambda \neq p_\lambda} \text{が有限}} $と定める.
+	このとき$ X = \topcl A_p $が成り立つ.
+\end{proposition}
+
+\begin{proof}
+	$ X $の任意の点$ x = (x_\lambda)_{\lambda \in \Lambda} $をとると,
+	ある有限集合$ \Lambda' \subset \Lambda $と各$ \lambda \in \Lambda' $に対する
+	$ X_\lambda $の開集合$ U_\lambda $が存在して
+	$ x \in \bigcap_{\lambda \in \Lambda'} \mapinvset{p_\lambda}{U_\lambda} $が成り立つ.
+	ここで$ y = (y_\lambda)_{\lambda \in \Lambda} $を次のように定義する:
+	$$ y_\lambda \defeq \begin{cases}
+		x_\lambda & \lambda \in \Lambda' \text{のとき} \\
+		p_\lambda & \lambda \notin \Lambda' \text{のとき}.
+	\end{cases}$$
+	このとき, $ y \in A_p \cap \left[\bigcap_{\lambda \in \Lambda'}
+	\mapinvset{p_\lambda}{U_\lambda}\right] $より任意の
+	$ x \in \topcl A $となる.
+\end{proof}
+
+
+\begin{proposition}
+	\label{c00004}
 	位相空間の族$ \setfamily{X_\lambda}{\lambda \in \Lambda} $について,
 	その積空間$ X \defeq \prod_{\lambda \in \Lambda} X_\lambda $が連結であることと,
 	任意の$ \lambda \in \Lambda $に対して$ X_\lambda $が連結であることは同値である.
@@ -130,7 +158,27 @@
 	$ X $が連結ならば各$ X_\lambda $が連結であることは
 	射影$ \morph{p_\lambda}{X}{X_\lambda} $が連続であることからわかる.
 	以降では逆を示す.
-	\WIP.
+	まず, $ \Lambda $が有限の場合($ \Lambda = \{1, 2, \cdots, n\} $)について$ n $についての帰納法で証明する.
+	$ n = 1 $のときは明らかであり, $ n-1 $のとき定理が成り立つと仮定する.
+	任意に$ X $の2点$ x = (x_1, \cdots, x_n), y = (y_1, \cdots, y_n) $をとる.
+	帰納法の仮定より$ A \defeq \{x_1\} \times X_2 \times \cdots \times X_n,
+	B \defeq X_1 \times \cdots \times X_{n-1} \times \{y_n\} $は
+	連結部分集合である. $ (x_1, x_2, \cdots, x_{n-1}, y_n) \in A \cap B $なので
+	$ A \cup B $は連結集合である. これは2点$ x, y $を含むので\cref{c00002}より
+	$ X = X_1 \times \cdots \times X_n $は連結である.
+
+	次に, $ \Lambda $が一般の場合について示す. $ X $の1点$ p $をとり,
+	$ A_p $を\cref{p00011}と同様に定義してこれが連結であることを示せば,
+	\cref{c00003}より$ X $は連結である.
+	$ \mathscr{F} $を$ \Lambda $の有限部分集合全体からなる集合族とすると,
+	$ A_p = \bigcup_{\Lambda' \in \mathscr{F}} \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X }
+	{x_\lambda = p_\lambda, \lambda \notin \Lambda'} $と表せる.
+	$ \Lambda $が有限の場合の証明より,
+	各$ \Lambda' \in \mathscr{F} $について$ \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X }
+	{x_\lambda = p_\lambda, \lambda \notin \Lambda'} $は連結である.
+	また, 任意の$ \Lambda' \in \mathscr{F} $に対して$ p \in \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X }
+	{x_\lambda = p_\lambda, \lambda \notin \Lambda'} $なので, \cref{c00001}より
+	$ A_p $は連結である.
 \end{proof}
 
 \end{document}
