@@ -28,6 +28,7 @@ Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでな
 しかし, もう少し特別な場合として次の主張が成り立つ.
 
 \begin{proposition}[{\cite[補題~17.19]{KodamaNagami1974ja}}]
+	\label{p00004}
 	$ X $をパラコンパクトな位相空間, $ Y $をコンパクトな位相空間とするとき, 積空間$ X \times Y $はパラコンパクトである.
 \end{proposition}
 
@@ -36,12 +37,47 @@ Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでな
 	よって, \cref{p00002}より$ X \times Y $はパラコンパクトである.
 \end{proof}
 
+\begin{lemma}
+	\label{p00003}
+	局所コンパクトなパラコンパクト \topT{2} 空間$ X $において,
+	局所有限な開被覆$ \mathscr{U} $であって各$ U \in \mathscr{U} $
+	の閉包$ \topcl{U} $がコンパクトなものが存在する.
+\end{lemma}
+
+\begin{proof}
+	局所コンパクト性より, $ X $の各点$ x \in X $について閉包がコンパクトな開近傍$ U_x $をとることができる.
+	このとき, $ \mathscr{V} \defeq \setcomp{U_x}{x \in X} $は$ X $の開被覆である.
+	$ X $のパラコンパクト性から, 局所有限な開被覆$ \mathscr{U} $であって
+	$ \mathscr{U} < \mathscr{V} $なるものが存在する.
+	この$ \mathscr{U} $が求める開被覆である.
+\end{proof}
+
 \begin{proposition}[{\cite[定理~17.20]{KodamaNagami1974ja}}]
 	パラコンパクト空間$ X $と局所コンパクトなパラコンパクト \topT{2} 空間$ Y $の積空間$ X \times Y $はパラコンパクトである.
 \end{proposition}
 
 \begin{proof}
-	\WIP
+	$ X \times Y $の任意の開被覆を$ \mathscr{U} $とする.
+	\cref{p00003}より, $ Y $の局所有限な開被覆$ \mathscr{V} $であって
+	各$ V \in \mathscr{V} $の閉包がコンパクトなものが存在する.
+	\cref{p00004}より, 各$ V \in \mathscr{V} $について$ X \times \topcl_Y V $は
+	$ X \times Y $のパラコンパクトな部分空間である.
+	$ V \in \mathscr{V} $に対して$ \mathscr{U} $を$ X \times \topcl_Y V $に制限した開集合族
+	$ \mathscr{U}_V \defeq \setcomp{(X \times \topcl_Y V) \cap U}{U \in \mathscr{U}} $は
+	$ X \times \topcl_Y V $の開被覆である. このとき, $ X \times \topcl_Y V $の
+	局所有限な開被覆$ \mathscr{W}_V $であって$ \mathscr{U}_V $の細分となるものが存在する.
+	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $は$ X \times Y $の局所有限被覆なので
+	任意の点$ p \in X \times Y $に対して, $ p $のある開近傍$ U_p $が存在して
+	$ \mathscr{V}_p \defeq \setcomp{V \in \mathscr{V}}{U_p \cap (X \times \topcl_Y V) \neq \emptyset} $
+	が有限になるものが存在する.
+	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $は特に閉被覆なので
+	$ V \in \mathscr{V}_p $ならば$ p \in X \times \topcl_Y V $となるように$ U_p $をとることができる.
+	各$ V \in \mathscr{V}_p $について$ \mathscr{W}_V $は局所有限なので, $ p $の開近傍$ U'_p \subset U_p $
+	であって$ \setcomp{W \in \bigcup_{V \in \mathscr{V}} \mathscr{W}_V}
+	{W \cap U'_p \neq \emptyset} $が有限になるものが存在する.
+	したがって, $ \bigcup_{V \in \mathscr{V}} \mathscr{W}_V $は局所有限である.
+	ゆえに, $ \mathscr{W} \defeq \bigcup_{V \in \mathscr{V}} \setcomp{W \cap (X \times V)}{W \in \mathscr{W}_V} $
+	と定めると$ \mathscr{W} $は$ X \times Y $の局所有限な開被覆であり, $ \mathscr{W} < \mathscr{U} $を満たす.
 \end{proof}
 
 パラコンパクト空間の連続像もパラコンパクトとは限らない.
@@ -63,7 +99,31 @@ $ A \subset U_n $より$ \mapinvset{\pi}{\mapset{\pi}{U_n}}= U_n $なので$ \se
 \end{proposition}
 
 \begin{proof}
-	\WIP
+	この同一視に関する$ x \in X $の同値類を$ [x] $と書き, $ \morphto{\pi}{X}{X / A}{x}{[x]} $を商写像とする.
+	$ X / A $が \topT{1} のとき$ a \in A $に対して$ \{[a]\} \in X / A $は閉集合なので
+	$ A = \mapinvpt{\pi}{[a]} $は閉集合であることに注意する. また, $ X $の部分集合$ B $が
+	$ A \subset B $または$ A \cap B = \emptyset $を満たすとき$ \mapinvset{\pi}{\mapset{\pi}{B}} $が
+	成り立つことにも注意する.
+	$ F_1, F_2 $を$ X / A $の閉集合であって$ F_1 \cap F_2 = \emptyset $なるものとして,
+	これらが交わらない開集合で分離できることを示す.
+	$ [a] \in F_1 $のとき, $ \mapinvset{\pi}{F_1} $は$ A $を含む閉集合で, $ \mapinvset{\pi}{F_2} $は
+	$ \mapinvset{\pi}{F_1} $と交わらない閉集合である.
+	$ X $は \topT{4} 空間なので, 開集合$ U_1, U_2 $が存在して$ \mapinvset{\pi}{F_1} \subset U_1 $,
+	$ \mapinvset{\pi}{F_2} \subset U_2 $, $ U_1 \cap U_2 = \emptyset $を満たすものが存在する.
+	このとき, $ A \subset F_1 $, $ A \cap F_2 = \emptyset $なので
+	$ \mapinvset{\pi}{\mapset{\pi}{U_1}} = U_1 $, $ \mapinvset{\pi}{\mapset{\pi}{U_2}} = U_2 $が
+	成り立つ. よって, $ \mapset{\pi}{U_1}, \mapset{\pi}{U_2} $は$ X / A $の開集合である.
+	また, $ F_1 \subset \mapset{\pi}{U_1} $, $ F_2 \subset \mapset{\pi}{U_2} $,
+	$ \mapset{\pi}{U_1} \cap \mapset{\pi}{U_2} = \emptyset $は明らかである.
+	$ [a] \in F_2 $のときも同様である.
+	$ [a] \notin F_1 \cup F_2 $のとき, $ \mapinvset{\pi}{F_1}, \mapinvset{\pi}{F_2} $は
+	ともに$ A $と交わらない閉集合である.
+	このとき, $ X $が \topT{4} で$ A $が閉集合であることから
+	$ A $と交わらない$ X $の開集合$ U_1, U_2 $が存在して
+	$ \mapinvset{\pi}{F_1} \subset U_1 $, $ \mapinvset{\pi}{F_2} \subset U_2 $,
+	$ U_1 \cap U_2 = \emptyset $が成り立つ.
+	先と同様の議論によって, $ F_1, F_2 $が開集合$ \mapset{\pi}{U_1}, \mapset{\pi}{U_2} $によって
+	分離されることが示せる.
 \end{proof}
 
 \begin{proposition}
