@@ -45,7 +45,7 @@ Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでな
 \end{lemma}
 
 \begin{proof}
-	局所コンパクト性より, $ X $の各点$ x \in X $について閉包がコンパクトな開近傍$ U_x $をとることができる.
+	\cref{lccpt00001}より, $ X $の各点$ x \in X $について閉包がコンパクトな開近傍$ U_x $をとることができる.
 	このとき, $ \mathscr{V} \defeq \setcomp{U_x}{x \in X} $は$ X $の開被覆である.
 	$ X $のパラコンパクト性から, 局所有限な開被覆$ \mathscr{U} $であって
 	$ \mathscr{U} < \mathscr{V} $なるものが存在する.
@@ -124,6 +124,10 @@ $ A \subset U_n $より$ \mapinvset{\pi}{\mapset{\pi}{U_n}}= U_n $なので$ \se
 	$ U_1 \cap U_2 = \emptyset $が成り立つ.
 	先と同様の議論によって, $ F_1, F_2 $が開集合$ \mapset{\pi}{U_1}, \mapset{\pi}{U_2} $によって
 	分離されることが示せる.
+
+	$ X $が \Lindelof であった場合には, その商空間も \Lindelof である.
+	また, \topT{4} 空間は特に \topT{3} 空間なので, \cref{p00005}より
+	\topT{1} な$ X / A $はパラコンパクトである.
 \end{proof}
 
 \begin{proposition}
@@ -291,6 +295,7 @@ $ A \subset U_n $より$ \mapinvset{\pi}{\mapset{\pi}{U_n}}= U_n $なので$ \se
 \end{proof}
 
 \begin{theorem}
+	\label{p00005}
 	位相空間$ X $が \topT{3} かつ \Lindelof ならばパラコンパクトである.
 \end{theorem}
 \begin{proof}
