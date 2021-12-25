@@ -132,18 +132,22 @@
 \end{proposition}
 
 \begin{proof}
-	$ X $の任意の点$ x = (x_\lambda)_{\lambda \in \Lambda} $をとると,
-	ある有限集合$ \Lambda' \subset \Lambda $と各$ \lambda \in \Lambda' $に対する
-	$ X_\lambda $の開集合$ U_\lambda $が存在して
-	$ x \in \bigcap_{\lambda \in \Lambda'} \mapinvset{p_\lambda}{U_\lambda} $が成り立つ.
-	ここで$ y = (y_\lambda)_{\lambda \in \Lambda} $を次のように定義する:
+	各$ X_\lambda $の位相を$ \mathcal{O}_\lambda $とする.
+	$ X $の任意の点$ x = (x_\lambda)_{\lambda \in \Lambda} $をとり,
+	$ x $の任意の開近傍が$ A_p $と交わることを示せば良い.
+	積位相の定義より, $ \setcomp{\bigcap_{\lambda \in \Lambda'} \mapinvset{p_\lambda}{U_\lambda}}
+	{\Lambda' \subset \Lambda, \Lambda' \colon \text{有限},
+	U_\lambda \in \mathcal{O}_\lambda, x_\lambda \in U_\lambda} $
+	は$ x $の近傍基をなすことがわかる.
+	有限集合$ \Lambda' \subset \Lambda $に対して$ y = (y_\lambda)_{\lambda \in \Lambda} $を
+	次のように定義する:
 	$$ y_\lambda \defeq \begin{cases}
 		x_\lambda & \lambda \in \Lambda' \text{のとき} \\
 		p_\lambda & \lambda \notin \Lambda' \text{のとき}.
 	\end{cases}$$
 	このとき, $ y \in A_p \cap \left[\bigcap_{\lambda \in \Lambda'}
-	\mapinvset{p_\lambda}{U_\lambda}\right] $より任意の
-	$ x \in \topcl A $となる.
+	\mapinvset{p_\lambda}{U_\lambda}\right] $より,
+	$ x $任意の開近傍が$ A_p $と交わることが示された.
 \end{proof}
 
 
@@ -155,10 +159,14 @@
 \end{proposition}
 
 \begin{proof}
-	$ X $が連結ならば各$ X_\lambda $が連結であることは
+	$ X $の連結性より$ X $は空でなく, 各$ X_\lambda $も空でない.
+	$ X $が連結ならば各$ X_\lambda $が連結であることは,
 	射影$ \morph{p_\lambda}{X}{X_\lambda} $が連続であることからわかる.
 	以降では逆を示す.
-	まず, $ \Lambda $が有限の場合($ \Lambda = \{1, 2, \cdots, n\} $)について$ n $についての帰納法で証明する.
+	まず, $ \Lambda $が有限の場合について証明する.
+	一点からなる空間は連結なので$ \Lambda = \emptyset $の場合, $ X $は連結である.
+	$ \Lambda \neq \emptyset $の場合($ \Lambda = \{1, 2, \cdots, n\} $)について
+	$ n $にに関する帰納法で証明する.
 	$ n = 1 $のときは明らかであり, $ n-1 $のとき定理が成り立つと仮定する.
 	任意に$ X $の2点$ x = (x_1, \cdots, x_n), y = (y_1, \cdots, y_n) $をとる.
 	帰納法の仮定より$ A \defeq \{x_1\} \times X_2 \times \cdots \times X_n,
@@ -167,17 +175,19 @@
 	$ A \cup B $は連結集合である. これは2点$ x, y $を含むので\cref{c00002}より
 	$ X = X_1 \times \cdots \times X_n $は連結である.
 
-	次に, $ \Lambda $が一般の場合について示す. $ X $の1点$ p $をとり,
-	$ A_p $を\cref{p00011}と同様に定義してこれが連結であることを示せば,
+	次に, $ \Lambda $が一般の場合について示す.
+	$ X $の1点$ p $をとる.
+	$ A_p $を\cref{p00011}と同様に定義する.
+	$ A_p $が連結であることを示せば,
 	\cref{c00003}より$ X $は連結である.
-	$ \mathscr{F} $を$ \Lambda $の有限部分集合全体からなる集合族とすると,
-	$ A_p = \bigcup_{\Lambda' \in \mathscr{F}} \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X }
-	{x_\lambda = p_\lambda, \lambda \notin \Lambda'} $と表せる.
+	$ \mathscr{F} $を$ \Lambda $の有限部分集合全体からなる集合族とする.
+	$ \Lambda' \in \mathscr{F} $に対して
+	$ A_{\Lambda'} \defeq \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X }
+	{\text{任意の$\lambda \in \Lambda \setminus \Lambda' $について$ x_\lambda = p_\lambda$}} $と定めると
+	$ A_p = \bigcup_{\Lambda' \in \mathscr{F}} A_{\Lambda'} $と表せる.
 	$ \Lambda $が有限の場合の証明より,
-	各$ \Lambda' \in \mathscr{F} $について$ \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X }
-	{x_\lambda = p_\lambda, \lambda \notin \Lambda'} $は連結である.
-	また, 任意の$ \Lambda' \in \mathscr{F} $に対して$ p \in \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X }
-	{x_\lambda = p_\lambda, \lambda \notin \Lambda'} $なので, \cref{c00001}より
+	各$ \Lambda' \in \mathscr{F} $について$ A_{\Lambda'} $は連結である.
+	また, 任意の$ \Lambda' \in \mathscr{F} $に対して$ p \in  A_{\Lambda'} $なので, \cref{c00001}より
 	$ A_p $は連結である.
 \end{proof}
 
