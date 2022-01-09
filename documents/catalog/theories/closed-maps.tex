@@ -74,7 +74,7 @@
 	$ \setfamily{X_i}{i \in I}, \setfamily{Y_i}{i \in I} $を空でない位相空間の族とし,
 	各$ i \in I $に対して$ \morph{f_i}{X_i}{Y_i} $を写像とする.
 	このとき, 積写像$ \morph{f}{\prod_{i \in I} X_i}{\prod_{i \in I} Y_i}
-	\semicolon (x_i)_{i \in I} \mapsto (\mappt{f_i}{x_i})_{i \in I} $が閉写像ならば
+	{(x_i)_{i \in I}}{(\mappt{f_i}{x_i})_{i \in I}} $が閉写像ならば
 	各$ \morph{f_i}{X_i}{Y_i} $は閉写像である.
 \end{proposition}
 
@@ -101,10 +101,9 @@
 \end{proof}
 
 \begin{proposition}[{\cite[Theorem~3.3.22]{Engelking1989GT}}]
-	$ X $を位相空間, $ Y $をk空間とし, $ \morph{f}{X}{Y} $を連続写像とする.
+	$ X $を位相空間, $ Y $をk-空間とし, $ \morph{f}{X}{Y} $を連続写像とする.
 	このとき, $ f $が閉写像であるための必要十分条件は, $ Y $の任意のコンパクト部分集合$ F $に対して
-	$ \morph{f|_{\mapinvset{f}{F}}{\mapinvset{f}{F}}{F}
-	\semicolon x \mapsto \mappt{f}{x} $が閉写像になることである.
+	$ \morphto{f|_{\mapinvset{f}{F}}}{\mapinvset{f}{F}}{F}{x}{f(x)} $が閉写像になることである.
 \end{proposition}
 
 \begin{proof}
@@ -118,6 +117,5 @@
 \begin{proof}
 	\WIP.
 \end{proof}
-
 
 \end{document}
