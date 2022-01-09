@@ -26,6 +26,13 @@ def clone(from_: Path, to_: Path) -> None:
     return
 
 
+def show_and_save(file: Path, rev: str, save_to: Path) -> None:
+    output = subprocess.check_output(['git', 'show', f'{rev}:{str(file)}'], encoding='utf-8')
+    with open(save_to, mode='w', encoding='utf-8') as file:
+        file.write(output)
+    return
+
+
 def checkout(expr: str) -> None:
     subprocess.check_output(['git', '-c', 'advice.detachedHead=false', 'checkout', expr])
     return
