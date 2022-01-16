@@ -71,7 +71,7 @@
 \end{proposition}
 
 \begin{proposition}[{\cite[Proposition~2.3.27]{Engelking1989GT}}]
-	$ \setfamily{X_i}{i \in I}, \setfamily{Y_i}{i \in I} $を空でない位相空間の族とし,
+	$ I \neq \emptyset $とする. $ \setfamily{X_i}{i \in I}, \setfamily{Y_i}{i \in I} $を空でない位相空間の族とし,
 	各$ i \in I $に対して$ \morph{f_i}{X_i}{Y_i} $を写像とする.
 	このとき, 積写像$ \morph{f}{\prod_{i \in I} X_i}{\prod_{i \in I} Y_i}
 	{(x_i)_{i \in I}}{(\mappt{f_i}{x_i})_{i \in I}} $が閉写像ならば
@@ -79,7 +79,22 @@
 \end{proposition}
 
 \begin{proof}
-	\WIP.
+	任意の$ i_0 \in I $をとる.
+	$ F \subset X_{i_0} $を任意の閉集合とする.
+	任意の$ i \in I $について$ \morph{p_i}{\prod_{i \in I} X_i}{X_i} $を射影とする.
+	$ \mapinvset{p_{i_0}}{F} $は$ \prod_{i \in I} X_i $の閉集合なので,
+	$ f $が閉写像であることから
+	$ \mapset{f}{\mapinvset{p_{i_0}}{F}} $は$ \prod_{i \in I} Y_i $の閉集合である.
+	ここで, 各$ i \in \I $に対して$ A_i \subset Y_i $を次のように定める.
+	\begin{equation}
+		A_i \defeq
+		\begin{cases}
+			\mapset{f_{i_0}}{F} & i = i_0\text{のとき} \\
+			\mapset{f_i}{X_i} & i \neq i_0 \text{のとき} .
+		\end{cases}
+	\end{equation}
+	このとき, $ \mapset{f}{\mapinvset{p_{i_0}}{F}} = \prod_{i \in I} A_i $が成り立つ.
+	よって, \cref{02e5k8}より$ \mapset{f_{i_0}}{F} $は$ Y_{i_0} $の閉集合である.
 \end{proof}
 
 \begin{example}
@@ -100,14 +115,33 @@
 	$ \mapset{f}{F} $は閉集合である.
 \end{proof}
 
-\begin{proposition}[{\cite[Theorem~3.3.22]{Engelking1989GT}}]
-	$ X $を位相空間, $ Y $をk-空間とし, $ \morph{f}{X}{Y} $を連続写像とする.
-	このとき, $ f $が閉写像であるための必要十分条件は, $ Y $の任意のコンパクト部分集合$ F $に対して
-	$ \morphto{f|_{\mapinvset{f}{F}}}{\mapinvset{f}{F}}{F}{x}{f(x)} $が閉写像になることである.
+\begin{proposition}[{\cite[Theorem~2.1.4]{Engelking1989GT}}]
+	\label{c00002}
+	$ X, Y $を位相空間とし, $ \morph{f}{X}{Y} $を閉写像とする.
+	このとき, 任意の$ A \subset Y $に対して
+	$ \morphto{f|_{\mapinvset{f}{A}}}{\mapinvset{f}{A}}{A}{x}{f(x)} $は閉写像である.
 \end{proposition}
 
 \begin{proof}
-	\WIP.
+	$ F \subset X $を閉集合とする.
+	$ \mapset{f|_{\mapinvset{f}{A}}}{F \cap \mapinvset{f}{A}}
+	= \mapset{f}{F} \cap A $と$ f $が閉写像であることから
+	$ \mapset{f|_{\mapinvset{f}{A}}}{F \cap \mapinvset{f}{A}} $は$ A $の閉集合である.
+\end{proof}
+
+\begin{proposition}[{\cite[Theorem~3.3.22]{Engelking1989GT}}]
+	$ X $を位相空間, $ Y $をk-空間とし, $ \morph{f}{X}{Y} $を連続写像とする.
+	このとき, $ f $が閉写像であるための必要十分条件は, $ Y $の任意のコンパクト部分集合$ K $に対して
+	$ \morphto{f|_{\mapinvset{f}{K}}}{\mapinvset{f}{K}}{K}{x}{f(x)} $が閉写像になることである.
+\end{proposition}
+
+\begin{proof}
+	\cref{c00002}より, 必要性は明らかなので十分性を示す.
+	$ F \subset X $を閉集合とする. $ K \subset Y $を任意のコンパクト集合とするとき
+	$ \mapset{f}{F} \cap K = \mapset{f}{K \cap \mapinvset{f}{K}}
+	= \mapset{f|_{\mapinvset{f}{K}}}{F \cap  \mapinvset{f}{K}} $より,
+	$ \mapset{f}{F} \cap K $は$ K $の閉集合である.
+	よって, $ Y $がk-空間であることから$ \mapset{f}{F} $は$ Y $の閉集合である.
 \end{proof}
 
 \begin{proposition}[{\cite[Theorem~3.10.7]{Engelking1989GT}}]
