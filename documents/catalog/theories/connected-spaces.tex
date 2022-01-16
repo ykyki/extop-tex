@@ -161,13 +161,14 @@
 \begin{proof}
 	$ X $の連結性より$ X $は空でなく, 各$ X_\lambda $も空でない.
 	$ X $が連結ならば各$ X_\lambda $が連結であることは,
-	射影$ \morph{p_\lambda}{X}{X_\lambda} $が連続であることからわかる.
+	射影$ \morph{p_\lambda}{X}{X_\lambda} $が連続全射であることからわかる.
 	以降では逆を示す.
 	まず, $ \Lambda $が有限の場合について証明する.
-	一点からなる空間は連結なので$ \Lambda = \emptyset $の場合, $ X $は連結である.
-	$ \Lambda \neq \emptyset $の場合($ \Lambda = \{1, 2, \cdots, n\} $)について
-	$ n $にに関する帰納法で証明する.
-	$ n = 1 $のときは明らかであり, $ n-1 $のとき定理が成り立つと仮定する.
+	一般性を失うことなく$ \Lambda = \{1, 2, \cdots, n\} $と仮定してよい.
+	$ n $に関する帰納法で示す.
+	$ n = 0 $, すなわち$ \Lambda = \emptyset $の場合,
+	一点からなる空間は連結なので, $ X $は連結である.
+	$ n-1 $のとき定理が成り立つと仮定する.
 	任意に$ X $の2点$ x = (x_1, \cdots, x_n), y = (y_1, \cdots, y_n) $をとる.
 	帰納法の仮定より$ A \defeq \{x_1\} \times X_2 \times \cdots \times X_n,
 	B \defeq X_1 \times \cdots \times X_{n-1} \times \{y_n\} $は
