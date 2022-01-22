@@ -99,7 +99,14 @@
 
 \begin{example}
 	2つの閉写像の積写像も閉写像になるとは限らない.
-	\WIP.
+	$ X $をコンパクトでない位相空間とすると, \cref{km0001}より
+	ある位相空間$ Y $であって射影$ \morph{p}{X \times Y}{Y} $が閉でないものが存在する.
+	ここで, $ \morph{f}{X}{\{0\}} $を$ X $から１点のみの空間$ \{0\} $への写像とする.
+	このとき, 恒等写像$ \morph{id}{Y}{Y} $と$ f $は閉写像であるが
+	$ \morph{f \times id}{X \times Y}{\{0\} \times Y} $は閉写像でない.
+	実際, 閉集合$ F \subset X \times Y $であって$ \mapset{p}{F} $が
+	$ Y $の閉集合出ないものが存在することから,
+	$ \mapset{f \times id}{F} = \{0\} \times \mapset{p}{F} $は閉でない.
 \end{example}
 
 \begin{proposition}
@@ -149,7 +156,21 @@
 \end{proposition}
 
 \begin{proof}
-	\WIP.
+	$ F \subset X \times Y $を任意の閉集合とし, $ \mapset{p}{F} $が列型閉集合であることを示す.
+	$ \mapset{p}{F} $内の点列$ (y_n)_{n \in \N} $が点$ y \in Y $に収束しているとする.
+	ここで, $ (x_n)_{n \in \N} $を$ X $における点列で$ (x_n, y_n)_{n \in \N}  $が$ F $の点列であるものとし,
+	$ A \defeq \setcomp{x_n}{n \in \N} $と定める.
+	$ A $が有限集合のとき, $ (x_n)_{n \in \N} $の部分列$ (x_{n_m})_{m \in \N} $
+	であって, 任意の$ m \in \N $について$ x_{n_0} = x_{n_m} $となるものが存在する.
+	このとき, $ F $の点列$ (x_{n_m}, y_{n_m})_{m \in \N} $は
+	$ (x_{n_0}, y) $に収束する.
+	$ F $が閉集合であることから$ (x_{n_0}, y) \in F $である.
+	ゆえに, $ y \in \mapset{p}{F} $である.
+	次に, $ A $が無限集合の場合を示す.
+	$ X $が可算コンパクトなので\cref{prop:Countable compact <> Every countably infinite subset has an accumulation point}より,
+	$ x \in X $で$ A $の集積点であるものが存在する.
+	このとき, $ (x, y) \in \topcl F $であり, $ F = \topcl F $なので
+	$ y \in \mapset{p}{F} $となる.
 \end{proof}
 
 \end{document}
