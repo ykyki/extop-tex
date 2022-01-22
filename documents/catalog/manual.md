@@ -23,61 +23,67 @@
 ## 構成
 
 ```
-extop-tex/
-├── README.md
-├── build-document.sh // productsフォルダへのビルドを行うシェルコマンド
-├── documents
-│   ├── bibliography // 参考文献をまとめる
-│   │   ├── miscellaneous.bib
-│   │   ├── papers-ja.bib
-│   │   └── papers.bib
-│   ├── config // 設定をまとめる
-│   │   ├── colors.sty
-│   │   ├── environments.sty
-│   │   ├── global-commands.sty
-│   │   └── layouts
-│   │       ├── develop.sty
-│   │       ├── product.sty
-│   │       └── review.sty
-│   ├── catalog
-│   │   ├── chapter-basics.tex
-│   │   ├── chapter-compactness.tex
-│   │   ├── chapter-connectedness.tex
-│   │   ├── chapter-constructions.tex
-│   │   ├── chapter-examples.tex
-│   │   ├── chapter-separation-axioms.tex
-│   │   ├── common-preamble.sty
-│   │   ├── examples
-│   │   │   ├── 000-empty-template-for-example.tex // テンプレート
-│   │   │   ├── Alexandroff-square.tex
-│   │   │   ├── Moore-plane.tex
-│   │   │   ├── Q-star-infinite.tex
-│   │   │   ├── Q-star.tex
-│   │   │   ├── ...
-│   │   │
-│   │   ├── list-commands-table.tex // catalogドキュメントで使用されるグローバルコマンドの説明をまとめる
-│   │   ├── list-commands.tex // mainドキュメントの索引に記号一覧をまとめる
-│   │   ├── main-root.tex
-│   │   ├── manual.md
-│   │   ├── preliminary.tex
-│   │   └── theories
-│   │       ├── 000-empty-template.tex // テンプレート
-│   │       ├── Hausdorff-like-properties.tex
-│   │       ├── Hausdorff-spaces.tex
-│   │       ├── Lindelof-spaces.tex
-│   │       ├── T0-spaces.tex
-│   │       ├── T1-spaces.tex
-│   │       ├── ...
-│   │  
-│   └── scrap // catalogドキュメントとは別にちょっとした内容をメモしておくための場所
-│       ├── 001-Continuity-from-n-delta.tex
-│       ├── 002-Format-test.tex
-│       └── A01-scrap-preamble.sty
-└── products
-    └── // 生成物を収める
-```
 
----
+./README.md
+リポジトリの説明
+
+./documents
+ドキュメントを構成する tex ファイルを収める
+
+./documents/bibliography
+./documents/bibliography/miscellaneous.bib
+./documents/bibliography/papers-ja.bib
+./documents/bibliography/papers.bib
+参考文献の情報をまとめる
+
+./documents/catalog
+メインのドキュメント. 名前を暫定的に catalog とする
+
+./documents/catalog/root.tex
+catalog のルートファイル. これをビルドすることでドキュメント全体 PDF ファイルを生成する
+
+./documents/catalog/prefaces.tex
+まえがき
+
+./documents/catalog/chapter-basics.tex
+./documents/catalog/chapter-compactness.tex
+./documents/catalog/chapter-connectedness.tex
+./documents/catalog/chapter-constructions.tex
+./documents/catalog/chapter-preliminaries.tex
+./documents/catalog/chapter-separation-axioms.tex
+./documents/catalog/chapter-examples.tex
+セクションをまとめてチャプターを構成する
+
+./documents/catalog/examples
+具体例セクションを収める
+
+./documents/catalog/theories
+理論セクションを収める
+
+./documents/catalog/list-commands-table.tex
+./documents/catalog/list-commands.tex
+グローバルコマンドの定義や一覧
+
+./documents/config
+設定ファイルを収める
+
+./documents/scrap
+catalog とは別に, 細々とした文書を記録しておく
+
+./products
+./products/list-commands-table.pdf
+成果物を収める
+
+./temp
+一時的なファイルを出力するためのディレクトリ. ビルドツールで生成されたファイルはここに収められる
+
+./tools
+./tools/build-by-path.sh
+./tools/build-latexdiff.sh
+./tools/extopy
+ビルドツール
+
+```
 
 ## 文章規約
 
