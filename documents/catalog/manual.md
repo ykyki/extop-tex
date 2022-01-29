@@ -23,7 +23,6 @@
 ## 構成
 
 ```
-
 ./README.md
 リポジトリの説明
 
@@ -52,6 +51,7 @@ catalog のルートファイル. これをビルドすることでドキュメ�
 ./documents/catalog/chapter-preliminaries.tex
 ./documents/catalog/chapter-separation-axioms.tex
 ./documents/catalog/chapter-examples.tex
+./documents/catalog/chapter-countability.tex
 セクションをまとめてチャプターを構成する
 
 ./documents/catalog/examples
@@ -71,7 +71,6 @@ catalog のルートファイル. これをビルドすることでドキュメ�
 catalog とは別に, 細々とした文書を記録しておく
 
 ./products
-./products/list-commands-table.pdf
 成果物を収める
 
 ./temp
@@ -82,7 +81,6 @@ catalog とは別に, 細々とした文書を記録しておく
 ./tools/build-latexdiff.sh
 ./tools/extopy
 ビルドツール
-
 ```
 
 ## 文章規約
