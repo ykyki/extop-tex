@@ -126,18 +126,18 @@
 	$ X \defeq \prod_{\lambda \in \Lambda} X_\lambda $を積空間,
 	$ \morph{p_\lambda}{X}{X_\lambda} $を射影とする.
 	ここで$ X $の1点$ p = (p_\lambda)_{\lambda \in \Lambda} $をとり,
-	$$ A_p \defeq \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X}
-	{\setcomp{\lambda \in \Lambda}{x_\lambda \neq p_\lambda} \text{が有限}} $$と定める.
-	このとき, $ X = \topcl A_p $が成り立つ.
+	\[ A_p \defeq \setcomp{(x_\lambda)_{\lambda \in \Lambda} \in X}
+	{\setcomp{\lambda \in \Lambda}{x_\lambda \neq p_\lambda} \text{が有限}} \]
+	と定める. このとき, $ X = \topcl A_p $が成り立つ.
 \end{proposition}
 
 \begin{proof}
-	各$ X_\lambda $の位相を$ \mathcal{O}_\lambda $とする.
 	$ X $の任意の点$ x = (x_\lambda)_{\lambda \in \Lambda} $をとり,
 	$ x $の任意の開近傍が$ A_p $と交わることを示せば良い.
-	積位相の定義より, $$ \setcomp{\bigcap_{\lambda \in \Lambda'} \mapinvset{p_\lambda}{U_\lambda}}
-	{\Lambda' \subset \Lambda, \Lambda' \colon \text{有限},
-	U_\lambda \in \mathcal{O}_\lambda, x_\lambda \in U_\lambda} $$
+	積位相の定義より,
+	\[ \setcomp{\bigcap_{\lambda \in \Lambda'} \mapinvset{p_\lambda}{U_\lambda}}
+	{\text{$\Lambda'$は$\Lambda$の有限部分集合},
+	\text{$U_\lambda$は$X_\lambda$の開近傍}} \]
 	は$ x $の近傍基をなすことがわかる.
 	有限集合$ \Lambda' \subset \Lambda $に対して$ y = (y_\lambda)_{\lambda \in \Lambda} $を
 	次のように定義する:
@@ -145,8 +145,8 @@
 		x_\lambda & \lambda \in \Lambda' \text{のとき} \\
 		p_\lambda & \lambda \notin \Lambda' \text{のとき}.
 	\end{cases}$$
-	このとき, $ y \in A_p \cap \left[\bigcap_{\lambda \in \Lambda'}
-	\mapinvset{p_\lambda}{U_\lambda}\right] $より,
+	このとき, $ y \in A_p \cap \lrbrack{\bigcap_{\lambda \in \Lambda'}
+	\mapinvset{p_\lambda}{U_\lambda}} $より,
 	$ x $任意の開近傍が$ A_p $と交わることが示された.
 \end{proof}
 
@@ -162,15 +162,15 @@
 	射影$ \morph{p_\lambda}{X}{X_\lambda} $が連続全射であることからわかる.
 	以降では逆を示す.
 	まず, $ \Lambda $が有限の場合について証明する.
-	一般性を失うことなく$ \Lambda = \{1, 2, \cdots, n\} $と仮定してよい.
+	一般性を失うことなく$ \Lambda = \{1, 2, \ldots, n\} $と仮定してよい.
 	$ n $に関する帰納法で示す.
 	$ n = 0 $, すなわち$ \Lambda = \emptyset $の場合,
 	一点からなる空間は連結なので, $ X $は連結である.
 	$ n-1 $のとき主張が成り立つと仮定する.
-	任意に$ X $の2点$ x = (x_1, \cdots, x_n), y = (y_1, \cdots, y_n) $をとる.
-	帰納法の仮定より$ A \defeq \{x_1\} \times X_2 \times \cdots \times X_n,
-	B \defeq X_1 \times \cdots \times X_{n-1} \times \{y_n\} $は
-	連結部分集合である. $ (x_1, x_2, \cdots, x_{n-1}, y_n) \in A \cap B $なので,
+	任意に$ X $の2点$ x = (x_1, \ldots, x_n), y = (y_1, \cdots, y_n) $をとる.
+	帰納法の仮定より$ A \defeq \lrbrace{x_1} \times X_2 \times \cdots \times X_n,
+	B \defeq X_1 \times \cdots \times X_{n-1} \times \lrbrace{y_n} $は
+	連結部分集合である. $ (x_1, x_2, \ldots, x_{n-1}, y_n) \in A \cap B $なので,
 	\cref{c00001}より$ A \cup B $は連結集合である.
 	これは2点$ x, y $を含むので\cref{c00002}より
 	$ X = X_1 \times \cdots \times X_n $は連結である.
