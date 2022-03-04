@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/ykyki/docker-tex-image:1.0
-      options: -it --rm -v ${{ github.workspace }}:/workdir
+      options: --user root
       credentials:
         username: ykyki
         password: ${{ secrets.DOCKER_LOGIN_PASS }}
