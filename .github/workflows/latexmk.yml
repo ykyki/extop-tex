@@ -31,4 +31,4 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: root-pdf
-        path: ./documents/catalog/root.tex
+        path: ./documents/catalog/root.pdf
