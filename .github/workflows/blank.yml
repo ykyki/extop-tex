@@ -1,0 +1,28 @@
+name: latemkrc runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Echo status
+        run: |
+          whoami
+          pwd
+          ls
+          git status
+  kick-image:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/ykyki/docker-tex-image:1.0
+      credentials:
+        username: ykyki
+        password: ${{ secrets.DOCKER_LOGIN_PASS }}
+    steps:
+    - name: whoami
+      run: |
+        whoami
+        uname -a
