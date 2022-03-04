@@ -11,18 +11,24 @@ jobs:
       - name: Echo status
         run: |
           whoami
-          pwd
-          ls
           git status
   kick-image:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/ykyki/docker-tex-image:1.0
+      options: -it --rm -v ${{ github.workspace }}:/workdir
       credentials:
         username: ykyki
         password: ${{ secrets.DOCKER_LOGIN_PASS }}
     steps:
-    - name: whoami
+    - uses: actions/checkout@v2
+    - name: latexmk
       run: |
         whoami
-        uname -a
+        pwd
+        ls -l
+        latexmk -cd -norc -r ./documents/catalog/.latexmkrc ./documents/catalog/root.tex
+    - uses: actions/upload-artifact@v1
+      with:
+        name: root-pdf
+        path: ./documents/catalog/root.tex
