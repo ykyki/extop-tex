@@ -80,7 +80,7 @@ latexmk -cd -norc -r "$LATEXMKRC_FILE" "$TARGET_PATH" >/dev/null &&
     echo "Build: $OUTPUT_DIR/$TARGET_NAME-$OUTPUT_SUFFIX.pdf"
 
 rm -rf "$TMP_DIR"
-cd - || exit
+cd - || exit 1
 
 exit 0
 
