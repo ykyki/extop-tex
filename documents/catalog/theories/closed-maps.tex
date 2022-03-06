@@ -152,24 +152,35 @@
 \end{proof}
 
 \begin{proposition}[{\cite[Theorem~3.10.7]{Engelking1989GT}}]
-	$ X $を可算コンパクト空間とし, $ Y $を列型空間とする. このとき, 射影$ \morph{p}{X \times Y}{Y} $は閉写像である.
+	$ X $を可算コンパクト空間とし, $ Y $を列型空間とする. $ X $が列型または \topT{1} であれば,
+	射影$ \morph{p}{X \times Y}{Y} $は閉写像である.
 \end{proposition}
 
 \begin{proof}
 	$ F \subset X \times Y $を任意の閉集合とし, $ \mapset{p}{F} $が列型閉集合であることを示す.
 	$ \mapset{p}{F} $内の点列$ (y_n)_{n \in \N} $が点$ y \in Y $に収束しているとする.
-	ここで, $ (x_n)_{n \in \N} $を$ X $における点列で$ (x_n, y_n)_{n \in \N}  $が$ F $の点列であるものとし,
-	$ A \defeq \setcomp{x_n}{n \in \N} $と定める.
-	$ A $が有限集合のとき, $ (x_n)_{n \in \N} $の部分列$ (x_{n_m})_{m \in \N} $
-	であって, 任意の$ m \in \N $について$ x_{n_0} = x_{n_m} $となるものが存在する.
-	このとき, $ F $の点列$ (x_{n_m}, y_{n_m})_{m \in \N} $は
-	$ (x_{n_0}, y) $に収束する.
-	$ F $が閉集合であることから$ (x_{n_0}, y) \in F $である.
-	ゆえに, $ y \in \mapset{p}{F} $である.
-	次に, $ A $が無限集合の場合を示す.
+	ここで, $ (x_n)_{n \in \N} $を$ X $における点列で
+	$ (x_n, y_n)_{n \in \N}  $が$ F $の点列であるものとする.
+	$ X $が列型の場合, \cref{prop:CntCpt+Seq>SeqCpt}より$ X $は点列コンパクトである.
+	よって, $ (x_n)_{n \in \N} $は収束部分列$ (x_{n_m})_{m \in \N} $をもつ.
+	$ (x_{n_m})_{m \in \N} $が点$ x \in X $に収束しているとすると,
+	$ (x_{n_m}, y_{n_m})_{m \in \N} $は点$ (x, y) $に収束する.
+	$ F $は閉集合なので, $ (x, y) \in F $より$ y \in \mapset{p}{F} $である.
+
+	次に, $ X $が \topT{1} の場合について示す.
+	$ A \defeq \setcomp{x_n}{n \in \N} $とする.
+	$ A $が有限集合のとき, $ (x_n)_{n \in \N} $の収束部分列が存在するので,
+	上と同様の議論により$ y \in \mapset{p}{F} $が示せる.
+	$ A $が無限集合の場合を示す.
 	$ X $が可算コンパクトなので\cref{prop:Countable compact <> Every countably infinite subset has an accumulation point}より,
 	$ x \in X $で$ A $の集積点であるものが存在する.
-	このとき, $ (x, y) \in \topcl F $であり, $ F = \topcl F $なので
+	もし, $ x $のある開近傍$ U $であって, $ U \cap A $が有限となるものが存在すれば,
+	$ X $の \topT{1} 性より$ U \cap A $のすべての点を含まない$ x $の開近傍がとれる.
+	このとき, $ (U \cap V) \cap A = \emptyset $なので$ x \in \topcl A $に矛盾する.
+	よって, $ x $の任意の開近傍$ U $について$ U \cap A $は無限集合である.
+	ここで, $ U_x, U_y $をそれぞれ$ x, y $の任意の開近傍とすれば,
+	十分大きい$ N \in \N $が存在して$ x_N \in U_x $かつ$ y_N \in U_y $が成り立つ.
+	よって, $ (U_x \times U_y) \cap F \neq \emptyset $より$ (x, y) \in F $なので
 	$ y \in \mapset{p}{F} $となる.
 \end{proof}
 
