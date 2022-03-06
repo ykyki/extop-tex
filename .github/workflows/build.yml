@@ -36,6 +36,6 @@ jobs:
       run: sh ./tools/build.sh ./documents/catalog/theories/paracompact-spaces.tex review
     - uses: actions/upload-artifact@v3
       with:
-        name: build-docs-${{GITHUB_SHA}}
+        name: build-docs-${GITHUB_SHA}
         path: ./temp/*.pdf
 
