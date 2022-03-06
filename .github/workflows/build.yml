@@ -1,0 +1,39 @@
+name: 🎈Build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello✋"
+
+  build-docs:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/ykyki/docker-tex-image:1.0
+      options: --user root
+      credentials:
+        username: ykyki
+        password: ${{secrets.DOCKER_LOGIN_PASS}}
+    steps:
+    - uses: actions/checkout@v3
+    - name: check current status
+      run: |
+        whoami
+        pwd
+        ls -l
+        git status
+    - name: build root (product)
+      run: sh ./tools/build.sh ./documents/catalog/root.tex product
+    - name: build paracompact (review)
+      run: sh ./tools/build.sh ./documents/catalog/theories/paracompact-spaces.tex review
+    - name: Set vars
+      id: vars
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+    - uses: actions/upload-artifact@v3
+      with:
+        name: extop-tex-${{steps.vars.outputs.sha_short}}
+        path: ./temp/*.pdf
