@@ -1,4 +1,4 @@
-name: Build🎈
+name: 🎈Build
 
 on:
   push:
@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: echo
-        run: echo "Hello✋"
+      - run: echo "Hello✋"
 
   build-docs:
     runs-on: ubuntu-latest
@@ -30,9 +29,9 @@ jobs:
         pwd
         ls -l
         git status
-    - name: build root(product)
+    - name: build root (product)
       run: sh ./tools/build.sh ./documents/catalog/root.tex product
-    - name: build paracompact(review)
+    - name: build paracompact (review)
       run: sh ./tools/build.sh ./documents/catalog/theories/paracompact-spaces.tex review
     - uses: actions/upload-artifact@v3
       with:
