@@ -1,34 +1,41 @@
-name: latemkrc runner
+name: Build🎈
 
 on:
+  push:
+  pull_request:
+    branches: [ develop ]
   workflow_dispatch:
 
 jobs:
-  hello-test:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Echo status
-        run: |
-          whoami
-          git status
-  kick-image:
+      - uses: actions/checkout@v3
+      - name: echo
+        run: echo "Hello✋"
+
+  build-docs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/ykyki/docker-tex-image:1.0
       options: --user root
       credentials:
         username: ykyki
-        password: ${{ secrets.DOCKER_LOGIN_PASS }}
+        password: ${{secrets.DOCKER_LOGIN_PASS}}
     steps:
-    - uses: actions/checkout@v2
-    - name: latexmk
+    - uses: actions/checkout@v3
+    - name: check current status
       run: |
         whoami
         pwd
         ls -l
-        latexmk -cd -norc -r ./documents/catalog/.latexmkrc ./documents/catalog/root.tex
-    - uses: actions/upload-artifact@v1
+        git status
+    - name: build root(product)
+      run: sh ./tools/build.sh ./documents/catalog/root.tex product
+    - name: build paracompact(review)
+      run: sh ./tools/build.sh ./documents/catalog/theories/paracompact-spaces.tex review
+    - uses: actions/upload-artifact@v3
       with:
-        name: root-pdf
-        path: ./documents/catalog/root.pdf
+        name: build-docs-${{GITHUB_SHA}}
+        path: ./temp/*.pdf
+
