@@ -22,10 +22,8 @@ jobs:
         pwd
         ls -l
         git status
-    - name: build root (product)
+    - name: build root.tex
       run: sh ./tools/build.sh ./documents/catalog/root.tex product
-    - name: build paracompact (review)
-      run: sh ./tools/build.sh ./documents/catalog/theories/paracompact-spaces.tex review
     - name: Set vars
       id: vars
       run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
