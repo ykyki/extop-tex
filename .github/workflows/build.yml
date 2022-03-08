@@ -2,9 +2,7 @@ name: 🎈Build
 
 on:
   push:
-    branches: [main, develop]
-  pull_request:
-    types: [opened, reopened, synchronize, ready_for_review]
+    branches: [main, develop, 'feature/*']
   workflow_dispatch:
 
 jobs:
