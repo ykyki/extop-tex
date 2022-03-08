@@ -35,5 +35,5 @@ jobs:
         echo "::set-output name=branch_name::$(git rev-parse --abbrev-ref HEAD | sed 's|/|_|')"
     - uses: actions/upload-artifact@v3
       with:
-        name: extop-tex-review-${{ steps.vars.outputs.sha_short }}
+        name: extop-tex-review-${{ steps.vars.outputs.sha_short }}-${{ steps.vars.outputs.branch_name }}
         path: ./temp/*.pdf
