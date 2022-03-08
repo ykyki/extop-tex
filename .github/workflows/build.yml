@@ -3,17 +3,18 @@ name: 🎈Build
 on:
   push:
     branches: [main, develop, 'feature/*']
+    paths: ['documents/**']
   workflow_dispatch:
 
 jobs:
-  build-docs:
+  build-product:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/ykyki/docker-tex-image:1.0
       options: --user root
       credentials:
         username: ykyki
-        password: ${{secrets.DOCKER_LOGIN_PASS}}
+        password: ${{ secrets.DOCKER_LOGIN_PASS }}
     steps:
     - uses: actions/checkout@v3
     - name: check current status
@@ -29,5 +30,5 @@ jobs:
       run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
     - uses: actions/upload-artifact@v3
       with:
-        name: extop-tex-${{steps.vars.outputs.sha_short}}
+        name: extop-tex-${{ steps.vars.outputs.sha_short }}
         path: ./temp/*.pdf
