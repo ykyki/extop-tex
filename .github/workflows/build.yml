@@ -28,7 +28,7 @@ jobs:
       id: vars
       run: |
         echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-        echo "::set-output name=branch_name::$(git rev-parse --short HEAD | sed 's|/|_|')"
+        echo "::set-output name=branch_name::$(git rev-parse --abbrev-ref HEAD | sed 's|/|_|')"
     - uses: actions/upload-artifact@v3
       with:
         name: extop-tex-product-${{ steps.vars.outputs.sha_short }}-${{ steps.vars.outputs.branch_name }}
