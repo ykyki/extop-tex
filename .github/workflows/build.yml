@@ -3,7 +3,6 @@ name: 🎈Build
 on:
   push:
     branches: [main, develop, 'feature/*']
-    paths: ['documents/**']
   workflow_dispatch:
 
 jobs:
