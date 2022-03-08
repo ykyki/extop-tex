@@ -34,5 +34,5 @@ jobs:
         echo "::set-output name=branch_name::$(echo $GITHUB_HEAD_REF | sed 's|/|_|')"
     - uses: actions/upload-artifact@v3
       with:
-        name: extop-tex-${{ github.run_number }}-review-${{ steps.vars.outputs.branch_name }}
+        name: extop-tex-compare-${{ github.run_number }}-${{ steps.vars.outputs.branch_name }}
         path: ./temp/*.pdf
