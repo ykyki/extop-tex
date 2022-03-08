@@ -28,7 +28,11 @@ jobs:
         git status
     - name: build updated files
       run: git diff --name-only origin/develop ./documents/catalog | xargs -P0 -L1 -I {} sh ./tools/build.sh {} review
+    - name: Set vars
+      id: vars
+      run: |
+        echo "::set-output name=branch_name::$GITHUB_HEAD_REF"
     - uses: actions/upload-artifact@v3
       with:
-        name: extop-tex-${{ github.run_number }}-review-${{ github.head_ref }}
+        name: extop-tex-${{ github.run_number }}-review-${{ steps.vars.outputs.branch_name }}
         path: ./temp/*.pdf
