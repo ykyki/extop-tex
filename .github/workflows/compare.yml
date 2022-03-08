@@ -1,12 +1,12 @@
-name: 🎈Build
+name: 🤛 Compare
 
 on:
-  push:
-    branches: [main, develop, 'feature/*']
-  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+    paths: ['documents/**']
 
 jobs:
-  build-product:
+  build-review:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/ykyki/docker-tex-image:1.0
@@ -16,18 +16,22 @@ jobs:
         password: ${{ secrets.DOCKER_LOGIN_PASS }}
     steps:
     - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: '0'
+    - run: git branch
     - name: check current status
       run: |
         whoami
         pwd
         ls -l
         git status
-    - name: build root.tex
-      run: sh ./tools/build.sh ./documents/catalog/root.tex product
+    - name: build updated files
+      run: git diff --name-only origin/develop ./documents/catalog | xargs -P0 -L1 -I {} sh ./tools/build.sh {} review
     - name: Set vars
       id: vars
       run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
     - uses: actions/upload-artifact@v3
       with:
-        name: extop-tex-product-${{ steps.vars.outputs.sha_short }}
+        name: extop-tex-review-${{ steps.vars.outputs.sha_short }}
         path: ./temp/*.pdf
