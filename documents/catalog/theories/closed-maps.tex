@@ -6,25 +6,116 @@
 \section{閉写像}
 \label{sec:closed-maps}
 
+\begin{source}
+	本節は主に\cite{Engelking1989GT}を参考にしている.
+\end{source}
+
 \begin{definition}
 	$ X, Y $を位相空間, $ \morph{f}{X}{Y} $を写像とする.
-	$ X $の任意の閉写像$ F $に対して$ \mapset{f}{F} $が$ Y $の閉集合であるとき,
-    $ f $を閉写像という.
+	$ X $の任意の閉集合$ F $に対して$ \mapset{f}{F} $が$ Y $の閉集合であるとき,
+	$ f $を\indexjj{へいしゃぞう}{閉写像}{closed map}という.
 \end{definition}
 
 \begin{proposition}
-    \label{c00001}
-    $ X, Y $を位相空間とし, $ \morph{f}{X}{Y} $を写像とする.
-    このとき以下の条件は同値である.
-    \begin{enumerate}
-        \item $ f $は閉写像である.
-        \item 任意の点$ y \in Y $と$ \mapinvpt{f}{y} \subset U $なる$ X $の任意の開集合$ U $に対して
-        $ y $の開近傍$ V $であって$ \mapinvset{f}{V} \subset U $を満たすものが存在する.
-    \end{enumerate}
+	\label{c00001}
+	$ X, Y $を位相空間とし, $ \morph{f}{X}{Y} $を写像とする.
+	このとき以下の条件は同値である.
+	\begin{enumerate}
+		\item $ f $は閉写像である.
+		\item 任意の集合$ A \subset Y $と$ \mapinvset{f}{A} \subset U $なる$ X $の任意の開集合$ U $に対して
+		$ A $の開近傍$ V $であって$ \mapinvset{f}{V} \subset U $を満たすものが存在する.
+		\item 任意の点$ y \in Y $と$ \mapinvpt{f}{y} \subset U $なる$ X $の任意の開集合$ U $に対して
+		$ y $の開近傍$ V $であって$ \mapinvset{f}{V} \subset U $を満たすものが存在する.
+	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    \WIP.
+	(1)ならば(2)を示す. $ \morph{f}{X}{Y} $を閉写像とする.
+	任意の部分集合$ A \subset Y $と$ \mapinvset{f}{A} \subset U $なる
+	$ X $の任意の開集合$ U $をとる. $ F \defeq X \setminus U $と定義すると, $ f $が
+	閉写像であることから$ \mapset{f}{F} $は$ Y $の閉集合である.
+	任意の$ y \in A $について$ y \notin \mapset{f}{F} $なので$ y $の開近傍$ V_y $であって,
+	$ V_y \cap \mapset{f}{F} = \emptyset $なるものが存在する.
+	このとき, $ V \defeq \bigcup_{y \in A} V_y $と定めれば,
+	$ V $は$ A $の開近傍であって$ \mapinvset{f}{V} \subset U $である.
+
+	(2)ならば(3)が成り立つことは$ A $が特に一点集合の場合を考えれば良い.
+
+	(3)ならば(1)を示す. $ F \subset  X $を閉集合とする.
+	$ y \in \topcl \mapset{f}{F} $をとり, $ \mapinvpt{f}{y} \cap F \neq \emptyset $を示せばよい.
+	$ \mapinvpt{f}{y} \cap F = \emptyset $と仮定して矛盾を導く.
+	このとき, $ \mapinvpt{f}{y} \subset U $なる開集合$ U $であって, $ U \cap F = \emptyset $となるものが存在する.
+	また, $ y $の開近傍$ V $であって$ \mapinvset{f}{V} \subset U $なるものが存在する.
+	$ y \in \topcl \mapset{f}{F} $なので$ V \cap \mapset{f}{F} \neq \emptyset $である.
+	ゆえに, $ \mapinvset{f}{V} \cap F \neq \emptyset $となる.
+	これは, $ U \cap F = \emptyset $に矛盾する.
+\end{proof}
+
+\begin{proposition}
+	$ X, Y, Z $を位相空間とし, $ \morph{f}{X}{Y}, \morph{g}{Y}{Z} $を閉写像とする.
+	このとき, 合成写像$ \morph{g \compo f}{X}{Z} $も閉写像である.
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	$ X, Y $を位相空間とし, $ \morph{f}{X}{Y} $を閉写像とする.
+	このとき, 部分集合$ A \subset Y $に対して制限写像
+	$ \morph{f|_{\mapinvset{f}{A}}}{\mapinvset{f}{A}}{A} $も閉写像である.
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	$ X, Y $を位相空間とし, $ \morph{f}{X}{Y} $を連続な全単射とする.
+	このとき, $ f $が同相写像であることと$ f $が閉写像であることは同値である.
+	\qed
+\end{proposition}
+
+\begin{proposition}[{\cite[Proposition~2.3.27]{Engelking1989GT}}]
+	$ \setfamily{X_i}{i \in I}, \setfamily{Y_i}{i \in I} $を空でない位相空間の族とし,
+	各$ i \in I $に対して$ \morph{f_i}{X_i}{Y_i} $を写像とする.
+	このとき, 積写像$ \morph{f}{\prod_{i \in I} X_i}{\prod_{i \in I} Y_i}
+	{(x_i)_{i \in I}}{(\mappt{f_i}{x_i})_{i \in I}} $が閉写像ならば
+	各$ \morph{f_i}{X_i}{Y_i} $は閉写像である.
+\end{proposition}
+
+\begin{proof}
+	\WIP.
+\end{proof}
+
+\begin{example}
+	2つの閉写像の積写像も閉写像になるとは限らない.
+	\WIP.
+\end{example}
+
+\begin{proposition}
+	$ X $をコンパクト空間, $ Y $を \Hausdorff 空間とし, $ \morph{f}{X}{Y} $を連続写像とする.
+	このとき, $ f $は閉写像である.
+\end{proposition}
+
+\begin{proof}
+	コンパクト空間$ X $の任意の閉集合$ F $はコンパクトであり,
+	$ \morph{f}{X}{Y} $が連続であることから, $ \mapset{f}{F} $は
+	$ Y $のコンパクト集合である.
+	\Hausdorff 空間のコンパクト部分集合は閉集合なので(\cref{whaus00001}),
+	$ \mapset{f}{F} $は閉集合である.
+\end{proof}
+
+\begin{proposition}[{\cite[Theorem~3.3.22]{Engelking1989GT}}]
+	$ X $を位相空間, $ Y $をk-空間とし, $ \morph{f}{X}{Y} $を連続写像とする.
+	このとき, $ f $が閉写像であるための必要十分条件は, $ Y $の任意のコンパクト部分集合$ F $に対して
+	$ \morphto{f|_{\mapinvset{f}{F}}}{\mapinvset{f}{F}}{F}{x}{f(x)} $が閉写像になることである.
+\end{proposition}
+
+\begin{proof}
+	\WIP.
+\end{proof}
+
+\begin{proposition}[{\cite[Theorem~3.10.7]{Engelking1989GT}}]
+	$ X $を可算コンパクト空間とし, $ Y $を列型空間とする. このとき, 射影$ \morph{p}{X \times Y}{Y} $は閉写像である.
+\end{proposition}
+
+\begin{proof}
+	\WIP.
 \end{proof}
 
 \end{document}
