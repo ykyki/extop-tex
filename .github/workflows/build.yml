@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-docs:
+  build-product:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/ykyki/docker-tex-image:1.0
