@@ -5,7 +5,7 @@ on:
     types: [opened, reopened, synchronize, ready_for_review]
 
 jobs:
-  build-docs:
+  build-review:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/ykyki/docker-tex-image:1.0
@@ -14,6 +14,9 @@ jobs:
         username: ykyki
         password: ${{ secrets.DOCKER_LOGIN_PASS }}
     steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: develop
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.event.pull_request.head.sha }}
