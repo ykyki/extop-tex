@@ -31,7 +31,7 @@ jobs:
     - name: Set vars
       id: vars
       run: |
-        echo "::set-output name=branch_name::$GITHUB_HEAD_REF"
+        echo "::set-output name=branch_name::$(echo $GITHUB_HEAD_REF | sed 's|/|_|')"
     - uses: actions/upload-artifact@v3
       with:
         name: extop-tex-${{ github.run_number }}-review-${{ steps.vars.outputs.branch_name }}
