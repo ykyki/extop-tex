@@ -3,6 +3,7 @@ name: 🤛 Compare
 on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
+    paths: ['documents/**']
 
 jobs:
   build-review:
@@ -17,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-    - run: git fetch develop
+        fetch-depth: '0'
     - name: check current status
       run: |
         whoami
