@@ -2,14 +2,10 @@ name: 🎈Build
 
 on:
   push:
+    branches: [main, develop]
   workflow_dispatch:
 
 jobs:
-  hello:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello✋"
-
   build-docs:
     runs-on: ubuntu-latest
     container:
