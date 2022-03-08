@@ -26,8 +26,10 @@ jobs:
       run: sh ./tools/build.sh ./documents/catalog/root.tex product
     - name: Set vars
       id: vars
-      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      run: |
+        echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+        echo "::set-output name=branch_name::$(git rev-parse --short HEAD | sed 's|/|_|')"
     - uses: actions/upload-artifact@v3
       with:
-        name: extop-tex-product-${{ steps.vars.outputs.sha_short }}
+        name: extop-tex-product-${{ steps.vars.outputs.sha_short }}-${{ steps.vars.outputs.branch_name }}
         path: ./temp/*.pdf
