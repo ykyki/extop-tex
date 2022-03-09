@@ -30,8 +30,9 @@ jobs:
       run: git diff --name-only origin/develop ./documents/catalog | xargs -P0 -L1 -I {} sh ./tools/build.sh {} review
     - name: Set vars
       id: vars
-      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      run: |
+        echo "::set-output name=branch_name::$(echo $GITHUB_HEAD_REF | sed 's|/|_|')"
     - uses: actions/upload-artifact@v3
       with:
-        name: extop-tex-${{ steps.vars.outputs.sha_short }}
+        name: extop-tex-compare-${{ github.run_number }}-${{ steps.vars.outputs.branch_name }}
         path: ./temp/*.pdf
