@@ -1,0 +1,18 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{強 \Frechet 空間}
+\label{sec:strongly-Frechet-spaces}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{きょうFrechet}{強\Frechet}{strongly \Frechet}であるとは,
+	$ X $の可算個の部分集合からなる任意の減少列$ A_0 \supset A_1 \subset \cdots $と
+	点$ a \in \bigcap_{n \in \N} \topcl A_n $に対して,
+	$ a $に収束する点列$ (a_n)_{n \in \N} $であって
+	任意の$ n \in \N $について$ a_n \in A_n $を満たすものが存在することである.
+\end{definition}
+
+
+\end{document}

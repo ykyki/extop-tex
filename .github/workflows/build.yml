@@ -1,0 +1,34 @@
+name: 🎈Build
+
+on:
+  push:
+    branches: [main, develop, 'feature/*']
+  workflow_dispatch:
+
+jobs:
+  build-product:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/ykyki/docker-tex-image:1.0
+      options: --user root
+      credentials:
+        username: ykyki
+        password: ${{ secrets.DOCKER_LOGIN_PASS }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: check current status
+      run: |
+        whoami
+        pwd
+        ls -l
+        git status
+    - name: build root.tex
+      run: sh ./tools/build.sh ./documents/catalog/root.tex product
+    - name: Set vars
+      id: vars
+      run: |
+        echo "::set-output name=branch_name::$(git rev-parse --abbrev-ref HEAD | sed 's|/|_|')"
+    - uses: actions/upload-artifact@v3
+      with:
+        name: extop-tex-build-${{ github.run_number }}-${{ steps.vars.outputs.branch_name }}
+        path: ./temp/*.pdf
