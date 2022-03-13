@@ -6,4 +6,67 @@
 \section{不動点定理}
 \label{sec:empty-template}
 
+\begin{definition}
+	集合$ X $上の写像$ \morph{f}{X}{X} $に対して,
+	$ x \in X $が$ f $の\indexjj{ふどうてん}{不動点}{fixed point}であるとは,
+	$ x = f(x) $が成り立つことである.
+\end{definition}
+
+\begin{definition}
+	$ (X, d_X), (Y, d_Y) $を距離空間とする.
+	写像$ \morph{f}{X}{Y} $が\indexjj{りぷしっつれんぞく}{\Lipschitz 連続}{\Lipschitz continuous}であるとは,
+	ある$ k \geq 0 $が存在して, 任意の$ a, b \in X $に対して
+	$ d_Y(f(a), f(b)) \leq kd_X(a, b) $が成り立つことである.
+	また, 上のような$ k $のうち最小のものを\indexjj{りぷしっつていすう}{\Lipschitz 定数}{\Lipschitz constant}という.
+\end{definition}
+
+\begin{definition}
+	$ (X, d) $を距離空間と, $ \morph{f}{X}{X} $を \Lipschitz 定数が$ k $の \Lipschitz 連続な写像とする.
+	$ k \leq 1 $のとき$ f $は\indexjj{ひかくだいしゃぞう}{非拡大写像}{nonexpansive map}であるといい,
+	特に$ k < 1 $のとき\indexjj{しゅくしょうしゃぞう}{縮小写像}{contraction map}であるという.
+\end{definition}
+
+\begin{theorem}[Banach's Fixed Point Theorem]
+	$ (X, d) $を完備距離空間とし, $ \morph{f}{X}{X} $を縮小写像とする.
+	このとき, $ f $の不動点$ x^* \in X $がただ1つ存在し,
+	任意の$ x \in X $に対して$ \lim_{n \to \infty} f^n(x) = x^* $が成り立つ.
+\end{theorem}
+
+\begin{proof}
+	任意に$ x \in X $をとり, $ x_0 \defeq x $とする.
+	また, 任意の$ n \geq 1 $に対して$ x_{n+1} \defeq f(x_n) $と定める.
+
+	まず, このように定義される点列$ (x_n)_{n \in \N} $が収束することを示す.
+	$ f $の \Lipschitz 定数を$ k $とすると$ 0 \leq k < 1 $である.
+	$ k = 0 $のとき, $ f $は定値写像なので
+	$ (x_n)_{n \in \N} $が収束することは明らかである.
+	よって, $ k > 0 $の場合について示す.
+	任意の$ l \in \N $に対して,
+	\[ d(x_{l+1}, x_l) = d(f(x_l), f(x_{l-1}))
+	\leq kd(x_l, x_{l-1}) \leq k^2d(x_{l-1}, x_{l-2}) \leq \cdots \leq k^ld(x_1,x_0)\]
+	が成り立つ. このとき, $ m < n $なる$ m, n \in \N $に対して,
+	\begin{eqnarray*}
+		d(x_m, x_n) & \leq & d(x_m, x_{m+1}) + d(x_{m+1}, x_{m+2}) + \cdots + d(x_{n-1}, x_n) \\
+		            & \leq & k^m(1 + k + k^2 + \cdots + k^{n-m-1})d(x_1, x_0) \\
+					& = & \frac{k^m(1-k^{n-m})}{1-k}d(x_1, x_0) < \frac{k^m}{1-k}d(x_1, x_0)
+	\end{eqnarray*}
+	が成り立つ. よって, 任意の$ \varepsilon > 0 $に対して,
+	$ N > \log_k \lbrack \frac{\varepsilon (1-k)}{d(x_1, x_0)}  \rbrack $
+	なる$ N \in \N $をとれば, $ m, n > N $なる任意の$ m, n \in \N $に対して,
+	$ d(x_m, x_n) < \varepsilon $が成り立ち$ (x_n)_{n \in \N} $はコーシー列である.
+	$ (X, d) $は完備なので$ (x_n)_{n \in \N} $は収束列である.
+
+	そこで, $ x^* \defeq \lim x_n $と定める. 縮小写像は連続なので,
+	\[ f(x^*) = f(\lim_{n \to \infty x_n})
+	= \lim_{n \to \infty} f(x_n) = \lim x_{n+1} = x^*\]
+	が成り立ち, $ x^* $は$ f $の不動点である.
+
+	最後に, 不動点の一意性を示す.
+	$ x^*, y^* $をそれぞれ$ f $の不動点とすると,
+	$ d(x^*, y^*) = d(f(x^*), f(y^*)) \leq kd(x^*, y^*) $より
+	$ (1-k)d(x^*, y^*) \leq 0 $が成り立つ.
+	また, 縮小写像の条件より$ 1 - k > 0 $なので
+	$ d(x^*, y^*) = 0 $となって$ x^* = y^* $が成り立つ.
+\end{proof}
+
 \end{document}
