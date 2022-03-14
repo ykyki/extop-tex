@@ -1,0 +1,43 @@
+{
+  "plugins": {
+    "latex2e": true
+  },
+  "filters": {},
+  "rules": {
+    "preset-ja-technical-writing": {
+      "max": 100,
+      "max-comma": {
+        "max": 2
+      },
+      "max-kanji-continuous-len": {
+        "max": 6
+      },
+      "arabic-kanji-numbers": false,
+      "no-mix-dearu-desumasu": {
+        "preferInHeader": "である",
+        "preferInBody": "である",
+        "preferInList": "である",
+        "strict": true
+      },
+      "ja-no-mixed-period": {
+        "periodMark": ".",
+        "allowPeriodMarks": [":"]
+      },
+      "no-double-negative-ja": true,
+      "no-dropping-the-ra": true,
+      "no-doubled-conjunctive-particle-ga": true,
+      "no-doubled-conjunction": true,
+      "no-doubled-joshi": {
+        "min_interval": 1
+      },
+      "ja-no-weak-phrase": true,
+      "ja-no-redundant-expression": true,
+      "ja-unnatural-alphabet": {
+        "allow": ["k-空間"]
+      }
+    },
+    "prh": {
+      "rulePaths": ["./prh.yml"]
+    }
+  }
+}
