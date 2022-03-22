@@ -85,7 +85,7 @@
 	$ \mapinvset{p_{i_0}}{F} $は$ \prod_{i \in I} X_i $の閉集合なので,
 	$ f $が閉写像であることから
 	$ \mapset{f}{\mapinvset{p_{i_0}}{F}} $は$ \prod_{i \in I} Y_i $の閉集合である.
-	ここで, 各$ i \in \I $に対して$ A_i \subset Y_i $を次のように定める.
+	ここで, 各$ i \in I $に対して$ A_i \subset Y_i $を次のように定める.
 	\begin{equation}
 		A_i \defeq
 		\begin{cases}
@@ -126,7 +126,7 @@
 	\label{c00002}
 	$ X, Y $を位相空間とし, $ \morph{f}{X}{Y} $を閉写像とする.
 	このとき, 任意の$ A \subset Y $に対して
-	$ \morphto{f|_{\mapinvset{f}{A}}}{\mapinvset{f}{A}}{A}{x}{f(x)} $は閉写像である.
+	$ \morphto{f_A}{\mapinvset{f}{A}}{A}{x}{f(x)} $は閉写像である.
 \end{proposition}
 
 \begin{proof}
@@ -137,9 +137,10 @@
 \end{proof}
 
 \begin{proposition}[{\cite[Theorem~3.3.22]{Engelking1989GT}}]
-	$ X $を位相空間, $ Y $をk-空間とし, $ \morph{f}{X}{Y} $を連続写像とする.
+	$ X $を位相空間, $ Y $をコンパクト部分集合について弱位相をもつ位相空間,
+	$ \morph{f}{X}{Y} $を連続写像とする.
 	このとき, $ f $が閉写像であるための必要十分条件は, $ Y $の任意のコンパクト部分集合$ K $に対して
-	$ \morphto{f|_{\mapinvset{f}{K}}}{\mapinvset{f}{K}}{K}{x}{f(x)} $が閉写像になることである.
+	$ \morphto{f_K}{\mapinvset{f}{K}}{K}{x}{f(x)} $が閉写像になることである.
 \end{proposition}
 
 \begin{proof}
@@ -152,7 +153,7 @@
 \end{proof}
 
 \begin{proposition}[{\cite[Theorem~3.10.7]{Engelking1989GT}}]
-	$ X $を可算コンパクト空間とし, $ Y $を列型空間とする. $ X $が列型または \topT{1} であれば,
+	$ X $を可算コンパクト空間, $ Y $を列型空間とする. $ X $が列型または \topT{1} であれば,
 	射影$ \morph{p}{X \times Y}{Y} $は閉写像である.
 \end{proposition}
 
@@ -160,12 +161,14 @@
 	$ F \subset X \times Y $を任意の閉集合とし, $ \mapset{p}{F} $が列型閉集合であることを示す.
 	$ \mapset{p}{F} $内の点列$ (y_n)_{n \in \N} $が点$ y \in Y $に収束しているとする.
 	ここで, $ (x_n)_{n \in \N} $を$ X $における点列で
-	$ (x_n, y_n)_{n \in \N}  $が$ F $の点列であるものとする.
+	$ (x_n, y_n)_{n \in \N}  $が$ F $内の点列であるものとする.
+
 	$ X $が列型の場合, \cref{prop:CntCpt+Seq>SeqCpt}より$ X $は点列コンパクトである.
 	よって, $ (x_n)_{n \in \N} $は収束部分列$ (x_{n_m})_{m \in \N} $をもつ.
 	$ (x_{n_m})_{m \in \N} $が点$ x \in X $に収束しているとすると,
 	$ (x_{n_m}, y_{n_m})_{m \in \N} $は点$ (x, y) $に収束する.
-	$ F $は閉集合なので, $ (x, y) \in F $より$ y \in \mapset{p}{F} $である.
+	$ F $は閉集合なので, $ (x, y) \in F $である.
+	よって, $ y \in \mapset{p}{F} $である.
 
 	次に, $ X $が \topT{1} の場合について示す.
 	$ A \defeq \setcomp{x_n}{n \in \N} $とする.
@@ -175,12 +178,12 @@
 	$ X $が可算コンパクトなので\cref{prop:Countable compact <> Every countably infinite subset has an accumulation point}より,
 	$ x \in X $で$ A $の集積点であるものが存在する.
 	もし, $ x $のある開近傍$ U $であって, $ U \cap A $が有限となるものが存在すれば,
-	$ X $の \topT{1} 性より$ U \cap A $のすべての点を含まない$ x $の開近傍がとれる.
+	$ X $の \topT{1} 性より$ U \cap A $のすべての点を含まない$ x $の開近傍$ V $がとれる.
 	このとき, $ (U \cap V) \cap A = \emptyset $なので$ x \in \topcl A $に矛盾する.
 	よって, $ x $の任意の開近傍$ U $について$ U \cap A $は無限集合である.
 	ここで, $ U_x, U_y $をそれぞれ$ x, y $の任意の開近傍とすれば,
 	十分大きい$ N \in \N $が存在して$ x_N \in U_x $かつ$ y_N \in U_y $が成り立つ.
-	よって, $ (U_x \times U_y) \cap F \neq \emptyset $より$ (x, y) \in F $なので
+	よって, $ (x, y) \in \topcl F $より$ (x, y) \in F $なので
 	$ y \in \mapset{p}{F} $となる.
 \end{proof}
 
