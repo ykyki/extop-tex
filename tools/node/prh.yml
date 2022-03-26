@@ -1,0 +1,30 @@
+version: 1
+rules:
+  # 句読点
+  - expected: ","
+    patterns:
+      - "、"
+      - "，"
+  - expected: "."
+    patterns:
+      - "。"
+
+  # 接続詞
+  - expected: "したがって"
+    pattern: "従って"
+  - expected: "したがって"
+    pattern: "従って"
+
+  # 漢字を用いる語
+  - expected: "分かる"
+    pattern:
+      - "わかる"
+  - expected: "従う"
+    pattern:
+      - "したがう"
+  - expected: "分かる"
+    pattern:
+      - "わかる"
+  - expected: "成り立つ"
+    pattern:
+      - "なりたつ"
