@@ -1,0 +1,4 @@
+{
+    "textlint.nodePath": "./tools/node",
+    "textlint.configPath": "./tools/node/.textlintrc.json"
+}
