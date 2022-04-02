@@ -1,0 +1,112 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{k-空間}
+\label{sec:k-spaces}
+
+\begin{source}
+	\cite[Section 7.9]{Dieck2008AT},
+	\cite{Strickland2009CGWH},
+	\cite{Rezk2017CGS},
+	\cite{Rezk0000K}.
+	% \cite{KOPSW2019CCTK}.
+\end{source}
+
+コンパクト\Hausdorff 空間のことを\textbf{ch-空間}と略記することにする.
+また, 位相空間$X$に対し, ch-空間$K$から$X$への連続写像を$X$の\textbf{テストマップ}と呼ぶことにする.
+
+\begin{definition}
+	位相空間$X$の部分集合$A$が\indexjj{k-へいしゅうごう}{k-閉集合}{k-closed set}であるとは,
+	$X$への任意のテストマップ$\morph{t}{K}{X}$に対し,
+	逆像$\mapinvset{t}{A}$が$K$の閉集合になることである.
+	同様にして\indexjj{k-かいしゅうごう}{k-開集合}{k-open set}も定義される.
+\end{definition}
+
+定義より, 閉集合は常にk-閉集合である.
+開集合は常にk-開集合である.
+k-閉集合の補集合はk-開集合であり, 逆も成り立つ.
+位相空間$X$のk-開集合全体を集めた部分集合族が集合$X$上の新たな位相を定めることも定義より従う.
+この位相空間を$kX$と表すことにする.
+
+\begin{definition}
+	位相空間$X$が\indexjj{k-くうかん}{k-空間}{k-space}であるとは,
+	任意のk-閉集合が閉集合になることである.
+	任意のk-開集合が開集合になることと定義しても同値である.
+\end{definition}
+
+\begin{proposition}
+	k-空間$X$の商空間はk-空間である.
+\end{proposition}
+
+\begin{proof}
+	ほぼ straightforward.
+	\WIP.
+\end{proof}
+
+\begin{proposition}
+	k-空間$X$の閉集合$F$はk-空間である.
+\end{proposition}
+
+\begin{proof}
+	ほぼ straightforward.
+	\WIP.
+\end{proof}
+
+\begin{proposition}
+	k-空間$X$の開集合$G$はk-空間である.
+\end{proposition}
+
+\begin{proof}
+	\WIP.
+\end{proof}
+
+\begin{proposition}
+	位相空間$X$について以下の条件は同値である:
+	\begin{enumerate}
+		\item $X$はk-空間である.
+		\item $X$はある局所コンパクト\Hausdorff 空間の商空間である.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\WIP.
+\end{proof}
+
+\begin{proposition}[{\cite[Proposition~7.9.7]{Dieck2008AT}}]
+	\label{043c4f}
+	$X$を弱\Hausdorff 位相空間とする.
+	部分集合$A$について以下の条件は同値である:
+	\begin{enumerate}
+		\item $A$はk-閉集合である.
+		\item $X$のch-部分集合全体が定める弱位相について, $A$は閉集合である.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\WIP.
+\end{proof}
+
+\begin{corollary}
+	$X$を弱\Hausdorff 位相空間とする.
+	このとき以下の条件は同値である:
+	\begin{enumerate}
+		\item $X$はk-空間である.
+		\item $X$はch-部分集合全体について弱位相をもつ.
+	\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+	\cref{043c4f}より.
+\end{proof}
+
+\begin{proposition}
+	列型\Hausdorff 空間はk-空間である.
+\end{proposition}
+
+\begin{proposition}
+	\WIP.
+\end{proposition}
+
+\end{document}
