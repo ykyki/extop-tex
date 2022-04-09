@@ -30,4 +30,3 @@ jobs:
         name: extop-tex-build-${{ github.run_number }}-${{ steps.vars.outputs.branch_name }}
         path: |
           ./temp/
-          !./temp/.gitkeep
