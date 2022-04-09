@@ -191,4 +191,79 @@
 	$ A_p $は連結である.
 \end{proof}
 
+\begin{definition}
+	位相空間$ X $の点$ x $に対して, $ C(x) \defeq \bigcup
+	\setcomp{C \in \mathcal{P}(X)}{x \in C, C\mbox{は連結集合}} $
+	で定義される$ C(x) $を$ X $における点$ x $の
+	\indexjj{れんけつせいぶん}{連結成分}{connected component}という.
+\end{definition}
+
+\begin{proposition}
+	\label{c00005}
+	位相空間$ X $の点$ x $に対して, 連結成分$ C(x) $は$ x $を含む最大の連結集合であり,
+	閉集合である.
+\end{proposition}
+
+\begin{proof}
+	\cref{c00001}より$ C(x) $は$ x $を含む最大の連結集合である.
+	また, \cref{c00003}より$ \topcl C(x) $も連結集合である.
+	$ C(x) $の最大性より$ \topcl C(x) \subset C(x) $が成り立つので, $ C(x) $は閉集合である.
+\end{proof}
+
+\begin{proposition}
+	\label{c00006}
+	位相空間$ X $における2点$ x, y $の連結成分$ C(x), C(y) $について,
+	$ C(x) = C(y) $と$ C(x) \cap C(y) = \emptyset $のいずれか一方が成り立つ.
+\end{proposition}
+
+\begin{proof}
+	$ C(x) \cap C(y) \neq \emptyset $のとき,
+	\cref{c00001}より$ C(x) \cup C(y) $は連結集合である.
+	$ C(x) $は$ x $を含む最大の連結集合なので,
+	$ C(x) \cup C(y) \subset C(x) $より$ C(y) \subset C(X) $が成り立つ.
+	また, $ C(y) $についてもその最大性から$ C(X) \subset C(Y) $が成り立つので
+	$ C(x) = C(y) $である.
+\end{proof}
+
+\begin{proposition}[{\cite[Theorem~6.1.21]{Engelking1989GT}}]
+	\label{c00007}
+	$ \setfamily{X_\lambda}{\lambda \in \Lambda} $を位相空間の族とする.
+	積空間$ X \defeq \prod_{\lambda \in \Lambda} X_\lambda $の
+	点$ x \defeq (x_\lambda)_{\lambda \in \Lambda} $の連結成分を$ C(x) $とする.
+	また, 各$ \lambda \in \Lambda $について
+	$ X_\lambda $における$ x_\lambda $の連結成分を$ C_\lambda $と書くことにする.
+	このとき, $ C(x) = \prod_{\lambda \in \Lambda} C_\lambda $が成り立つ.
+\end{proposition}
+
+\begin{proof}
+	各$ \lambda \in \Lambda $について$ \morph{p_\lambda}{X}{X_\lambda} $を射影とする.
+	$ \mapset{p_\lambda}{C} $は$ x_\lambda $を含む連結集合なので
+	$ \mapset{p_\lambda}{C} \subset C_\lambda $が成り立つ.
+	よって, $ C \subset \prod_{\lambda \in \Lambda} C_\lambda $が成り立つ.
+	また, \cref{c00004}より$ \prod_{\lambda \in \Lambda} C_\lambda $は連結集合なので
+	$ C $の最大性より$ C = \prod_{\lambda \in \Lambda} C_\lambda $となる.
+\end{proof}
+
+\begin{definition}
+	位相空間$ X $における点$ x $に対して, $ Q(x) \defeq
+	\bigcap \setcomp{Q \in \mathcal{P}(X)}{x \in Q, Q\mbox{は開閉集合}} $
+	で定義される$ Q(x) $を$ X $における点$ x $の\indexjj{ぎれんけつせいぶん}
+	{擬連結成分}{quasi-component}という.
+\end{definition}
+
+\begin{proposition}[{\cite[Theorem~6.1.22]{Engelking1989GT}}]
+	\label{c00008}
+	位相空間$ X $における点$ x $の連結成分$ C(x) $と擬連結成分$ Q(x) $について
+	$ C(x) \subset Q(x) $が成り立つ.
+\end{proposition}
+
+\begin{proof}
+	$ F \subset X $を$ x $を含む開閉集合とする.
+	部分空間$ C(x) $において$ C(x) \cap F $と$ C(x) \setminus F $は
+	それぞれ交わらない閉集合である.
+	$ C(x) $が連結なので$ C(x) \cap F $と$ C(x) \setminus F $のいずれか一方は
+	空集合である. 今, $ x \in C(x) \cap F $より$ C(x) \setminus F = \emptyset $である.
+	よって, $ C(x) \subset F $より$ C(x) \subset Q(x) $である.
+\end{proof}
+
 \end{document}
