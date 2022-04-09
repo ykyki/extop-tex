@@ -68,13 +68,15 @@ Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでな
 	局所有限な開被覆$ \mathscr{W}_V $であって$ \mathscr{U}_V $の細分となるものが存在する.
 
 	ここで, $ \bigcup_{V \in \mathscr{V}} \mathscr{W}_V $が局所有限であることを示す.
-	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $は$ X \times Y $の局所有限被覆なので
-	任意の点$ p \in X \times Y $に対して, $ p $のある開近傍$ U_p $が存在して
-	$ \mathscr{V}_p \defeq \setcomp{V \in \mathscr{V}}{U_p \cap (X \times \topcl_Y V) \neq \emptyset} $
-	が有限になるものが存在する.
-	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $は特に閉被覆なので
-	$ V \in \mathscr{V}_p $ならば$ p \in X \times \topcl_Y V $となるように$ U_p $をとることができる.
-	各$ V \in \mathscr{V}_p $について$ \mathscr{W}_V $は局所有限なので, $ p $の開近傍$ U'_p \subset U_p $
+	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $は$ X \times Y $の局所有限被覆である.
+	したがって, 任意の点$ p \in X \times Y $に対して, $ p $のある開近傍$ U_p $であって
+	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $の有限個の元としか共通部分をもたないものが存在する.
+	このとき, $ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $が特に閉被覆であることに注意すれば,
+	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $のうち
+	$ \mathscr{V}_p \defeq \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}, p \in V} $
+	の元としか共通部分をもたない$ p $の開近傍をとり直すことができる.
+	そのような開近傍をあらためて$ U_p $と書くことにする.
+	各$ V \in \mathscr{V}_p $について$ \mathscr{W}_V $は局所有限なので, $ p $の開近傍$ U_p \subset U_p $
 	であって$ \setcomp{W \in \bigcup_{V \in \mathscr{V}} \mathscr{W}_V}
 	{W \cap U'_p \neq \emptyset} $が有限になるものが存在する.
 	これで$ \bigcup_{V \in \mathscr{V}} \mathscr{W}_V $が局所有限であることが示された.
