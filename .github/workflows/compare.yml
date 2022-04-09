@@ -32,4 +32,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: extop-tex-compare-${{ github.run_number }}-${{ steps.vars.outputs.branch_name }}
-        path: ./temp/*.pdf
+        path: ./temp/
