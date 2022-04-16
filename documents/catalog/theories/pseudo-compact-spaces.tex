@@ -52,15 +52,39 @@
 
 \begin{lemma}
 	\label{lemma:Lemma for the proof that every product of pseudocompact space X and pseudocompact k space is also pseudocompact in a class of T3.5 space}
-	無限集合$ \Lambda $に対し, $ \{A_\lambda \times B_\lambda\}_{\lambda \in \Lambda} $を$ X \times Y $における非空部分集合からなる局所有限な集合族とする. ここで, $ X $は \Hausdorff 空間であり, $ Y $はk空間である. このとき, 無限部分集合$ \Lambda_0 \subset \Lambda $であって, $ \{A_\lambda\}_{\lambda \in \Lambda_0} $と$ \{B_\lambda\}_{\lambda \in \Lambda_0} $の少なくとも一方が局所有限となるものが存在する.
+	無限集合$ \Lambda $に対し, $ \{A_\lambda \times B_\lambda\}_{\lambda \in \Lambda} $を
+	$ X \times Y $における非空部分集合からなる局所有限な集合族とする.
+	ここで, $ X $は \Hausdorff 空間であり, $ Y $は\Hausdorff なk-空間である.
+	このとき, 無限部分集合$ \Lambda_0 \subset \Lambda $であって,
+	$ \{A_\lambda\}_{\lambda \in \Lambda_0} $と$ \{B_\lambda\}_{\lambda \in \Lambda_0} $の少なくとも一方が局所有限となるものが存在する.
 \end{lemma}
 
 \begin{proof}
-	$ \{\topcl B_\lambda\}_{\lambda \in \Lambda} $が局所有限であれば$ \Lambda_0 $として$ \Lambda $をとればよいので$ \{\topcl B_\lambda\}_{\lambda \in \Lambda} $が局所有限でない場合について示す. $ Y $のコンパクト部分集合$ Z $と無限集合$ \Lambda_0 \subset \Lambda $であって, $ Z \cap \topcl B_{\lambda} \neq \emptyset $が全ての$ \lambda \in \Lambda_0 $に対して成り立つものが存在することを示せばよい. なぜなら, 系\ref{coro:Kuratowski-Mrowka Theorem}より射影$ p \colon X \times Z \to X $が完全写像であることから, 補題\ref{lamma:A perfect mapping preserves locally finite property}より局所有限な集合族$ \{A_\lambda \times (Z \cap \topcl B_\lambda)\}_{\lambda \in \Lambda_0} $に対して$ \{A_\lambda\}_{\lambda \in \Lambda_0} $が$ X $の局所有限な部分集合族となるからである. ここからは, そのような$ Z \subset Y $と$ \Lambda_0 \subset \Lambda $の存在を示す. いま, $ \{\topcl B_\lambda\}_{\lambda \in \Lambda} $が局所有限でないことから, $ y \in Y $であって, その任意の近傍$ U $が無限個の$ \{\topcl B_\lambda\}_{\lambda \in \Lambda} $の元と共通部分を持つものが存在する. ここで, $ \Lambda' = \setcomp{\lambda \in \Lambda}{y \in \Lambda} $が無限集合であれば$ Z \defeq \{y\}, \Lambda_0 \defeq \Lambda' $と定めればよい. $ \Lambda' $が有限集合の場合, $ B \defeq \bigcup_{\lambda \in \Lambda \setminus \Lambda'} \topcl B_\lambda $と定めると$ y $の取り方から$ y \in \topcl B $であるが$ y \notin B $なので$ B $は閉集合でない. よって, $ Y $がk空間であることから, あるコンパクト部分集合$ K \subset Y $であって$ K \cap B $が$ K $の閉集合とならないものが存在する. このとき, $ Z \defeq K, \Lambda_0 \defeq \setcomp{\lambda \in \Lambda \setminus \Lambda'}{Z \cap \topcl B_\lambda} $と定めればよい. なぜなら, $ \Lambda_0 $がもし仮に有限ならば$ Z \cap B = \bigcup_{\lambda \in \Lambda \setminus \Lambda'} Z \cap \topcl B_\lambda = \bigcup_{\lambda \in \Lambda_0} \topcl Z \cap B_\lambda $より$ Z \cap B $が$ Z $の閉集合となり矛盾するので$ \Lambda_0 $が無限集合でなければならないからである.
+	$ \{\topcl B_\lambda\}_{\lambda \in \Lambda} $が局所有限であれば$ \Lambda_0 $として$ \Lambda $をとればよいので
+	$ \{\topcl B_\lambda\}_{\lambda \in \Lambda} $が局所有限でない場合について示す.
+	$ Y $のコンパクト部分集合$ Z $と無限集合$ \Lambda_0 \subset \Lambda $であって,
+	$ Z \cap \topcl B_{\lambda} \neq \emptyset $が全ての$ \lambda \in \Lambda_0 $に対して成り立つものが存在することを示せばよい.
+	なぜなら, 系\ref{coro:Kuratowski-Mrowka Theorem}より射影$ p \colon X \times Z \to X $が完全写像であることから,
+	補題\ref{lamma:A perfect mapping preserves locally finite property}より
+	局所有限な集合族$ \{A_\lambda \times (Z \cap \topcl B_\lambda)\}_{\lambda \in \Lambda_0} $に対して
+	$ \{A_\lambda\}_{\lambda \in \Lambda_0} $が$ X $の局所有限な部分集合族となるからである.
+	ここからは, そのような$ Z \subset Y $と$ \Lambda_0 \subset \Lambda $の存在を示す.
+	いま, $ \{\topcl B_\lambda\}_{\lambda \in \Lambda} $が局所有限でないことから, $ y \in Y $であって,
+	その任意の近傍$ U $が無限個の$ \{\topcl B_\lambda\}_{\lambda \in \Lambda} $の元と共通部分を持つものが存在する.
+	ここで, $ \Lambda' = \setcomp{\lambda \in \Lambda}{y \in \Lambda} $が無限集合であれば
+	$ Z \defeq \{y\}, \Lambda_0 \defeq \Lambda' $と定めればよい.
+	$ \Lambda' $が有限集合の場合, $ B \defeq \bigcup_{\lambda \in \Lambda \setminus \Lambda'} \topcl B_\lambda $と定めると
+	$ y $の取り方から$ y \in \topcl B $であるが$ y \notin B $なので$ B $は閉集合でない.
+	よって, $ Y $がk-空間であることから, あるコンパクト部分集合$ K \subset Y $であって$ K \cap B $が$ K $の閉集合とならないものが存在する.
+	このとき, $ Z \defeq K, \Lambda_0 \defeq \setcomp{\lambda \in \Lambda \setminus \Lambda'}{Z \cap \topcl B_\lambda} $と定めればよい.
+	なぜなら, $ \Lambda_0 $がもし仮に有限ならば
+	$ Z \cap B = \bigcup_{\lambda \in \Lambda \setminus \Lambda'} Z \cap \topcl B_\lambda
+	= \bigcup_{\lambda \in \Lambda_0} \topcl Z \cap B_\lambda $より
+	$ Z \cap B $が$ Z $の閉集合となり矛盾するので$ \Lambda_0 $が無限集合でなければならないからである.
 \end{proof}
 
 \begin{proposition}
-	\topT{3.5}空間のクラスにおいて, 擬コンパクト空間$ X $と擬コンパクトなk空間$ Y $の積空間$ X \times Y $は擬コンパクトである.
+	\topT{3.5}空間のクラスにおいて, 擬コンパクト空間$ X $と擬コンパクトなk-空間$ Y $の積空間$ X \times Y $は擬コンパクトである.
 \end{proposition}
 
 \begin{proof}
