@@ -192,8 +192,8 @@
 \end{proof}
 
 \begin{definition}
-	位相空間$ X $の点$ x $に対して, $ C(x) \defeq \bigcup
-	\setcomp{C \in \mathcal{P}(X)}{x \in C, C\mbox{は連結集合}} $
+	位相空間$ X $の点$ x $に対して,
+	\[ C(x) \defeq \bigcup \setcomp{C \in \pow(X)}{x \in C, C\mbox{は連結集合}} \]
 	で定義される$ C(x) $を$ X $における点$ x $の
 	\indexjj{れんけつせいぶん}{連結成分}{connected component}という.
 \end{definition}
@@ -220,8 +220,8 @@
 	$ C(x) \cap C(y) \neq \emptyset $のとき,
 	\cref{c00001}より$ C(x) \cup C(y) $は連結集合である.
 	$ C(x) $は$ x $を含む最大の連結集合なので,
-	$ C(x) \cup C(y) \subset C(x) $より$ C(y) \subset C(X) $が成り立つ.
-	また, $ C(y) $についてもその最大性から$ C(X) \subset C(Y) $が成り立つので
+	$ C(x) \cup C(y) \subset C(x) $より$ C(y) \subset C(x) $が成り立つ.
+	また, $ C(y) $についてもその最大性から$ C(x) \subset C(y) $が成り立つので
 	$ C(x) = C(y) $である.
 \end{proof}
 
@@ -245,8 +245,8 @@
 \end{proof}
 
 \begin{definition}
-	位相空間$ X $における点$ x $に対して, $ Q(x) \defeq
-	\bigcap \setcomp{Q \in \mathcal{P}(X)}{x \in Q, Q\mbox{は開閉集合}} $
+	位相空間$ X $における点$ x $に対して,
+	\[ Q(x) \defeq \bigcap \setcomp{Q \in \pow(X)}{x \in Q, Q\mbox{は開閉集合}} \]
 	で定義される$ Q(x) $を$ X $における点$ x $の\indexjj{ぎれんけつせいぶん}
 	{擬連結成分}{quasi-component}という.
 \end{definition}
