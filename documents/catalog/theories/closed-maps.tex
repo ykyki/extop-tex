@@ -6,6 +6,8 @@
 \section{閉写像}
 \label{sec:closed-maps}
 
+\newcommand{\identity}{\mathrm{id}}
+
 \begin{source}
 	本節は主に\cite{Engelking1989GT}を参考にしている.
 \end{source}
@@ -102,11 +104,11 @@
 	$ X $をコンパクトでない位相空間とすると, \cref{km0001}より
 	ある位相空間$ Y $であって射影$ \morph{p}{X \times Y}{Y} $が閉でないものが存在する.
 	ここで, $ \morph{f}{X}{\{0\}} $を$ X $から１点のみの空間$ \{0\} $への写像とする.
-	このとき, 恒等写像$ \morph{id}{Y}{Y} $と$ f $は閉写像であるが
-	$ \morph{f \times id}{X \times Y}{\{0\} \times Y} $は閉写像でない.
+	このとき, 恒等写像$ \morph{\identity}{Y}{Y} $と$ f $は閉写像であるが
+	$ \morph{f \times \identity}{X \times Y}{\{0\} \times Y} $は閉写像でない.
 	実際, 閉集合$ F \subset X \times Y $であって$ \mapset{p}{F} $が
 	$ Y $の閉集合出ないものが存在することから,
-	$ \mapset{f \times id}{F} = \{0\} \times \mapset{p}{F} $は閉でない.
+	$ \mapset{f \times \identity}{F} = \{0\} \times \mapset{p}{F} $は閉でない.
 \end{example}
 
 \begin{proposition}
@@ -146,10 +148,10 @@
 \begin{proof}
 	\cref{c00002}より, 必要性は明らかなので十分性を示す.
 	$ F \subset X $を閉集合とする. $ K \subset Y $を任意のコンパクト集合とするとき
-	$ \mapset{f}{F} \cap K = \mapset{f}{K \cap \mapinvset{f}{K}}
+	$ \mapset{f}{F} \cap K = \mapset{f}{F \cap \mapinvset{f}{K}}
 	= \mapset{f|_{\mapinvset{f}{K}}}{F \cap  \mapinvset{f}{K}} $より,
 	$ \mapset{f}{F} \cap K $は$ K $の閉集合である.
-	よって, $ Y $がk-空間であることから$ \mapset{f}{F} $は$ Y $の閉集合である.
+	よって, $ Y $に関する仮定より$ \mapset{f}{F} $は$ Y $の閉集合である.
 \end{proof}
 
 \begin{proposition}[{\cite[Theorem~3.10.7]{Engelking1989GT}}]
@@ -177,10 +179,7 @@
 	$ A $が無限集合の場合を示す.
 	$ X $が可算コンパクトなので\cref{prop:Countable compact <> Every countably infinite subset has an accumulation point}より,
 	$ x \in X $で$ A $の集積点であるものが存在する.
-	もし, $ x $のある開近傍$ U $であって, $ U \cap A $が有限となるものが存在すれば,
-	$ X $の \topT{1} 性より$ U \cap A $のすべての点を含まない$ x $の開近傍$ V $がとれる.
-	このとき, $ (U \cap V) \cap A = \emptyset $なので$ x \in \topcl A $に矛盾する.
-	よって, $ x $の任意の開近傍$ U $について$ U \cap A $は無限集合である.
+	\cref{der00001}より, $ x $の任意の開近傍$ U $について$ U \cap A $は無限集合である.
 	ここで, $ U_x, U_y $をそれぞれ$ x, y $の任意の開近傍とすれば,
 	十分大きい$ N \in \N $が存在して$ x_N \in U_x $かつ$ y_N \in U_y $が成り立つ.
 	よって, $ (x, y) \in \topcl F $より$ (x, y) \in F $なので
