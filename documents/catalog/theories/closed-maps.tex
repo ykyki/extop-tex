@@ -103,12 +103,12 @@
 	2つの閉写像の積写像も閉写像になるとは限らない.
 	$ X $をコンパクトでない位相空間とすると, \cref{km0001}より
 	ある位相空間$ Y $であって射影$ \morph{p}{X \times Y}{Y} $が閉でないものが存在する.
-	ここで, $ \morph{f}{X}{\{0\}} $を$ X $から１点のみの空間$ \{0\} $への写像とする.
+	ここで, $ \morph{f}{X}{\{0\}} $を$ X $から一点空間$ \{0\} $への写像とする.
 	このとき, 恒等写像$ \morph{\identity}{Y}{Y} $と$ f $は閉写像であるが
 	$ \morph{f \times \identity}{X \times Y}{\{0\} \times Y} $は閉写像でない.
 	実際, 閉集合$ F \subset X \times Y $であって$ \mapset{p}{F} $が
 	$ Y $の閉集合出ないものが存在することから,
-	$ \mapset{f \times \identity}{F} = \{0\} \times \mapset{p}{F} $は閉でない.
+	$ \mapset{f \times \identity}{F} = \lrbrace{0} \times \mapset{p}{F} $は閉でない.
 \end{example}
 
 \begin{proposition}
@@ -151,7 +151,7 @@
 	$ \mapset{f}{F} \cap K = \mapset{f}{F \cap \mapinvset{f}{K}}
 	= \mapset{f|_{\mapinvset{f}{K}}}{F \cap  \mapinvset{f}{K}} $より,
 	$ \mapset{f}{F} \cap K $は$ K $の閉集合である.
-	よって, $ Y $に関する仮定より$ \mapset{f}{F} $は$ Y $の閉集合である.
+	よって, $ Y $の仮定より$ \mapset{f}{F} $は$ Y $の閉集合である.
 \end{proof}
 
 \begin{proposition}[{\cite[Theorem~3.10.7]{Engelking1989GT}}]
