@@ -19,6 +19,24 @@
 	4つ目の条件の不等式は\indexjj{さんかくふとうしき}{三角不等式}{triangle inequality}とよばれる.
 \end{definition}
 
+\begin{definition}
+	$ (X, d) $を距離空間とする. $ x \in X $と$ \varepsilon > 0 $に対して
+	\[ B(x, \varepsilon) \defeq \setcomp{y \in X}{d(x, y) < \varepsilon} \]
+	で定義される$ B(x, \varepsilon) $を$ x $の
+	\indexjj{イプシロンきんぼう}{$\varepsilon$近傍}{epsilon neighborhood}という.
+\end{definition}
 
+\begin{proposition}
+	$ f \colon X \to Y $を距離空間$ (X, d_X) $から距離空間$ (Y, d_Y) $への写像とする.
+	このとき次はすべて同値である.
+	\begin{enumerate}
+		\item $ f $が連続である.
+		\item 任意の点$ x $について次が成り立つ.
+			\[\mbox{任意の} \varepsilon > 0 \mbox{について}
+			\delta > 0 \mbox{が存在して} \mapset{f}{B(x, \delta)}
+			\subset B(x, \mappt{f}{x}).\]
+		\item $ $
+	\end{enumerate}
+\end{proposition}
 
 \end{document}
