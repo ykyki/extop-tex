@@ -62,28 +62,30 @@ Sorgenfrey Plane (\ref{example:Sorgenfrey_plane}) はパラコンパクトでな
 	各$ V \in \mathscr{V} $の閉包がコンパクトなものが存在する.
 	\cref{p00004}より, 各$ V \in \mathscr{V} $について$ X \times \topcl_Y V $は
 	$ X \times Y $のパラコンパクトな部分空間である.
+
 	$ V \in \mathscr{V} $に対して$ \mathscr{U} $を$ X \times \topcl_Y V $に制限した開集合族
 	$ \mathscr{U}_V \defeq \setcomp{(X \times \topcl_Y V) \cap U}{U \in \mathscr{U}} $は
 	$ X \times \topcl_Y V $の開被覆である. このとき, $ X \times \topcl_Y V $の
 	局所有限な開被覆$ \mathscr{W}_V $であって$ \mathscr{U}_V $の細分となるものが存在する.
 
 	ここで, $ \bigcup_{V \in \mathscr{V}} \mathscr{W}_V $が局所有限であることを示す.
-	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $は$ X \times Y $の局所有限被覆である.
+	$ \mathscr{T} \defeq \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $は$ X \times Y $の局所有限被覆である.
 	したがって, 任意の点$ p \in X \times Y $に対して, $ p $のある開近傍$ U_p $であって
-	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $の有限個の元としか共通部分をもたないものが存在する.
-	このとき, $ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $が特に閉被覆であることに注意すれば,
-	$ \setcomp{X \times \topcl_Y V}{V \in \mathscr{V}} $のうち
+	$ \mathscr{T} $の有限個の元としか共通部分をもたないものが存在する.
+	このとき, $ \mathscr{T} $が特に閉被覆であることに注意すれば,
+	$ \mathscr{T} $のうち
 	$ \mathscr{V}_p \defeq \setcomp{X \times \topcl_Y V}{V \in \mathscr{V},
 	p \in X \times \topcl_Y V} $
 	の元としか共通部分をもたない$ p $の開近傍をとり直すことができる.
 	そのような開近傍をあらためて$ U_p $と書くことにする.
-	各$ V \in \mathscr{V}_p $について$ \mathscr{W}_V $は局所有限なので, $ p $の開近傍$ U'_p \subset U_p $
+	$ p \in X \times \topcl_Y V $なる各$ V \in \mathscr{V} $について
+	$ \mathscr{W}_V $は局所有限なので, $ p $の開近傍$ U'_p \subset U_p $
 	であって$ \setcomp{W \in \bigcup_{V \in \mathscr{V}} \mathscr{W}_V}
 	{W \cap U'_p \neq \emptyset} $が有限になるものが存在する.
 	これで$ \bigcup_{V \in \mathscr{V}} \mathscr{W}_V $が局所有限であることが示された.
 
 	ゆえに, $ \mathscr{W} \defeq \bigcup_{V \in \mathscr{V}} \setcomp{W \cap (X \times V)}{W \in \mathscr{W}_V} $
-	と定めると$ \mathscr{W} $は$ X \times Y $の局所有限な開被覆であり, $ \mathscr{W} < \mathscr{U} $を満たす.
+	と定めると$ \mathscr{W} $は$ X \times Y $の局所有限な開被覆であり, $ \mathscr{W} \refines \mathscr{U} $を満たす.
 \end{proof}
 
 パラコンパクト空間の連続像もパラコンパクトとは限らない.
@@ -99,7 +101,7 @@ $ A \subset U_n $より$ \mapinvset{\pi}{\mapset{\pi}{U_n}}= U_n $なので$ \se
 次の命題から, $ \R $の部分集合を１点に縮める方法でパラコンパクトでない商空間を構成するとその商空間は \topT{1} ではあり得ない事がわかる.
 
 \begin{proposition}
-	\topT{4} \Lindelof 空間$ X $と閉部分集合$ A $に対して, $ A $の元を同一視した商空間を$ X / A $とする.
+	\topT{4} \Lindelof 空間$ X $と空でない閉部分集合$ A $に対して, $ A $の元を同一視した商空間を$ X / A $とする.
 	このとき, $ X / A $はパラコンパクトである.
 \end{proposition}
 
