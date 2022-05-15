@@ -19,3 +19,7 @@ rules:
     pattern: わかる
   - expected: 成り立つ
     pattern: なりたつ
+
+  ## 〇〇空間という呼び方に固定
+  - expected: 列型空間
+    pattern: /列型(?!空)/
