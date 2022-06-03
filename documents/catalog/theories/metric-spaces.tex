@@ -6,6 +6,8 @@
 \section{距離空間}
 \label{sec:metric-spaces}
 
+\newcommand{\topbd}{\mathop{\mathrm{Bd}}\nolimits}
+
 \begin{definition}
 	集合$ X $と写像$ d \colon X \times X \to \R $の組$ (X, d) $について次の4条件が成り立つとき,
 	$ (X, d) $を\indexjj{きょりくうかん}{離化空間}{metric space}といい,
@@ -96,5 +98,62 @@ $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
 	\end{enumerate}
 \end{proposition}
 
+\begin{proof}
+	$ d^{(\infty)} $が$ X $に定める位相を$ \mathcal{O}_{d^{(\infty)}} $とし,
+	$ X $に定まっている積位相を$ \mathcal{O}_X $として
+	$ \mathcal{O}_{d^{(\infty)}} = \mathcal{O}_X $を示す.
+
+	$ U \in \mathcal{O}_X $と任意の点$ x \in U $をとる.
+	このとき, ある$ \varepsilon > 0 $が存在して
+	$ x \in \prod_{i=0}^n B_i(x_i, \varepsilon) \subset U $が成り立つ.
+	ただし, $ B_i(x_i, \varepsilon) $は$ X_i $において$ x_i $を中心とする
+	半径$ \varepsilon $の開球である.
+	ここで, $ (X, d^{(\infty)}) $において$ x $を中心とする半径$ \varepsilon $の開球を
+	$ B(x, \varepsilon) $とすると, 任意の$ y \in B(x, \varepsilon) $について
+	$ d_i(x_i, y_i) < \varepsilon $が成り立つので
+	$ B(x, \varepsilon) \subset \prod_{i=0}^n B_i(x_i, \varepsilon) \subset U $が成り立つ.
+	よって, $ U = \bigcup_{x \in U} B(x, \varepsilon) $より$ U \in \mathcal{O}_{d^{(\infty)}} $が成り立つ.
+
+	次に$ V \in \mathcal{O}_{d^{(\infty)}} $と任意の点$ x \in V $をとる.
+	ある$ \delta > 0 $が存在して$ B(x, \delta) \subset V $が成り立つ.
+	ここで, $ W_x \defeq \prod_{i=0}^n B_i(x_i, \delta) $と定めると
+	明らかに$ W \subset B(x, \delta) \subset V $である.
+	よって, $ V = \bigcup_{x \in V} W_x $より$ V \in \mathcal{O}_X $より
+	$ \mathcal{O}_{d^{(\infty)}} = \mathcal{O}_X $が成り立つ.
+
+	また, 任意の2点$ x, y \in X $について$ d^{(\infty)}(x, y) \leq
+	d^{(m)}(x, y) \leq \sqrt[m]{n+1} d^{(\infty)}(x, y)$より,
+	$ d^{(\infty)}(x, y) $の定める位相と$ d^{(m)} $の定める位相が一致することが確かめられる.
+\end{proof}
+
+\begin{proposition}
+	$ \setfamily{(X_n, d_n)}{n \in \N} $を可算無限個の距離空間の列とする.
+	このとき, 積空間$ X \defeq \prod_{n \in \N} X_n $は距離化可能である.
+\end{proposition}
+
+\begin{proposition}
+	$ X, Y $を互いに交わらない距離空間とするとき,
+	位相空間としての直和$ X \cup Y $は距離化可能である.
+\end{proposition}
+
+\begin{proposition}[{\cite[Theorem~4.4.15]{Engelking1989GT}}]
+	$ \morph{f}{X}{Y} $を距離化可能空間$ X $から位相空間$ Y $への完全写像とする.
+	このとき, $ Y $は距離化可能である.
+\end{proposition}
+
+\begin{theorem}[Hanai-Morita-Stone Theorem]
+	$ \morph{f}{X}{Y} $を距離化可能空間$ X $から位相空間$ Y $への閉写像とする.
+	このとき, 次は同値である:
+	\begin{enumerate}
+		\item $ Y $は距離化可能である.
+		\item $ Y $は第一可算である.
+		\item 任意の$ y \in Y $について$ \topbd \mapinvpt{f}{y} $はコンパクトである.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proposition}[{\cite[Theorem~4.4.18]{Engelking1989GT}}]
+	$ \morph{f}{X}{Y} $を距離化可能空間$ X $から位相空間$ Y $への開閉写像とする.
+	このとき, $ Y $は距離化可能である.
+\end{proposition}
 
 \end{document}
