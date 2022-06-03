@@ -31,8 +31,6 @@
 	\begin{enumerate}
 		\item \(X\)が前正則である.
 		\item \(X\)の任意の2点\(x, y\)に対し, \(x \topnear y\)ならば\(x \leq y\)である.
-		\item \(X\)の点\(x\)とフィルター\(\mathscr{F}\)に対し, \(\mathscr{F} \convto x\)ならば\(\Llim \mathscr{F} = \topbar{\{x\}}\)となる.
-		\item \(X\)上の任意のフィルター\(\mathscr{F}\)の極限点が, 位相的に区別不能な点を除いて高々1点のみである.
 	\end{enumerate}
 \end{proposition}
 
@@ -44,8 +42,20 @@
 	前正則空間\(X\)は対称空間である.
 \end{proposition}
 
-\begin{example}
-	\Sierpinski 空間.
+\begin{example}[\Sierpinski 空間]
+	\WIP.
+
+	集合\(S \defeq \lrbrace{0, 1}\)上に,
+	部分集合族\(\lrbrace{\emptyset, \lrbrace{1}, S}\)を開集合族として位相を定義する.
+	このとき, 特殊化順序としても$0 \leq 1$が成り立つ.
+	一方で$1 \leq 0$は成立しない.
+	よって$S$は対称空間ではないが\topT{0}空間である.
+	また$S$上の近接関係は自明であるため, 推移空間である.
+	したがって$S$は前正則ではない.
+\end{example}
+
+\begin{example}[推移空間かつ対称空間であるが前正則ではない空間]
+	\WIP.
 \end{example}
 
 \end{document}
