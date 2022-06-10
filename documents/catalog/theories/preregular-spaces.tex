@@ -6,6 +6,7 @@
 \section{前正則空間, 推移空間}
 \label{sec:preregular-spaces}
 
+\newcommand{\topleq}{\leq}
 \newcommand{\topnear}{\mathrel{\diamond}}
 \newcommand{\convto}{\rightsquigarrow}
 \newcommand{\Llim}{\mathop{\mathrm{Lim}}\nolimits}
@@ -57,6 +58,22 @@
 \begin{example}[推移空間かつ対称空間であるが前正則ではない空間]
 	\WIP.
 \end{example}
+
+\begin{proposition}
+	正則空間は前正則空間である.
+\end{proposition}
+
+\begin{proof}
+	前正則空間\(X\)の2点\(x, y\)が近接しているとする.
+	このとき特殊化順序\(x \topleq y\)が成立することを示せば十分である.
+
+	対偶を示す.
+	\cref{05a202}より,
+	ある閉集合\(F\)が存在して\(x \not\in F\)かつ\(y \in F\)を満たす.
+	\(X\)が正則空間であるから,
+	ある開集合\(G, G'\)が存在して\(x \in G\)かつ\(F \subset G'\)となる.
+	よって\(x, y\)は近接していない.
+\end{proof}
 
 \end{document}
 
