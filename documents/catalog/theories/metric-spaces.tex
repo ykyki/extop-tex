@@ -78,6 +78,7 @@ $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
 \end{proposition}
 
 \begin{proposition}
+	\label{met0001}
 	$ (X, d) $を距離空間とする. このとき, 任意の$ \varepsilon > 0 $について
 	$ d' \colon X \times X \to \R $を$ d'(x, y) \defeq \min \lrbrace{\varepsilon,
 	d(x, y)} $と定めると, $ d' $は$ X $上の距離であり,
@@ -130,6 +131,51 @@ $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
 	$ \setfamily{(X_n, d_n)}{n \in \N} $を可算無限個の距離空間の列とする.
 	このとき, 積空間$ X \defeq \prod_{n \in \N} X_n $は距離化可能である.
 \end{proposition}
+
+\begin{proof}
+	各$ n \in \N $について, $ d'_n \colon X_n \times X_n \to \R $を
+	$ d'_n(a, b) = \min\{d_n(a,b), 1\} $と定める.
+	このとき, \cref{met0001}より$ X_n $において$ d_n $と$ d'_n $が
+	それぞれ定める位相は一致する.
+
+	$ d \colon X \times X \to \R $を$ d(x, y) = \sum_{n \in \N}
+	2^{-n} d'_n(x, y) $と定める.
+	$ d $が$ X $上の距離であることは容易に確かめられる.
+	$ X $に定まる積位相を$ \mathcal{O}_X $とし,
+	距離$ d $から定める位相を$ \mathcal{O}_d $として
+	$ \mathcal{O}_X = \mathcal{O}_d $を示す.
+
+	任意の$ n \in \N $と$ \varepsilon > 0 $について,
+	$ x=(x_n)_{n \in \N}, y=(y_n)_{n \in \N} \in X $が
+	$ d(x, y) < 2^{-n}\varepsilon $を満たすなら
+	$ d'_n(x_n, y_n) < \varepsilon $を満たす.
+	よって, $ \mapset{p_n}{B(x, 2^{-n} \varepsilon)} \subset
+	B_n(x_n, \varepsilon) $が成り立つ.
+	ただし, $ B(x, 2^{-n} \varepsilon), B_n(x_n, \varepsilon) $は
+	それぞれ$ (X, d), (X_n, d'_n) $における開球であり,
+	$ \morph{p_n}{X}{X_n} $は射影である.
+	積位相が射影を連続にする最弱の位相であることから
+	$ \mathcal{O}_X \subset \mathcal{O}_d $が成り立つ.
+
+	次に, $ \mathcal{O}_d \subset \mathcal{O}_X $を示す.
+	任意の$ U \in \mathcal{O}_d $の任意の点$ x=(x_n)_{n \in \N} \in U $をとる.
+	ある$ \varepsilon > 0 $が存在して$ B(x, \varepsilon) \subset U $が成り立つ.
+	ここで, $ 2^{-k} < \frac{\varepsilon}{2} $を満たす$ k \in \N $がとれる.
+	任意の$ n =0, 1, \ldots, k $について$ X_n $の開集合$ U_n $を
+	$ U_n \defeq \setcomp{b \in X_n}{d'_n(x_n, b) < \frac{\varepsilon}{4}} $と定める.
+	このとき, 任意の$ y=(y_n)_{n \in \N} \in
+	\bigcap_{n=0}^k \mapinvset{p_n}{U_n} $について
+	$ d'_n(x_n, y_n) < \frac{\varepsilon}{4} $が$ n = 0, 1, \ldots, k $で成り立つ.
+	ここで, $ \sum_{n=0}^{k} 2^{-n} d'_n(x_n, y_n) <
+	\frac{\varepsilon}{4}\sum_{n=0}^{k} 2^{-n} < \frac{\varepsilon}{2} $と
+	$ \sum_{n=k+1}^\infty 2^{-n} d'_n(x_n, y_n) \geq \sum_{n=k+1}^\infty 2^{-n}
+	= 2^{-k} < \frac{\varepsilon}{2} $が成り立つことに注意すると
+	$ d(x, y) = \sum_{n=0}^{k} 2^{-n} d'_n(x_n, y_n) +
+	\sum_{n=k+1}^\infty 2^{-n} d'_n(x_n, y_n) < \frac{\varepsilon}{2} +
+	\frac{\varepsilon}{2} = \varepsilon $が成り立つ.
+	よって, $ \bigcap_{n=0}^k \mapinvset{p_n}{U_n} \subset B(x, \varepsilon) $より
+	$ U \in \mathcal{O}_X $が示された.
+\end{proof}
 
 \begin{proposition}
 	$ X, Y $を互いに交わらない距離空間とするとき,
