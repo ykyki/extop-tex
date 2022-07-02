@@ -8,14 +8,14 @@
 
 \newcommand{\topleq}{\leq}
 \newcommand{\topnear}{\mathrel{\diamond}}
-\newcommand{\convto}{\rightsquigarrow}
-\newcommand{\Llim}{\mathop{\mathrm{Lim}}\nolimits}
 
 \begin{definition}
 	位相空間\(X\)の2点\(x, y\)が\indexj{きんせつする}{近接する}とは,
 	\(x\)の近傍と\(y\)の近傍が必ず交わることである.
 	このとき\(x \topnear y\)と書く.
 \end{definition}
+
+近接により位相空間\(X\)上に定まる二項関係は反射律と対称律を満たす.
 
 \begin{definition}
 	位相空間\(X\)が\indexjj{ぜんせいそくくうかん}{前正則空間}{preregular space}であるとは,
@@ -28,10 +28,19 @@
 \end{definition}
 
 \begin{proposition}
+	位相空間の2点\(x, y\)について, 特殊化順序\(x \topleq y\)を満たす2点は近接する.
+\end{proposition}
+
+\begin{proof}
+	\cref{05a202}より直ちに示せる.
+\end{proof}
+
+\begin{proposition}
+	\label{ae23aa}
 	位相空間\(X\)について以下の条件は同値である:
 	\begin{enumerate}
 		\item \(X\)が前正則である.
-		\item \(X\)の任意の2点\(x, y\)に対し, \(x \topnear y\)ならば\(x \leq y\)である.
+		\item \(X\)の任意の2点\(x, y\)に対し, \(x \topnear y\)ならば\(x \topleq y\)である.
 		\item \(X\)の任意の点\(x\)と開集合\(G\)に対し, \(x\)の任意の近傍が\(G\)と交わるならば\(x \in G\)である.
 	\end{enumerate}
 	\qed
@@ -42,16 +51,23 @@
 	\qed
 \end{proposition}
 
+\begin{proposition}
+	\label{0ceadc}
+	前正則空間は対称空間である.
+	\qed
+\end{proposition}
+
 \begin{example}[\Sierpinski 空間]
 	\WIP.
 
 	集合\(S \defeq \lrbrace{0, 1}\)上に,
 	部分集合族\(\lrbrace{\emptyset, \lrbrace{1}, S}\)を開集合族として位相を定義する.
-	このとき, 特殊化順序としても\(0 \leq 1\)が成り立つ.
-	一方で\(1 \leq 0\)は成立しない.
-	よって\(S\)は対称空間ではないが\topT{0}空間である.
-	また\(S\)上の近接関係は自明であるため, 推移空間である.
-	したがって\(S\)は前正則ではない.
+	このとき, 特殊化順序としても\(0 \topleq 1\)が成り立つ.
+	一方で\(1 \topleq 0\)は成立しない.
+	よって\(S\)は対称空間ではない.
+	したがって\cref{0ceadc}より\(S\)は前正則ではない.
+	また一方で, \(S\)は\topT{0}空間である.
+	さらに, \(0\)と\(1\)は近接しているので\(S\)は推移空間である.
 \end{example}
 
 \begin{example}[推移空間かつ対称空間であるが前正則ではない空間]
@@ -63,9 +79,8 @@
 \end{proposition}
 
 \begin{proof}
-	前正則空間\(X\)の2点\(x, y\)が近接しているとする.
-	このとき特殊化順序\(x \topleq y\)が成立することを示せば十分である.
-
+	\cref{ae23aa}より,
+	正則空間\(X\)の近接する2点\(x, y\)について特集化順序\(x \topleq y\)が成立することを示せばよい.
 	対偶を示す.
 	\cref{05a202}より,
 	ある閉集合\(F\)が存在して\(x \not\in F\)かつ\(y \in F\)を満たす.
