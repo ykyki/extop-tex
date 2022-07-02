@@ -13,13 +13,48 @@
 \end{definition}
 
 定義から第一可算空間の部分空間や第一可算空間の直和空間もまた第一可算空間であることがわかる.
+可算個の積について第一可算性は保たれる(\cref{fc00001})が,
+非可算個の積をとる場合には第一可算性が保たれるとは限らない.
+例えば, $ X = \lrbrace{0,1} $を2点からなる離散空間とするとき,
+$ X $の非可算個の積空間は第一可算でない.
 第一可算性は連続写像では保たれない. 例えば, 非可算集合上の離散位相から補有限位相への恒等写像は
 連続写像であり, 離散位相は第一可算であるが非可算集合上の補有限位相は第一可算でない.
+さらに, 商写像であっても第一可算性は保たれない(\cref{ex:quotient-of-R-by-Z,ex:quotient-of-R-2}).
 
+
+\begin{proposition}
+	\label{cf00001}
+	$ \Lambda $を空でない可算集合とし,
+	$ \setfamily{X_\lambda}{\lambda \in \Lambda} $を第一可算空間の可算列とする.
+	このとき, 積空間$ X \defeq \prod_{\lambda \in \Lambda} X_\lambda $は第一可算空間である.
+\end{proposition}
+
+\begin{proof}
+	各$ \lambda \in \Lambda $について$ \morph{p_\lambda}{X}{X_\lambda} $を射影とする.
+	$ x = (x_\lambda)_{\lambda \in \Lambda} $とすると,
+	各$ x_\lambda \in X_\lambda $の可算近傍基$ \mathscr{N}_\lambda $がとれる.
+	ここで, $ x $を含む集合からなる$ X $の集合族$ \mathscr{N} $を
+	\[ \mathscr{N} \defeq \setcomp{\bigcap_{\lambda \in \Lambda'}
+	\mapinvset{p_\lambda}{U_\lambda}}{\Lambda' \subset \Lambda, \Lambda' \mbox{は有限},
+	\lambda \in \Lambda', U_\lambda \in \mathscr{N}_\lambda} \]
+	と定める. 定義から, $ \mathscr{N} $が可算な開集合族であることがわかる.
+	$ \mathscr{N} $が$ x $の近傍基であることを示す.
+	$ V $を$ x $の任意の開近傍とする.
+	このとき, ある有限集合$ \Lambda_0 $と
+	各$ \lambda \in \Lambda_0 $について$ X_\lambda $の開集合$ V_\lambda $が存在して,
+	$ x \in \bigcap_{\lambda \in \Lambda_0} \mapinvset{p_\lambda}{V_\lambda} \subset V $
+	が成り立つ.
+\end{proof}
 
 \begin{proposition}
 	第二可算空間は第一可算空間である.
 \end{proposition}
+
+\begin{proof}
+	第二可算空間$ X $において$ \mathscr{B} $を可算開基とする.
+	任意の点$ x \in X $において, $ \mathscr{N} \defeq \setcomp{x \in U}{U \in \mathscr{B}} $とすると
+	$ \mathscr{N} $が$ x $の近傍基となることがわかる.
+\end{proof}
 
 \begin{proposition}
 	距離空間は第一可算空間である.
