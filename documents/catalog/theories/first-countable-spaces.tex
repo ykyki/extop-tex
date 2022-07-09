@@ -21,7 +21,6 @@ $ X $の非可算個の積空間は第一可算でない.
 連続写像であり, 離散位相は第一可算であるが非可算集合上の補有限位相は第一可算でない.
 さらに, 商写像であっても第一可算性は保たれない(\cref{ex:quotient-of-R-by-Z,ex:quotient-of-R-2}).
 
-
 \begin{proposition}
 	\label{cf00001}
 	$ \Lambda $を空でない可算集合とし,
@@ -40,10 +39,17 @@ $ X $の非可算個の積空間は第一可算でない.
 	と定める. 定義から, $ \mathscr{N} $が可算な開集合族であることがわかる.
 	$ \mathscr{N} $が$ x $の近傍基であることを示す.
 	$ V $を$ x $の任意の開近傍とする.
-	このとき, ある有限集合$ \Lambda_0 $と
+	このとき, ある有限集合$ \Lambda_0 \subset \Lambda $と
 	各$ \lambda \in \Lambda_0 $について$ X_\lambda $の開集合$ V_\lambda $が存在して,
 	$ x \in \bigcap_{\lambda \in \Lambda_0} \mapinvset{p_\lambda}{V_\lambda} \subset V $
 	が成り立つ.
+	各$ \lambda \in \Lambda_0 $について$ x \in \mapinvset{p_\lambda}{V_\lambda} $なので,
+	$ x_\lambda \in V_\lambda $となる.
+	このとき, 開近傍$ U_\lambda \in \mathscr{N}_\lambda $が存在して
+	$ U_\lambda \subset V_\lambda $が成り立つ.
+	よって, $ U \defeq \mapinvset{p_\lambda}{U_\lambda} $とすると
+	$ U \in \mathscr{N} $かつ$ U \subset V $となるので
+	$ \mathscr{N} $は$ x $の近傍基である.
 \end{proof}
 
 \begin{proposition}
@@ -60,9 +66,46 @@ $ X $の非可算個の積空間は第一可算でない.
 	距離空間は第一可算空間である.
 \end{proposition}
 
+\begin{proof}
+	$ (X, d) $を距離空間とし, 点$ x $について集合族$ \mathscr{N}_x $を
+	$ \mathscr{N}_x \defeq \setcomp{B(x,2^{-n})}{n \in \N} $で定める.
+	ここで, $ B(x,r) $は中心$ x $, 半径$ r $の開球を表す.
+	このとき, $ \mathscr{N}_x $は可算近傍基である.
+\end{proof}
+
 \begin{proposition}
-	コンパクト \Hausdorff 空間$ X $の任意の点が \Gdelta 集合であるとき,
+	\topT{3} な可算コンパクト空間$ X $の任意の一点集合が \Gdelta であるとき,
 	$ X $は第一可算空間である.
 \end{proposition}
+
+\begin{proof}
+	$ x \in X $をとると可算な開集合族$ \lrbrace{U_n}_{n \in \N} $が存在して
+	$ \lrbrace{x} = \bigcap_{n \in \N} U_n $が成り立つ.
+	$ X $が \topT{3} であることから, $ \topcl U_{n+1} \subset U_n $となるように
+	$ \lrbrace{U_n}_{n \in \N} $がとれる.
+	そのような$ \lrbrace{U_n}_{n \in \N} $が$ x $の開近傍基であることを示す.
+	$ x $の開近傍$ U $であっていかなる$ U_n $も部分集合にもたないものが存在すると仮定して矛盾を導く.
+	ここで, 各$ n \in \N $について$ U_n \setminus U \neq \emptyset $なので
+	点$ x_n \in U_n \setminus U $をとり, 集合$ A \defeq \setcomp{x_n}{n \in \N} $を定める.
+	$ U_{n+1} \subset U_n $と$ \bigcap_{n \in \N} U_n = \lrbrace{x} $より,
+	もし$ A $が有限集合ならばある$ i \in \N $が存在して$ x_i = x $となる.
+	$ x_i \in U $となり, $ x_i \in U_i \setminus U $に矛盾する.
+	よって, $ A $は可算無限集合である.
+
+	$ X $が可算コンパクトであることから, \cref{prop:Countable compact <> Every countably infinite subset has an accumulation point}
+	より$ A $は集積点$ p $をもつ. 各$ i \in \N $について
+	$ A_i \defeq \setcomp{x_n}{n \in \N, n \geq i} $と定める.
+	$ X $が特に \topT{1} であることから$ p $は$ A_i $の集積点でもある.
+	定義より$ A_i \subset U_i $なので$ p \in \topcl U_i $となる.
+	よって, $ p = x $より$ p \in U $が成り立つ.
+	$ p \in \topcl A $なので$ A \cap U \neq \emptyset $となり,
+	これは各$ x_n $が$ U $に属さないことに矛盾する.
+	ゆえに, $ \lrbrace{U_n}_{n \in \N} $は$ x $の開近傍基である.
+\end{proof}
+
+\begin{corollary}
+	コンパクト \Hausdorff 空間$ X $の任意の一点集合が \Gdelta 集合であるとき,
+	$ X $は第一可算空間である.
+\end{corollary}
 
 \end{document}
