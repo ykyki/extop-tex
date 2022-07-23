@@ -327,17 +327,17 @@
 \begin{lemma}[{\cite[Theorem~6.1.25]{Engelking1989GT}}]
 	\label{c00011}
 	$ A $を連続体$ X $の閉集合で$ A \neq \emptyset, X $となるものとする.
-	空間$ A $の任意の連結成分$ C $に対し, $ C \cap \topbry A \neq \emptyset $が成立する.
+	空間$ A $の任意の連結成分$ C $に対し, $ C \cap \topbd A \neq \emptyset $が成立する.
 \end{lemma}
 
 \begin{proof}
 	点$ x_0 \in C $を固定する. $ x_0 \in K $となる$ A $の開閉集合$ K $全体の集合を$ \mathscr{K} $とおく.
-	補題\cref{c00010}より$ C = \bigcap \mathscr{K} $である. もし仮に$ C \cap \topbry A = \emptyset $であったとする.
+	補題\cref{c00010}より$ C = \bigcap \mathscr{K} $である. もし仮に$ C \cap \topbd A = \emptyset $であったとする.
 
-	$ \topbry A \subset A $は$ A $の閉集合であるからコンパクトである. 仮定より
-	\[ \bigcap_{K \in \mathscr{K}} K \cap \topbry A = C \cap \topbry A = \emptyset \]
-	なので, コンパクト性と併せて$ K \cap \topbry A = \emptyset $となる$ K \in \mathscr{K} $の存在が分かる.
-	$ K = U \cap A  $となる$ X $の開集合$ U $を取る. $ A = \topint A \cup \topbry A $と分割されているので,
+	$ \topbd A \subset A $は$ A $の閉集合であるからコンパクトである. 仮定より
+	\[ \bigcap_{K \in \mathscr{K}} K \cap \topbd A = C \cap \topbd A = \emptyset \]
+	なので, コンパクト性と併せて$ K \cap \topbd A = \emptyset $となる$ K \in \mathscr{K} $の存在が分かる.
+	$ K = U \cap A  $となる$ X $の開集合$ U $を取る. $ A = \topint A \cup \topbd A $と分割されているので,
 	$ K = U \cap \topint A $である. よって$ K $は$ X $においても開閉集合である.
 	$ x_0 \in K $と$ X $の連結性より$ K = X $である.
 	よって$ K \subset A $より$ A = X $となり, $ A $の仮定に矛盾する.
@@ -356,7 +356,7 @@
 	開集合$ U, V \subset X $で$ F_0 \subset U, F_n \subset V, U \cap V = \emptyset $となるものが存在する.
 	点$ x \in F_n $と連結成分$ x \in C \subset F_n $を取る.
 	この$ C $が所望の条件を満たす連続体になる: まず$ C \cap F_0 = \emptyset, C \cap F_n \neq \emptyset $が成立する.
-	\cref{c00011}より, $ C \cap \topbry\topcl V \neq \emptyset $なので, この集合の元$ y $が存在する.
+	\cref{c00011}より, $ C \cap \topbd\topcl V \neq \emptyset $なので, この集合の元$ y $が存在する.
 	また$ V $の取り方から$ F_n \subset \topint \topcl V $である.
 	よって, $ y \notin F_n $である.
 	そこで$ y \in F_k $となる$ k $を取れば$ k \neq n $かつ$ C \cap F_k \neq \emptyset $となる.
