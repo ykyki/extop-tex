@@ -10,7 +10,7 @@
 
 \begin{definition}
 	集合$ X $と写像$ d \colon X \times X \to \R $の組$ (X, d) $について次の4条件が成り立つとき,
-	$ (X, d) $を\indexjj{きょりくうかん}{離化空間}{metric space}といい,
+	$ (X, d) $を\indexjj{きょりくうかん}{距離空間}{metric space}といい,
 	$ d $を$ X $上の\indexjj{きょり}{距離}{metric}という.
 	\begin{enumerate}
 		\item 任意の$ x, y \in X $について$ d(x, y) \geq 0 $が成り立つ.
@@ -24,7 +24,7 @@
 \begin{definition}
 	$ (X, d) $を距離空間とする. $ x \in X $と$ \varepsilon > 0 $に対して
 	\[ \topball{x}{\varepsilon} \defeq \setcomp{y \in X}{d(x, y) < \varepsilon} \]
-	で定義される$ \topball{x}{\varepsilon} $を$ x $の
+	で定義される部分集合$ \topball{x}{\varepsilon} $を$ x $の
 	\indexjj{イプシロンきんぼう}{$\varepsilon$近傍}{epsilon neighborhood}または
 	\indexjj{かいきゅう}{開球}{open ball}という.
 \end{definition}
@@ -33,12 +33,12 @@
 	距離空間$ (X, d) $における部分集合族$ \mathcal{O}_d $を
 	\[ \mathcal{O}_d \defeq \setcomp{U \in \pow(X)}
 	{\mbox{任意の}x \in U \mbox{についてある} \varepsilon > 0 \mbox{が存在して}
-	\topball{x}{\varepsilon} \subset U \mbox{を満たす.}} \]
+	\topball{x}{\varepsilon} \subset U \mbox{を満たす}} \]
 	によって定めると, $ \mathcal{O}_d $は位相の公理を満たし,
 	$ \mathcal{O}_d $を距離$ d $から定まる位相という.
 \end{definition}
 
-上のように定義される$ \mathcal{O}_d $が位相の公理を満たすことは容易に確かめられる.
+上のように定義される$ \mathcal{O}_d $が開集合族の公理を満たすことは容易に確かめられる.
 距離空間$ (X, d) $に対して$ (X, \mathcal{O}_d) $を距離から定まる位相空間と呼ぶ.
 以降では, 特に断ることなく距離空間$ (X, d) $をその距離から定まる位相をもつ位相空間
 $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
@@ -50,10 +50,10 @@ $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
 \begin{proof}
 	任意の$ x \in X, \varepsilon > 0 $について$ \topball{x}{\varepsilon} $が開集合であることを示す.
 	任意に$ y \in \topball{x}{\varepsilon} $をとる.
-	$ y = x $のとき$ \topball{y}{\varepsilon} \subset \topball{x}{\varepsilon} $である.
-	$ y \neq x $のときある$ \delta > 0 $であって$ \delta < \varepsilon - d(x,y) $を満たすものが存在する.
+	このときある$ \delta > 0 $であって$ \delta < \varepsilon - d(x,y) $を満たすものが存在する.
 	このとき, 任意の$ z \in \topball{y}{\delta} $について
-	$ d(x, z) \leq d(x, y) + d(y, z) < d(x, y) + \delta < \varepsilon $が成り立つ.
+	\[ d(x, z) \leq d(x, y) + d(y, z) < d(x, y) + \delta < \varepsilon \]
+	が成り立つ.
 	よって, $ z \in \topball{x}{\varepsilon} $より$ \topball{y}{\delta} \subset \topball{x}{\varepsilon} $である.
 \end{proof}
 
@@ -66,14 +66,13 @@ $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
 
 \begin{proposition}
 	$ (X, d_X), (Y, d_Y) $を距離空間とする.
-	$ X, Y $を, それぞれの距離$ d_X, d_Y $から定まる位相をもつ位相空間とみなすとき,
-	写像$ f \colon X \to Y $については同値である.
+	写像$ f \colon X \to Y $について次は同値である.
 	\begin{enumerate}
 		\item $ f $が連続である.
 		\item 任意の点$ x $について次が成り立つ.
 			\[\mbox{任意の} \varepsilon > 0 \mbox{について}
 			\delta > 0 \mbox{が存在して} \mapset{f}{B(x, \delta)}
-			\subset B(x, \mappt{f}{x}).\]
+			\subset B(x, \varepsilon).\]
 	\end{enumerate}
 \end{proposition}
 
@@ -110,17 +109,16 @@ $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
 	ただし, $ B_i(x_i, \varepsilon) $は$ X_i $において$ x_i $を中心とする
 	半径$ \varepsilon $の開球である.
 	ここで, $ (X, d^{(\infty)}) $において$ x $を中心とする半径$ \varepsilon $の開球を
-	$ B(x, \varepsilon) $とすると, 任意の$ y \in B(x, \varepsilon) $について
-	$ d_i(x_i, y_i) < \varepsilon $が成り立つので
-	$ B(x, \varepsilon) \subset \prod_{i=0}^n B_i(x_i, \varepsilon) \subset U $が成り立つ.
-	よって, $ U = \bigcup_{x \in U} B(x, \varepsilon) $より$ U \in \mathcal{O}_{d^{(\infty)}} $が成り立つ.
+	$ B(x, \varepsilon) $とすると,
+	$ B(x, \varepsilon) = \prod_{i=0}^n B_i(x_i, \varepsilon) \subset U $
+	が成り立つことを確かめられる.
+	よって, $ U \in \mathcal{O}_{d^{(\infty)}} $が成り立つ.
 
 	次に$ V \in \mathcal{O}_{d^{(\infty)}} $と任意の点$ x \in V $をとる.
-	ある$ \delta > 0 $が存在して$ B(x, \delta) \subset V $が成り立つ.
-	ここで, $ W_x \defeq \prod_{i=0}^n B_i(x_i, \delta) $と定めると
-	明らかに$ W \subset B(x, \delta) \subset V $である.
-	よって, $ V = \bigcup_{x \in V} W_x $より$ V \in \mathcal{O}_X $より
-	$ \mathcal{O}_{d^{(\infty)}} = \mathcal{O}_X $が成り立つ.
+	ある$ \delta > 0 $が存在して$ B(x, \delta) \subset V $が成り立ち,
+	$ B(x, \delta) = \prod_{i=0}^n B_i(x_i, \delta) $に注意すれば
+	$ V \in \mathcal{O}_X $がわかる.
+	よって, $ \mathcal{O}_{d^{(\infty)}} = \mathcal{O}_X $が成り立つ.
 
 	また, 任意の2点$ x, y \in X $について$ d^{(\infty)}(x, y) \leq
 	d^{(m)}(x, y) \leq \sqrt[m]{n+1} d^{(\infty)}(x, y)$より,
@@ -150,7 +148,7 @@ $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
 	$ d(x, y) < 2^{-n}\varepsilon $を満たすなら
 	$ d'_n(x_n, y_n) < \varepsilon $を満たす.
 	よって, $ \mapset{p_n}{B(x, 2^{-n} \varepsilon)} \subset
-	B_n(x_n, \varepsilon) $が成り立つ.
+	B_n(x_n, \varepsilon) $が成り立ち, $ p_n $は連続である.
 	ただし, $ B(x, 2^{-n} \varepsilon), B_n(x_n, \varepsilon) $は
 	それぞれ$ (X, d), (X_n, d'_n) $における開球であり,
 	$ \morph{p_n}{X}{X_n} $は射影である.
@@ -166,10 +164,11 @@ $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
 	このとき, 任意の$ y=(y_n)_{n \in \N} \in
 	\bigcap_{n=0}^k \mapinvset{p_n}{U_n} $について
 	$ d'_n(x_n, y_n) < \frac{\varepsilon}{4} $が$ n = 0, 1, \ldots, k $で成り立つ.
-	ここで, $ \sum_{n=0}^{k} 2^{-n} d'_n(x_n, y_n) <
-	\frac{\varepsilon}{4}\sum_{n=0}^{k} 2^{-n} < \frac{\varepsilon}{2} $と
-	$ \sum_{n=k+1}^\infty 2^{-n} d'_n(x_n, y_n) \geq \sum_{n=k+1}^\infty 2^{-n}
-	= 2^{-k} < \frac{\varepsilon}{2} $が成り立つことに注意すると
+	ここで,
+	\[ \sum_{n=0}^{k} 2^{-n} d'_n(x_n, y_n) <
+	\frac{\varepsilon}{4}\sum_{n=0}^{k} 2^{-n} < \frac{\varepsilon}{2} \]と
+	\[ \sum_{n=k+1}^\infty 2^{-n} d'_n(x_n, y_n) \leq \sum_{n=k+1}^\infty 2^{-n}
+	= 2^{-k} < \frac{\varepsilon}{2} \]が成り立つことに注意すると
 	$ d(x, y) = \sum_{n=0}^{k} 2^{-n} d'_n(x_n, y_n) +
 	\sum_{n=k+1}^\infty 2^{-n} d'_n(x_n, y_n) < \frac{\varepsilon}{2} +
 	\frac{\varepsilon}{2} = \varepsilon $が成り立つ.
@@ -198,7 +197,7 @@ $ (X, \mathcal{O}_d) $とみなして議論を進める場合がある.
 \end{theorem}
 
 \begin{proposition}[{\cite[Theorem~4.4.18]{Engelking1989GT}}]
-	$ \morph{f}{X}{Y} $を距離化可能空間$ X $から位相空間$ Y $への開閉写像とする.
+	$ \morph{f}{X}{Y} $を距離化可能空間$ X $から位相空間$ Y $への開写像かつ閉写像とする.
 	このとき, $ Y $は距離化可能である.
 \end{proposition}
 
