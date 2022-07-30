@@ -2,7 +2,7 @@ name: 🎈Build
 
 on:
   push:
-    branches: [main, develop, 'feature/*']
+    branches: [main, develop, feature/**]
   workflow_dispatch:
 
 jobs:
