@@ -2,7 +2,7 @@ name: 🎈Build
 
 on:
   push:
-    branches: [main, develop, 'feature/*']
+    branches: [main, develop, feature/**]
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
     - name: Set vars
       id: vars
       run: |
-        echo "::set-output name=branch_name::$(git rev-parse --abbrev-ref HEAD | sed 's|/|_|')"
+        echo "::set-output name=branch_name::$(git rev-parse --abbrev-ref HEAD | sed 's|/|_|g')"
     - uses: actions/upload-artifact@v3
       with:
         name: extop-tex-build-${{ github.run_number }}-${{ steps.vars.outputs.branch_name }}
