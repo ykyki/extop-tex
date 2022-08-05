@@ -3,12 +3,32 @@
 \usepackage{framed}
 \usepackage{amsmath, amssymb}
 \usepackage[framed, thmmarks, hyperref, amsmath]{ntheorem}
+\usepackage[
+	dvipdfmx,
+	setpagesize=false,
+	bookmarksnumbered,
+	colorlinks
+]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	citecolor=orange,
+	linkcolor=blue,
+	% linkcolor=teal,
+	% linkcolor=airforceblue,
+	% linkcolor=bleudefrance,
+	urlcolor=cyan,
+}
+% theorem 環境を定義するパッケージ → hyperref → cleveref の順番で読み込む必要がある
+\usepackage[nameinlink]{cleveref}
+
+\crefname{problem}     {問題} {問題}
+\crefname{proof}  {証明} {証明}
 
 \import{../config/}{global-commands.sty}
 
-\theoremstyle{plain}
+\theoremstyle{marginbreak}
 \theoremsymbol{\ensuremath{\square}}
-\newtheorem*{problem}{問題}
+\newtheorem{problem}{問題}
 
 \theoremsymbol{\ensuremath{\blacksquare}}
-\newtheorem*{proof}{証明}
+\newtheorem{proof}[problem]{証明}
