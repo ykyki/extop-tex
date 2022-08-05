@@ -1,0 +1,32 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\begin{proof}[1.1.A]\label{eng-1-1-A-proof}
+	\(A \cap B\)の触点は\(A\)
+	の触点であるので
+	\(\topbar{A \cap B} \subset A\)
+	が成り立つ.
+	\(B\)についても同様である.
+	よって, \(\topbar{A \cap B} \subset
+	\topbar{A} \cap \topbar{B}\)
+	が成り立つ.
+
+	\(x \in \topbar{A} \setminus
+	\topbar{B}\)を任意にとる.
+	このとき, \(x\)のある開近傍\(U\)が存在して
+	\(U \cap B = \emptyset\)となる.
+	\(x\)の任意の開近傍\(V\)をとる.
+	このとき, \(U \cap V\)は\(x\)の開近傍なので
+	\(A\)と交わるが, \(B\)とは交わらない.
+	よって, \(\lrparen{U \cap V} \cap A
+	\setminus B \neq \emptyset\)である.
+	特に\(V\)は\(A \setminus B\)と交わるので
+	\(x \in \topbar{A \setminus B}\)となる.
+
+	具定例の構成は\ref{eng-1-1-A-proof}と同様である.
+\end{proof}
+
+\end{document}
