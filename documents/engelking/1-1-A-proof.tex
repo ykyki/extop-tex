@@ -1,0 +1,52 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\begin{proof}[1.1.A]\label{eng-1-1-A-proof}
+	\(A \cap B \subset A\)
+	と
+	\(A \cap B \subset B\)
+	より
+	\(\topbar{A \cap B} \subset \topbar{A}\)
+	と
+	\(\topbar{A \cap B} \subset \topbar{B}\)
+	が成り立つ.
+	よって, \(\topbar{A \cap B}
+	\subset \topbar{A} \cap \topbar{B}\)
+	が成り立つ.
+
+	\(\topbar{A} \subset \topbar{A \setminus B}
+	\cup \topbar{B}\)
+	より
+	\(\topbar{A} \setminus \topbar{B}
+	\subset \topbar{A \setminus B}\)
+	が成り立つ.
+
+	実数直線\(\R\)の部分集合として
+	\(A \defeq\intoo{-1}{0},
+	B \defeq \intoo{0}{1}\)
+	をとれば,
+	\(\topbar{A \cap B} = \emptyset,
+	\topbar{A} \cap \topbar{B} =\lrbrace{0}\)
+	となる.
+	よって, \(\topbar{A \cap B} \subsetneq
+	\topbar{A} \cap \topbar{B}\)
+	である.
+
+	実数直線\(\R\)の部分集合として
+	\(A \defeq\intcc{0}{1},
+	B \defeq \intoo{0}{1}\)
+	をとれば,
+	\(\topbar{A} \setminus
+	\topbar{B} = \emptyset,
+	\topbar{A \setminus B} =\lrbrace{0,1}\)
+	となる.
+	よって, \(\topbar{A} \setminus
+	\topbar{B}\subsetneq
+	\topbar{A \setminus B}\)
+	である.
+\end{proof}
+
+\end{document}
