@@ -13,3 +13,17 @@
 - ex: 1-1-A-problem.tex
 - 証明が複数ある場合は, 2つ目以降について{問題番号}-proof{番号}.texのように書く.
 - ex: 2つ目の証明の場合は 1-1-A-proof2.tex のように書く
+
+## 1つのブランチに含む内容
+- 問題文の記述に関しては複数を1つのブランチ内でまとめて記述しても良い.
+- 証明の記述は1つのブランチにつき原則1つとする.
+
+## Projectsの利用方法
+- extop-engelking-manegement, extop-engelking の2つがある.
+- Engelking 演習問題セミナーのタスク全般は extop-engelking-manegement で管理する.
+- extop-engelking は各問題の進捗状況一覧としてのみ使用.
+
+## 使用する用語の定義
+- catalogの定義に合わせる.
+- 問題の主張は変えずにcatalogの定義に基づいて記述する.
+- ex: 原文が"Every compact space is a T4-space."となっている場合, "コンパクトT2空間はT4空間である."とする.
