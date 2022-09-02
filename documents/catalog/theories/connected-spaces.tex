@@ -6,6 +6,8 @@
 \section{連結性}
 \label{sec:connected-spaces}
 
+\newcommand{\longrel}[1]{\ #1\ }
+
 \begin{source}
 	本節は主に\cite[Chapter 6]{Engelking1989GT}や\cite[第４章]{Morita1981ja}を参考にしている.
 \end{source}
@@ -264,6 +266,126 @@
 	$ C(x) $が連結なので$ C(x) \cap F $と$ C(x) \setminus F $のいずれか一方は
 	空集合である. 今, $ x \in C(x) \cap F $より$ C(x) \setminus F = \emptyset $である.
 	よって, $ C(x) \subset F $より$ C(x) \subset Q(x) $である.
+\end{proof}
+
+\begin{lemma}
+	\label{c00009}
+	$ U $を位相空間$ X $の開集合, $ \setfamily{F_\lambda}{\lambda \in \Lambda} $を
+	閉集合の族($ \Lambda \neq \emptyset $)とする.
+	$ F_\lambda $の中で少なくともひとつはコンパクトであるとする
+	(とくに$ X $がコンパクトであればこの条件は満たされる).
+	また$ \bigcap_{\lambda} F_\lambda \subset U $となっているとする.
+	このとき有限個の$ F_1, \ldots , F_n \in \{ F_\lambda\}$が存在して$ F_1 \cap \cdots \cap F_n \subset U $となる.
+\end{lemma}
+
+\begin{proof}
+	コンパクトである$ F_0 \in \{F_\lambda\}$を取る.
+	すると$ U \cap F_0 $は$ F_0 $の開集合,
+	$ \setfamily{F_0 \cap F_\lambda}{\lambda \in \Lambda} $は$ F_0 $の閉集合の族であり,
+	$ \bigcap_{\lambda} (F_0 \cap F_\lambda) \subset U \cap F_0 $となる.
+	そこで最初から$ X $がコンパクトである条件のもとで証明すれば十分である.
+
+	$ X $がコンパクトであるとする.
+	いまコンパクト部分空間$ X \setminus U $が開集合の族$ (X \setminus F_\lambda) $で覆われているので,
+	有限個の$ F_1, \ldots, F_n $が存在して
+	\[ X \setminus U \subset \bigcup_{i=1}^{n} X \setminus F_i \]
+	となる. よって$ F_1 \cap \cdots \cap F_n \subset U $である.
+\end{proof}
+
+\begin{lemma}[{\cite[Theorem~6.1.23]{Engelking1989GT}}]
+	\label{c00010}
+	$ X $をコンパクト\Hausdorff 空間, $ x_0 $を$ X $の点とする.
+	$ x_0 $の連結成分を$ C $, 擬連結成分を$ Q $とおくと, $ C = Q $である.
+\end{lemma}
+
+\begin{proof}
+	$ x_0 \in K $となる開閉集合$ K $全体の集合を$ \mathscr{K} $とおく. いま$ Q  = \bigcap \mathscr{K}$である.
+
+	($ \subset $): $ K \in \mathscr{K} $を任意に取る.
+	$ C \cap K $と$ C \setminus K $がともに$ C $の開閉集合であり,
+	$ C \cap K \neq \emptyset $となるので, $ C $の連結性より$ C \subset K $である.
+	よって$ C \subset Q $である.
+
+	($ \supset $): $ Q $が連結であることを示せばよい.
+	$ Q_1, Q_2 $を$ Q_1 \cap Q_2 = \emptyset, Q_1 \cup Q_2 = Q , x_0 \in Q_1$となる$ Q $の任意の閉集合とする.
+	$ Q $が閉集合であるから, $ Q_1, Q_2 $は$ X $においても閉である.
+	$ X $が \topT{4} 空間であるから, 開集合$ U_1, U_2 \subset X $が存在して
+	$ Q_1 \subset U_1, Q_2 \subset U_2, U_1 \cap U_2 = \emptyset $となる.
+	$ \bigcap \mathscr{K} = Q \subset U_1 \cup U_2 $に\cref{c00009}を適用して,
+	有限個の$ K_1 , \ldots, K_n \in \mathscr{K}$で$ \bigcap_{1}^{n} K_i \subset U_1 \cup U_2$となるものが存在する.
+	ここで$ K_0 \defeq \bigcap_{1}^{n} K_i $とおけば$ K_0 \in \mathscr{K}, Q \subset K_0 \subset U_1 \cup U_2 $となる.
+	すると
+	\[ \topcl \lrparen{U_1 \cap K_0} \longrel{\subset} \lrparen{\topcl U_1} \cap K_0
+	\longrel{=} \left(\topcl U_1 \right) \cap (U_1 \cup U_2) \cap K_0 \longrel{=} U_1 \cap K_0\]
+	となるので, $ U_1 \cap K_0 \in \mathscr{K} $である.よって
+	\[ Q_2 \longrel{\subset} Q \longrel{\subset} U_1 \cap K_0 \longrel{\subset} U_1 \]
+	となり, $ Q_2 \subset U_1 \cap U_2 $が成り立つ.
+	よって$ U_1 \cap U_2 = \emptyset, U_1 \supset Q_1 \neq \emptyset $より
+	$ Q_2 = \emptyset $である. ゆえに$ Q $は連結である.
+\end{proof}
+
+\begin{lemma}[{\cite[Theorem~6.1.25]{Engelking1989GT}}]
+	\label{c00011}
+	$ A $を連続体$ X $の閉集合で$ A \neq \emptyset, X $となるものとする.
+	空間$ A $の任意の連結成分$ C $に対し, $ C \cap \topbd A \neq \emptyset $が成立する.
+\end{lemma}
+
+\begin{proof}
+	点$ x_0 \in C $を固定する. $ x_0 \in K $となる$ A $の開閉集合$ K $全体の集合を$ \mathscr{K} $とおく.
+	補題\cref{c00010}より$ C = \bigcap \mathscr{K} $である. もし仮に$ C \cap \topbd A = \emptyset $であったとする.
+
+	$ \topbd A \subset A $は$ A $の閉集合であるからコンパクトである. 仮定より
+	\[ \bigcap_{K \in \mathscr{K}} K \cap \topbd A = C \cap \topbd A = \emptyset \]
+	なので, コンパクト性と併せて$ K \cap \topbd A = \emptyset $となる$ K \in \mathscr{K} $の存在が分かる.
+	$ K = U \cap A  $となる$ X $の開集合$ U $を取る. $ A = \topint A \cup \topbd A $と分割されているので,
+	$ K = U \cap \topint A $である. よって$ K $は$ X $においても開閉集合である.
+	$ x_0 \in K $と$ X $の連結性より$ K = X $である.
+	よって$ K \subset A $より$ A = X $となり, $ A $の仮定に矛盾する.
+\end{proof}
+
+\begin{lemma}{\cite[Lemma~6.1.26]{Engelking1989GT}}]
+	\label{c00012}
+	連続体$ X $の互いに交わらない閉被覆$ \setfamily{F_i}{i \in \N} $が与えられており,
+	$ F_i $の中でも少なくとも2つは非空であるとする.
+	このときある連続体$ C \subset X $が存在して$ C \cap F_0 = \emptyset $となり,
+	さらに$ C \cap F_1, C \cap F_2, \ldots $の中でも少なくとも2つは非空となる.
+\end{lemma}
+
+\begin{proof}
+	$ F_n \neq \emptyset $となる$ n \neq 0 $を取る. $ X $が正規空間なので,
+	開集合$ U, V \subset X $で$ F_0 \subset U, F_n \subset V, U \cap V = \emptyset $となるものが存在する.
+	点$ x \in F_n $と連結成分$ x \in C \subset F_n $を取る.
+	この$ C $が所望の条件を満たす連続体になる: まず$ C \cap F_0 = \emptyset, C \cap F_n \neq \emptyset $が成立する.
+	\cref{c00011}より, $ C \cap \topbd\topcl V \neq \emptyset $なので, この集合の元$ y $が存在する.
+	また$ V $の取り方から$ F_n \subset \topint \topcl V $である.
+	よって, $ y \notin F_n $である.
+	そこで$ y \in F_k $となる$ k $を取れば$ k \neq n $かつ$ C \cap F_k \neq \emptyset $となる.
+\end{proof}
+
+\begin{definition}
+	位相空間$ X $が\indexjj{しぐまれんけつ}{\sigmaConnected}{\ensuremath{\sigma}-connected}であるとは,
+	$ X $を可算個の互いに交わらない閉集合の合併で表したとき常に,
+	それら閉集合の中で少なくとも1つが$ X $と等しくなることである.
+\end{definition}
+
+\begin{theorem}[\Sierpinski の定理]
+	\label{c00013}
+	連続体$X$は\sigmaConnected である.
+\end{theorem}
+
+\begin{proof}
+	$ X $の互いに交わらない閉被覆$ \setfamily{F_i}{i \in \N} $が与えられているとする.
+	もし仮に$ F_i \neq \emptyset $となる$ i $が少なくとも2つ存在したとする.
+	\cref{c00012}よりある連続体$ C_0 \subset X $が存在して$ C_0 \cap  F_0 = \emptyset$となり,
+	さらに$ C_0 \cap F_1, C_0 \cap F_2, \ldots $の中でも少なくとも2つは非空となる.
+	\cref{c00012}を再び$ C_0 $と閉被覆$ \setfamily{C_0 \cap F_i}{i \in \N_{>0}} $について適用する.
+	するとある連続体$ C_1 \subset C_0 $が存在して$ C_1 \cap  F_1 = \emptyset$となり,
+	さらに$ C_1 \cap F_2, C_1 \cap F_3, \ldots $の中でも少なくとも2つは非空となる.
+	この操作を繰り返すことで, 連続体の下降列$ C_0 \supset C_1 \supset \cdots $で
+	$ C_i \cap F_i = \emptyset, C_i \neq \emptyset $が任意の$ i \in \N $について成立するものが得られる.
+	$ X $がコンパクトなので$ \bigcap_{i=0}^{\infty} C_i \neq \emptyset $である.
+	しかし一方で$ \bigcap_{i=0}^{\infty} C_i
+	= \left(\bigcap_{i=0}^{\infty} C_i \right) \cap \left( \bigcup_{i=0}^{\infty} F_i \right) = \emptyset $ である. よって矛盾する.
 \end{proof}
 
 \end{document}
