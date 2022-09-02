@@ -25,7 +25,7 @@ jobs:
         git status
     - name: build updated files
       run: |
-        git diff --name-only --diff-filter=M origin/develop \
+        git diff --name-only --diff-filter=AM origin/develop \
         ./documents/catalog/root.tex \
         ./documents/catalog/theories \
         ./documents/catalog/examples \
