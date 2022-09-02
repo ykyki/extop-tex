@@ -30,7 +30,7 @@ jobs:
         ./documents/catalog/theories \
         ./documents/catalog/examples \
         | grep ".tex" \
-        | xargs -P0 -L1 -I {} sh ./tools/build.sh {} review
+        | xargs -P4 -L1 -I {} sh ./tools/build.sh {} review
     - name: Set vars
       id: vars
       run: |
