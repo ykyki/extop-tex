@@ -1,0 +1,27 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\begin{proof}[1.1.A]\label{eng-1-5-A-proof}
+
+\end{proof}
+
+	\(X\)が \topT{1} 空間であれば, 相異なる2点\(x, y\)について
+	ある開集合\(U\)が存在して, \(x \in U, y \notin U\)
+	または\(x \notin U, y \in U\)が成り立つ.
+	前者であれば\(x \notin \topbar{x}\),
+	後者であれば\(y \notin \topbar{y}\)となる.
+	\(x \in \topbar{x}, y \in \topbar{y}\)が常に成り立つことと
+	合わせると\(\topbar{x} \neq \topbar{y}\)がわかる.
+
+	逆に, \(\topbar{x} \neq \topbar{y}\)のとき,
+	ある点\(z \in X\)であって\(\topbar{x}\)と
+	\(\topbar{y}\)のどちらか一方のみに属するものが存在する.
+	\(z \in \topbar{x}\)のとき, \(z\)のある開近傍\(U\)であって
+	\(x \in U, y \notin U\)を満たすものが存在する.
+	また, \(z \in \topbar{y}\)のとき, \(z\)のある開近傍\(U\)であって
+	\(x \notin U, y \in U\)を満たすものが存在する.
+	よって, \(X\)は \topT{1} 空間である.
+\end{document}
