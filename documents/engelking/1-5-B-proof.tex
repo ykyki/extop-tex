@@ -1,0 +1,95 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\begin{proof}[1.5.B]\label{eng-1-5-B-proof}
+
+\end{proof}
+	3, 2, 1の順に示す.
+	初めに, 3を示す.
+	\( A \)を\( X \)の有限部分集合とする.
+	任意の点\( x \in X \)について
+	\( A \setminus \lrbrace{x} \defeq \lrbrace{a_0, \ldots, a_n} \)
+	とする(\( A \setminus \lrbrace{x} = \emptyset \)のとき
+	\( x \notin A^\topd \)であることは明らかなので
+	\( A \setminus \lrbrace{x} \neq \emptyset \)を仮定している).
+	各\( i = 0, \ldots, n \)に対して,
+	\( x \)の開近傍\( U_i \)であって
+	\( a_i \notin U_i \)を満たすもが存在する.
+	ここで, \( U \defeq \bigcap_{i=0}^n U_i \)と定めると,
+	\( U \cap \lrparen{A \setminus \lrbrace{x}} = \emptyset \)となる.
+	よって, \( A^\topd = \emptyset \)である.
+
+	次に, 2の\( \topbar{\lrparen{A^\topd}} = A^\topd \)を示す.
+	これは, \( \topbar{\lrparen{A^\topd}}
+	\subset A^\topd \)を確認すればよい.
+	任意に\( x \in \topbar{\lrparen{A}^\topd} \)をとると,
+	\( x \)の任意の開近傍\( U \)について
+	\( U \cap A^\topd \neq \emptyset \)が成り立つ.
+	ここで, \( y \in U \cap A^\topd \)を1点とる.
+	\( y = x \)のとき, \( x \in A^\topd \)は明らかである.
+	\( y \neq x \)の場合についても
+	\( x \in A^\topd \)を示す.
+	今, \( X \)が \topT{1}空間なので,
+	\( y \)のある開近傍\( V \)が存在して,
+	\( x \notin V \)となる.
+	また, \( y \in A^\topd \)より
+	\( V \cap A \neq \emptyset \)が成り立つ.
+	よって, \( x \notin V \)より
+	\( V \cap \lrparen{A \setminus \lrbrace{x}}
+	\neq \emptyset \)となる.
+	ゆえに, \( x \in A^\topd \)より
+	\( \topbar{\lrparen{A^\topd}}
+	\subset A^\topd \)が示された.
+
+	次に, 2の\( A^\topd = \lrparen{\topbar{A}}^\topd \)を示す.
+	\( A^\topd \supset \lrparen{\topbar{A}}^\topd \)を示せばよい.
+	任意に\( x \in \lrparen{\topbar{A}}^\topd \)をとる.
+	\( x \)の任意の開近傍\( U \)について
+	\( U \cap \lrparen{\topbar{A} \setminus \lrbrace{x}}
+	\neq \emptyset \)である.
+	\( y \in U \cap \lrparen{\topbar{A} \setminus \lrbrace{x}} \)
+	をとる. このとき, \( y \neq x \)なので
+	\( y \)のある開近傍\( V \)であって,
+	\( x \notin V, V \subset U \)を満たすものが存在する.
+	\( y \in \topbar{A} \)より
+	\( V \cap A \neq \emptyset \)である.
+	また, \( x \notin V \)より
+	\( V \cap \lrparen{A \setminus \lrbrace{x}}
+	\neq \emptyset \)となる.
+	さらに, \( V \subset U \)より
+	\( U \cap \lrparen{A \setminus \lrbrace{x}}
+	\neq \emptyset \)となる.
+	よって, \( x \in A^\topd \)より
+	\( A^\topd \supset \lrparen{\topbar{A}}^\topd \)
+	が示された.
+
+	1を示す.
+	任意の\( x \in \lrparen{A^\topd}^\topd \)について
+	\( x \in \topbar{A^\topd \setminus \lrbrace{x}} \)である.
+	2の結果から,
+	\[ \topbar{A^\topd \setminus \lrbrace{x}}
+	\subset \topbar{\lrparen{A^\topd}} = A^\topd \]
+	なので, \( x \in A^\topd \)である.
+
+	以下では, \( X \)が \topT{0} 空間の場合には
+	上の主張が成り立つとは限らない例を示す.
+
+	実数全体からなる集合\( \R \)に対して
+	その部分集合族\( \mathcal{O} \)を次で定める:
+	\[ \mathcal{O} \defeq \lrbrace{\emptyset}
+	\cup \setcomp{U \in \pow(X)}
+	{\lrbrace{0} \subset U} \]
+	この\( \mathcal{O} \)
+	が開集合系の公理を満たすことは容易に確かめられる.
+	このようにして定まる位相空間
+	\( (\R, \mathcal{O}) \)は \topT{0} 空間である.
+	\( A \defeq \lrbrace{0} \)とすると,
+	\[A^\topd = \R \setminus \lrbrace{0},
+	\lrparen{\topbar{A}}^\topd = \R\]
+	となり,
+	\( A^\topd \neq \lrparen{\topbar{A}}^\topd \)
+	である.
+\end{document}
