@@ -24,7 +24,13 @@ jobs:
         ls -l
         git status
     - name: build updated files
-      run: git diff --name-only --diff-filter=M origin/develop ./documents/catalog | xargs -P0 -L1 -I {} sh ./tools/build.sh {} review
+      run: |
+        git diff --name-only --diff-filter=AM origin/develop \
+        ./documents/catalog/root.tex \
+        ./documents/catalog/theories \
+        ./documents/catalog/examples \
+        | grep ".tex" \
+        | xargs -P4 -L1 -I {} sh ./tools/build.sh {} review
     - name: Set vars
       id: vars
       run: |

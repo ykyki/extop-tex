@@ -74,10 +74,12 @@ sed -i -e "s/\\\\begin{document}/\\\\setlayout{$DOC_LAYOUT} \\\\begin{document}/
 OUTPUT_SUFFIX=$DOC_LAYOUT-$GIT_HASH_SHORT
 # OUTPUT_SUFFIX=$(date '+%y%m%d-%H%M%S')
 
-latexmk -cd -norc -r "$LATEXMKRC_FILE" "$TARGET_PATH" >/dev/null &&
+latexmk -cd -norc -r "$LATEXMKRC_FILE" "$TARGET_PATH" &&
     mv "$TARGET_DIR/$TARGET_NAME.pdf" "$OUTPUT_DIR"/"$TARGET_NAME"-"$OUTPUT_SUFFIX".pdf &&
     echo "$LINE_SEPARATOR" &&
     echo "Build: $OUTPUT_DIR/$TARGET_NAME-$OUTPUT_SUFFIX.pdf"
+
+if [ $? -ne 0 ]; then exit 1; fi
 
 rm -rf "$TMP_DIR"
 cd - || exit 1
