@@ -34,11 +34,14 @@
 	\( x \in A^\topd \)を示す.
 	今, \( X \)が \topT{1}空間なので,
 	\( y \)のある開近傍\( V \)が存在して,
-	\( x \notin V \)となる.
+	\( x \notin V, V \subset U \)となる.
 	また, \( y \in A^\topd \)より
 	\( V \cap A \neq \emptyset \)が成り立つ.
 	よって, \( x \notin V \)より
 	\( V \cap \lrparen{A \setminus \lrbrace{x}}
+	\neq \emptyset \)となる.
+	また, \( V \subset U \)より
+	\( U \cap \lrparen{A \setminus \lrbrace{x}}
 	\neq \emptyset \)となる.
 	ゆえに, \( x \in A^\topd \)より
 	\( \topbar{\lrparen{A^\topd}}
@@ -81,7 +84,7 @@
 	その部分集合族\( \mathcal{O} \)を次で定める:
 	\[ \mathcal{O} \defeq \lrbrace{\emptyset}
 	\cup \setcomp{U \in \pow(X)}
-	{\lrbrace{0} \subset U} \]
+	{0 \in U} \]
 	この\( \mathcal{O} \)
 	が開集合系の公理を満たすことは容易に確かめられる.
 	このようにして定まる位相空間
