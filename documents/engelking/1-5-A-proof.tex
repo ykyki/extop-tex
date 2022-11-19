@@ -1,0 +1,26 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\begin{proof}[1.5.A]\label{eng-1-5-A-proof}
+
+\end{proof}
+	\(X\)が \topT{0} 空間であれば, 相異なる2点\(x, y\)について
+	ある開集合\(U\)が存在して, \(x \in U, y \notin U\)
+	または\(x \notin U, y \in U\)が成り立つ.
+	前者であれば\(x \notin \topbar{\lrbrace{x}}\),
+	後者であれば\(y \notin \topbar{\lrbrace{y}}\)となる.
+	\(x \in \topbar{\lrbrace{x}}, y \in \topbar{\lrbrace{y}}\)が常に成り立つことと
+	合わせると\(\topbar{\lrbrace{x}} \neq \topbar{\lrbrace{y}}\)がわかる.
+
+	逆に, \(\topbar{\lrbrace{x}}
+	\neq \topbar{\lrbrace{y}}\)のとき,
+	ある点\(z \in X\)であって\(\topbar{\lrbrace{x}}\)と
+	\(\topbar{\lrbrace{y}}\)のどちらか一方のみに属するものが存在する.
+	一般性を失うことなく\( z \in \topbar{\lrbrace{x}} \)を仮定してよい.
+	このとき, \(z\)のある開近傍\(U\)であって
+	\(x \in U, y \notin U\)を満たすものが存在する.
+	よって, \(X\)は \topT{0} 空間である.
+\end{document}
