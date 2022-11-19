@@ -28,4 +28,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: extop-tex-build-${{ github.run_number }}-${{ steps.vars.outputs.branch_name }}
-        path: ./temp/
+        path: ./outputs/
