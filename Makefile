@@ -20,3 +20,12 @@ catalog:
 engelking:
 	latexmk -cd -norc -r ./documents/engelking/.latexmkrc ./documents/engelking/list.tex
 	cp -a ./documents/engelking/list.pdf ./outputs/engelking-list.pdf
+
+.PHONY: lct
+lct: list-commands-table
+.PHONY: list-commands-table
+list-commands-table: outputs/list-commands-table.pdf
+outputs/list-commands-table.pdf: documents/catalog/list-commands-table.pdf
+	cp -a $< ./outputs
+documents/catalog/list-commands-table.pdf: documents/catalog/list-commands-table.tex
+	latexmk -cd -norc -r ./documents/catalog/.latexmkrc $<
