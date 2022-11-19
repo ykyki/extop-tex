@@ -19,8 +19,10 @@ jobs:
         pwd
         ls -l
         git status
-    - name: build root.tex
-      run: sh ./tools/build.sh ./documents/catalog/root.tex product
+    - name: build catalog
+      run: make catalog
+    - name: build engelking
+      run: make engelking
     - name: Set vars
       id: vars
       run: |
