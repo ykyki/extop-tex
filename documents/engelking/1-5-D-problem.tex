@@ -1,0 +1,30 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\begin{problem}[1.5.D]\label{eng-1-5-D-problem}
+	\begin{enumerate}
+		\item \topT{0} な正則空間は特に \topT{1} 空間であり,
+		\topT{0} な完全正則空間は特に \topT{1} 空間である.
+		しかし, \topT{0} な正規空間が \topT{1} 空間であるとは限らない.
+		\item 任意の \topT{0} 空間について
+		\( \cardinality{X} \leq \topweight{X} \)
+		が成り立つが, \topT{0} でない空間については
+		この関係が成り立たつとは限らない.
+		また, 任意の \topT{2} 空間について
+		\( \cardinality{X} \leq 2^{2^{\topdensity{X}}} \)
+		および
+		\( \cardinality{X} \leq \lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		が成り立つが, \topT{2} でない \topT{1} 空間については
+		これらの関係が成り立たつとは限らない.
+		\item 任意の \topT{3} 空間について
+		\( \topweight{X} \leq 2^{\topdensity{X}} \)
+		が成り立つが, \topT{2} 空間については
+		この関係が成り立つとは限らない.
+	\end{enumerate}
+\end{problem}
+
+\end{document}
