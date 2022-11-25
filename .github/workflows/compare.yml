@@ -34,7 +34,7 @@ jobs:
     - name: Set vars
       id: vars
       run: |
-        echo "::set-output name=branch_name::$(echo $GITHUB_HEAD_REF | sed 's|/|_|g')"
+        echo "branch_name=$(echo $GITHUB_HEAD_REF | sed 's|/|_|g')" >> $GITHUB_OUTPUT
     - uses: actions/upload-artifact@v3
       with:
         name: extop-tex-compare-${{ github.run_number }}-${{ steps.vars.outputs.branch_name }}
