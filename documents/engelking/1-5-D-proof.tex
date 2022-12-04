@@ -1,0 +1,70 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\begin{proof}[1.5.D]\label{eng-1-5-D-proof}
+	\begin{enumerate}
+		\item \topT{0} な正則空間\( X \)が \topT{1} 空間であることを示す.
+		\( X \)の相異なる2点\( x, y \)をとる.
+		\( X \)が \topT{0} 空間であることから,
+		\( x \notin \topcl \lrbrace{y} \)
+		または
+		\( y \notin \topcl \lrbrace{x} \)
+		が成り立つ.
+		\( x \notin \topcl \lrbrace{y} \)
+		が成り立つとして一般性を失わない.
+		このとき, \( X \)が正則空間であることから,
+		開集合\( U, V \)であって,
+		\( x \in U, y \in V, U \cap V = \emptyset \)
+		を満たすものが存在する.
+		よって, \( X \)は \Hausdorff 空間であり,
+		特に \topT{1} 空間である.
+
+		\topT{0} な完全正則空間\( X \)
+		が \topT{1} 空間であることも同様にして示される.
+
+		\topT{0} な正規空間\( X \)であって,
+		\topT{1} でない空間の存在を示す.
+		集合\( X \defeq \lrbrace{0, 1} \)の位相
+		\( \mathcal{O} \)を
+		\( \mathcal{O} \defeq \lrbrace{\emptyset,
+		\lrbrace{0}, X} \)
+		で定義する.
+		このとき, 位相空間\( \lrparen{X, \mathcal{O}} \)
+		は \topT{0} であるが \topT{1}ではないことがわかる.
+		また, \( \lrparen{X, \mathcal{O}} \)において
+		互いに交わらない2つの閉集合\( F, G \)をとると,
+		少なくとも一方は空集合なので正規空間であることがわかる.
+
+		\item \( X \)の開集合基\( \mathscr{B} \)
+		は\( \cardinality{\mathscr{B}}
+		= \topweight{X} \)を満たすとする.
+		ここで, 写像\( \morph{f}{X}{\pow(\mathscr{B})} \)
+		を\( f(x) \defeq \setcomp{U \in \mathscr{B}}
+		{x \in U} \)により定義する.
+		\( X \)が \topT{0} であることから
+		相異なる2点\( x, y \)をとると,
+		ある\( U \in \mathscr{B} \)であって,
+		\( x, y \)のどちらか一方のみを含むものが存在する.
+		よって, \( \mappt{f}{x} \neq \mappt{f}{y} \)
+		より\( f \)は単射である.
+		ゆえに, \( \cardinality{X} \leq
+		2^{\cardinality{{\topweight{X}}}} \)である.
+
+		3点以上からなる集合\( X \)上の密着位相を考えると,
+		これは \topT{0} でなく
+		\( \cardinality{X} \leq
+		2^{\cardinality{\topweight{X}}} \)
+		を満たさない空間の例である.
+
+		後半の主張の証明は(WIP)
+
+		\item (WIP)
+	\end{enumerate}
+\end{proof}
+
+
+\end{document}
