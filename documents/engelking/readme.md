@@ -27,3 +27,8 @@
 - catalogの定義に合わせる.
 - 問題の主張は変えずにcatalogの定義に基づいて記述する.
 - ex: 原文が"Every compact space is a T4-space."となっている場合, "コンパクトT2空間はT4空間である."とする.
+
+## catalogのファイルからの引用方法
+- Engelkingの問題を証明する際にcatalog内の命題を引用したい場合がある.
+- catalog/hoge.tex 内の命題(\label{a00001})を引用する場合は"命題 catalog-a00001 より"のように書く.
+- 当面はこの方法で対処するが最終的には解決の方法を考える.

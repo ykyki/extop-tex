@@ -3,7 +3,7 @@
 set -eu
 
 REPO_DIR=$(cd "$(git rev-parse --show-toplevel)" && pwd -P)
-OUTPUT_DIR=$REPO_DIR/temp
+OUTPUT_DIR=$REPO_DIR/outputs
 
 LINE_SEPARATOR='----- ----- ----- ----- ----- ----- ----- ----- '
 
