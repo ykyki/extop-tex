@@ -11,8 +11,75 @@
 \end{definition}
 
 \begin{definition}
-	位相空間$ X $が\indexj{T4 くうかん}{\topT{4}空間}であるとは, 正規かつ\topT{0}空間であることである. (\topT{1} ? 要追記)
+	位相空間$ X $が\indexj{T4 くうかん}{\topT{4}空間}であるとは,
+	正規かつ\topT{1}空間であることである.
 \end{definition}
+
+\begin{theorem}
+	\label{thm:t400001}
+	\topT{1}位相空間\( X \)が \topT{4} であるための必要十分条件は,
+	任意の閉集合\( F \)とそれを含む任意の開集合\( U \)
+	に対して, ある開集合族\( \setcomp{U_n}{n \in \N} \)が存在して
+	\( F \subset \bigcup_{n \in \N} U_n \)かつ
+	\( \bigcup_{n \in \N} \topcl U_n \subset U \)が成り立つことである.
+\end{theorem}
+
+\begin{proof}
+	必要性は明らかなので十分性を示す.
+	\( F, G \)を互いに交わらない閉集合とする.
+	このとき, 開集合族\( \setcomp{U_n}{n \in \N},
+	\setcomp{V_n}{n \in \N} \)であって
+	\[ F \subset \bigcup_{n \in \N} U_n,
+	\ \ \bigcup_{n \in \N} \topcl U_n \subset X \setminus G \]
+	\[ G \subset \bigcup_{n \in \N} V_n,
+	\ \ \bigcup_{n \in \N} \topcl V_n \subset X \setminus F \]
+	を満たすものが存在する.
+	ここで, 各\( n \in \N \)について
+	\( U'_n, V'_n \)をそれぞれ
+	\[ U'_n \defeq U_n \setminus \lrparen{\bigcup_{m \leq n} \topcl V_m},
+	\ \ V'_n \defeq V_n \setminus \lrparen{\bigcup_{m \leq n} \topcl U_m} \]
+	と定める.
+	このように定義される各\( U'_n, V'_n \)は明らかに開集合である.
+	よって,
+	\[ U'' \defeq \bigcup_{n \in \N} U'_n,
+	\ \ V'' \defeq \bigcup_{n \in \N} V'_n \]
+	と定めると, \( U'', V'' \)はともに\( X \)における開集合である.
+	また, \( F \cap \lrparen{\bigcup_{n \in \N} \topcl V_n}= \emptyset,
+	G \cap \lrparen{\bigcup_{n \in \N} \topcl U_n} = \emptyset \)
+	に注意すれば, \( F \subset U'', G \subset V'' \)がわかる.
+	\( U'' \cap V'' = \emptyset \)を示す.
+	\[ \lrparen{\bigcup_{m\in \N} U'_m}
+	\cap \lrparen{\bigcup_{n\in \N} V'_n}
+	= \bigcup_{m \in \N} \bigcup_{n \in \N} \lrparen{U'_m \cap V'_n} \]
+	が成り立つので, 任意の\( m, n \in N \)について
+	\( U'_m \cap V'_n = \emptyset \)を示せばよい.
+	ここで\( m \leq n \)として一般性を失わない.
+	このとき,
+	\[ U'_m \subset \bigcup_{n' \leq n} \topcl U_{n'} \]
+	である.  よって, \( U'_m, V'_n \)の定義に注意すれば,
+	\( U'_m \cap V'_n = \emptyset \)がわかる.
+	以上により, \( X \)が \topT{4} 空間であることが示された.
+\end{proof}
+
+\begin{theorem}
+	\topT{3} 空間\( X \)が \Lindelof であるならば \topT{4} 空間である.
+\end{theorem}
+
+\begin{proof}
+	\( F \)を閉集合とし, \( U \)を\( F \subset U \)なる開集合とする.
+	\( X \)が \topT{3} 空間であることから,
+	任意の点\( x \in F \)に対して,
+	開集合\( U_x \)であって\( x \in U_x, \topcl U_x \subset U \)
+	を満たすものが存在する. このとき,
+	\[ F \subset \bigcup_{x \in F} U_x,
+	\ \ \bigcup_{x \in F} \topcl U_x \subset U \]
+	が成り立つ. \Lindelof 空間の閉部分空間も \Lindelof 空間なので,
+	\( F \)の可算な部分集合\( G \)であって,
+	\[  F \subset \bigcup_{x \in G} U_x,
+	\ \ \bigcup_{x \in G} \topcl U_x \subset U \]
+	を満たすものが存在する.
+	したがって, 先の\cref{thm:t400001}より\( X \)は \topT{4} 空間である.
+\end{proof}
 
 \begin{theorem}
 	位相空間$ X $について以下の条件は同値である:
