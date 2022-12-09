@@ -13,6 +13,8 @@ jobs:
       options: --user root
     steps:
     - uses: actions/checkout@v3
+    - name: Set git safe.directory
+      run: git config --global --add safe.directory $(pwd)
     - name: check current status
       run: |
         whoami
