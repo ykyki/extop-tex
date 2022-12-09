@@ -60,8 +60,116 @@
 		2^{\cardinality{\topweight{X}}} \)
 		を満たさない空間の例である.
 
-		後半の主張の証明は(WIP)
+		次に \Hausdorff 空間\( X \)について,
+		\( \cardinality{X} \leq
+		2^{2^{\topdensity{X}}}\)
+		を示す.
+		\( A \subset X \)を\( X \)の稠密部分集合であって
+		\( \cardinality{A} = \topdensity{X} \)
+		を満たすものとする.
+		各点\( x \in X \)について
+		\( \mathcal{N}\lrparen{x} \)を\( x \)の開近傍基とする.
+		ここで, 各\( x \in X \)について
+		\( \mathcal{N}'\lrparen{x}
+		\defeq \setcomp{U \cap A}{U \in \mathcal{N}\lrparen{x}} \)
+		と定める.
+		\( A \)が稠密なので, 任意の\( U \in \mathcal{N}'\lrparen{x} \)
+		について\( \topbar{U \cap A} = \topbar{U} \)が成り立つ.
+		\( X \)が \topT{2} であることから
+		\[ \bigcap_{U \in \mathcal{N}'\lrparen{x}} \topbar{U}
+		= \bigcap_{V \in \mathcal{N}\lrparen{x}} \topbar{V}
+		= \lrbrace{x} \]
+		が成り立つ.
+		よって, \( x \neq y \)のとき,
+		\( \mathcal{N}'\lrparen{x} \neq \mathcal{N}'\lrparen{y} \)
+		である.
+		ゆえに, 写像\( \morphto{f}{X}{\pow(\pow(A))}
+		{x}{\mathcal{N}'\lrparen{x}} \)
+		は単射である.
+		したがって,
+		\( \cardinality{X} \leq \cardinality{\pow(\pow(A))}
+		\leq 2^{2^{\topdensity{X}}} \)
+		が成り立つ.
 
+		次に \Hausdorff 空間\( X \)について,
+		\( \cardinality{X} \leq
+		\lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		を示す.
+		各点\( x \in X \)について
+		\( \mathcal{N}\lrparen{x} \)を\( x \)の開近傍基であって
+		\( \cardinality{\mathcal{N}\lrparen{x}} \leq \topcharacter{X} \)
+		を満たすものとする.
+		\( \topcharacter{X} < \omega \)のとき,
+		\( X \)の位相は離散位相になるので
+		不等式の成立は明らかである.
+		よって, \( \topcharacter{X} \geq \omega \)
+		の場合について示す.
+		\( \mathscr{A} \subset \pow(A) \)を
+		\( \mathscr{A} \defeq \setcomp{A' \in \pow(A)}
+		{\cardinality{A'} \leq \topcharacter{X}} \)で定めると,
+		\( \cardinality{\mathscr{A}}
+		\leq 2^{\topcharacter{X}}
+		\leq \lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		が成り立つ.
+		各\( U \in \mathcal{N}\lrparen{x} \)について
+		\( U \cap A \neq \emptyset \)
+		なので,1点\( p(x, U) \in U \cap A \)
+		をとれる.
+		ここで, \( A(x) \defeq \setcomp{p(x, U)}
+		{U \in \mathcal{N}\lrparen{x}} \)
+		とすると, \( A(x) \in \mathscr{A} \)である.
+		また,
+		\( \mathscr{A}(x) \defeq \setcomp{U \cap A(x)}
+		{U \in \mathcal{N}\lrparen{x}} \)
+		とすると,
+		\( \mathscr{A}(x) \subset \mathscr{A} \)
+		である.
+		いま, \( \cardinality{\mathcal{N}\lrparen{x}} \leq \topcharacter{X} \)
+		なので,
+		\( \cardinality{\mathscr{A}(x)} \leq \topcharacter{X}\)
+		が成り立つ.
+		また, 任意の\( U \in \mathcal{N}\lrparen{x} \)に対して
+		\( x \in \topbar{U \cap A(x)} \subset \topbar{U} \)
+		が成り立つ.
+		よって, \( X \)が \topT{2} であることから,
+		\( x \neq y \)ならば
+		\[ \bigcap_{U \in \mathscr{A}(x)} \topbar{U}
+		= \bigcap_{V \in \mathcal{N}\lrparen{x}} \topbar{V}
+		= \lrbrace{x} \]
+		が成り立つ. ゆえに, \( x \neq y \)
+		ならば
+		\( \mathscr{A}(x) \neq \mathscr{A}(y) \)
+		となる.
+		ここで, \( \mathfrak{A} \defeq
+		\setcomp{\mathscr{A}' \in \pow(\mathscr{A})}
+		{\cardinality{\mathscr{A}'} \leq \topcharacter{X}} \)
+		とすると,
+		\( \cardinality{\mathfrak{A}} \leq 2^{\topcharacter{X}}
+		\leq \cardinality{\mathscr{A}}^{\topcharacter{X}} \)
+		が成り立つ.
+		よって,
+		写像\( \morphto{f}{X}{\mathfrak{A}}{x}{\mathscr{A}(x)} \)
+		の単射性を考慮すれば
+		\( \cardinality{X} \leq \cardinality{\mathfrak{A}}
+		\leq \cardinality{\mathscr{A}}^{\topcharacter{X}}
+		\leq \lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		がわかる.
+
+		最後に, \Hausdorff 空間について示した上の2つの不等式が
+		\topT{2} でない \topT{1} 空間において成立するとは限らないことを示す.
+		\( \cardinality{X} \leq
+		2^{2^{\topdensity{X}}}\)が成り立たない例を構成する.
+		集合\( X \defeq \pow(\pow(\pow(\N))) \)に補有限位相
+		を定めた位相空間がそのような例である.
+		この補有限位相空間\( X \)が \topT{2} でない
+		\topT{1} 空間であることは明らかである.
+		また, \( X \)の可算無限部分集合は稠密部分集合なので
+		\( \topdensity{X} = \omega \)である.
+		いま, \( \cardinality{X} = 2^{2^{2^{\omega}}} \)なので
+		\( \cardinality{X} > 2^{2^{\topdensity{X}}} \)となる.
+		2つ目の不等式\( \cardinality{X} \leq
+		\lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		が成立しない例は(WIP)
 		\item (WIP)
 	\end{enumerate}
 \end{proof}
