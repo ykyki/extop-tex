@@ -18,10 +18,9 @@ jobs:
         whoami
         pwd
         ls -l
-    - name: make catalog
-      run: make catalog
-    - name: make engelking
-      run: make engelking
+        git status
+    - name: build root.tex
+      run: sh ./tools/build.sh ./documents/catalog/root.tex product
     - name: Set vars
       id: vars
       run: |
