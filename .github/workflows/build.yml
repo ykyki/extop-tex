@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/ykyki/docker-texlive-2020:1.1
+      options: --user tex
     steps:
     - uses: actions/checkout@v3
     - name: check current status
