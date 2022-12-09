@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set git safe.directory
       run: git config --global --add safe.directory $(pwd)
-    - name: check current status
+    - name: Check current status
       run: |
         whoami
         pwd
