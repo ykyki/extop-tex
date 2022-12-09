@@ -18,7 +18,6 @@ jobs:
         whoami
         pwd
         ls -l
-        git status
     - name: make catalog
       run: make catalog
     - name: make engelking
