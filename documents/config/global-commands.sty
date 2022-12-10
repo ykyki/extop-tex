@@ -5,6 +5,7 @@
 \usepackage{accents}
 \usepackage{xspace}
 \usepackage{mleftright}
+\usepackage{stmaryrd}
 
 % ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 % 人名 (アルファベット順に)
@@ -73,6 +74,8 @@
 \newcommand{\mapinvpt}[2]{#1^{-1}\lrparen{#2}}
 \newcommand{\mapset}[2]{#1\lrbrack{#2}}
 \newcommand{\mapinvset}[2]{#1^{-1}\lrbrack{#2}}
+\newcommand{\mapsetfamily}[2]{#1\mleft\llbracket{#2}\mright\rrbracket}
+\newcommand{\mapinvsetfamily}[2]{#1^{-1}\mleft\llbracket{#2}\mright\rrbracket}
 % \newcommand{\imageto}[1]{{#1}_{{}\triangleright{}}}
 % \newcommand{\imageot}[1]{{#1}_{{}\triangleleft{}}}
 
@@ -83,7 +86,7 @@
 \newcommand{\topder}{\mathop{\mathrm{Der}}\nolimits}
 \newcommand{\topbar}[1]{\overline{#1}}
 \newcommand{\topd}{\mathrm{d}}
-\newcommand{\topbry}{\mathop{\mathrm{Bry}}\nolimits}
+\newcommand{\topbd}{\mathop{\mathrm{Bd}}\nolimits}
 
 \newcommand{\topdensity}[1]{\mathrm{d}\lrparen{#1}}
 \newcommand{\topweight}[1]{\mathrm{w}\lrparen{#1}}
@@ -118,6 +121,7 @@
 }
 
 \newcommand{\topball}[2]{\mathrm{B}\lrparen{#1\,; #2}}
+\newcommand{\topballsf}[3]{\mathrm{B}_{#1}\lrparen{#2\,; #3}}
 
 \newcommand{\intoo}[2]{\left( #1 , #2 \right)}
 \newcommand{\intoc}[2]{\left( #1 , #2 \right]}

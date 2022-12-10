@@ -11,7 +11,9 @@
 
 \begin{proposition}
 	\label{02b3a9}
-	位相空間の族$\setfamily{X_\lambda}{\lambda \in \Lambda}$の部分空間の族$\setfamily{A_\lambda}{\lambda \in \Lambda}$について, $ \topcl \left(\prod_\lambda A_\lambda\right) = \prod_\lambda \topcl A_\lambda $が成り立つ.
+	位相空間の族$\setfamily{X_\lambda}{\lambda \in \Lambda}$
+	の部分空間の族$\setfamily{A_\lambda}{\lambda \in \Lambda}$について,
+	$ \topcl \left(\prod_\lambda A_\lambda\right) = \prod_\lambda \topcl A_\lambda $が成り立つ.
 \end{proposition}
 
 \begin{proof}
@@ -42,6 +44,57 @@
 	各$\lambda$について, $A_\lambda$内のネット$\setfamily{p^\lambda_\alpha}{\alpha \in \directedA_\lambda}$が存在して$x_\lambda$に収束する.
 	このとき, 有向集合$\directedA \defeq \prod \directedA_\lambda$で添字づけられたネット$\setfamily{(p^\lambda_{\alpha_\lambda})_\lambda}{(\alpha_\lambda)_\lambda \in \directedA}$は$\prod A_\lambda$内にあり, また$x$に収束している.
 	よって$x \in \topcl \prod A_\lambda$である.
+\end{proof}
+
+\begin{corollary}
+	\label{02e5k8}
+	$ \setfamily{X_\lambda}{\lambda \in \Lambda} $を位相空間の族とする.
+	ここで, 各$ \lambda \in \Lambda $に対して$ A_\lambda \neq \emptyset $なる部分空間の族
+	$ \setfamily{A_\lambda}{\lambda \in \Lambda} $について,
+	$ \prod_\lambda A_\lambda $が閉集合であるための必要十分条件は
+	任意の$ \lambda \in \Lambda $について$ A_\lambda $が$ X_\lambda $の閉集合となることである.
+	\qed
+\end{corollary}
+
+\begin{proposition}
+	\label{pr00001}
+	\( \setfamily{X_\lambda}{\lambda \in \Lambda} \)を位相空間の列とし,
+	\( X \defeq \prod_{\lambda \in \Lambda} X_\lambda \)をその積空間,
+	\( \morph{p_\lambda}{X}{X_\lambda} \)を射影とする.
+	各\( \lambda \in \Lambda \)について,
+	\( X_\lambda \)の位相\( \mathcal{O}_\lambda \)が
+	近傍系\( \mathscr{N}_\lambda = \setcomp{\mathscr{N}_\lambda(x_\lambda)}
+	{x_\lambda \in X_\lambda} \)によって定まっているとする.
+	ここで, 各\( x = (x_\lambda) \in X \)について\( \mathscr{N}(x) \)を
+	\[ \mathscr{N}(x) \defeq \setcomp{\bigcap_{\lambda \in \Lambda'}
+	\mapinvset{p_\lambda}{U_\lambda}}{\Lambda' \subset \Lambda, \Lambda' \mbox{は有限},
+	\lambda \in \Lambda', U_\lambda \in \mathscr{N}_\lambda(x_\lambda)} \]
+	と定める. このとき, \( \mathscr{N} \defeq
+	\setcomp{\mathscr{N}(x)}{x \in X} \)で定まる\( X \)の
+	部分集合族\( \mathscr{N} \)は近傍系を成す.
+	また, \( \mathscr{N} \)から定まる位相は\( X \)に定まる積位相に一致する.
+\end{proposition}
+
+\begin{proof}
+	\( \mathcal{O} \)を\( X \)に定まる積位相とする.
+	各\( x=(x_\lambda)\in X \)について\( \mathscr{N}(x) \)が
+	\( (X, \mathcal{O}) \)における\( x \)の近傍基であることを示せばよい.
+	$ V $を$ x $の任意の開近傍とする.
+	このとき, ある有限集合$ \Lambda_0 \subset \Lambda $と
+	各$ \lambda \in \Lambda_0 $について
+	$ X_\lambda $の開集合$ V_\lambda $が存在して,
+	$ x \in \bigcap_{\lambda \in \Lambda_0}
+	\mapinvset{p_\lambda}{V_\lambda} \subset V $
+	が成り立つ.
+	各$ \lambda \in \Lambda_0 $について
+	$ x \in \mapinvset{p_\lambda}{V_\lambda} $なので,
+	$ x_\lambda \in V_\lambda $となる.
+	このとき, 開近傍$ U_\lambda \in \mathscr{N}_\lambda(x_\lambda) $が存在して
+	$ U_\lambda \subset V_\lambda $が成り立つ.
+	よって, $ U \defeq \bigcap_{\lambda \in \Lambda_0}
+	\mapinvset{p_\lambda}{U_\lambda} $とすると
+	$ U \in \mathscr{N} $かつ$ U \subset V $となるので
+	$ \mathscr{N}(x) $は$ x $の近傍基である.
 \end{proof}
 
 \end{document}

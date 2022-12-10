@@ -1,4 +1,10 @@
 {
     "textlint.nodePath": "./tools/node",
-    "textlint.configPath": "./tools/node/.textlintrc.json"
+    "textlint.configPath": "./tools/node/.textlintrc.json",
+    "cSpell.words": [
+        "engelking",
+        "extop",
+        "texlive",
+        "ykyki"
+    ]
 }
