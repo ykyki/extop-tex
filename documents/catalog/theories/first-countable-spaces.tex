@@ -12,4 +12,91 @@
 	任意の点$ x \in X $について可算な近傍基が存在することである.
 \end{definition}
 
+定義から第一可算空間の部分空間や第一可算空間の直和空間もまた第一可算空間であることがわかる.
+可算個の積について第一可算性は保たれる(\cref{cf00001})が,
+非可算個の積をとる場合には第一可算性が保たれるとは限らない.
+例えば, $ X = \Z^+ $を正の整数全体からなる離散空間とするとき,
+$ X $の非可算個の積空間は第一可算でない(\cite[Part II, 103]{Steen1995}).
+第一可算性は連続写像では保たれない. 例えば, 非可算集合上の離散位相から補有限位相への恒等写像は
+連続写像であり, 離散位相は第一可算であるが非可算集合上の補有限位相は第一可算でない.
+さらに, 商写像であっても第一可算性は保たれない(\cref{ex:quotient-of-R-by-Z,ex:quotient-of-R-2}).
+
+\begin{proposition}
+	\label{cf00001}
+	$ \Lambda $を可算集合とし,
+	$ \setfamily{X_\lambda}{\lambda \in \Lambda} $を第一可算空間の可算列とする.
+	このとき, 積空間$ X \defeq \prod_{\lambda \in \Lambda} X_\lambda $は第一可算空間である.
+\end{proposition}
+
+\begin{proof}
+	各$ \lambda \in \Lambda $について$ \morph{p_\lambda}{X}{X_\lambda} $を射影とする.
+	$ x = (x_\lambda)_{\lambda \in \Lambda} $とすると,
+	各$ x_\lambda \in X_\lambda $の可算近傍基$ \mathscr{N}_\lambda $がとれる.
+	ここで, $ x $を含む集合からなる$ X $の集合族$ \mathscr{N} $を
+	\[ \mathscr{N} \defeq \setcomp{\bigcap_{\lambda \in \Lambda'}
+	\mapinvset{p_\lambda}{U_\lambda}}{\Lambda' \subset \Lambda, \Lambda' \mbox{は有限},
+	\lambda \in \Lambda', U_\lambda \in \mathscr{N}_\lambda} \]
+	と定める.
+	このとき, \cref{pr00001}より, \( \mathscr{N} \)は\( x \)の近傍基である.
+	また定義から, $ \mathscr{N} $は可算である.
+\end{proof}
+
+\begin{proposition}
+	第二可算空間は第一可算空間である.
+\end{proposition}
+
+\begin{proof}
+	第二可算空間$ X $において$ \mathscr{B} $を可算開基とする.
+	任意の点$ x \in X $において, $ \mathscr{N} \defeq \setcomp{x \in U}{U \in \mathscr{B}} $とすると
+	$ \mathscr{N} $が$ x $の近傍基となることがわかる.
+\end{proof}
+
+\begin{proposition}
+	距離空間は第一可算空間である.
+\end{proposition}
+
+\begin{proof}
+	$ (X, d) $を距離空間とし, 点$ x $について集合族$ \mathscr{N}_x $を
+	$ \mathscr{N}_x \defeq \setcomp{B(x,2^{-n})}{n \in \N} $で定める.
+	ここで, $ B(x,r) $は中心$ x $, 半径$ r $の開球を表す.
+	このとき, $ \mathscr{N}_x $は可算近傍基である.
+\end{proof}
+
+\begin{proposition}[{\cite[Theorem 1]{DanMa20100615}}]
+	\topT{3} な可算コンパクト空間$ X $の任意の一点集合が \Gdelta 集合であるとき,
+	$ X $は第一可算空間である.
+\end{proposition}
+
+\begin{proof}
+	$ x \in X $をとると可算な開集合族$ \setfamily{U_n}{n \in \N} $が存在して
+	$ \lrbrace{x} = \bigcap_{n \in \N} U_n $が成り立つ.
+	$ X $が \topT{3} であることから, $ \topcl U_{n+1} \subset U_n $となるように
+	$ \setfamily{U_n}{n \in \N} $がとれる.
+
+	そのような$ \setfamily{U_n}{n \in \N} $が$ x $の開近傍基であることを示す.
+	$ x $の開近傍$ U $であっていかなる$ U_n $も部分集合にもたないものが存在すると仮定して矛盾を導く.
+	ここで, 各$ n \in \N $について$ U_n \setminus U \neq \emptyset $なので
+	点$ x_n \in U_n \setminus U $をとり, 集合$ A \defeq \setcomp{x_n}{n \in \N} $を定める.
+	$ U_{n+1} \subset U_n $と$ \bigcap_{n \in \N} U_n = \lrbrace{x} $より,
+	もし$ A $が有限集合ならばある$ i \in \N $が存在して$ x_i = x $となる.
+	$ x_i \in U $となり, $ x_i \in U_i \setminus U $に矛盾する.
+	よって, $ A $は可算無限集合である.
+
+	$ X $が可算コンパクトであることから, \cref{prop:Countable compact <> Every countably infinite subset has an accumulation point}
+	より$ A $は集積点$ p $をもつ. 各$ i \in \N $について
+	$ A_i \defeq \setcomp{x_n}{n \in \N, n \geq i} $と定める.
+	$ X $が特に \topT{1} であることから$ p $は$ A_i $の集積点でもある.
+	定義より$ A_i \subset U_i $なので$ p \in \topcl U_i $となる.
+	よって, $ p = x $である.
+	したがって, $ p \in U $が成り立つ.
+	$ p \in \topcl A $なので$ A \cap U \neq \emptyset $となり,
+	これは各$ x_n $が$ U $に属さないことに矛盾する.
+	ゆえに, $ \setfamily{U_n}{n \in \N} $は$ x $の開近傍基である.
+\end{proof}
+
+\begin{corollary}
+	コンパクト \Hausdorff 空間$ X $の任意の一点集合が \Gdelta 集合であるとき,
+	$ X $は第一可算空間である.
+\end{corollary}
+
 \end{document}
