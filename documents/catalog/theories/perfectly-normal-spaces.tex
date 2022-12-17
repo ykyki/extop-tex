@@ -35,12 +35,12 @@
 \begin{proof}
 	$X$の任意の開集合が \Fsigma 集合になることを示せばよい.
 	$U$を$X$の任意の開集合とする.
-	任意の$x\in U$に対して, $x\in U_x\subset U$を満たす開集合$U_x$が存在し,
-	${\cal U}=\{U_x\}_{x\in U}$は$U$の開被覆になる.
-	$U$が \topT{3} であることから$\topcl {\cal V}< {\cal U}$を満たす開被覆${\cal V}$が存在する.
-	また,
-	$U$が \Lindelof であることから可算部分被覆${\cal W}\subset {\cal V}$が存在する.
-	よって, $U=\bigcup {\cal W}=\bigcup \topcl {\cal W}$となる.
+	\ref{prop:A property equivalent to regularity}より,
+	各点$x \in U$に対して開集合$U_x$と閉近傍$F_x$が存在して$x \in U_x \subset F_x \subset U$となる.
+	部分空間$U$が \Lindelof であることより,
+	開被覆$\setcomp{U_x}{x \in U}$の可算部分被覆が存在する.
+	よって閉被覆$\setcomp{F_x}{x \in U}$についても可算部分被覆が存在し,
+	ゆえに$U$は \Fsigma 集合である.
 \end{proof}
 
 \begin{proposition}
