@@ -183,11 +183,33 @@
 		\( Z \)は\( \topdensity{X} = \omega,
 		\topcharacter{X} = \omega \)かつ\topT{1}であるが
 		\topT{2}でない.
-		よって, \( \cardinality{Z} = \omega^\omega^\omega,
+		よって, \( \cardinality{Z} = \lrbrack{\omega^\omega}^\omega,
 		\topdensity{X} = \omega, \topcharacter{X} = \omega \)
 		より, \( \cardinality{X} > \lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
 		が成り立つ.
-		\item (WIP)
+		\item \( A \subset X \)を\( X \)の稠密部分集合であって
+		\( \cardinality{A} = \topdensity{X} \)
+		を満たすものとする.
+		また, \( \mathscr{B} \defeq \setcomp{\topint \topcl U}{U \in \pow(A)} \)
+		とする.
+		いま, \( A \)は稠密部分集合なので,
+		任意の開集合\( U \subset X \)について
+		\( \topbar{U \cap A} = \topbar{U} \supset U \)
+		が成り立つ.
+		\( X \)が \topT{3} 空間であることから,
+		任意の\( x \in U \)について,
+		\( x \in V_x, \topbar{V_x} \subset U \)
+		を満たす\( V_x \)が存在する.
+		よって,
+		\( U = \bigcup_{x \in U} \topint \topcl V_x \)
+		が成り立つので, \( \mathscr{B} \)は
+		\( X \)の開基である.
+		ゆえに,
+		\( \topweight{X} \leq 2^{\topdensity{X}} \)
+		が成り立つ.
+		\topT{2} だが \topT{3} でない空間であって,
+		不等式\( \topweight{X} \leq 2^{\topdensity{X}} \)
+		を満たさない例は(WIP)
 	\end{enumerate}
 \end{proof}
 
