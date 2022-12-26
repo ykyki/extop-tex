@@ -7,7 +7,7 @@ $makeindex     = 'upmendex %O -o %D %S';
 $max_repeat    = 5;
 $pdf_mode      = 3;
 # $pdf_previewer = "open -g -a /Applications/Skim.app %S"; # at macOS
-$clean_ext     = "thm synctex.gz dvi bbl glg glo gls ist slo";
+$clean_ext     = "thm synctex.gz dvi bbl glg glo gls ist slo run.xml";
 
 $pvc_view_file_via_temporary = 0;
 
