@@ -7,3 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: wadackel/github-pr-diff-tree@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
