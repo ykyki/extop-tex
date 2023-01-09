@@ -1,0 +1,23 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\begin{proof}[1.5.C]\label{eng-1-5-C-proof}
+
+\end{proof}
+	\( \morph{f}{X}{X} \)を位相空間\( X \)
+	のレトラクションとし,
+	\( A \subset X \)をそのレトラクトとする.
+	また, \( \morph{\mathrm{id}}{X}{X} \)
+	を恒等写像とする.
+	このとき, \( A = \setcomp{x \in X}
+	{\mathrm{id}(x) = f(x)} \)が成り立つ.
+	これは, 任意の\( a \in A \)について
+	\( a = f(x) \)なる\( x \in X \)が存在し,
+	\( f(a) = f \compo f(x) = f(x) = a\)
+	が成り立つことからわかる.
+	今, \( X \)は \Hausdorff 空間なので,
+	命題catalog-h00001より\( A \)は閉集合である.
+\end{document}
