@@ -50,4 +50,32 @@
 	これは, \( X \)が \Hausdorff 空間であることに矛盾する.
 \end{proof}
 
+\begin{proposition}
+	\label{h00001}
+	\( X \)を位相空間, \( Y \)を \Hausdorff 空間とし,
+	\( \morph{f,g}{X}{Y} \)を連続写像とする.
+	このとき, \( \setcomp{x \in X}{f(x) = g(x)} \)
+	は\( X \)の閉集合である.
+\end{proposition}
+
+\begin{proof}
+	補集合\( \setcomp{x \in X}{f(x) \neq g(x)} \)
+	が開集合であることを示す.
+	任意に\( a \in \setcomp{x \in X}{f(x) \neq g(x)} \)
+	をとると, \( f(a) \neq g(a) \)が成り立つ.
+	\( Y \)が \Hausdorff 空間なので,
+	\( Y \)の開集合\( U, V \)であって,
+	\( f(a) \in U, g(a) \in V, U \cap V = \emptyset \)
+	を満たすものが存在する.
+	\( W \defeq \mapinvset{f}{U} \cap \mapinvset{g}{V} \)
+	と定めると, \( f, g \)の連続性から
+	\( W \)は\( a \)の開近傍である.
+	また, \( U \cap V = \emptyset \)
+	より, 任意の\( x \in W \)について
+	\( f(x) \neq g(x) \)である.
+	よって, \( W \subset \setcomp{x \in X}{f(x) \neq g(x)} \)
+	より, \( \setcomp{x \in X}{f(x) \neq g(x)} \)
+	は開集合である.
+\end{proof}
+
 \end{document}
