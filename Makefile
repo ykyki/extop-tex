@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := all
+
 .PHONY: all
 all: catalog engelking lct
 
