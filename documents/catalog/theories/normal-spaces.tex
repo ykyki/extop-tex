@@ -19,7 +19,7 @@
 	\begin{enumerate}
 		\item $ X $が正規である.
 		\item $ X $の点有限な任意の開被覆に対し収縮が存在する.
-		\item  $ X $の互いに交わらない任意の閉集合$ F_1, F_2 $に対し, ある連続写像$ \phi \colon X \rightarrow \I $が存在して$ \phi[F_1] \subset \{0\}, \phi[F_2] \subset \{1\} $となる.
+		\item $ X $の互いに交わらない任意の閉集合$ F_1, F_2 $に対し, ある連続写像$ \phi \colon X \rightarrow \I $が存在して$ \phi[F_1] \subset \{0\}, \phi[F_2] \subset \{1\} $となる.
 		\item $ X $の局所有限な任意の開被覆に対し, その開被覆に従属する1の分割が存在する.
 	\end{enumerate}
 \end{theorem}
@@ -44,7 +44,7 @@
 	2^{\cardinality{\N}} & \cardinality{C} \leq \cardinality{\N}\\
 	2^{\cardinality{C}} & \cardinality{C} > \cardinality{\N}
 	\end{cases} $$
-	$ X $は \topT{4} であることから Tietze の拡張定理より$ \cardinality{C(X, \I)} \geq \cardinality{C(C, \I)} $である. 以上より, $ 2^{\cardinality{C}} \leq 2^{\cardinality{D}} $となる.
+	$ X $は \topT{4} であることから Tietze の拡張定理(\cref{t400004})より$ \cardinality{C(X, \I)} \geq \cardinality{C(C, \I)} $である. 以上より, $ 2^{\cardinality{C}} \leq 2^{\cardinality{D}} $となる.
 \end{proof}
 
 \begin{corollary}
@@ -56,10 +56,129 @@
 	定理 \ref{thm:Jone's Lemma} から直ちに得られる.
 \end{proof}
 
-\begin{theorem}[\Tietze]
-	\label{thm:Tietze's extension theorem}
-	\topT{4} 空間$ X $の閉部分集合$ A $上の実連続関数$ f \colon A \to \R $は$ X $上の実連続関数$ g \colon X \to \R $に拡張される.
+\begin{definition}
+	\( X, Y \)を位相空間とし, \( A \)を\( X \)の部分集合とする.
+	連続写像\( \morph{f}{A}{Y} \)に対して,
+	連続写像\( \morph{g}{X}{Y} \)であって
+	\( g|_A = f \)を満たすものを
+	\( f \)の\( X \)上への拡張という.
+\end{definition}
+
+\begin{theorem}[\Tietze extension theorem, {\cite[定理~19.4]{Morita1981ja}}]
+	\label{t400004}
+	\( Y \)を距離空間\( \R \)の部分集合
+	\( \intcc{a}{b}, \intoo{a}{b}, \R \)(\( a < b \))
+	のいずれかとする.
+	\( X \)を \topT{4} 空間とし, \( F \subset X \)を閉集合とする.
+	\( F \)上の連続写像\( \morph{f}{F}{Y} \)に対して,
+	\( f \)の\( X \)上への拡張\( \morph{g}{X}{Y} \)が存在する.
 \end{theorem}
+
+\begin{proof}
+	\( Y = \intcc{a}{b} \)の場合を示す.
+	\( c > 0 \)について\( Y = \intcc{-c}{c} \)の場合を示せばよい.
+	\( \morph{h}{\intcc{a}{b}}{\intcc{-c}{c}} \)を同相写像とする.
+	\( \morph{h \circ f}{F}{\intcc{-c}{c}} \)の拡張が
+	\( \morph{g}{X}{\intcc{-c}{c}} \)であるとき,
+	\( \morph{h^{-1}\circ g}{X}{\intcc{a}{b}} \)
+	は\( f \)の拡張であることがわかる.
+	よって, \( Y = \intcc{-c}{c} \)について拡張の存在を示す.
+	\( f_1 \defeq f, c_1 \defeq c \)とおく.
+	また, \( F \)の部分集合\( A_1, B_1 \)を次で定める:
+	\[ A_1 \defeq \setcomp{x \in F}{\mappt{f}{c}
+	\leq -\frac{c_1}{3}}, \
+	B_1 \defeq \setcomp{x \in F}{\mappt{f}{x}
+	\geq \frac{c_1}{3}} \]
+	$ F $が$ X $の閉集合であることに注意すれば,
+	\( A_1, B_1 \)は\( A_1 \cap B_1 = \emptyset \)
+	を満たす\( X \)の閉集合である.
+	よって, \Urysohn の補題より連続写像
+	\( \morph{g_1}{X}{\intcc{-\frac{c_1}{3}}{\frac{c_1}{3}}} \)
+	であって,
+	\[ \mapset{g_1}{A_1} = \lrbrace{-\frac{c_1}{3}}, \
+	\mapset{g_1}{B_1} = \lrbrace{\frac{c_1}{3}} \]
+	を満たすものが存在する.
+	このとき, \( x \in F \)に対して
+	\( \mappt{f_2}{x} \defeq \mappt{f_1}{x} - \mappt{g_1}{x} \)
+	と定めると次が成り立つ:
+	\begin{align*}
+	\mapset{f_1}{A_1}, \mapset{g_1}{A_1} & \subset \intcc{-c_1}{-\frac{c_1}{3}}, \\
+	\mapset{f_1}{B_1}, \mapset{g_1}{B_1} & \subset \intcc{\frac{c_1}{3}}{c_1}, \\
+	\mapset{f_1}{F \setminus \lrparen{A_1 \cup B_1}},
+	\mapset{g_1}{F \setminus \lrparen{A_1 \cup B_1}} &
+	\subset \intcc{-\frac{c_1}{3}}{\frac{c_1}{3}}
+	\end{align*}
+	よって, 任意の点\( x \in F \)について
+	\( \abs{\mappt{f}{x}} \leq \frac{2}{3}c_1 \)が成り立つ.
+	ゆえに, \( c_2 \defeq \frac{2}{3}c_1 \)とすれば,
+	\( f_2 \)は\( F \)から\( \intcc{-c_2}{c_2} \)への連続写像である.
+	自然数\( n \geq 2 \)と連続写像\( \morph{f_n}{F}{\intcc{-c_n}{c_n}} \)
+	について, \( n = 1 \)のときと同様に
+	\( \morph{g_n}{X}{\intcc{-\frac{c_n}{3}}{\frac{c_n}{3}}} \)
+	をとることができる.
+	このとき, \( x \in F \)について
+	\( \mappt{f_{n+1}}{x}\defeq \mappt{f_n}{x} - \mappt{g_n}{x},
+	c_{n+1} \defeq \frac{2}{3}c_n \)と定めると,
+	\( \abs{\mappt{f_{n+1}}{x}} \leq c_{n+1} \)が成り立つ.
+	以上から, 数学的帰納法により, 任意の\( n \geq 1 \)に対して
+	\( \mappt{f_{n+1}}{x} \defeq \mappt{f_n}{x} - \mappt{g_n}{x},
+	\abs{\mappt{f_{n+1}}{x}} \leq c_{n+1},
+	\abs{\mappt{g_{n}}{x}} \leq c_n, c_{n+1} \defeq \frac{2}{3}c_n \)を満たす
+	写像列\( \lrparen{f_n}, \lrparen{g_n} \)
+	と実数列\( \lrparen{c_n} \)が定義できた.
+	ここで, \( \sum_{n=1}^{\infty} \frac{1}{3}c_n
+	= \frac{1}{3}\sum_{n=1}^{\infty} \lrparen{\frac{2}{3}}^{n-1}c = c \)
+	に注意すれば, WeierstrassのM-判定法(\cref{t400004})より
+	\( \lrparen{g_n} \)は一様収束し,
+	\( \mappt{g}{x} \defeq \sum_{n=1}^{\infty}\mappt{g_n}{x} \)で定められる
+	\( g \)は\( X \)上の連続写像である.
+	また, \( \sum_{n=1}^{\infty} \frac{1}{3}c_n = c \)より
+	任意の\( x \in X \)について
+	\( \abs{\mappt{g}{x}} \leq c \)である.
+	さらに, 任意の\( x \in F \)について
+	\( \mappt{g_{n}}{x} = \mappt{f_n}{x} - \mappt{f_{n+1}}{x} \)より
+	\[ \sum_{i=1}^{n} \mappt{g_i}{x} = \mappt{f_1}{x} - \mappt{f_{n+1}}{x} \]
+	が成り立つ.
+	\( \abs{\mappt{f_{n+1}}{x}} \leq c_{n+1}
+	= \lrparen{\frac{2}{3}}^{n} c \)
+	に注意すると,
+	\[ \mappt{g}{x} = \sum_{n=1}^{\infty} \mappt{g_n}{x}
+	= \lim_{n \to \infty} \lrparen{\mappt{f_1}{x}
+	- \mappt{f_{n+1}}{x}} = \mappt{f_1}{x} = \mappt{f}{x} \]
+	が成り立つ.
+	よって, \( \morph{g}{X}{\intcc{-c}{c}} \)は\( f \)の\( X \)上への拡張である.
+
+	次に\( Y = \intoo{a}{b} \)の場合を示す.
+	これについても同様に,
+	\( c > 0 \)について\( Y = \intoo{-c}{c} \)の場合のみ示せばよい.
+	このとき, \( f \)を\( F \)から\( \intcc{-c}{c} \)
+	への連続写像とみなせば上の証明より,
+	\( X \)上への拡張\( \morph{g}{X}{\intcc{-c}{c}} \)がとれる.
+	ここで, \( E \defeq \mapinvset{g}{\lrbrace{-c,c}} \)とすれば,
+	\( E \)は\( X \)の閉集合であって\( E \cap F = \emptyset \)を満たす.
+	よって, \Urysohn の補題より,
+	連続写像\( \morph{h}{X}{\I} \)であって
+	\[ \mapset{h}{E} = \lrbrace{0}, \ \mapset{h}{F} = \lrbrace{1} \]
+	を満たすものが存在する.
+	このとき, \( x \in X \)について
+	\( \mappt{g'}{x} \defeq \mappt{g}{x}\mappt{h}{x} \)と定めると,
+	\( g' \)は連続であって\( g'|_F = g|_F = f \)を満たす.
+	また, もし\( \abs{\mappt{g'}{x}} = c \)
+	であれば\( \abs{\mappt{g}{x}} = c \)より
+	\( x \in E \)となり, \( \mappt{h}{x} = 0 \)から
+	\( \mappt{g’}{x} = 0 \)となって矛盾する.
+	よって, 任意の\( x \in X \)について
+	\( \abs{\mappt{g'}{x}} < c \)である.
+	ゆえに, \( \morph{g'}{X}{\intoo{-c}{c}} \)となって,
+	これは\( f \)の拡張である.
+
+	最後に\( Y = \R \)の場合を示す.
+	\( \morph{h}{\R}{\intoo{-1}{1}} \)を
+	同相写像として, \( \morph{h\circ f}{X}{\intoo{-1}{1}} \)
+	の拡張\( g \)を取れば,
+	\( \morph{h^{-1}\circ g}{X}{\R} \)が\( f \)の拡張となることがわかる.
+\end{proof}
+
 
 \begin{definition}
 	位相空間$ X $が\indexjj{けいしょうてきせいき}{継承的正規}{hereditary normal}であるとは, $ X $の任意の部分空間が正規になることである.
