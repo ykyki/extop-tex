@@ -1,16 +1,5 @@
-.PHONY: clean
-clean: clean-catalog clean-engelking
-
-.PHONY: clean-engelking
-clean-engelking:
-	find . -name '*.tex' -type f -exec latexmk -C -cd -norc -r ./documents/engelking/.latexmkrc {} + 2> /dev/null
-
-.PHONY: clean-catalog
-clean-catalog:
-	find . -name '*.tex' -type f -exec latexmk -C -cd -norc -r ./documents/catalog/.latexmkrc {} + 2> /dev/null
-
 .PHONY: all
-all: catalog engelking
+all: catalog engelking lct
 
 .PHONY: catalog
 catalog:
@@ -29,3 +18,14 @@ outputs/list-commands-table.pdf: documents/catalog/list-commands-table.pdf
 	cp -a $< ./outputs
 documents/catalog/list-commands-table.pdf: documents/catalog/list-commands-table.tex
 	latexmk -cd -norc -r ./documents/catalog/.latexmkrc $<
+
+.PHONY: clean
+clean: clean-catalog clean-engelking
+
+.PHONY: clean-engelking
+clean-engelking:
+	find . -name '*.tex' -type f -exec latexmk -C -cd -norc -r ./documents/engelking/.latexmkrc {} + 2> /dev/null
+
+.PHONY: clean-catalog
+clean-catalog:
+	find . -name '*.tex' -type f -exec latexmk -C -cd -norc -r ./documents/catalog/.latexmkrc {} + 2> /dev/null
