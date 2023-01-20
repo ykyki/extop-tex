@@ -1,4 +1,8 @@
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := help
+
+.PHONY: help
+help:
+	@cat $(firstword $(MAKEFILE_LIST))
 
 .PHONY: all
 all: catalog engelking lct
