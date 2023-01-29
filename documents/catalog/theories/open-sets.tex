@@ -28,7 +28,7 @@
 \end{definition}
 
 \begin{proposition}
-	位相区間$X$の開集合族$\topopens[X]$の部分集合$\topbasis$が開基であることと, 次の条件を満たすことは同値である: 任意の開集合$G$と点$x \in G$に対し, $\topbasis$のある元$B$が存在して$x \in B \subset G$となる.
+	位相空間$X$の開集合族$\topopens[X]$の部分集合$\topbasis$が開基であることと, 次の条件を満たすことは同値である: 任意の開集合$G$と点$x \in G$に対し, $\topbasis$のある元$B$が存在して$x \in B \subset G$となる.
 	\qed
 \end{proposition}
 
@@ -61,6 +61,27 @@
 	$\topbasis_\cM$が$\topopens_\cM$の開基であることは定義そのものである.
 	また$\cM$が条件を満たせば, $\topbasis_\cM$の任意の元は$\cM$の元の合併として表せるので, $\cM$も開基になる.
 \end{proof}
+
+\begin{definition}
+	\( X \)を集合, \( \lrparen{X_i, \mathcal{O}_i}_{i \in I} \)を位相空間の列とする.
+	各\( i \in \I \)について, \( f_i \)を\( X \)から\( X_i \)への写像とし,
+	\( \lrbrace{f_i}_{i \in I} \)をそれらの写像の列とする.
+	このとき, \( X \)の部分集合族
+	\[ \mathscr{S} \defeq \setcomp{\mapinvset{f_i}{U}}
+	{i \in I, U \in \mathscr{O}_i} \]
+	が生成する位相を,
+	写像の列\( \lrbrace{f_i}_{i \in I} \)が生成する位相という.
+\end{definition}
+
+\begin{proposition}
+	\( X \)を集合, \( \lrparen{X_i, \mathcal{O}_i}_{i \in I} \)を位相空間の列とする.
+	各\( i \in \I \)について, \( f_i \)を\( X \)から\( X_i \)への写像とし,
+	\( \lrbrace{f_i}_{i \in I} \)をそれらの写像の列とする.
+	写像の列\( \lrbrace{f_i}_{i \in I} \)が生成する位相は
+	任意の\( i \in I \)について\( f_i \)を連続にする
+	\( X \)上の位相の中で最も弱い位相である.
+	\qed
+\end{proposition}
 
 \begin{definition}
 	$X$を位相空間とする.
