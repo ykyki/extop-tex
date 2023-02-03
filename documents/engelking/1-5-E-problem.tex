@@ -1,0 +1,40 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\renewcommand{\labelenumii}{(\arabic{enumii})}
+\begin{problem}[1.5.E]\label{eng-1-5-E-problem}
+	\begin{enumerate}
+		\item \topT{1} 空間 \( X \) の位相 \( \mathcal{O} \)
+		について次は同値である.
+		\begin{enumerate}
+			\item ある写像の族
+			\( \setcomp{\morph{f_\lambda}{X}{\R}}
+			{\lambda \in \Lambda} \)
+			が存在して, この写像の族によって
+			\( X \) 上に生成される位相が
+			\( \mathcal{O} \) に一致する.
+			\item \( X \) が \topT{3.5} 空間である.
+		\end{enumerate}
+		\item 集合 \( X \) 上に2つの位相
+		\( \mathcal{O}_1, \mathcal{O}_2 \)
+		が定まっており, 位相空間
+		\( \lrparen{X, \mathcal{O}_1}, \lrparen{X, \mathcal{O}_2} \)
+		はともに \topT{3.5} 空間であるとする.
+		ここで, \( i = 1, 2 \) について,
+		\( X \) 上の実数値関数からなる族 \( \mathscr{A}_i \) を
+		\[ \mathscr{A}_i \defeq \setcomp{\morph{f}{X}{\R}}
+		{f\mbox{は位相}\mathcal{O}_i\mbox{に関して連続である.}} \]
+		と定める.
+		このとき次は同値である.
+		\begin{enumerate}
+			\item \( \mathcal{O}_1 = \mathcal{O}_2 \) である.
+			\item \( \mathscr{A}_1 = \mathscr{A}_2 \) である.
+		\end{enumerate}
+	\end{enumerate}
+\end{problem}
+
+\end{document}
