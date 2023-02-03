@@ -7,7 +7,48 @@
 \renewcommand{\labelenumi}{(\alph{enumi})}
 \begin{proof}[1.5.E]\label{eng-1-5-E-proof}
 	\begin{enumerate}
-		\item \WIP
+		\item (\( 1 \Longrightarrow 2\))を示す.
+		ある写像の族
+		\( \setcomp{\morph{f_\lambda}{X}{\R}}
+		{\lambda \in \Lambda} \)
+		が存在して, この写像の族によって
+		\( X \) 上に生成される位相を
+		\( \mathcal{O} \)とする.
+		任意の点\( x \in X \)とその任意の開近傍\( U \)をとる.
+		このとき, ある有限集合\( \Lambda' \subset \Lambda \)
+		と各\( \lambda \in \Lambda' \)について
+		\( \R \)の開集合\( U_\lambda \)が存在して
+		\[ x \in \bigcap_{\lambda \in \Lambda'}
+		\mapinvset{f_\lambda}{U_\lambda},
+		\bigcap_{\lambda \in \Lambda'}
+		\mapinvset{f_\lambda}{U_\lambda} \subset U \]
+		が成り立つ.
+		ここで, 各\( \lambda \in \Lambda' \)について
+		写像\( \morph{g_\lambda}{X}{\R} \)と
+		\( \R \)の開集合\( V_\lambda \)を
+		\[ g_\lambda \semicolon y \mapsto
+		\abs{\mappt{f_\lambda}{y} - \mappt{f_\lambda}{x}},
+		V_\lambda \defeq \setcomp{y - f(x)}
+		{y \in U_\lambda} \]
+		と定める.
+		任意の\( \lambda \in \Lambda' \)に対して,
+		\( \mappt{g_\lambda}{x} = 0, 0 \in  V_\lambda \)
+		が成り立つ.
+		よって, ある\( \varepsilon > 0 \)が存在して
+		\( \intoo{-\varepsilon}{\varepsilon}
+		\subset \bigcap_{\lambda \in \Lambda'} V_\lambda\)
+		かつ,
+		\( x \in \mapinvset{g_\lambda}
+		{\intoo{-\varepsilon}{\varepsilon}} \subset U\)
+		となる.
+		写像\( \morph{g}{X}{\R} \)を
+		\[ g(y) \defeq \min \lrbrack{
+		\max \setcomp{\mappt{g_\lambda}{y}}{\lambda \in \Lambda'}
+		\cup \lrbrace{\varepsilon}} \]
+		各\( g_\lambda \)は連続なので\( g \)も連続である.
+		また, \( g(x) = 0 \)である.
+		任意の\( y \in X \setminus \bigcap_{\lambda \in \Lambda'} V_\lambda \)
+		に対しては, 
 	\end{enumerate}
 \end{proof}
 
