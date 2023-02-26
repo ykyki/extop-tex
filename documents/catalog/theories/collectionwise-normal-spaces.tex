@@ -1,0 +1,38 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{族正規空間}
+\label{sec:collectionwise-normal-spaces}
+
+\begin{definition}
+    \(X\)を位相空間とする.
+    \(X\)上の集合系\(\setfamily{A_i}{i \in I}\)が\indexjj{そ}{疎}{discrete}であるとは,
+    任意の点\(a \in X\)について近傍\(U\)が存在し,
+    \(A_i \cap U \neq \emptyset\)となる添字\(i \in I\)が高々ひとつしか存在しないことである.
+\end{definition}
+
+\begin{definition}
+    位相空間\(X\)が\indexjj{ぞくせいき}{族正規}{collectionwise normal}であるとは,
+    \(X\)上の任意の疎な集合系\(\setfamily{F_i}{i \in I}\)に対し,
+    開集合からなる集合系\(\setfamily{G_i}{i \in I}\)が存在して
+    以下の条件をみたすことである:
+    \begin{enumerate}
+        \item \(\setfamily{G_i}{i \in I}\)は互いに交わらない.
+        \item 任意の添字\(i \in I\)について\(F_i \subset G_i\)となる.
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+    \(X\)を位相空間,
+    \(\setfamily{A_i}{i \in I}\)を集合\(X\)上の集合系とする.
+    このとき以下の条件は同値である:
+    \begin{enumerate}
+        \item \(\setfamily{A_i}{i \in I}\)が疎である.
+        \item \(\setfamily{\topcl{A_i}}{i \in I}\)が互いに交わらず, かつ局所有限である.
+    \end{enumerate}
+    \qed
+\end{proposition}
+
+\end{document}
