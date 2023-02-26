@@ -71,35 +71,36 @@
 
 \begin{theorem}[Urysohn's Lemma, {\cite[定理~19.2]{Morita1981ja}}]
 	\label{T400003}
-	\topT{4} 空間\( (X, \mathcal{O}) \)の閉集合\( F \)と開集合\( U \)が\( F \subset U \)を満たすとき,
+	正規空間\( X \)の閉集合\( F \)と開集合\( U \)が\( F \subset U \)を満たすとき,
 	連続写像\( \morph{f}{X}{\I} \)が存在して\( \mapset{f}{F} = \lrbrace{0},
 	\mapset{f}{X \setminus U} = \lrbrace{1} \)を満たすものが存在する.
 \end{theorem}
 
 \begin{proof}
-	\( X \)が \topT{4} 空間なので, \( W \in \mathcal{O} \)であって
+	\( X \)が \topT{4} 空間なので, 開集合\( W \)であって
 	\( F \subset W, \topcl W \subset U \)を満たすものが存在する.
 	任意の\( n \in \N \)について\( X \)の開集合族
-	\( \mathscr{V}_n = \setcomp{V_{\frac{m}{2^n}}}{0\leq m \leq 2^n} \)
+	\( \mathscr{V}_n = \setcomp{V\lrparen{{\frac{m}{2^n}}}}{0\leq m \leq 2^n} \)
 	であって,
 	\[ 0 \leq m \leq m' \leq 2^n \ \Longrightarrow
-	\topcl V_{\frac{m}{2^n}} \subset V_{\frac{m'}{2^n}} \ \ \ (\ast) \]
+	\topcl V\lrparen{\frac{m}{2^n}} \subset V\lrparen{\frac{m'}{2^n}} \ \ \ (\ast) \]
 	を満たすものが存在することを数学的帰納法により示す.
-	\( n = 0 \)のとき, \( V_0 \defeq W, V_1 \defeq U \)とすれば条件\( (\ast) \)を満たす.
+	\( n = 0 \)のとき, \( V\lrparen{0} \defeq W, V\lrparen{1} \defeq U \)とすれば条件\( (\ast) \)を満たす.
 	\( n = k \)のとき, \( (\ast) \)を満たす\( \mathscr{V}_k \)が存在すると仮定する.
 	このとき, 任意の\( 0 \leq m \leq 2^k - 1 \)について
-	\( \topcl V_{\frac{m}{2^k}} \subset V_{\frac{m+1}{2^k}} \)
+	\( \topcl V\lrparen{\frac{m}{2^k}} \subset V\lrparen{\frac{m+1}{2^k}} \)
 	が成り立つ.
 	よって,
-	\[ \topcl V_{\frac{m}{2^k}} \subset V, \
-	\topcl V \subset V_{\frac{m+1}{2^k}} \]
+	\[ \topcl V\lrparen{\frac{m}{2^k}} \subset V, \
+	\topcl V \subset V\lrparen{\frac{m+1}{2^k}} \]
 	を満たす開集合$ V $が存在するので
-	\( \topcl V_{\frac{2m+1}{2^{k+1}}} \defeq V \)とする.
-	また, \( \topcl V_{\frac{2m}{2^{k+1}}} = \topcl V_{\frac{m}{2^k}},
-	V_{\frac{2(m+1)}{2^{k+1}}} = V_{\frac{m+1}{2^k}} \)
+	\( \topcl V\lrparen{\frac{2m+1}{2^{k+1}}} \defeq V \)とする.
+	また, \( \topcl V\lrparen{\frac{2m}{2^{k+1}}}
+	= \topcl V\lrparen{\frac{m}{2^k}},
+	V\lrparen{\frac{2(m+1)}{2^{k+1}}} = V\lrparen{\frac{m+1}{2^k}} \)
 	に注意すれば,
-	\[ \topcl V_{\frac{2m}{2^{k+1}}} \subset V_{\frac{2m+1}{2^{k+1}}}, \
-	\topcl V_{\frac{2m+1}{2^{k+1}}} \subset V_{\frac{2(m+1)}{2^{k+1}}} \]
+	\[ \topcl V\lrparen{\frac{2m}{2^{k+1}}} \subset V\lrparen{\frac{2m+1}{2^{k+1}}}, \
+	\topcl V\lrparen{\frac{2m+1}{2^{k+1}}} \subset V\lrparen{\frac{2(m+1)}{2^{k+1}}} \]
 	となり, \( \mathscr{V}_{k+1} \)は条件\( (\ast) \)を満たす.
 	以上より, 任意の\( n \in \N \)について条件\( (\ast) \)を満たす
 	開集合族\( \mathscr{V}_n \)の存在が示された.
@@ -107,7 +108,7 @@
 	次に, \( t \in \R \)について開集合\( W_t \)を次で定める:
 	\[ W_t \defeq \begin{cases}
 		\emptyset & t < 0 \\
-		\bigcup \setcomp{V_{\frac{m}{2^n}}}{\frac{m}{2^n} \leq t} & 0 \leq t \leq 1 \\
+		\bigcup \setcomp{V\lrparen{\frac{m}{2^n}}}{\frac{m}{2^n} \leq t} & 0 \leq t \leq 1 \\
 		X & t > 1
 	\end{cases}\]
 	このとき, \( t < t' \)に対して\( \topcl W_t \subset W_{t'} \)である.
@@ -115,14 +116,14 @@
 	\( 0 \leq t < t' \leq 1 \)のとき,
 	ある\( m, n \in \N \)が存在して
 	\( t < \frac{m}{2^n} < \frac{m+1}{2^n} < t' \)が成り立つ.
-	このとき, \[ W_t \subset V_{\frac{m}{2^n}}, \
-	\topcl V_{\frac{m}{2^n}} \subset V_{\frac{m+1}{2^n}} \subset W_{t'} \]
+	このとき, \[ W_t \subset V\lrparen{\frac{m}{2^n}}, \
+	\topcl V\lrparen{\frac{m}{2^n}} \subset V\lrparen{\frac{m+1}{2^n}} \subset W_{t'} \]
 	なので\( \topcl W_t \subset W_{t'} \)である.
 
 	次に写像\( \morph{f}{X}{\I} \)を次で定める:
 	\[ f(x) \defeq \inf  \setcomp{t \in \R}{x \in W_t} \]
 	\( W_t \)の定義から\( 0 \leq f(x) \leq 1 \)は明らかである.
-	\( x \in F \)のとき, \( F \subset V_0 \)より\( f(x) = 0 \)である.
+	\( x \in F \)のとき, \( F \subset V\lrparen{0} \)より\( f(x) = 0 \)である.
 	また, \( x \in X \setminus U \)のとき, \( x \notin V_1 \)より\( f(x) = 1 \)である.
 	よって, \( \mapset{f}{F} = \lrbrace{0}, \mapset{f}{X \setminus U} = \lrbrace{1} \)
 	である.
@@ -136,16 +137,15 @@
 	一方, \( x \in W_{t_0 + \frac{\varepsilon}{2}} \)なので
 	\( W' \defeq W_{t_0 + \frac{\varepsilon}{2}} \cap
 	\lrparen{X \setminus \topcl W_{t_0 - \frac{\varepsilon}{2}}} \)
-	と定めれば\( W' \in \mathcal{N}^*(x_0) \)である.
+	と定めれば\( W' \)は\( x_0 \)の開近傍である.
 	このとき, 任意の\( x \in W' \)について
 	\( t_0 - \frac{\varepsilon}{2} \leq f(x) \leq t_0 + \frac{\varepsilon}{2} \)
-	より\( |f(x) - t_0| \leq \frac{\varepsilon}{2} < \varepsilon \)である.
-	よって, \( \mapset{f}{W'} \subset (t_0-\varepsilon, t_0 + \varepsilon) \)より
-	\( f \)は\( x \)で連続である.
+	より\( |f(x) - t_0| \leq \frac{\varepsilon}{2} < \varepsilon \)
+	なので\( f \)は連続である.
 \end{proof}
 
 \begin{corollary}
-	\topT{4} 空間\( X \)の閉集合\( F \)
+	正規空間\( X \)の閉集合\( F \)
 	と開集合\( U \)が\( F \subset U \)を満たすとする.
 	実数\( a, b \in R \)が\( a < b \)を満たすとき,
 	連続写像\( \morph{f}{X}{[a,b]} \)が存在して
