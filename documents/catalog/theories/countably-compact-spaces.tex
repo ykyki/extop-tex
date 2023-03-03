@@ -52,13 +52,20 @@
 
 \begin{proof}
 	まず, 可算コンパクトでないときある点有限な開被覆で有限部分被覆をもたないものが存在することを示す. $ X $が可算コンパクトでなければ, 点列$ (x_n)_{n \in \N} $であって集積点を持たないものが存在する. $ x_0 $が$ \{x_n\}_{n \in \N} $の集積点でないことから$ x_0 $の開近傍$ U_0 $であって$ U_0 \cap \{x_1, x_2, x_3, \cdots\} = \emptyset $を満たすものが存在する. また, $ X $が \topT{3} であることから, 閉近傍$ V_0 $であって$ x_0 \in V_0 \subset U_0 $を満たすものが存在する. $ n \leq k $に対して, $ V_n $は$ \{x_{k+1}, x_{k+2}, x_{k+3}, \cdots\}$と交わらない$ x_n $の閉近傍であり, 相異なる$ i, j \leq k $について$ V_i \cap V_j = \emptyset $を満たすものとする. このとき, $ \left(\bigcup_{n=0}^{n=k} V_{n} \right) \cup \{x_{k+2}, x_{k+3}, x_{k+4}, \cdots\} $は$ x_{k+1} $を含まない閉集合なので, $ x_{k+1} $の閉近傍$ V_{k+1} $であって, $ \left(\bigcup_{n=0}^{n=k} V_{n} \right) \cup \{x_{k+2}, x_{k+3}, x_{k+4}, \cdots\} $と交わらないものがとれる. $ W \defeq X \setminus \{x_n\}_{n \in \N} $とし, $ \mathscr{V} \defeq \{\topint V_n\}_{n \in \N} \cup \{W\} $と定めると, $ \mathscr{V} $は点有限な開被覆となるが部分被覆をもたない. よって, 任意の点有限な開被覆が有限部分被覆をもつならば可算コンパクトである.
-	
+
 	次に, 逆を示す. 点有限な開被覆$ \mathscr{U} $に対して$ \chi_0(\mathscr{U}) $を$ \mathscr{U} $の可算部分集合全体からなる族とし, $ f \colon X \to \chi_0(\mathscr{U}) $を$ x \mapsto \setcomp{U \in \mathscr{U}}{x \in U} $で定義する. 任意の$ \mathscr{V} \in \chi_0(\mathscr{U}) $に対して$ X \neq \bigcup \mathscr{V} $と仮定して矛盾を導く. まず, $ x_0 \in X $を1つとる. ここで, 1以上の$ n \in \N $に対して$ x_1, x_2, \cdots, x_n \in X $が次を満たすように定められているとする:
 	$$ x_i \in X \setminus \bigcup_{j=0}^{i-1} \left(\bigcup f(x_j)\right), \ \ i = 1, 2, \cdots, n. $$
 	このとき, $ \bigcup_{j=0}^{n} f(x_j) \in \chi_0(\mathscr{U}) $を満たすので, 背理法の仮定より$ x_{n+1} \in X \setminus \bigcup_{j=0}^{n} \left(\bigcup f(x_j)\right) $を1つとれる. このようにして$ \setcomp{x_n}{n \in \N} $を定める. 補題\ref{lem:A property on an open covering}より$ \topcl \setcomp{x_n}{n \in \N} \subset \bigcup_{n \in \N} \left(\bigcup f(x_n)\right) $なので, $ W \defeq X \setminus \topcl \setcomp{x_n}{n \in \N} $とおくと, $ \{W\} \cup \left(\bigcup_{n \in \N} f(x_n) \right) $は$ X $の可算開被覆である. $ X $が可算コンパクトであることから, ある$ m \in \N $が存在して$ X = W \cup \left(\bigcup_{n=0}^m \left(\bigcup f(x_n) \right)\right) $となる. このとき, $ x_{m+1} \in W $となるがこれは$ W $の定義に矛盾する. よって, ある$ \mathscr{V} \in \chi_0(\mathscr{U}) $が存在して$ X = \bigcup \mathscr{V} $となり, $ X $が可算コンパクトであるから$ \mathscr{V} $は有限部分被覆をもつ.
 \end{proof}
 
-上の証明の後半からわかるように, 可算コンパクト空間においては点可算な開被覆が有限部分被覆をもつ.
+上の証明の後半から次の命題が成り立つことがわかる.
+こちらの命題は, \topT{3} であることを必要としない.
+\begin{proposition}
+	\label{cpt00001}
+	任意の開被覆が点可算な開被覆で細分できる位相空間において,
+	可算コンパクトであることとコンパクトであることは同値である.
+	特に, メタコンパクトな可算コンパクト空間はコンパクトである.
+\end{proposition}
 
 \begin{proposition}
 	任意の可算コンパクト空間は擬コンパクト空間である. また, \topT{4} 空間が擬コンパクトならば可算コンパクトである.

@@ -206,14 +206,100 @@ $ \mathcal{O}_1 $のコンパクト性と$ \mathcal{O}_2 $の \Hausdorff 性の�
 	このとき, $ \setcomp{f[U]}{U \in \topbasis} $が$ Y $のネットワークとなることからわかる.
 \end{proof}
 
+\begin{definition}
+	距離空間$ \lrparen{X, d} $が\indexjj{ぜんゆうかい}{全有界}{totally bounded}であるとは,
+	任意の正の実数\( \varepsilon \)に対して,
+	ある有限部分集合\( A \subset X \)が存在して,
+	\( \bigcup_{x \in A} \topball{x}{\varepsilon} = X \)が成り立つことである.
+\end{definition}
+
+\begin{proposition}
+	\label{cpt00002}
+	全有界な距離空間\( \lrparen{X, d} \)の任意の閉集合は
+	部分空間として全有界である.
+\end{proposition}
+
 \begin{proposition}
 	任意の距離空間において次の条件は同値である.
 	\begin{enumerate}
 		\item コンパクトである.
+		\item 可算コンパクトである.
 		\item 点列コンパクトである.
 		\item 完備かつ全有界である.
 	\end{enumerate}
 \end{proposition}
+
+\begin{proof}
+	(\(1 \Longrightarrow 4\)), (\(4 \Longrightarrow 3\)),
+	(\(3 \Longrightarrow 2\)), (\(2 \Longrightarrow 1\))を示せばよい.
+
+	(\(1 \Longrightarrow 4\))を示す.
+	コンパクト距離空間が全有界であることは明らかなので完備であることを示す.
+	\( \lrparen{a_n}_{n \in \N} \)を任意のコーシー列とする.
+	コンパクト空間は点列コンパクトでもあるので,
+	ある部分列\( \lrparen{a_{m_n}}_{n \in \N} \)とある点\( a \in X \)が存在して
+	\( \lim_{n \in \N} a_{m_n} = a \)が成り立つ.
+	すなわち, 任意の\( \varepsilon > 0 \)について
+	ある\( N \in \N \)が存在し,
+	\( N \)以上の任意の\( n \in N \)について
+	\( d\lrparen{a, a_{m_n}} < \frac{\varepsilon}{2} \)が成り立つ.
+	また, \( \lrparen{a_n}_{n \in \N} \)がコーシー列であることから,
+	\( N \)以上のある\( M \in \N \)が存在し,
+	\( m_M \)以上の任意の\( n \in \N \)について
+	\( d\lrparen{a_{m_M}, a_n} < \frac{\varepsilon}{2} \)
+	が成り立つ.
+	よって, 任意の\( n \geq m_M \)について
+	\( d\lrparen{a, a_n} \leq
+	d\lrparen{a, a_{m_M}} + d\lrparen{a_{m_M}, a_n}
+	< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \)
+	が成り立つ.
+	ゆえに, \( \lim_{n \in \N} a_{n} = a \)より\( X \)は完備である.
+
+	(\(4 \Longrightarrow 3\))を示す.
+	任意の点列\( \lrparen{a_n}_{n \in \N} \)が収束する部分列をもつことを示す.
+	任意の\( n \in \N \)に対して,
+	\( \varepsilon_n \defeq 2^{-(n+1)} \)とする.
+	次の3条件をみたす写像\( \morph{f}{\N}{\N} \)と
+	点列\( \lrparen{x_n}_{n \in \N} \)が存在することを示せばよい.
+	なぜなら, \( \lrparen{a_{\mappt{f}{n}}}_{n \in \N} \)が
+	点列\( \lrparen{a_n}_{n \in \N} \)の部分列であって
+	コーシー列でもあることが容易に確かめられ,
+	完備性より収束することが示されるからである.
+	\begin{enumerate}
+		\item \( \topball{x_0}{\varepsilon_0} \supset
+		\topball{x_1}{\varepsilon_1} \supset \ldots \)が成り立つ.
+		\item \( \mappt{f}{0} < \mappt{f}{1} < \ldots \)が成り立つ.
+		\item 任意の\( n \in \N \)について,
+		\( \topball{x_n}{\varepsilon_n} \cap
+		\setcomp{a_m}{m \in \N} \)が無限集合になる.
+		\item 任意の\( n \in \N \)について,
+		\( a_{\mappt{f}{n}} \in \topball{x_n}{\varepsilon_n} \)が成り立つ.
+	\end{enumerate}
+	上の条件を満たす写像\( \morph{f}{\N}{\N} \)と
+	点列\( \lrparen{x_n}_{n \in \N} \)を以降で帰納的に定める.
+	\( n = 0 \)のとき全有界性から,
+	ある有限集合\( A \subset X \)が存在して,
+	\( \bigcup_{x \in A} \topball{x}{\varepsilon_0} = X \)
+	が成り立つ.
+	よって, ある\( x_0 \in A \)が存在して
+	\( \topball{x_0}{\varepsilon_0} \cap
+	\setcomp{a_n}{n \in \N} \)が無限集合となる.
+	そこで, \( \mappt{f}{0} \defeq
+	\min \setcomp{n \in \N}{a_n \in \topball{x_0}{\varepsilon_0}} \)
+	と定める.
+	次に, \( 0, 1, \ldots, n \)に対して4つの条件を満たす
+	\( x_0, \ldots, x_n \)と\( \mappt{f}{0}, \ldots, \mappt{f}{n} \)
+	が定まっているとする.
+	このとき, \cref{cpt00002}より\( \topball{x_n}{\varepsilon_n} \)
+	も全有界なので, ある有限集合
+	\( B \subset \topball{x_n}{\varepsilon_n} \)
+	が存在して,
+	\( \bigcup_{x \in B} \topball{x}{\varepsilon_{n+1}}
+	= \topball{x_n}{\varepsilon_n} \)
+	が成り立つ.
+	
+
+\end{proof}
 
 \begin{proof}
 	\WIP
