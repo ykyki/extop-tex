@@ -234,6 +234,7 @@ $ \mathcal{O}_1 $のコンパクト性と$ \mathcal{O}_2 $の \Hausdorff 性の�
 	(\(3 \Longrightarrow 2\)), (\(2 \Longrightarrow 1\))を示せばよい.
 
 	(\(1 \Longrightarrow 4\))を示す.
+	以降では, \( \lrparen{X, d} \)を距離空間とする.
 	コンパクト距離空間が全有界であることは明らかなので完備であることを示す.
 	\( \lrparen{a_n}_{n \in \N} \)を任意のコーシー列とする.
 	コンパクト空間は点列コンパクトでもあるので,
@@ -258,16 +259,15 @@ $ \mathcal{O}_1 $のコンパクト性と$ \mathcal{O}_2 $の \Hausdorff 性の�
 	(\(4 \Longrightarrow 3\))を示す.
 	任意の点列\( \lrparen{a_n}_{n \in \N} \)が収束する部分列をもつことを示す.
 	任意の\( n \in \N \)に対して,
-	\( \varepsilon_n \defeq 2^{-(n+1)} \)とする.
-	次の3条件をみたす写像\( \morph{f}{\N}{\N} \)と
-	点列\( \lrparen{x_n}_{n \in \N} \)が存在することを示せばよい.
-	なぜなら, \( \lrparen{a_{\mappt{f}{n}}}_{n \in \N} \)が
-	点列\( \lrparen{a_n}_{n \in \N} \)の部分列であって
-	コーシー列でもあることが容易に確かめられ,
-	完備性より収束することが示されるからである.
+	\( \varepsilon_n \defeq 2^{-n} \)とする.
+	次の4条件をみたす写像\( \morph{f}{\N}{\N} \)と
+	点列\( \lrparen{x_n}_{n \in \N} \)が存在することを示す.
+	その後, 点列\( \lrparen{a_n}_{n \in \N} \)の部分列
+	\( \lrparen{a_{\mappt{f}{n}}}_{n \in \N} \)
+	がコーシー列であることを確認する.
 	\begin{enumerate}
-		\item \( \topball{x_0}{\varepsilon_0} \supset
-		\topball{x_1}{\varepsilon_1} \supset \ldots \)が成り立つ.
+		\item 任意の\( n \in \N \)について,
+		\( d(x_n, x_{n+1}) < \varepsilon_n \)が成り立つ.
 		\item \( \mappt{f}{0} < \mappt{f}{1} < \ldots \)が成り立つ.
 		\item 任意の\( n \in \N \)について,
 		\( \topball{x_n}{\varepsilon_n} \cap
@@ -283,22 +283,64 @@ $ \mathcal{O}_1 $のコンパクト性と$ \mathcal{O}_2 $の \Hausdorff 性の�
 	が成り立つ.
 	よって, ある\( x_0 \in A \)が存在して
 	\( \topball{x_0}{\varepsilon_0} \cap
-	\setcomp{a_n}{n \in \N} \)が無限集合となる.
+	\setcomp{a_m}{m \in \N} \)が無限集合となる.
 	そこで, \( \mappt{f}{0} \defeq
-	\min \setcomp{n \in \N}{a_n \in \topball{x_0}{\varepsilon_0}} \)
+	\min \setcomp{m \in \N}{a_m \in \topball{x_0}{\varepsilon_0}} \)
 	と定める.
-	次に, \( 0, 1, \ldots, n \)に対して4つの条件を満たす
-	\( x_0, \ldots, x_n \)と\( \mappt{f}{0}, \ldots, \mappt{f}{n} \)
-	が定まっているとする.
-	このとき, \cref{cpt00002}より\( \topball{x_n}{\varepsilon_n} \)
-	も全有界なので, ある有限集合
-	\( B \subset \topball{x_n}{\varepsilon_n} \)
+	\( n = 1 \)のとき, \cref{cpt00002}より
+	\( \topcl \topball{x_0}{\varepsilon_0} \)
+	は全有界である.
+	よって, ある有限集合
+	\( B \subset \topcl \topball{x_0}{\varepsilon_0} \)
 	が存在して,
-	\( \bigcup_{x \in B} \topball{x}{\varepsilon_{n+1}}
-	= \topball{x_n}{\varepsilon_n} \)
+	\( \bigcup_{x \in B} \topball{x}{\varepsilon_1}
+	= \topcl \topball{x_0}{\varepsilon_0} \)
 	が成り立つ.
-	
+	\( \topball{x_0}{\varepsilon_0} \cap
+	\setcomp{a_m}{m \in \N} \)が無限集合なので,
+	ある\( x_1 \in B \)が存在して,
+	\( \topball{x_1}{\varepsilon_1} \cap
+	\setcomp{a_m}{m \in \N} \)が無限集合となる.
+	このとき,
+	\( \mappt{f}{1} \defeq
+	\min \setcomp{m \in \N}{m > \mappt{f}{0},
+	a_m \in \topball{x_1}{\varepsilon_1}} \)
+	と定める.
+	これを繰り返して上の4条件を満たす
+	\( \morph{f}{\N}{\N} \)と\( \lrparen{x_n}_{n \in \N} \)
+	が定義される.
+	次に, \( \lrparen{a_{\mappt{f}{n}}}_{n \in \N} \)
+	がコーシー列であることを示す.
+	任意の\( n, m \in \N \)について,
+	\begin{align*}
+	d(a_{\mappt{f}{n}}, a_{\mappt{f}{n+m}})
+	& \leq d(a_{\mappt{f}{n}}, x_n)
+	+ \sum_{i=0}^{m-1} d(x_{n+i}, x_{n+i+1})
+	+ d(x_{n+m}, a_{\mappt{f}{n+m}}) \\
+	& = \varepsilon_n
+	+ \sum_{i=0}^{m-1} \varepsilon_{n+i}
+	+ \varepsilon_{n+m}
+	= \varepsilon_n \cdot \lrparen{1 + \sum_{i=0}^{m}2^{-i}}
+	\end{align*}
+	が成り立つ.
+	任意の\( m \in \N \)について,
+	\( 1 + \sum_{i=0}^{m}2^{-i} < 3 \)
+	なので,
+	\( d(a_{\mappt{f}{n}}, a_{\mappt{f}{n+m}})
+	< 3\varepsilon_n = 3\cdot 2^{-n} \)
+	となる.
+	このことからコーシー列であることが容易に確かめられる.
+	\( X \)が完備であることから
+	\( \lrparen{a_{\mappt{f}{n}}}_{n \in \N} \)は収束する.
 
+	(\(3 \Longrightarrow 2\))は一般の位相空間において
+	点列コンパクトならば可算コンパクトであることからわかる.
+
+	(\(2 \Longrightarrow 1\))を示す.
+	\cref{met00002}より距離空間はパラコンパクトで,
+	特にメタコンパクトである.
+	また, \cref{cpt00001}より
+	可算コンパクトなメタコンパクト空間はコンパクトである.
 \end{proof}
 
 \begin{proof}
