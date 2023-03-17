@@ -59,6 +59,16 @@
 		\( \cardinality{X} \leq
 		2^{\cardinality{\topweight{X}}} \)
 		を満たさない空間の例である.
+		また, \( \topweight{X} \geq \omega \)であるような反例は
+		次のように構成できる.
+		集合\( X \defeq \omega \oplus \omega_1 \)に対して,
+		\( \mathcal{C} \defeq \setcomp{F \subset \omega}
+		{F\mbox{は有限集合}} \cup \lrbrace{X} \)
+		とすれば,
+		\( \mathcal{C} \)は\( X \)上の閉集合系をなす.
+		この閉集合系から定まる位相空間は \topT{0} でなく,
+		\( \topweight{X} = \omega \)
+		を満たしている.
 
 		次に \Hausdorff 空間\( X \)について,
 		\( \cardinality{X} \leq
@@ -93,7 +103,7 @@
 
 		次に \Hausdorff 空間\( X \)について,
 		\( \cardinality{X} \leq
-		\lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		\topdensity{X}^{\topcharacter{X}} \)
 		を示す.
 		各点\( x \in X \)について
 		\( \mathcal{N}\lrparen{x} \)を\( x \)の開近傍基であって
@@ -108,8 +118,7 @@
 		\( \mathscr{A} \defeq \setcomp{A' \in \pow(A)}
 		{\cardinality{A'} \leq \topcharacter{X}} \)で定めると,
 		\( \cardinality{\mathscr{A}}
-		\leq 2^{\topcharacter{X}}
-		\leq \lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		\leq \topdensity{X}^{\topcharacter{X}} \)
 		が成り立つ.
 		各\( U \in \mathcal{N}\lrparen{x} \)について
 		\( U \cap A \neq \emptyset \)
@@ -144,7 +153,7 @@
 		\setcomp{\mathscr{A}' \in \pow(\mathscr{A})}
 		{\cardinality{\mathscr{A}'} \leq \topcharacter{X}} \)
 		とすると,
-		\( \cardinality{\mathfrak{A}} \leq 2^{\topcharacter{X}}
+		\( \cardinality{\mathfrak{A}}
 		\leq \cardinality{\mathscr{A}}^{\topcharacter{X}} \)
 		が成り立つ.
 		よって,
@@ -152,7 +161,7 @@
 		の単射性を考慮すれば
 		\( \cardinality{X} \leq \cardinality{\mathfrak{A}}
 		\leq \cardinality{\mathscr{A}}^{\topcharacter{X}}
-		\leq \lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		\leq \topdensity{X}^{\topcharacter{X}} \)
 		がわかる.
 
 		最後に, \Hausdorff 空間について示した上の2つの不等式が
@@ -168,24 +177,22 @@
 		いま, \( \cardinality{X} = 2^{2^{2^{\omega}}} \)なので
 		\( \cardinality{X} > 2^{2^{\topdensity{X}}} \)となる.
 		2つ目の不等式\( \cardinality{X} \leq
-		\lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		\topdensity{X}^{\topcharacter{X}} \)
 		が成立しない例を構成する.
 		\( X \)を可算無限集合上の補有限位相空間とすると,
 		\( X \)は \topT{1} であるが \topT{2} ではない.
 		また, \( \topdensity{X} = \omega,
 		\topcharacter{X} = \omega \)である.
-		\( Y \defeq \prod_{n \in \N} X_n, X_n = X \)
-		を\( X \)のコピーの可算無限個の積空間とする.
-		さらに, \( Z \defeq \prod_{n \in \N} Y_n, Y_n = Y \)
-		を\( Y \)のコピーの可算無限個の積空間とする.
+		\( Y \defeq X^\omega, Z \defeq Y^\omega \)
+		とする.
 		このとき, 命題"catalog-cf00001,
 		catalog-sep00002, catalog-T100002, catalog-T200002"より
 		\( Z \)は\( \topdensity{X} = \omega,
 		\topcharacter{X} = \omega \)かつ\topT{1}であるが
 		\topT{2}でない.
-		よって, \( \cardinality{Z} = \lrbrack{\omega^\omega}^\omega,
-		\topdensity{X} = \omega, \topcharacter{X} = \omega \)
-		より, \( \cardinality{X} > \lrbrack{\topdensity{X}}^{\topcharacter{X}} \)
+		よって, \( \cardinality{Z} = \omega^{\omega^\omega},
+		\topdensity{Z} = \omega, \topcharacter{Z} = \omega \)
+		より, \( \cardinality{Z} > \topdensity{Z}^{\topcharacter{X}} \)
 		が成り立つ.
 		\item \( A \subset X \)を\( X \)の稠密部分集合であって
 		\( \cardinality{A} = \topdensity{X} \)
