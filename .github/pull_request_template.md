@@ -2,9 +2,9 @@
 
 - 〇〇についての命題を追加
 
-## TODO
+## Future Task
 
-- 残タスクなど
+- やってみたいことや残タスクなど
 
 ## Linked Issues
 
