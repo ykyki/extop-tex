@@ -7,18 +7,32 @@
 \label{sec:regular-spaces}
 
 \begin{definition}
-	位相空間$ X $が\indexjj{せいそくくうかん}{正則空間}{regular space}であるとは, $ X $の任意の点$ x $と閉集合$ F $に対し, $ x \not\in F $ならば互いに交わらないある開集合$ G, G^\prime $が存在して$ x \in G, F \subset G^\prime $となることである.
+	位相空間$ X $が\indexjj{せいそくくうかん}{正則空間}{regular space}であるとは,
+	$ X $の任意の点$ x $と閉集合$ F $に対し,
+	$ x \not\in F $ならば
+	互いに交わらないある開集合$ G, G^\prime $が存在して
+	$ x \in G, F \subset G^\prime $となることである.
 \end{definition}
 
 \begin{definition}
-	位相空間$ X $が\indexj{T3 くうかん}{\topT{3}空間}であるとは, 正則かつ\topT{0}空間であることである.
+	位相空間$ X $が\indexj{T3 くうかん}{\topT{3}空間}であるとは,
+	正則かつ\topT{0}空間であることである.
 \end{definition}
 
 \begin{proposition}
 	\label{prop:A property equivalent to regularity}
-	位相空間$ X $が正則であることは, 任意の点$ x \in X $とその任意の近傍$ U $に対して$ \topcl{V} \subset U $を満たす$ x $の近傍$ V $が存在することと同値である.
+	位相空間$ X $が正則であることは,
+	任意の点$ x \in X $とその任意の近傍$ U $に対し
+	$ x \in \topcl{V} \subset U $を満たす開集合$ V $が存在することと同値である.
 	\qed
 \end{proposition}
+
+\begin{corollary}
+	位相空間$ X $が正則ならば,
+	$ X $の任意の開被覆$\mathscr{U}$に対し
+	開被覆$\mathscr{V}$が存在して
+	$\topcl \mathscr{V} \refines \mathscr{U}$を満たす.
+\end{corollary}
 
 \begin{proposition}
 	完全正則空間$ X $は正則空間である.

@@ -1,0 +1,27 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\begin{problem}[5.1.D]\label{eng-5-1-D-problem}
+    コンパクト\Hausdorff 空間\(X\)と部分集合の\(M\)のペアであって,
+    空間\(X_M\)が\topT{4}とならないものが存在する.
+\end{problem}
+
+\begin{hosoku}
+    位相空間\(X\)とその部分集合\(M\)に対し,
+    位相空間\(X_M\)を次のように定義する:
+    集合\(X\)上の部分集合族
+    \[
+        \setcomp{U \cup K}
+        {\text{
+            \(U\)は位相空間\(X\)の開集合,
+            \(K\)は\(X \setminus M\)の部分集合
+        }}
+    \]
+    は開集合族の公理をみたす.
+    これを位相とする位相空間を\(X_M\)と定める.
+\end{hosoku}
+
+\end{document}

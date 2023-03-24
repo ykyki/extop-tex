@@ -9,6 +9,7 @@
 	bookmarksnumbered,
 	colorlinks
 ]{hyperref}
+\usepackage[many, breakable]{tcolorbox}
 \hypersetup{
 	colorlinks=true,
 	citecolor=orange,
@@ -21,14 +22,28 @@
 % theorem 環境を定義するパッケージ → hyperref → cleveref の順番で読み込む必要がある
 \usepackage[nameinlink]{cleveref}
 
-\crefname{problem}     {問題} {問題}
-\crefname{proof}  {証明} {証明}
-
-\import{../config/}{global-commands.sty}
+\theorembodyfont{\upshape}
+\theorembodyfont{\normalfont}
+\renewcommand{\labelenumi}{(\alph{enumi})}
 
 \theoremstyle{marginbreak}
-\theoremsymbol{\ensuremath{\square}}
-\newtheorem{problem}{問題}
+\theoremsymbol{\ensuremath{\square}}\newtheorem{problem}{問題}
+\theoremsymbol{\ensuremath{\blacksquare}}\newtheorem{proof}[problem]{証明}
+\newtcolorbox{hosoku}{
+	% breakable,
+	blanker,
+	% before upper={\parindent1em}, % インデントの設定
+	top=0.5mm, bottom=0.5mm, left=1mm,
+	before skip = 1mm,
+	after skip = 1mm,
+    grow to right by=-1mm,
+    grow to left by=-2em,
+    boxrule=0pt,
+    boxsep=0pt,
+	boxrule=1pt,
+	borderline west={1pt}{0pt}{black},
+}
+\crefname{problem}{問題}{問題}
+\crefname{proof}{証明}{証明}
 
-\theoremsymbol{\ensuremath{\blacksquare}}
-\newtheorem{proof}[problem]{証明}
+\import{../config/}{global-commands.sty}
