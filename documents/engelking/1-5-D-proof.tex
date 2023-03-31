@@ -61,7 +61,7 @@
 		を満たさない空間の例である.
 		また, \( \topweight{X} \geq \omega \)であるような反例は
 		次のように構成できる.
-		集合\( X \defeq \omega \oplus \omega_1 \)に対して,
+		集合\( X \defeq \omega \oplus 2^{2^\omega} \)に対して,
 		\( \mathcal{C} \defeq \setcomp{F \subset \omega}
 		{F\mbox{は有限集合}} \cup \lrbrace{X} \)
 		とすれば,
@@ -179,21 +179,9 @@
 		2つ目の不等式\( \cardinality{X} \leq
 		\topdensity{X}^{\topcharacter{X}} \)
 		が成立しない例を構成する.
-		\( X \)を可算無限集合上の補有限位相空間とすると,
-		\( X \)は \topT{1} であるが \topT{2} ではない.
-		また, \( \topdensity{X} = \omega,
-		\topcharacter{X} = \omega \)である.
-		\( Y \defeq X^\omega, Z \defeq Y^\omega \)
-		とする.
-		このとき, 命題"catalog-cf00001,
-		catalog-sep00002, catalog-T100002, catalog-T200002"より
-		\( Z \)は\( \topdensity{X} = \omega,
-		\topcharacter{X} = \omega \)かつ\topT{1}であるが
-		\topT{2}でない.
-		よって, \( \cardinality{Z} = \omega^{\omega^\omega},
-		\topdensity{Z} = \omega, \topcharacter{Z} = \omega \)
-		より, \( \cardinality{Z} > \topdensity{Z}^{\topcharacter{X}} \)
-		が成り立つ.
+		catalogの具体例"\( \Q \)の無限点追加非コンパクト化"の方法を参考に,
+		\( \omega \)に\( 2^{\omega_1} \)個の無限遠点を付け加えた空間が
+		求める反例となっている. (WIP)
 		\item \( A \subset X \)を\( X \)の稠密部分集合であって
 		\( \cardinality{A} = \topdensity{X} \)
 		を満たすものとする.
