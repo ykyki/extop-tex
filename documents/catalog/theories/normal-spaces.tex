@@ -133,6 +133,15 @@
 	定理 \ref{thm:Jone's Lemma} から直ちに得られる.
 \end{proof}
 
+\begin{proposition}
+	\label{t400005}
+	絶対収束する実数列\( \lrparen{a_n}_{n \in \N} \)について
+	\[ \abs{\sum_{n \in \N} a_n}
+	\leq \sum_{n \in \N} \abs{a_n} \]
+	が成り立つ.
+	\qed
+\end{proposition}
+
 \begin{definition}
 	\( X, Y \)を位相空間とし, \( A \)を\( X \)の部分集合とする.
 	連続写像\( \morph{f}{A}{Y} \)に対して,
@@ -152,14 +161,8 @@
 \end{theorem}
 
 \begin{proof}
-	\( Y = \intcc{a}{b} \)の場合を示す.
-	\( c > 0 \)について\( Y = \intcc{-c}{c} \)の場合を示せばよい.
-	\( \morph{h}{\intcc{a}{b}}{\intcc{-c}{c}} \)を同相写像とする.
-	\( \morph{h \circ f}{F}{\intcc{-c}{c}} \)の拡張が
-	\( \morph{g}{X}{\intcc{-c}{c}} \)であるとき,
-	\( \morph{h^{-1}\circ g}{X}{\intcc{a}{b}} \)
-	は\( f \)の拡張であることがわかる.
-	よって, \( Y = \intcc{-c}{c} \)について拡張の存在を示す.
+	まず, \( Y = \intcc{a}{b} \)の場合を示す.
+	\( c > 0 \)について\( Y = \intcc{-c}{c} \)の場合を示せば十分である.
 	\( f_1 \defeq f, c_1 \defeq c \)とおく.
 	また, \( F \)の部分集合\( A_1, B_1 \)を次で定める:
 	\[ A_1 \defeq \setcomp{x \in F}{\mappt{f}{c}
@@ -172,12 +175,10 @@
 	よって, \Urysohn の補題より連続写像
 	\( \morph{g_1}{X}{\intcc{-\frac{c_1}{3}}{\frac{c_1}{3}}} \)
 	であって,
-	\[ \mapset{g_1}{A_1} = \lrbrace{-\frac{c_1}{3}}, \
-	\mapset{g_1}{B_1} = \lrbrace{\frac{c_1}{3}} \]
+	\[ \mapset{g_1}{A_1} \subset \lrbrace{-\frac{c_1}{3}}, \
+	\mapset{g_1}{B_1} \subset \lrbrace{\frac{c_1}{3}} \]
 	を満たすものが存在する.
-	このとき, \( x \in F \)に対して
-	\( \mappt{f_2}{x} \defeq \mappt{f_1}{x} - \mappt{g_1}{x} \)
-	と定めると次が成り立つ:
+	このとき, 次が成り立つ:
 	\begin{align*}
 	\mapset{f_1}{A_1}, \mapset{g_1}{A_1} & \subset \intcc{-c_1}{-\frac{c_1}{3}}, \\
 	\mapset{f_1}{B_1}, \mapset{g_1}{B_1} & \subset \intcc{\frac{c_1}{3}}{c_1}, \\
@@ -185,8 +186,10 @@
 	\mapset{g_1}{F \setminus \lrparen{A_1 \cup B_1}} &
 	\subset \intcc{-\frac{c_1}{3}}{\frac{c_1}{3}}
 	\end{align*}
-	よって, 任意の点\( x \in F \)について
-	\( \abs{\mappt{f}{x}} \leq \frac{2}{3}c_1 \)が成り立つ.
+	よって, 任意の点\( x \in F \)に対して
+	\( \mappt{f_2}{x} \defeq \mappt{f_1}{x} - \mappt{g_1}{x} \)
+	と定めると,
+	\( \abs{\mappt{f_2}{x}} \leq \frac{2}{3}c_1 \)が成り立つ.
 	ゆえに, \( c_2 \defeq \frac{2}{3}c_1 \)とすれば,
 	\( f_2 \)は\( F \)から\( \intcc{-c_2}{c_2} \)への連続写像である.
 	自然数\( n \geq 2 \)と連続写像\( \morph{f_n}{F}{\intcc{-c_n}{c_n}} \)
@@ -198,20 +201,23 @@
 	c_{n+1} \defeq \frac{2}{3}c_n \)と定めると,
 	\( \abs{\mappt{f_{n+1}}{x}} \leq c_{n+1} \)が成り立つ.
 	以上から, 数学的帰納法により, 任意の\( n \geq 1 \)に対して
-	\( \mappt{f_{n+1}}{x} \defeq \mappt{f_n}{x} - \mappt{g_n}{x},
-	\abs{\mappt{f_{n+1}}{x}} \leq c_{n+1},
-	\abs{\mappt{g_{n}}{x}} \leq c_n, c_{n+1} \defeq \frac{2}{3}c_n \)を満たす
+	\( \mappt{f_{n+1}}{x} \defeq \mappt{f_n}{x} - \mappt{g_n}{x} \),
+	\( \abs{\mappt{f_{n+1}}{x}} \leq c_{n+1} \),
+	\( \abs{\mappt{g_{n}}{x}} \leq \frac{1}{3}c_n \),
+	\( c_{n+1} \defeq \frac{2}{3}c_n \)を満たす
 	写像列\( \lrparen{f_n}, \lrparen{g_n} \)
 	と実数列\( \lrparen{c_n} \)が定義できた.
 	ここで, \( \sum_{n=1}^{\infty} \frac{1}{3}c_n
 	= \frac{1}{3}\sum_{n=1}^{\infty} \lrparen{\frac{2}{3}}^{n-1}c = c \)
-	に注意すれば, WeierstrassのM-判定法(\cref{t400004})より
+	に注意すれば, \Weierstrass のM-判定法(\cref{t400004})より
 	\( \lrparen{g_n} \)は一様収束し,
 	\( \mappt{g}{x} \defeq \sum_{n=1}^{\infty}\mappt{g_n}{x} \)で定められる
 	\( g \)は\( X \)上の連続写像である.
 	また, \( \sum_{n=1}^{\infty} \frac{1}{3}c_n = c \)より
 	任意の\( x \in X \)について
-	\( \abs{\mappt{g}{x}} \leq c \)である.
+	\( \sum_{n=1}^\infty \abs{\mappt{g_n}{x}} \leq c \)である.
+	よって, \cref{t400005}に注意すれば
+	\( \abs{\mappt{g}{x}} \leq c\)が得られる.
 	さらに, 任意の\( x \in F \)について
 	\( \mappt{g_{n}}{x} = \mappt{f_n}{x} - \mappt{f_{n+1}}{x} \)より
 	\[ \sum_{i=1}^{n} \mappt{g_i}{x} = \mappt{f_1}{x} - \mappt{f_{n+1}}{x} \]
@@ -227,7 +233,7 @@
 
 	次に\( Y = \intoo{a}{b} \)の場合を示す.
 	これについても同様に,
-	\( c > 0 \)について\( Y = \intoo{-c}{c} \)の場合のみ示せばよい.
+	\( c > 0 \)について\( Y = \intoo{-c}{c} \)の場合のみ示せば十分である.
 	このとき, \( f \)を\( F \)から\( \intcc{-c}{c} \)
 	への連続写像とみなせば上の証明より,
 	\( X \)上への拡張\( \morph{g}{X}{\intcc{-c}{c}} \)がとれる.
@@ -235,7 +241,7 @@
 	\( E \)は\( X \)の閉集合であって\( E \cap F = \emptyset \)を満たす.
 	よって, \Urysohn の補題より,
 	連続写像\( \morph{h}{X}{\I} \)であって
-	\[ \mapset{h}{E} = \lrbrace{0}, \ \mapset{h}{F} = \lrbrace{1} \]
+	\[ \mapset{h}{E} \subset \lrbrace{0}, \ \mapset{h}{F} \subset \lrbrace{1} \]
 	を満たすものが存在する.
 	このとき, \( x \in X \)について
 	\( \mappt{g'}{x} \defeq \mappt{g}{x}\mappt{h}{x} \)と定めると,
@@ -243,7 +249,7 @@
 	また, もし\( \abs{\mappt{g'}{x}} = c \)
 	であれば\( \abs{\mappt{g}{x}} = c \)より
 	\( x \in E \)となり, \( \mappt{h}{x} = 0 \)から
-	\( \mappt{g’}{x} = 0 \)となって矛盾する.
+	\( \mappt{g'}{x} = 0 \)となって矛盾する.
 	よって, 任意の\( x \in X \)について
 	\( \abs{\mappt{g'}{x}} < c \)である.
 	ゆえに, \( \morph{g'}{X}{\intoo{-c}{c}} \)となって,
@@ -251,9 +257,9 @@
 
 	最後に\( Y = \R \)の場合を示す.
 	\( \morph{h}{\R}{\intoo{-1}{1}} \)を
-	同相写像として, \( \morph{h\circ f}{X}{\intoo{-1}{1}} \)
+	同相写像として, \( \morph{h\compo f}{X}{\intoo{-1}{1}} \)
 	の拡張\( g \)を取れば,
-	\( \morph{h^{-1}\circ g}{X}{\R} \)が\( f \)の拡張となることがわかる.
+	\( \morph{h^{-1}\compo g}{X}{\R} \)が\( f \)の拡張となることがわかる.
 \end{proof}
 
 
