@@ -1,0 +1,82 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{一様収束}
+\label{sec:uniform-convergence}
+
+\begin{definition}
+	\( X \)を位相空間とする.
+	\( \morph{f}{X}{\R} \)と各\( n \in \N \)
+	に対する\( \morph{f_n}{X}{\R} \)を連続写像とする.
+	写像列\( \lrparen{f_n}_{n \in \N} \)が\( f \)に一様収束するとは,
+	任意の\( \varepsilon > 0 \)に対して,
+	ある\( N \in \N \)が存在して,
+	次が成り立つことである:
+	任意の点\( x \in X \)について
+	\( n \in \N \)が$ n > N $を満たすならば
+	\( \abs{\mappt{f}{x} - \mappt{f_n}{x}} < \varepsilon \)
+	が成り立つ.
+
+	また, 写像列$ \lrparen{f_n}_{n \in \N} $が$ f $に各点収束するとは,
+	次が成り立つことである:
+	任意の点\( x \in X \)について,
+	点列\( \lrparen{f_n(x)}_{n \in \N} \)
+	が\( \mappt{f}{x} \)に収束する.
+\end{definition}
+
+\begin{proposition}
+	\label{uc00001}
+	一様収束する写像列は各点収束する.
+	\qed
+\end{proposition}
+
+\begin{proposition}
+	\label{uc00002}
+	\( X \)を位相空間とする.
+	各\( n \in \N \)について\( \morph{f_n}{X}{\R} \)を連続写像とする.
+	写像列\( \lrparen{f_n}_{n \in \N} \)
+	が写像\( \morph{f}{X}{\R} \)に一様収束するとき\( f \)は連続である.
+\end{proposition}
+
+\begin{theorem}[WeierstrassのM-判定法, {\cite[定理~12.12]{Morita1981ja}}]
+	\label{uc00003}
+	\( X \)を位相空間とし,
+	\( \lrparen{f_n}_{n \in \N} \)を\( X \)上の連続写像の列とする.
+	ここで, 正の実数からなる列\( \lrparen{M_n}_{n \in \N} \)について
+	\begin{enumerate}
+		\item 任意の\( n \in \N \)と任意の\( x \in X \)
+		に対して, \( \abs{\mappt{f_n}{x}} \leq M_n \)である.
+		\item 無限級数\( \sum_{n \in \N} M_n \)が収束する.
+	\end{enumerate}
+	が成り立つとする.
+	このとき, 任意の\( x \in X \)について
+	\( \sum_{n \in \N} \mappt{f_n}{x} \)は収束し,
+	写像\( \morph{f}{X}{\R} \)を\( \mappt{f}{x}
+	\defeq \sum_{n \in \N} \mappt{f_n}{x} \)
+	で定めると\( f \)は連続である.
+\end{theorem}
+
+\begin{proof}
+	\( M \defeq \sum_{n \in \N} M_n \)とする.
+	任意の\( n \in \N \)について
+	写像\( \morph{g_n}{X}{\R} \)を
+	\( \mappt{g_n}{x} \defeq \sum_{m=0}^{n} \mappt{f_m}{x} \)と定めると
+	写像列\( \lrparen{g_n} \)は連続写像の列である.
+	\( \lrparen{g_n} \)が\( f \)に一様収束することを示せば,
+	\cref{uc00002}より\( f \)が連続であることがわかる.
+	任意の\( n \in \N \)と任意の\( x \in X \)について
+	\[ \abs{\mappt{f}{x} - \mappt{g_n}{x}}
+	= \abs{\sum_{m \in \N, m>n} \mappt{f_m}{x}}
+	\leq \sum_{m \in \N, m>n} M_m = M - \sum_{m=0}^n M_m \]
+	が成り立つ.
+	無限級数\( \sum_{n \in \N} M_n \)が収束することから,
+	任意の正の実数\( \varepsilon > 0 \)に対して
+	ある\( N \in \N \)が存在し, 任意の\( n \in \N \)について
+	\[ n > N \ \Longrightarrow \ M - \sum_{m=0}^n M_m < \varepsilon \]
+	が成り立つ.
+	以上から, \( \lrparen{g_n} \)が\( f \)に一様収束することが示された.
+\end{proof}
+
+\end{document}
