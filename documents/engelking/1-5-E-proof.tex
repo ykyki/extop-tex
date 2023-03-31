@@ -1,0 +1,95 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\begin{proof}[1.5.E]\label{eng-1-5-E-proof}
+	\begin{enumerate}
+		\item (\( 1 \Longrightarrow 2\))を示す.
+		ある写像の族
+		\( \setcomp{\morph{f_\lambda}{X}{\R}}
+		{\lambda \in \Lambda} \)
+		が存在して, この写像の族によって
+		\( X \) 上に生成される位相を
+		\( \mathcal{O} \)とする.
+		任意の点\( x \in X \)とその任意の開近傍\( U \)をとる.
+		このとき, ある有限集合\( \Lambda' \subset \Lambda \)
+		と各\( \lambda \in \Lambda' \)について
+		\( \R \)の開集合\( U_\lambda \)が存在して
+		\[ x \in \bigcap_{\lambda \in \Lambda'}
+		\mapinvset{f_\lambda}{U_\lambda},
+		\bigcap_{\lambda \in \Lambda'}
+		\mapinvset{f_\lambda}{U_\lambda} \subset U \]
+		が成り立つ.
+		ここで, 各\( \lambda \in \Lambda' \)について
+		写像\( \morph{g_\lambda}{X}{\R} \)と
+		\( \R \)の開集合\( V_\lambda \)を
+		\[ g_\lambda \semicolon y \mapsto
+		\abs{\mappt{f_\lambda}{y} - \mappt{f_\lambda}{x}},
+		V_\lambda \defeq \setcomp{y - f(x)}
+		{y \in U_\lambda} \]
+		と定める.
+		任意の\( \lambda \in \Lambda' \)に対して,
+		\( \mappt{g_\lambda}{x} = 0, 0 \in  V_\lambda \)
+		が成り立つ.
+		よって, ある\( \varepsilon > 0 \)が存在して
+		\( \intoo{-\varepsilon}{\varepsilon}
+		\subset \bigcap_{\lambda \in \Lambda'} V_\lambda\)
+		かつ,
+		\( x \in \mapinvset{g_\lambda}
+		{\intoo{-\varepsilon}{\varepsilon}} \subset U\)
+		となる.
+		写像\( \morph{g}{X}{\R} \)を
+		\[ g(y) \defeq \min \lrbrack{
+		\max \setcomp{\mappt{g_\lambda}{y}}{\lambda \in \Lambda'},
+		\lrbrace{\varepsilon}} \]
+		と定める.
+		各\( g_\lambda \)は連続なので\( g \)も連続である.
+		また, \( g(x) = 0 \)である.
+		任意の\( y \in X \setminus U \), \( \lambda \in \Lambda'\)について
+		\( y \notin \mapinvset{g_\lambda}
+		{\intoo{-\varepsilon}{\varepsilon}} \)より
+		\( \mappt{g_\lambda}{y} \geq \varepsilon \)
+		である. よって, \( \mappt{g}{y} = \varepsilon \)となる.
+		写像\( \morph{h}{\R}{\I} \)を
+		\( h \semicolon y \mapsto \frac{y}{\varepsilon} \)
+		と定めると, \( \morph{h \compo g}{X}{\I} \)は連続であり,
+		\( \mappt{h \compo g}{x} = 0,
+		\mapset{h \compo g}{X \setminus U} = \lrbrace{\varepsilon} \)
+		が成り立つので, \( X \)は \topT{3.5} 空間である.
+
+		(\( 2 \Longrightarrow 1 \))を示す.
+		\topT{3.5} 空間\( X \)の位相を\( \mathcal{O} \)とする.
+		任意の点\( x \in X \)とその任意の開近傍\( U \)について,
+		\( \mappt{f}{x} = 0, \mapset{f}{X \setminus U} = \lrbrace{1} \)
+		を満たす連続写像\( \morph{f}{X}{\R} \)が存在する.
+		この連続写像を\( f_{\lrparen{x,U}} \)と書くことにする.
+		\( \setcomp{f_{\lrparen{x,U}}}{x \in X, U \in \mathcal{O}, x \in U} \)
+		が生成する位相を\( \mathcal{O}' \)として
+		\( \mathcal{O}' = \mathcal{O} \)を示す.
+		生成する位相の最小性より\( \mathcal{O}' \subset \mathcal{O} \)である.
+		任意に\( V \in \mathcal{O} \)をとる.
+		任意の点\( y \in V \)に対して,
+		\( \mappt{f_{\lrparen{y, V}}}{y} = 0,
+		\mapset{f_{\lrparen{y, V}}}{X \setminus V} = \lrbrace{1} \)
+		が成り立つ.
+		よって, \( W \defeq \intco{0}{\frac{1}{2}} \)とすれば,
+		\( V = \bigcup_{y \in V} \mapinvset{f_{\lrparen{y,V}}}{W} \)
+		より, \( V \in \mathcal{O}' \)である.
+		よって, \( \mathcal{O}' = \mathcal{O} \)である.
+
+		\item (\( 1 \Longrightarrow 2 \))は明らかなので
+		(\( 2 \Longrightarrow 1 \))を示す.
+		各\( i = 1, 2 \)について\( \mathscr{A}_i \)
+		が生成する位相を\( \mathcal{O}_{\mathscr{A}_i} \)とすると
+		\( \mathscr{A}_1 = \mathscr{A}_2 \)より,
+		\( \mathcal{O}_{\mathscr{A}_1} = \mathcal{O}_{\mathscr{A}_1} \)である.
+		\( X \)が \topT{3.5} 空間なので
+		\( \mathcal{O}_{\mathscr{A}_i} = \mathcal{O}_i \)より
+		\( \mathcal{O}_1 = \mathcal{O}_2 \)となる.
+	\end{enumerate}
+\end{proof}
+
+\end{document}
