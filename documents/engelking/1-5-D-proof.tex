@@ -1,0 +1,212 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsarticle, crop=false]{standalone}
+\usepackage{import}
+\import{./}{preamble.sty}
+
+\begin{document}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\begin{proof}[1.5.D]\label{eng-1-5-D-proof}
+	\begin{enumerate}
+		\item \topT{0} な正則空間\( X \)が \topT{1} 空間であることを示す.
+		\( X \)の相異なる2点\( x, y \)をとる.
+		\( X \)が \topT{0} 空間であることから,
+		\( x \notin \topcl \lrbrace{y} \)
+		または
+		\( y \notin \topcl \lrbrace{x} \)
+		が成り立つ.
+		\( x \notin \topcl \lrbrace{y} \)
+		が成り立つとして一般性を失わない.
+		このとき, \( X \)が正則空間であることから,
+		開集合\( U, V \)であって,
+		\( x \in U, y \in V, U \cap V = \emptyset \)
+		を満たすものが存在する.
+		よって, \( X \)は \Hausdorff 空間であり,
+		特に \topT{1} 空間である.
+
+		\topT{0} な完全正則空間\( X \)
+		が \topT{1} 空間であることも同様にして示される.
+
+		\topT{0} な正規空間\( X \)であって,
+		\topT{1} でない空間の存在を示す.
+		集合\( X \defeq \lrbrace{0, 1} \)の位相
+		\( \mathcal{O} \)を
+		\( \mathcal{O} \defeq \lrbrace{\emptyset,
+		\lrbrace{0}, X} \)
+		で定義する.
+		このとき, 位相空間\( \lrparen{X, \mathcal{O}} \)
+		は \topT{0} であるが \topT{1}ではないことがわかる.
+		また, \( \lrparen{X, \mathcal{O}} \)において
+		互いに交わらない2つの閉集合\( F, G \)をとると,
+		少なくとも一方は空集合なので正規空間であることがわかる.
+
+		\item \( X \)の開集合基\( \mathscr{B} \)
+		は\( \cardinality{\mathscr{B}}
+		= \topweight{X} \)を満たすとする.
+		ここで, 写像\( \morph{f}{X}{\pow(\mathscr{B})} \)
+		を\( f(x) \defeq \setcomp{U \in \mathscr{B}}
+		{x \in U} \)により定義する.
+		\( X \)が \topT{0} であることから
+		相異なる2点\( x, y \)をとると,
+		ある\( U \in \mathscr{B} \)であって,
+		\( x, y \)のどちらか一方のみを含むものが存在する.
+		よって, \( \mappt{f}{x} \neq \mappt{f}{y} \)
+		より\( f \)は単射である.
+		ゆえに, \( \cardinality{X} \leq
+		2^{\cardinality{{\topweight{X}}}} \)である.
+
+		3点以上からなる集合\( X \)上の密着位相を考えると,
+		これは \topT{0} でなく
+		\( \cardinality{X} \leq
+		2^{\cardinality{\topweight{X}}} \)
+		を満たさない空間の例である.
+		また, \( \topweight{X} \geq \omega \)であるような反例は
+		次のように構成できる.
+		集合\( X \defeq \omega \oplus 2^{2^\omega} \)に対して,
+		\( \mathcal{C} \defeq \setcomp{F \subset \omega}
+		{F\mbox{は有限集合}} \cup \lrbrace{X} \)
+		とすれば,
+		\( \mathcal{C} \)は\( X \)上の閉集合系をなす.
+		この閉集合系から定まる位相空間は \topT{0} でなく,
+		\( \topweight{X} = \omega \)
+		を満たしている.
+
+		次に \Hausdorff 空間\( X \)について,
+		\( \cardinality{X} \leq
+		2^{2^{\topdensity{X}}}\)
+		を示す.
+		\( A \subset X \)を\( X \)の稠密部分集合であって
+		\( \cardinality{A} = \topdensity{X} \)
+		を満たすものとする.
+		各点\( x \in X \)について
+		\( \mathcal{N}\lrparen{x} \)を\( x \)の開近傍基とする.
+		ここで, 各\( x \in X \)について
+		\( \mathcal{N}'\lrparen{x}
+		\defeq \setcomp{U \cap A}{U \in \mathcal{N}\lrparen{x}} \)
+		と定める.
+		\( A \)が稠密なので, 任意の\( U \in \mathcal{N}'\lrparen{x} \)
+		について\( \topbar{U \cap A} = \topbar{U} \)が成り立つ.
+		\( X \)が \topT{2} であることから
+		\[ \bigcap_{U \in \mathcal{N}'\lrparen{x}} \topbar{U}
+		= \bigcap_{V \in \mathcal{N}\lrparen{x}} \topbar{V}
+		= \lrbrace{x} \]
+		が成り立つ.
+		よって, \( x \neq y \)のとき,
+		\( \mathcal{N}'\lrparen{x} \neq \mathcal{N}'\lrparen{y} \)
+		である.
+		ゆえに, 写像\( \morphto{f}{X}{\pow(\pow(A))}
+		{x}{\mathcal{N}'\lrparen{x}} \)
+		は単射である.
+		したがって,
+		\( \cardinality{X} \leq \cardinality{\pow(\pow(A))}
+		\leq 2^{2^{\topdensity{X}}} \)
+		が成り立つ.
+
+		次に \Hausdorff 空間\( X \)について,
+		\( \cardinality{X} \leq
+		\topdensity{X}^{\topcharacter{X}} \)
+		を示す.
+		各点\( x \in X \)について
+		\( \mathcal{N}\lrparen{x} \)を\( x \)の開近傍基であって
+		\( \cardinality{\mathcal{N}\lrparen{x}} \leq \topcharacter{X} \)
+		を満たすものとする.
+		\( \topcharacter{X} < \omega \)のとき,
+		\( X \)の位相は離散位相になるので
+		不等式の成立は明らかである.
+		よって, \( \topcharacter{X} \geq \omega \)
+		の場合について示す.
+		\( \mathscr{A} \subset \pow(A) \)を
+		\( \mathscr{A} \defeq \setcomp{A' \in \pow(A)}
+		{\cardinality{A'} \leq \topcharacter{X}} \)で定めると,
+		\( \cardinality{\mathscr{A}}
+		\leq \topdensity{X}^{\topcharacter{X}} \)
+		が成り立つ.
+		各\( U \in \mathcal{N}\lrparen{x} \)について
+		\( U \cap A \neq \emptyset \)
+		なので,1点\( p(x, U) \in U \cap A \)
+		をとれる.
+		ここで, \( A(x) \defeq \setcomp{p(x, U)}
+		{U \in \mathcal{N}\lrparen{x}} \)
+		とすると, \( A(x) \in \mathscr{A} \)である.
+		また,
+		\( \mathscr{A}(x) \defeq \setcomp{U \cap A(x)}
+		{U \in \mathcal{N}\lrparen{x}} \)
+		とすると,
+		\( \mathscr{A}(x) \subset \mathscr{A} \)
+		である.
+		いま, \( \cardinality{\mathcal{N}\lrparen{x}} \leq \topcharacter{X} \)
+		なので,
+		\( \cardinality{\mathscr{A}(x)} \leq \topcharacter{X}\)
+		が成り立つ.
+		また, 任意の\( U \in \mathcal{N}\lrparen{x} \)に対して
+		\( x \in \topbar{U \cap A(x)} \subset \topbar{U} \)
+		が成り立つ.
+		よって, \( X \)が \topT{2} であることから,
+		\( x \neq y \)ならば
+		\[ \bigcap_{U \in \mathscr{A}(x)} \topbar{U}
+		= \bigcap_{V \in \mathcal{N}\lrparen{x}} \topbar{V}
+		= \lrbrace{x} \]
+		が成り立つ. ゆえに, \( x \neq y \)
+		ならば
+		\( \mathscr{A}(x) \neq \mathscr{A}(y) \)
+		となる.
+		ここで, \( \mathfrak{A} \defeq
+		\setcomp{\mathscr{A}' \in \pow(\mathscr{A})}
+		{\cardinality{\mathscr{A}'} \leq \topcharacter{X}} \)
+		とすると,
+		\( \cardinality{\mathfrak{A}}
+		\leq \cardinality{\mathscr{A}}^{\topcharacter{X}} \)
+		が成り立つ.
+		よって,
+		写像\( \morphto{f}{X}{\mathfrak{A}}{x}{\mathscr{A}(x)} \)
+		の単射性を考慮すれば
+		\( \cardinality{X} \leq \cardinality{\mathfrak{A}}
+		\leq \cardinality{\mathscr{A}}^{\topcharacter{X}}
+		\leq \topdensity{X}^{\topcharacter{X}} \)
+		がわかる.
+
+		最後に, \Hausdorff 空間について示した上の2つの不等式が
+		\topT{2} でない \topT{1} 空間において成立するとは限らないことを示す.
+		\( \cardinality{X} \leq
+		2^{2^{\topdensity{X}}}\)が成り立たない例を構成する.
+		集合\( X \defeq \pow(\pow(\pow(\N))) \)に補有限位相
+		を定めた位相空間がそのような例である.
+		この補有限位相空間\( X \)が \topT{2} でない
+		\topT{1} 空間であることは明らかである.
+		また, \( X \)の可算無限部分集合は稠密部分集合なので
+		\( \topdensity{X} = \omega \)である.
+		いま, \( \cardinality{X} = 2^{2^{2^{\omega}}} \)なので
+		\( \cardinality{X} > 2^{2^{\topdensity{X}}} \)となる.
+		2つ目の不等式\( \cardinality{X} \leq
+		\topdensity{X}^{\topcharacter{X}} \)
+		が成立しない例を構成する.
+		catalogの具体例"\( \Q \)の無限点追加非コンパクト化"の方法を参考に,
+		\( \omega \)に\( 2^{2^\omega} \)個の無限遠点を付け加えた空間が
+		求める反例となっている. (WIP)
+		\item \( A \subset X \)を\( X \)の稠密部分集合であって
+		\( \cardinality{A} = \topdensity{X} \)
+		を満たすものとする.
+		また, \( \mathscr{B} \defeq \setcomp{\topint \topcl U}{U \in \pow(A)} \)
+		とする.
+		いま, \( A \)は稠密部分集合なので,
+		任意の開集合\( U \subset X \)について
+		\( \topbar{U \cap A} = \topbar{U} \supset U \)
+		が成り立つ.
+		\( X \)が \topT{3} 空間であることから,
+		任意の\( x \in U \)について,
+		\( x \in V_x, \topbar{V_x} \subset U \)
+		を満たす\( V_x \)が存在する.
+		よって,
+		\( U = \bigcup_{x \in U} \topint \topcl V_x \)
+		が成り立つので, \( \mathscr{B} \)は
+		\( X \)の開基である.
+		ゆえに,
+		\( \topweight{X} \leq 2^{\topdensity{X}} \)
+		が成り立つ.
+		\topT{2} だが \topT{3} でない空間であって,
+		不等式\( \topweight{X} \leq 2^{\topdensity{X}} \)
+		を満たさない例は(WIP)
+	\end{enumerate}
+\end{proof}
+
+
+\end{document}

@@ -11,6 +11,7 @@
 \end{definition}
 
 \begin{proposition}
+	\label{T200001}
 	位相空間$ X $について以下の条件は同値である:
 	\begin{enumerate}
 		\item $ X $が\topT{2}空間である.
@@ -19,6 +20,35 @@
 		\item $ W $を位相空間, $ W_0 $を$ W $の稠密部分集合, $ f_0 \colon W_0 \rightarrow X $を連続写像とする. このとき$ f_0 $の$ W $への連続な拡張$ f \colon W \rightarrow X$が高々1つである.
 	\end{enumerate}
 \end{proposition}
+
+\begin{proposition}
+	\label{T200002}
+	\( \setfamily{X_\lambda}{\lambda \in \Lambda} \)を
+	空でない位相空間の列とする.
+	このとき, 積空間\( X \defeq \prod_{\lambda \in \Lambda} X_\lambda \)
+	が \Hausdorff 空間ならば任意の\( \lambda \in \Lambda \)
+	について\( X_\lambda \)は \Hausdorff 空間である.
+\end{proposition}
+
+\begin{proof}
+	ある\( \lambda_0 \)について\( X_{\lambda_0} \)
+	が \Hausdorff でないと仮定して矛盾を導く.
+	このとき, \( X_{\lambda_0} \)上のネット
+	\( (p_i)_{i \in I} \)であって
+	2点以上に収束するものが存在する.
+	ここで, 各\( \lambda \neq \lambda_0 \)について
+	\( X_\lambda \)の点を1つとり\( x_\lambda \)とする.
+	さらに, 各\( i \in I \)について
+	\( x_i = (x^i_\lambda)_{\lambda \in \Lambda} \in X \)
+	を次で定める:
+	\[ x^i_\lambda \defeq \begin{cases}
+		x_\lambda & \lambda \neq \lambda_0 \\
+		p_i & \lambda =\lambda_0
+	\end{cases} \]
+	このとき, \( X \)上のネット
+	\( (x_i)_{i \in I} \)は2点以上に収束する.
+	これは, \( X \)が \Hausdorff 空間であることに矛盾する.
+\end{proof}
 
 \begin{proposition}
 	\label{h00001}
