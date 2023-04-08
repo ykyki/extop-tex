@@ -1,0 +1,74 @@
+\documentclass[uplatex, dvipdfmx, a4paper, 12pt, class=jsbook, crop=false]{standalone}
+\usepackage{import}
+\import{../}{common-preamble.sty}
+
+\begin{document}
+\section{被覆}
+\label{sec:coverings}
+
+\newcommand{\starset}[2]{\mathrm{St}\left(#1 , \: #2\right)}
+\newcommand{\sstarset}[3]{\mathrm{St}^{#1}\left(#2 , \: #3 \right)}
+
+% TODO 被覆について書く
+
+\begin{definition}
+	$X$を位相空間, $\mathscr{U}$を$X$の部分集合族とする.
+	$\mathscr{U}$が\indexjj{きょくしょゆうげん}{局所有限}{locally finite}であるとは,
+	任意の点$a \in X$に対し, ある近傍$N$が存在して集合
+		\[\setcomp{U \in \mathscr{U}}{N \cap U \neq \emptyset}\]
+	が有限集合になることである.
+\end{definition}
+
+集合系$\setfamily{U_i}{i \in I}$に対しても局所有限性が同様に定義できる.
+ここで,
+集合族$\setcomp{U_i}{i \in I}$が局所有限であっても
+集合系$\setfamily{U_i}{i \in I}$が局所有限にならない場合があることに注意する.
+
+\begin{definition}
+	位相空間$ X $の被覆$ \mathscr{U} $に対して$ \mathscr{U}^\Delta, \mathscr{U}^* $をそれぞれ次のように定める:
+	\begin{align*}
+		\mathscr{U}^\Delta & \defeq \setcomp{\starset{x}{\mathscr{U}}}{x \in X}. \\
+		\mathscr{U}^* & \defeq \setcomp{\starset{U}{\mathscr{U}}}{U \in \mathscr{U}}.
+	\end{align*}
+	また, 被覆$ \mathscr{V} $が$ \mathscr{V}^\Delta < \mathscr{U} $を満たすとき
+	$ \mathscr{U} $の$ \Delta $細分であるといい,
+	$ \mathscr{V}^* < \mathscr{U} $を満たすとき$ \mathscr{U} $の星型細分であるという.
+\end{definition}
+定義から明らかに星型細分は$ \Delta $細分である.
+
+\begin{definition}
+	位相空間$ X $が全体正規であるとは, 任意の開被覆$ \mathscr{U} $が$ \Delta $細分をもつことをいう.
+\end{definition}
+
+\begin{definition}
+	位相空間$ X $の被覆の列$ (\mathscr{U}_n)_{n \in \N} $が正規列であるとは,
+	任意の$ n \in \N  $について$ \mathscr{U}_{n+1}^* < \mathscr{U} $が成り立つことをいう.
+	$ X $の開被覆$ \mathscr{V} $に対して$ \mathscr{U}_0 < \mathscr{V} $を満たす正規列
+	$ (\mathscr{U}_n)_{n \in \N} $が存在するとき,
+	$ \mathscr{V} $は正規(または正規被覆)であるという.
+\end{definition}
+
+被覆の正規正の定義から明らかに, 全体正規であることと任意の開被覆が正規であることは同値である.
+
+\begin{definition}
+	位相空間$ X, Y $の間の写像$ \morph{f}{X}{Y} $と$ Y $の部分集合族$ \mathscr{U} $に対して,
+	$ X $の部分集合族$ \setcomp{\mapinvset{f}{U}}{U \in \mathscr{U}} $を$ \mapinvset{f}{\mathscr{U}} $と書く.
+	また, 位相空間$ X $の部分集合族$ \mathscr{V} $に対して, $ \setcomp{\topcl V}{V \in \mathscr{V}} $を
+	$ \topcl \mathscr{V} $と書く.
+\end{definition}
+
+\begin{proposition}
+	\label{p00001}
+	$ \morph{f}{X}{Y} $を連続写像とする. このとき, $ Y $の開集合族$ \mathscr{U} $が局所有限ならば
+	$ \mapinvset{f}{\mathscr{U}} $は$ X $で局所有限である.
+\end{proposition}
+
+\begin{proof}
+	任意の点$ x \in X $について$ \mappt{f}{x} $の開近傍$ V $が存在して
+	$ \setcomp{U \in \mathscr{U}}{U \cap V \neq \emptyset} $は有限である.
+	$ f $は連続なので$ x $の開近傍$ W $が存在して$ \mapset{f}{W} \subset V $が成り立つ.
+	よって, $ \setcomp{U \in \mathscr{U}}{U \cap \mapset{f}{W} \neq \emptyset} $は有限なので
+	$ \setcomp{U' \in \mapinvset{f}{\mathscr{U}}}{U' \cap W \neq \emptyset} $も有限である.
+\end{proof}
+
+\end{document}
