@@ -77,12 +77,6 @@
 \end{theorem}
 
 \begin{proof}
-	\( F = \emptyset \)のとき,
-	\( \morphto{f}{X}{\I}{x}{1} \)
-	とし,
-	\( F = X \)のとき,
-	\( \morphto{f}{X}{\I}{x}{0} \)とすればよい.
-	\( F \neq \emptyset, X \)の場合について示す.
 	\( X \)が正規空間なので, 開集合\( W \)であって
 	\( F \subset W, \topcl W \subset U \)を満たすものが存在する.
 	任意の\( n \in \N \)と\( 0 \leq m \leq 2^n \)に対して,
@@ -138,9 +132,12 @@
 	次に写像\( \morph{f}{X}{\I} \)を次で定める:
 	\[ f(x) \defeq \inf  \setcomp{t \in \R}{x \in W_t} \]
 	\( W_t \)の定義から\( 0 \leq f(x) \leq 1 \)は明らかである.
-	\( x \in F \)のとき, \( F \subset V\lrparen{0} \)より\( f(x) = 0 \)である.
-	また, \( x \in X \setminus U \)のとき, \( x \notin V_1 \)より\( f(x) = 1 \)である.
-	よって, \( \mapset{f}{F} = \lrbrace{0}, \mapset{f}{X \setminus U} = \lrbrace{1} \)
+	\( F \subset V\lrparen{0} \)より
+	\( \mapset{f}{F} \subset \lrbrace{0} \)である.
+	また, \( X \setminus U \subset X \setminus V\lrparen{1} \)より
+	\( \mapset{f}{X \setminus U} \subset \lrbrace{1} \)である.
+	よって, \( \mapset{f}{F} \subset \lrbrace{0} \),
+	\( \mapset{f}{X \setminus U} \subset \lrbrace{1} \)
 	である.
 	\( f \)の連続性を示せばよい.
 	任意の\( x_0 \in X \)について\( t_0 \defeq f(x_0) \)とする.
