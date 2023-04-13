@@ -146,4 +146,102 @@
 	位相空間$ X $が\indexj{T5 くうかん}{\topT{5}空間}であるとは, 継承的正規かつ\topT{0}となることである.
 \end{definition}
 
+\begin{theorem}[Urysohn's Lemma, {\cite[定理~19.2]{Morita1981ja}}]
+	\label{T400003}
+	正規空間\( X \)の閉集合\( F \)と開集合\( U \)が\( F \subset U \)を満たすとき,
+	連続写像\( \morph{f}{X}{\I} \)であって\( \mapset{f}{F} \subset \lrbrace{0},
+	\mapset{f}{X \setminus U} \subset \lrbrace{1} \)を満たすものが存在する.
+\end{theorem}
+
+\begin{proof}
+	\( X \)が正規空間なので, 開集合\( W \)であって
+	\( F \subset W, \topcl W \subset U \)を満たすものが存在する.
+	任意の\( n \in \N \)と\( 0 \leq m \leq 2^n \)に対して,
+	開集合\( V\lrparen{{\frac{m}{2^n}}} \)を以降で定義する.
+	\( n = 0 \)のとき,
+	\( V\lrparen{{\frac{0}{2^0}}}
+	= V\lrparen{0}
+	\defeq W,
+	V\lrparen{{\frac{1}{2^0}}}
+	= V\lrparen{1}
+	\defeq U \)
+	とする.
+	このとき, 次の条件\( (\ast) \)を満たすことは明らかである.
+	\[ 0 \leq m \leq m' \leq 2^n \ \Longrightarrow
+	\topcl V\lrparen{\frac{m}{2^n}} \subset V\lrparen{\frac{m'}{2^n}} \ \ \ (\ast) \]
+	次に, \( n = k \)のとき条件\( (\ast) \)を満たすと仮定する.
+	このとき, 任意の\( 0 \leq m \leq 2^k - 1 \)について
+	\( \topcl V\lrparen{\frac{m}{2^k}} \subset V\lrparen{\frac{m+1}{2^k}} \)
+	が成り立つ.
+	よって,
+	\[ \topcl V\lrparen{\frac{m}{2^k}} \subset V, \
+	\topcl V \subset V\lrparen{\frac{m+1}{2^k}} \]
+	を満たす開集合$ V $が存在するので
+	\( \topcl V\lrparen{\frac{2m+1}{2^{k+1}}} \defeq V \)とする.
+	また, \( \topcl V\lrparen{\frac{2m}{2^{k+1}}}
+	= \topcl V\lrparen{\frac{m}{2^k}},
+	V\lrparen{\frac{2(m+1)}{2^{k+1}}} = V\lrparen{\frac{m+1}{2^k}} \)
+	に注意すれば,
+	\[ \topcl V\lrparen{\frac{2m}{2^{k+1}}} \subset V\lrparen{\frac{2m+1}{2^{k+1}}}, \
+	\topcl V\lrparen{\frac{2m+1}{2^{k+1}}} \subset V\lrparen{\frac{2(m+1)}{2^{k+1}}} \]
+	となり, \( n = k+1 \)のときにも条件\( (\ast) \)を満たす.
+	以上より, 任意の\( n \in \N \)に対して
+	条件\( (\ast) \)を満たす開集合族
+	\( \setcomp{V\lrparen{\frac{m}{2^n}}}
+	{n \in \N, 0 \leq m \leq 2^n} \)
+	が定義できた.
+
+	次に, \( t \in \R \)について開集合\( W_t \)を次で定める:
+	\[ W_t \defeq \begin{cases}
+		\emptyset & t < 0 \\
+		\bigcup \setcomp{V\lrparen{\frac{m}{2^n}}}{\frac{m}{2^n} \leq t} & 0 \leq t \leq 1 \\
+		X & t > 1
+	\end{cases}\]
+	このとき, \( t < t' \)に対して\( \topcl W_t \subset W_{t'} \)である.
+	\( t < 0 \)または\( t' > 1 \)のときこれは明らかである.
+	\( 0 \leq t < t' \leq 1 \)のとき,
+	ある\( m, n \in \N \)が存在して
+	\( t < \frac{m}{2^n} < \frac{m+1}{2^n} < t' \)が成り立つ.
+	このとき, \[ W_t \subset V\lrparen{\frac{m}{2^n}}, \
+	\topcl V\lrparen{\frac{m}{2^n}} \subset V\lrparen{\frac{m+1}{2^n}} \subset W_{t'} \]
+	なので\( \topcl W_t \subset W_{t'} \)である.
+
+	次に写像\( \morph{f}{X}{\I} \)を次で定める:
+	\[ f(x) \defeq \inf  \setcomp{t \in \R}{x \in W_t} \]
+	\( W_t \)の定義から\( 0 \leq f(x) \leq 1 \)は明らかである.
+	\( F \subset V\lrparen{0} \)より
+	\( \mapset{f}{F} \subset \lrbrace{0} \)である.
+	また, \( X \setminus U \subset X \setminus V\lrparen{1} \)より
+	\( \mapset{f}{X \setminus U} \subset \lrbrace{1} \)である.
+	よって, \( \mapset{f}{F} \subset \lrbrace{0} \),
+	\( \mapset{f}{X \setminus U} \subset \lrbrace{1} \)
+	である.
+	\( f \)の連続性を示せばよい.
+	任意の\( x_0 \in X \)について\( t_0 \defeq f(x_0) \)とする.
+	任意の\( \varepsilon > 0 \)について
+	\( x \notin W_{t_0 - \frac{\varepsilon}{3}} \)なので,
+	\( \topcl W_{t_0 - \frac{\varepsilon}{2}} \subset
+	W_{t_0 - \frac{\varepsilon}{3}} \)に注意すれば
+	\( x \notin \topcl W_{t_0 - \frac{\varepsilon}{2}} \)である.
+	一方, \( x \in W_{t_0 + \frac{\varepsilon}{2}} \)なので
+	\( W' \defeq W_{t_0 + \frac{\varepsilon}{2}} \cap
+	\lrparen{X \setminus \topcl W_{t_0 - \frac{\varepsilon}{2}}} \)
+	と定めれば\( W' \)は\( x_0 \)の開近傍である.
+	このとき, 任意の\( x \in W' \)について
+	\( t_0 - \frac{\varepsilon}{2} \leq f(x) \leq t_0 + \frac{\varepsilon}{2} \)
+	より\( |f(x) - t_0| \leq \frac{\varepsilon}{2} < \varepsilon \)
+	なので\( f \)は連続である.
+\end{proof}
+
+\begin{corollary}
+	正規空間\( X \)の閉集合\( F \)
+	と開集合\( U \)が\( F \subset U \)を満たすとする.
+	実数\( a, b \in R \)が\( a < b \)を満たすとき,
+	連続写像\( \morph{f}{X}{[a,b]} \)が存在して
+	\( \mapset{f}{F} \subset \lrbrace{a},
+	\mapset{f}{X \setminus U} \subset \lrbrace{b} \)
+	を満たすものが存在する.
+	\qed
+\end{corollary}
+
 \end{document}
